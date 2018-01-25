@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuditFailureViewController">
+            <connections>
+                <outlet property="bgView" destination="exZ-4b-aTI" id="J08-9E-gjw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shenheshibai" translatesAutoresizingMaskIntoConstraints="NO" id="exZ-4b-aTI">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLI-Dm-XWl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="667" id="G3g-Xu-013"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="failure:" destination="-1" eventType="touchUpInside" id="AQ6-R6-Z2Q"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="exZ-4b-aTI" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="TcI-Ct-JIg"/>
+                <constraint firstItem="QLI-Dm-XWl" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="hug-mP-xyQ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="QLI-Dm-XWl" secondAttribute="bottom" id="izZ-ff-Wuv"/>
+                <constraint firstItem="exZ-4b-aTI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="peP-Jw-zFP"/>
+                <constraint firstItem="exZ-4b-aTI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="rId-HW-sdq"/>
+                <constraint firstItem="exZ-4b-aTI" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="tLZ-iV-kP0"/>
+                <constraint firstItem="QLI-Dm-XWl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="yjZ-Qn-ld9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shenheshibai" width="375" height="667"/>
+    </resources>
+</document>

@@ -1,0 +1,185 @@
+//
+//  PrefixHeader.pch
+//  MiLiao
+//
+//  Created by Jarvan-zhang on 2017/12/29.
+//  Copyright © 2017年 Jarvan-zhang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#import "MenuInfo.h"
+#import "DataManager.h"
+//#import "NSStringSize.h"
+#import "PriceView.h"
+#import "SGPageView.h"
+#import "ItemsView.h"
+#import "AppDelegate.h"
+#import "UIImage+Common.h"
+#import "UIColor+expanded.h"
+#import "YZNavigationTitleLabel.h"
+#import "YZNavgationBackButton.h"
+#import "YZNavigationController.h"
+#import "UIImage+Color.h"
+#import "HLLoginManager.h"
+#import "PublicManager.h"
+#import "WomanModel.h"
+#import "ToolObject.h"
+#import "StateButton.h"
+
+#import "VideoUserModel.h"//用户模型
+
+#import "User.h"
+/**
+ * 单例
+ */
+#import "YZCurrentUserModel.h"
+/**SDAutoLayout*/
+#import "UIView+SDAutoLayout.h"
+
+#import "UIView+Size.h"
+#import "UIButton+Edge.h"
+#import "NSString+Size.h"
+
+//三方引用
+#import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
+#import <AFNetworking.h>
+#import <VTMagic/VTMagic.h>
+#import <SDCycleScrollView.h>
+#import <MJRefresh.h>
+#import "MJExtension.h"
+#import "SVProgressHUD.h"
+
+//阿里云OSS
+#import <AliyunOSSiOS/OSSService.h>
+
+#import "NSString+CYValidation.h"
+#import "Masonry.h"
+#import "NotificationName.h"
+
+#import "YZNetWorking.h"
+//pageSize
+#define PAGESIZE    @"10"
+
+//网络请求成功
+#define SUCCESS 200
+//请求Url
+#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
+//中志Url
+//#define HLRequestUrl @"https://192.168.1.45:9000"
+
+#define USHARE_DEMO_APPKEY  @"5a4cae02f29d9852a4000170"
+//微信key
+#define WeChatAppKey @""
+#define WeChatappSecret @""
+
+//QQkey
+#define QQAppKey @""
+#define QQSecret @""
+
+//新浪key
+#define SinaWeiboAppKey @"3708171515"
+#define SinaWeiboSecret @"5e6e09066d32158cbc74e81a18cc6f6a"
+
+
+#define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define KSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+// 屏幕比例
+#define Iphone6Size [UIScreen mainScreen].bounds.size.height/667
+
+// .屏幕尺寸
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+
+/**
+ *  判断设备屏幕尺寸
+ */
+#define UI_IS_LANDSCAPE         ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft || [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight)
+#define UI_IS_IPAD              ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+#define UI_IS_IPHONE            ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+#define UI_IS_IPHONE4           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height < 568.0)
+#define UI_IS_IPHONE5           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0)
+#define UI_IS_IPHONE6           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 667.0)
+#define UI_IS_IPHONE6PLUS       (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 736.0 || [[UIScreen mainScreen] bounds].size.width == 736.0)
+#define UI_IS_IPHONEX       (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 812.0 || [[UIScreen mainScreen] bounds].size.width == 812.0)
+
+#define ML_StatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height//状态栏高度
+#define ML_NavBarHeight 44.0
+#define ML_TabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) //底部tabbar高度
+#define ML_TopHeight (ML_StatusBarHeight + ML_NavBarHeight) //整个导航栏高度
+
+#define RGBColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//颜色
+#define ML_Color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+//粉红色
+#define NavColor [UIColor colorWithRed:247.0/255.0 green:116.0/255.0 blue:153.0/255.0 alpha:1.0]
+//75
+#define Color75 [UIColor colorWithRed:75.0/255.0 green:75.0/255.0 blue:75.0/255.0 alpha:1.0]
+//155
+#define Color155 [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1.0]
+//155
+#define Color229 [UIColor colorWithRed:229.0/255.0 green:229.0/255.0 blue:229.0/255.0 alpha:1.0]
+//242
+#define Color242 [UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:242.0/255.0 alpha:1.0]
+//128
+#define Color128 [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0]
+//255
+#define Color255 [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]
+//231
+#define Color231 [UIColor colorWithRed:231.0/255.0 green:231.0/255.0 blue:231.0/255.0 alpha:1.0]
+//153
+#define Color153 [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1.0]
+
+// 设置字体
+#define YZFont(f)  [UIFont systemFontOfSize:f]
+//导航栏背景色
+#define NavigationBarBackgroundColor ML_Color(255,255,255,1)
+// 设置偏好设置
+#define HLUserDefaults  [NSUserDefaults standardUserDefaults]
+// 存储登录信息
+#define CurrentUserAccount @"CurrentUserAccount"
+#define CurrentUserPassword @"CurrentUserPassword"
+#define UserType @"UserType"
+
+//token
+#define CurrentUserToken @"CurrentUserToken"
+//极光推送注册 id
+#define jpush_id @"jpush_id"
+
+
+
+//阿里云的
+
+#import "AliyunIConfig.h"
+#import "AliyunImage.h"
+
+// 注释为Release版
+//#define kQPEnableDevNetwork
+#define BundleID [[NSBundle mainBundle] bundleIdentifier]
+//#ifdef kQPEnableDevNetwork
+//#define kQPResourceHostUrl @"http://m.api.inner.alibaba.net"
+//#else
+#define kQPResourceHostUrl @"https://m-api.qupaicloud.com"
+//#endif
+
+#define RGBToColor(R,G,B)  [UIColor colorWithRed:(R * 1.0) / 255.0 green:(G * 1.0) / 255.0 blue:(B * 1.0) / 255.0 alpha:1.0]
+#define rgba(R,G,B,A)  [UIColor colorWithRed:(R * 1.0) / 255.0 green:(G * 1.0) / 255.0 blue:(B * 1.0) / 255.0 alpha:A]
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define SizeWidth(W) (W *CGRectGetWidth([[UIScreen mainScreen] bounds])/320)
+#define SizeHeight(H) (H *(ScreenHeight)/568)
+
+
+
+#define IS_IPHONEX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
+#define SafeTop (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 44)
+#define SafeBottom (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 43)
+#define StatusBarHeight (([[UIScreen mainScreen] bounds].size.height-812) ? 20 : 44)
+
+#endif
+#endif /* PrefixHeader_pch */

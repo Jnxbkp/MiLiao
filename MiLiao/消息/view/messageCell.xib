@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="KGk-i7-Jjw" customClass="messageCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HeA-xi-xoR">
+                        <rect key="frame" x="16" y="11" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="r4x-3b-vxm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的通话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52g-Ku-HsY">
+                        <rect key="frame" x="76" y="11" width="193" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="193" id="eVg-49-Hdj"/>
+                            <constraint firstAttribute="height" constant="21" id="ran-XM-rvs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01-04  10:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-3I-Qu5">
+                        <rect key="frame" x="76" y="34" width="251" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="siV-tX-lGP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shipin拷贝2" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-rY-iAh">
+                        <rect key="frame" x="335" y="22" width="34" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="34" id="lG8-FK-XSC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HeA-xi-xoR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1jb-dV-leY"/>
+                    <constraint firstItem="gfb-rY-iAh" firstAttribute="leading" secondItem="aZ1-3I-Qu5" secondAttribute="trailing" constant="8" id="7Hd-rZ-P4x"/>
+                    <constraint firstItem="52g-Ku-HsY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8Uc-47-bkx"/>
+                    <constraint firstItem="HeA-xi-xoR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="H2e-QK-Ufv"/>
+                    <constraint firstItem="aZ1-3I-Qu5" firstAttribute="leading" secondItem="HeA-xi-xoR" secondAttribute="trailing" constant="20" id="T3L-77-fZp"/>
+                    <constraint firstItem="gfb-rY-iAh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Vsi-KG-BvV"/>
+                    <constraint firstAttribute="trailing" secondItem="gfb-rY-iAh" secondAttribute="trailing" constant="6" id="cJL-09-TLx"/>
+                    <constraint firstAttribute="bottom" secondItem="gfb-rY-iAh" secondAttribute="bottom" constant="21.5" id="fYK-CS-txm"/>
+                    <constraint firstAttribute="bottom" secondItem="HeA-xi-xoR" secondAttribute="bottom" constant="13.5" id="jHa-Kr-unO"/>
+                    <constraint firstItem="aZ1-3I-Qu5" firstAttribute="top" secondItem="52g-Ku-HsY" secondAttribute="bottom" constant="2" id="pCP-c9-gMG"/>
+                    <constraint firstItem="52g-Ku-HsY" firstAttribute="leading" secondItem="HeA-xi-xoR" secondAttribute="trailing" constant="20" id="pcX-Ve-2mq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="image" destination="HeA-xi-xoR" id="n25-qw-yRI"/>
+                <outlet property="message" destination="aZ1-3I-Qu5" id="J3k-pE-cID"/>
+                <outlet property="title" destination="52g-Ku-HsY" id="YbW-KT-Ydj"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="61.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="shipin拷贝2" width="24" height="16"/>
+    </resources>
+</document>

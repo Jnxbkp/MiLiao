@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuditSuccessViewController">
+            <connections>
+                <outlet property="bgView" destination="JAR-sb-fyK" id="Tc6-PQ-qqN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shenhechenggong" translatesAutoresizingMaskIntoConstraints="NO" id="JAR-sb-fyK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIh-aB-3yQ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="667" id="N6a-OW-bJd"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="success:" destination="-1" eventType="touchUpInside" id="gcF-0i-Tda"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JAR-sb-fyK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1D0-h8-4pC"/>
+                <constraint firstItem="UIh-aB-3yQ" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="28d-os-iiN"/>
+                <constraint firstItem="UIh-aB-3yQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="6xX-rh-OkC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="UIh-aB-3yQ" secondAttribute="bottom" id="MPA-zF-qca"/>
+                <constraint firstItem="JAR-sb-fyK" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Mqp-bn-abw"/>
+                <constraint firstItem="JAR-sb-fyK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YCC-uP-kQe"/>
+                <constraint firstItem="JAR-sb-fyK" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="hBk-5M-xe1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shenhechenggong" width="375" height="667"/>
+    </resources>
+</document>
