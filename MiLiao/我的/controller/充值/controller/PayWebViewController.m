@@ -10,7 +10,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "NSURLRequest+NSURLRequestWithIgnoreSSL.h"
 
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 
 @interface PayWebViewController ()<UIWebViewDelegate,NSURLSessionDelegate>
 {

@@ -71,15 +71,6 @@
 		18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F32200207C7003F1985 /* RongIMKit.framework */; };
 		18567F4D200207C7003F1985 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18567F33200207C7003F1985 /* Emoji.plist */; };
 		18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F34200207C7003F1985 /* RongCloud.bundle */; };
-		18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18567F37200207C7003F1985 /* JrmfInfo.strings */; };
-		18567F50200207C8003F1985 /* WalletResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3A200207C7003F1985 /* WalletResource.bundle */; };
-		18567F51200207C8003F1985 /* jrmf.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3B200207C7003F1985 /* jrmf.cer */; };
-		18567F52200207C8003F1985 /* JrmfPacketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F3C200207C7003F1985 /* JrmfPacketKit.framework */; };
-		18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F3D200207C7003F1985 /* JYangToolKit.framework */; };
-		18567F54200207C8003F1985 /* JrmfWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F3E200207C7003F1985 /* JrmfWalletKit.framework */; };
-		18567F55200207C8003F1985 /* JResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3F200207C7003F1985 /* JResource.bundle */; };
-		18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F41200207C7003F1985 /* AlipaySDK.bundle */; };
-		18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F42200207C7003F1985 /* AlipaySDK.framework */; };
 		18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5920020AE1003F1985 /* CFNetwork.framework */; };
 		18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5B20020AF3003F1985 /* CoreAudio.framework */; };
 		18567F6020020B05003F1985 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5F20020B05003F1985 /* CoreLocation.framework */; };
@@ -506,16 +497,6 @@
 		18567F32200207C7003F1985 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
 		18567F33200207C7003F1985 /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
 		18567F34200207C7003F1985 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
-		18567F38200207C7003F1985 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/JrmfInfo.strings"; sourceTree = "<group>"; };
-		18567F39200207C7003F1985 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JrmfInfo.strings; sourceTree = "<group>"; };
-		18567F3A200207C7003F1985 /* WalletResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WalletResource.bundle; sourceTree = "<group>"; };
-		18567F3B200207C7003F1985 /* jrmf.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = jrmf.cer; sourceTree = "<group>"; };
-		18567F3C200207C7003F1985 /* JrmfPacketKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JrmfPacketKit.framework; sourceTree = "<group>"; };
-		18567F3D200207C7003F1985 /* JYangToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JYangToolKit.framework; sourceTree = "<group>"; };
-		18567F3E200207C7003F1985 /* JrmfWalletKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JrmfWalletKit.framework; sourceTree = "<group>"; };
-		18567F3F200207C7003F1985 /* JResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JResource.bundle; sourceTree = "<group>"; };
-		18567F41200207C7003F1985 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		18567F42200207C7003F1985 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		18567F5920020AE1003F1985 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18567F5B20020AF3003F1985 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		18567F5D20020AFC003F1985 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1078,21 +1059,17 @@
 				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
 				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
-				18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */,
 				3CFF062320078D6000E20FDE /* FUAPIDemoBar.framework in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
-				18567F54200207C8003F1985 /* JrmfWalletKit.framework in Frameworks */,
 				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
 				3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */,
 				3C80D6A7200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Frameworks */,
-				18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */,
 				18567F47200207C7003F1985 /* RongIMLib.framework in Frameworks */,
 				18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */,
 				18567F46200207C7003F1985 /* AgoraRtcEngineKit.framework in Frameworks */,
 				E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */,
 				18567F48200207C7003F1985 /* libopencore-amrnb.a in Frameworks */,
 				E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */,
-				18567F52200207C8003F1985 /* JrmfPacketKit.framework in Frameworks */,
 				8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1314,7 +1291,6 @@
 				18567F29200207C7003F1985 /* IMLib */,
 				18567F2D200207C7003F1985 /* release_notes_ios.txt */,
 				18567F2E200207C7003F1985 /* IMKit */,
-				18567F35200207C7003F1985 /* RedPacket */,
 			);
 			path = Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable;
 			sourceTree = "<group>";
@@ -1347,38 +1323,6 @@
 				18567F34200207C7003F1985 /* RongCloud.bundle */,
 			);
 			path = IMKit;
-			sourceTree = "<group>";
-		};
-		18567F35200207C7003F1985 /* RedPacket */ = {
-			isa = PBXGroup;
-			children = (
-				18567F36200207C7003F1985 /* JrmfIMLib */,
-				18567F40200207C7003F1985 /* AlipaySDK */,
-			);
-			path = RedPacket;
-			sourceTree = "<group>";
-		};
-		18567F36200207C7003F1985 /* JrmfIMLib */ = {
-			isa = PBXGroup;
-			children = (
-				18567F37200207C7003F1985 /* JrmfInfo.strings */,
-				18567F3A200207C7003F1985 /* WalletResource.bundle */,
-				18567F3B200207C7003F1985 /* jrmf.cer */,
-				18567F3C200207C7003F1985 /* JrmfPacketKit.framework */,
-				18567F3D200207C7003F1985 /* JYangToolKit.framework */,
-				18567F3E200207C7003F1985 /* JrmfWalletKit.framework */,
-				18567F3F200207C7003F1985 /* JResource.bundle */,
-			);
-			path = JrmfIMLib;
-			sourceTree = "<group>";
-		};
-		18567F40200207C7003F1985 /* AlipaySDK */ = {
-			isa = PBXGroup;
-			children = (
-				18567F41200207C7003F1985 /* AlipaySDK.bundle */,
-				18567F42200207C7003F1985 /* AlipaySDK.framework */,
-			);
-			path = AlipaySDK;
 			sourceTree = "<group>";
 		};
 		1856878F2002136D003F1985 /* 融云聊天 */ = {
@@ -2878,12 +2822,9 @@
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
-				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */,
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
-				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
-				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
@@ -2911,7 +2852,6 @@
 				1863902A2017238100CAC217 /* shourucell.xib in Resources */,
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				3CFF061920078D4600E20FDE /* mask_matianyu.bundle in Resources */,
-				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
 				E2AB3704200CCF3B00458C41 /* README.md in Resources */,
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
 				1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */,
@@ -2930,7 +2870,6 @@
 				E2AB3703200CCF3B00458C41 /* LICENSE in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				180B0DBD20117FAF00A19BA2 /* AuditSuccessViewController.xib in Resources */,
-				18567F50200207C8003F1985 /* WalletResource.bundle in Resources */,
 				E2B77BD41FFDD64900597326 /* messageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3286,15 +3225,6 @@
 				18567F31200207C7003F1985 /* en */,
 			);
 			name = RongCloudKit.strings;
-			sourceTree = "<group>";
-		};
-		18567F37200207C7003F1985 /* JrmfInfo.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18567F38200207C7003F1985 /* zh-Hans */,
-				18567F39200207C7003F1985 /* en */,
-			);
-			name = JrmfInfo.strings;
 			sourceTree = "<group>";
 		};
 		E221B5741FF5D6FF00353875 /* Main.storyboard */ = {
