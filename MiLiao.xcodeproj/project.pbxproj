@@ -114,6 +114,7 @@
 		18639031201723C200CAC217 /* IdentificationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18639030201723C200CAC217 /* IdentificationVController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
+		1870EB452019ADDF000776EE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870EB442019ADDE000776EE /* UserNotifications.framework */; };
 		187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187E2EED20075CFD0014A2AE /* Assets.xcassets */; };
 		18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */; };
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
@@ -556,6 +557,8 @@
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
 		186CBF172004B2D50023924D /* messageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageView.m; sourceTree = "<group>"; };
 		186CBF192004B2FB0023924D /* messageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageView.xib; sourceTree = "<group>"; };
+		1870EB442019ADDE000776EE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		1870EB462019B8BA000776EE /* MiLiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiLiao.entitlements; sourceTree = "<group>"; };
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
 		187E2EED20075CFD0014A2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1027,6 +1030,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1870EB452019ADDF000776EE /* UserNotifications.framework in Frameworks */,
 				3C6458B1200E071A00E1721C /* CoreGraphics.framework in Frameworks */,
 				3C6458B0200E06ED00E1721C /* CoreText.framework in Frameworks */,
 				3C80D6A1200776E900D0DEA7 /* VideoToolbox.framework in Frameworks */,
@@ -1415,6 +1419,7 @@
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1870EB442019ADDE000776EE /* UserNotifications.framework */,
 				3C6458AE200DFC1600E1721C /* CoreText.framework */,
 				E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */,
 				E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */,
@@ -2100,6 +2105,7 @@
 		E221B56D1FF5D6FF00353875 /* MiLiao */ = {
 			isa = PBXGroup;
 			children = (
+				1870EB462019B8BA000776EE /* MiLiao.entitlements */,
 				E221B56E1FF5D6FF00353875 /* AppDelegate.h */,
 				E221B56F1FF5D6FF00353875 /* AppDelegate.m */,
 				E221B5A01FF5DB9600353875 /* PrefixHeader.pch */,
@@ -2767,6 +2773,11 @@
 					E221B56A1FF5D6FF00353875 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					E221B5821FF5D6FF00353875 = {
 						CreatedOnToolsVersion = 9.2;
@@ -3366,6 +3377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MiLiao/MiLiao.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HXC4DQC3M;
@@ -3433,6 +3445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MiLiao/MiLiao.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HXC4DQC3M;

@@ -53,7 +53,7 @@
 #import <MJRefresh.h>
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
-
+#import <CloudPushSDK/CloudPushSDK.h>
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
 
@@ -85,6 +85,9 @@
 #define SinaWeiboAppKey @"3708171515"
 #define SinaWeiboSecret @"5e6e09066d32158cbc74e81a18cc6f6a"
 
+//阿里云推送Key
+#define ALiPushAppKey @"24763364"
+#define ALiPushAppSecret @"bf89529fd2d41d5065f3341a2f4de4e7"
 
 #define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define KSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
