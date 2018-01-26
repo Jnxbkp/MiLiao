@@ -116,8 +116,11 @@
         NSLog(@"%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-            
-            [SVProgressHUD showSuccessWithStatus:@"提现成功"];
+            if ([self.amount intValue] >= 100) {
+                [SVProgressHUD showSuccessWithStatus:@"提现成功"];
+            }else{
+                 [SVProgressHUD showErrorWithStatus:@"请重新输入"];
+            }
 
         }else{
             [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
@@ -125,7 +128,7 @@
         }
         
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
     }];
     
 }

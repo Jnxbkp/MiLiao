@@ -16,8 +16,6 @@
 }
 - (void)setModel:(zhichuModel *)model {
     _model = model;
-//    self.message.text = [NSString stringWithFormat:@"%@",model.createDate];
-//    [self.image sd_setImageWithURL:[NSURL URLWithString:model.headUrl]];
     self.money.text = [NSString stringWithFormat:@"-%@M币",model.amount];
     self.nickName.text = [NSString stringWithFormat:@"视频通话 —%@",model.nickName];
     
@@ -29,21 +27,9 @@
     //以 1970/01/01 GMT为基准，然后过了secs秒的时间
     NSDate *stampDate2 = [NSDate dateWithTimeIntervalSince1970:time];
     NSLog(@"时间戳转化时间 >>> %@",[stampFormatter stringFromDate:stampDate2]);
-      self.time.text = [stampFormatter stringFromDate: stampDate2];
+    NSString *strTime = [NSString stringWithFormat:@"%@",model.callTime];
+    self.time.text = [NSString stringWithFormat:@"%@ | 视频时长%@",[stampFormatter stringFromDate: stampDate2],[ToolObject getMMSSFromSS:strTime]];
 }
-//- (NSString *)timeWithTimeIntervalString:(NSString *)timeString
-//{
-//    // 格式化时间
-//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-//    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
-//    [formatter setDateStyle:NSDateFormatterMediumStyle];
-//    [formatter setTimeStyle:NSDateFormatterShortStyle];
-//    [formatter setDateFormat:@"MM月dd日 HH:mm"];
-//    
-//    // 毫秒值转化为秒
-//    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/ 1000.0];
-//    NSString* dateString = [formatter stringFromDate:date];
-//    return dateString;
-//}
+
 
 @end

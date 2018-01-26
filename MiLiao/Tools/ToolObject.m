@@ -57,4 +57,21 @@
         return [NSString stringWithFormat:@"刚刚"];
     }
 }
+//传入 秒  得到  xx分钟xx秒
++(NSString *)getMMSSFromSS:(NSString *)totalTime{
+    
+    NSInteger seconds = [totalTime integerValue];
+    
+    //format of minute
+    NSString *str_minute = [NSString stringWithFormat:@"%ld",seconds/60];
+    //format of second
+    NSString *str_second = [NSString stringWithFormat:@"%ld",seconds%60];
+    //format of time
+    NSString *format_time = [NSString stringWithFormat:@"%@分钟%@秒",str_minute,str_second];
+    
+    NSLog(@"format_time : %@",format_time);
+    
+    return format_time;
+    
+}
 @end

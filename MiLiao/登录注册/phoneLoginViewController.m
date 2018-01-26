@@ -134,10 +134,10 @@
 
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
-            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
-            NSLog(@"%@", [User ShardInstance].user_id);
+//            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+//            NSLog(@"%@", [User ShardInstance].user_id);
             
-            NSLog(@"nickname = %@",[User ShardInstance].nickname);
+//            NSLog(@"nickname = %@",[User ShardInstance].nickname);
             NSLog(@"%ld", [YZCurrentUserModel sharedYZCurrentUserModel].roleType);
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];

@@ -43,8 +43,8 @@
 {
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT - ML_TopHeight)];
     self.webView.delegate = self;
-//    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=%@",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username,self.money];
-    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=0.01",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username];
+    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=%@",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username,self.money];
+//    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=0.01",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username];
 
     NSLog(@"支付宝连接~~~~~~~~~%@",urlStr);
     NSURL * url = [NSURL URLWithString:urlStr];
