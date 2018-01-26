@@ -351,7 +351,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     
     SelfCallEndState callEndState = getSelfCallState(self.callSession.disconnectReason);
     NSString *callTime = [self getCallTime];
-    [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:self.callSession.callId callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
+    NSString *callID = self.callSession.callId;
+    callID = [callID stringByAppendingString:[NSString stringWithFormat:@"|%.0lf", [[NSDate date] timeIntervalSince1970]]];
+    
+    [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:callID callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
         
         if (success) {
             NSLog(@"保存通话成功");
