@@ -975,7 +975,7 @@
 
 ///获取通话时长
 - (NSString *)getCallTime {
-    long time = (self.endCallTime - self.startCallTime);
+    long time = self.startCallTime == 0 ? 0 : (self.endCallTime - self.startCallTime);
     NSString *t = [NSString stringWithFormat:@"%ld", time];
     return t;
     
