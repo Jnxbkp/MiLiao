@@ -165,7 +165,7 @@
                         <action selector="forget:" destination="-1" eventType="touchUpInside" id="Q9O-VP-4i0"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="闲聊" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-ya-VV6">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="闲撩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-ya-VV6">
                     <rect key="frame" x="148" y="165" width="80" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="6zl-Qd-Zqm"/>
@@ -205,7 +205,7 @@
     </objects>
     <resources>
         <image name="biaozhi" width="70" height="70"/>
-        <image name="mima" width="14" height="18"/>
+        <image name="mima" width="20" height="25"/>
         <image name="shouji" width="17" height="25"/>
         <image name="yanjing" width="15" height="9"/>
         <image name="yanjingbi" width="15" height="7"/>

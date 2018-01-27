@@ -95,7 +95,7 @@
                         <action selector="yanzheng:" destination="-1" eventType="touchUpInside" id="d0F-J2-lYj"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onn-en-RnF">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onn-en-RnF" customClass="BoardButton">
                     <rect key="frame" x="42" y="276" width="291" height="44"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -105,6 +105,11 @@
                     <state key="normal" title="下一步">
                         <color key="titleColor" red="0.14901960780000001" green="0.1333333333" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="next:" destination="-1" eventType="touchUpInside" id="TZU-nf-Zgv"/>
                     </connections>
@@ -127,6 +132,6 @@
         </view>
     </objects>
     <resources>
-        <image name="mima" width="14" height="18"/>
+        <image name="mima" width="20" height="25"/>
     </resources>
 </document>

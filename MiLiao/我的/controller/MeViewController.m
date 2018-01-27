@@ -76,6 +76,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]]forBarMetrics:UIBarMetricsDefault];
 //    self.nickName.text = [YZCurrentUserModel sharedYZCurrentUserModel].nickname;
     NSLog(@"%@^^^",[YZCurrentUserModel sharedYZCurrentUserModel].nickname);
+    
     [self loadData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -195,8 +196,14 @@
                 [self.navigationController pushViewController:AuditFailure animated:YES];
                 
             }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
-                AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
-                [self.navigationController pushViewController:AuditSuccess animated:YES];
+                if ([[_userDefaults objectForKey:@"price"] intValue] >0) {
+                    //已经设置了M币了
+                    NSLog(@"已经设置M币了我草特码了不能点了");
+                }else{
+                    AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
+                    [self.navigationController pushViewController:AuditSuccess animated:YES];
+                }
+                
             }
           
         }

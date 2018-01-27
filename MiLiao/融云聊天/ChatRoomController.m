@@ -24,7 +24,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 //    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
 //    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
@@ -47,6 +47,12 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    double systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
+    if (systemVersion < 11) {
+        if ([self.isFSBase isEqualToString:@"YES"]) {
+            self.conversationMessageCollectionView.contentInset = UIEdgeInsetsMake(ML_NavBarHeight, 0, 0, 0);
+        }
+    }
     UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame  = CGRectMake(0, 0, 50, 30);
     leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -68,7 +74,11 @@
 - (void)leftButtonDidClick {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *view  = [UICollectionReusableView new];
+    return view;
+}
 - (void)getUserInfoWithUserId:(NSString *)userId
                    completion:(void (^)(RCUserInfo *userInfo))completion {
     NSLog(@"userid 聊天聊天室啊==== %@",userId);
