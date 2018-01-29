@@ -183,10 +183,13 @@
 
 
 
+
 #define IS_IPHONEX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
 #define SafeTop (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 44)
 #define SafeBottom (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 43)
 #define StatusBarHeight (([[UIScreen mainScreen] bounds].size.height-812) ? 20 : 44)
+
+
 
 #endif
 #endif /* PrefixHeader_pch */
