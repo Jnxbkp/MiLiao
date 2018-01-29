@@ -19,7 +19,12 @@
     self.message.text = [NSString stringWithFormat:@"%@",model.createDate];
     [self.image sd_setImageWithURL:[NSURL URLWithString:model.headUrl]];
     NSString *strTime = [NSString stringWithFormat:@"%@",model.callTime];
-    self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
+    if ([strTime isEqualToString:@"0"]) {
+        self.message.text = [NSString stringWithFormat:@"%@ | 通话失败",model.createDate];
+    }else{
+        self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
+    }
+  
 
 }
 
