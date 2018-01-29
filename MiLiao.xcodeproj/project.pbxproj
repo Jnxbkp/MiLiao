@@ -71,15 +71,6 @@
 		18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F32200207C7003F1985 /* RongIMKit.framework */; };
 		18567F4D200207C7003F1985 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18567F33200207C7003F1985 /* Emoji.plist */; };
 		18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F34200207C7003F1985 /* RongCloud.bundle */; };
-		18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18567F37200207C7003F1985 /* JrmfInfo.strings */; };
-		18567F50200207C8003F1985 /* WalletResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3A200207C7003F1985 /* WalletResource.bundle */; };
-		18567F51200207C8003F1985 /* jrmf.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3B200207C7003F1985 /* jrmf.cer */; };
-		18567F52200207C8003F1985 /* JrmfPacketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F3C200207C7003F1985 /* JrmfPacketKit.framework */; };
-		18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F3D200207C7003F1985 /* JYangToolKit.framework */; };
-		18567F54200207C8003F1985 /* JrmfWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F3E200207C7003F1985 /* JrmfWalletKit.framework */; };
-		18567F55200207C8003F1985 /* JResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3F200207C7003F1985 /* JResource.bundle */; };
-		18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F41200207C7003F1985 /* AlipaySDK.bundle */; };
-		18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F42200207C7003F1985 /* AlipaySDK.framework */; };
 		18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5920020AE1003F1985 /* CFNetwork.framework */; };
 		18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5B20020AF3003F1985 /* CoreAudio.framework */; };
 		18567F6020020B05003F1985 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5F20020B05003F1985 /* CoreLocation.framework */; };
@@ -123,6 +114,7 @@
 		18639031201723C200CAC217 /* IdentificationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18639030201723C200CAC217 /* IdentificationVController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
+		1870EB452019ADDF000776EE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870EB442019ADDE000776EE /* UserNotifications.framework */; };
 		187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187E2EED20075CFD0014A2AE /* Assets.xcassets */; };
 		18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */; };
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
@@ -229,6 +221,8 @@
 		3CCBB0052008D773003071D2 /* yazui.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0002008D773003071D2 /* yazui.png */; };
 		3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0012008D773003071D2 /* lixiaolong.png */; };
 		3CCBB0072008D773003071D2 /* yuguan.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0022008D773003071D2 /* yuguan.png */; };
+		3CD1383E201C597800DB47C6 /* ReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1383D201C597800DB47C6 /* ReportView.m */; };
+		3CD13840201C598100DB47C6 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1383F201C598100DB47C6 /* ReportView.xib */; };
 		3CFF061620078D4600E20FDE /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060420078D4600E20FDE /* yazui.bundle */; };
 		3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060520078D4600E20FDE /* yuguan.bundle */; };
 		3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060620078D4600E20FDE /* EatRabbi.bundle */; };
@@ -507,16 +501,6 @@
 		18567F32200207C7003F1985 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
 		18567F33200207C7003F1985 /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
 		18567F34200207C7003F1985 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
-		18567F38200207C7003F1985 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/JrmfInfo.strings"; sourceTree = "<group>"; };
-		18567F39200207C7003F1985 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JrmfInfo.strings; sourceTree = "<group>"; };
-		18567F3A200207C7003F1985 /* WalletResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WalletResource.bundle; sourceTree = "<group>"; };
-		18567F3B200207C7003F1985 /* jrmf.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = jrmf.cer; sourceTree = "<group>"; };
-		18567F3C200207C7003F1985 /* JrmfPacketKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JrmfPacketKit.framework; sourceTree = "<group>"; };
-		18567F3D200207C7003F1985 /* JYangToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JYangToolKit.framework; sourceTree = "<group>"; };
-		18567F3E200207C7003F1985 /* JrmfWalletKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JrmfWalletKit.framework; sourceTree = "<group>"; };
-		18567F3F200207C7003F1985 /* JResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JResource.bundle; sourceTree = "<group>"; };
-		18567F41200207C7003F1985 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		18567F42200207C7003F1985 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		18567F5920020AE1003F1985 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18567F5B20020AF3003F1985 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		18567F5D20020AFC003F1985 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -576,6 +560,8 @@
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
 		186CBF172004B2D50023924D /* messageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageView.m; sourceTree = "<group>"; };
 		186CBF192004B2FB0023924D /* messageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageView.xib; sourceTree = "<group>"; };
+		1870EB442019ADDE000776EE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		1870EB462019B8BA000776EE /* MiLiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiLiao.entitlements; sourceTree = "<group>"; };
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
 		187E2EED20075CFD0014A2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -775,6 +761,9 @@
 		3CCBB0002008D773003071D2 /* yazui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yazui.png; sourceTree = "<group>"; };
 		3CCBB0012008D773003071D2 /* lixiaolong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lixiaolong.png; sourceTree = "<group>"; };
 		3CCBB0022008D773003071D2 /* yuguan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuguan.png; sourceTree = "<group>"; };
+		3CD1383C201C597800DB47C6 /* ReportView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportView.h; sourceTree = "<group>"; };
+		3CD1383D201C597800DB47C6 /* ReportView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportView.m; sourceTree = "<group>"; };
+		3CD1383F201C598100DB47C6 /* ReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportView.xib; sourceTree = "<group>"; };
 		3CFF05FF20078D4600E20FDE /* FUVideoFrameObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUVideoFrameObserverManager.h; sourceTree = "<group>"; };
 		3CFF060020078D4600E20FDE /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
 		3CFF060220078D4600E20FDE /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
@@ -1049,6 +1038,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1870EB452019ADDF000776EE /* UserNotifications.framework in Frameworks */,
 				3C6458B1200E071A00E1721C /* CoreGraphics.framework in Frameworks */,
 				3C6458B0200E06ED00E1721C /* CoreText.framework in Frameworks */,
 				3C80D6A1200776E900D0DEA7 /* VideoToolbox.framework in Frameworks */,
@@ -1081,21 +1071,17 @@
 				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
 				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
-				18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */,
 				3CFF062320078D6000E20FDE /* FUAPIDemoBar.framework in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
-				18567F54200207C8003F1985 /* JrmfWalletKit.framework in Frameworks */,
 				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
 				3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */,
 				3C80D6A7200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Frameworks */,
-				18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */,
 				18567F47200207C7003F1985 /* RongIMLib.framework in Frameworks */,
 				18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */,
 				18567F46200207C7003F1985 /* AgoraRtcEngineKit.framework in Frameworks */,
 				E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */,
 				18567F48200207C7003F1985 /* libopencore-amrnb.a in Frameworks */,
 				E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */,
-				18567F52200207C8003F1985 /* JrmfPacketKit.framework in Frameworks */,
 				8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1317,7 +1303,6 @@
 				18567F29200207C7003F1985 /* IMLib */,
 				18567F2D200207C7003F1985 /* release_notes_ios.txt */,
 				18567F2E200207C7003F1985 /* IMKit */,
-				18567F35200207C7003F1985 /* RedPacket */,
 			);
 			path = Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable;
 			sourceTree = "<group>";
@@ -1350,38 +1335,6 @@
 				18567F34200207C7003F1985 /* RongCloud.bundle */,
 			);
 			path = IMKit;
-			sourceTree = "<group>";
-		};
-		18567F35200207C7003F1985 /* RedPacket */ = {
-			isa = PBXGroup;
-			children = (
-				18567F36200207C7003F1985 /* JrmfIMLib */,
-				18567F40200207C7003F1985 /* AlipaySDK */,
-			);
-			path = RedPacket;
-			sourceTree = "<group>";
-		};
-		18567F36200207C7003F1985 /* JrmfIMLib */ = {
-			isa = PBXGroup;
-			children = (
-				18567F37200207C7003F1985 /* JrmfInfo.strings */,
-				18567F3A200207C7003F1985 /* WalletResource.bundle */,
-				18567F3B200207C7003F1985 /* jrmf.cer */,
-				18567F3C200207C7003F1985 /* JrmfPacketKit.framework */,
-				18567F3D200207C7003F1985 /* JYangToolKit.framework */,
-				18567F3E200207C7003F1985 /* JrmfWalletKit.framework */,
-				18567F3F200207C7003F1985 /* JResource.bundle */,
-			);
-			path = JrmfIMLib;
-			sourceTree = "<group>";
-		};
-		18567F40200207C7003F1985 /* AlipaySDK */ = {
-			isa = PBXGroup;
-			children = (
-				18567F41200207C7003F1985 /* AlipaySDK.bundle */,
-				18567F42200207C7003F1985 /* AlipaySDK.framework */,
-			);
-			path = AlipaySDK;
 			sourceTree = "<group>";
 		};
 		1856878F2002136D003F1985 /* 融云聊天 */ = {
@@ -1474,6 +1427,7 @@
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1870EB442019ADDE000776EE /* UserNotifications.framework */,
 				3C6458AE200DFC1600E1721C /* CoreText.framework */,
 				E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */,
 				E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */,
@@ -2052,6 +2006,16 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		3CD1383B201C594900DB47C6 /* ReportView-举报 */ = {
+			isa = PBXGroup;
+			children = (
+				3CD1383C201C597800DB47C6 /* ReportView.h */,
+				3CD1383D201C597800DB47C6 /* ReportView.m */,
+				3CD1383F201C598100DB47C6 /* ReportView.xib */,
+			);
+			path = "ReportView-举报";
+			sourceTree = "<group>";
+		};
 		3CFF05FE20078D4600E20FDE /* FaceUnity */ = {
 			isa = PBXGroup;
 			children = (
@@ -2159,6 +2123,7 @@
 		E221B56D1FF5D6FF00353875 /* MiLiao */ = {
 			isa = PBXGroup;
 			children = (
+				1870EB462019B8BA000776EE /* MiLiao.entitlements */,
 				E221B56E1FF5D6FF00353875 /* AppDelegate.h */,
 				E221B56F1FF5D6FF00353875 /* AppDelegate.m */,
 				E221B5A01FF5DB9600353875 /* PrefixHeader.pch */,
@@ -2327,6 +2292,7 @@
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
+				3CD1383B201C594900DB47C6 /* ReportView-举报 */,
 				E2D1950D2003510B00EAEE57 /* include */,
 				E2D195052003510500EAEE57 /* lib */,
 				18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */,
@@ -2828,6 +2794,11 @@
 					E221B56A1FF5D6FF00353875 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					E221B5821FF5D6FF00353875 = {
 						CreatedOnToolsVersion = 9.2;
@@ -2883,12 +2854,10 @@
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
-				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */,
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
-				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
+				3CD13840201C598100DB47C6 /* ReportView.xib in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
-				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
 				E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */,
@@ -2917,7 +2886,6 @@
 				1863902A2017238100CAC217 /* shourucell.xib in Resources */,
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				3CFF061920078D4600E20FDE /* mask_matianyu.bundle in Resources */,
-				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
 				E2AB3704200CCF3B00458C41 /* README.md in Resources */,
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
 				1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */,
@@ -2935,7 +2903,6 @@
 				E2AB3703200CCF3B00458C41 /* LICENSE in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				180B0DBD20117FAF00A19BA2 /* AuditSuccessViewController.xib in Resources */,
-				18567F50200207C8003F1985 /* WalletResource.bundle in Resources */,
 				E2B77BD41FFDD64900597326 /* messageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3056,6 +3023,7 @@
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
 				3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
+				3CD1383E201C597800DB47C6 /* ReportView.m in Sources */,
 				1858203F2009AC3E0020C232 /* MeViewController.m in Sources */,
 				3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */,
 				3CFF062120078D4600E20FDE /* FUVideoFrameObserverManager.mm in Sources */,
@@ -3294,15 +3262,6 @@
 			name = RongCloudKit.strings;
 			sourceTree = "<group>";
 		};
-		18567F37200207C7003F1985 /* JrmfInfo.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18567F38200207C7003F1985 /* zh-Hans */,
-				18567F39200207C7003F1985 /* en */,
-			);
-			name = JrmfInfo.strings;
-			sourceTree = "<group>";
-		};
 		E221B5741FF5D6FF00353875 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3442,6 +3401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MiLiao/MiLiao.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HXC4DQC3M;
@@ -3509,6 +3469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MiLiao/MiLiao.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HXC4DQC3M;

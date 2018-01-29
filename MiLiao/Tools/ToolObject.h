@@ -19,5 +19,6 @@
 //时间戳转化
 + (NSString *)timeBeforeInfoWithString:(NSTimeInterval)timeIntrval;
 
-
+//传入 秒  得到  xx分钟xx秒
++(NSString *)getMMSSFromSS:(NSString *)totalTime;
 @end

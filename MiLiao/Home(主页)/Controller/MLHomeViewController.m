@@ -13,7 +13,7 @@
 #import "FSBaseViewController.h"
 
 #import "VideoUserModel.h"//用户模型
-
+#import "ReportView.h"
 #define choseButtonTag          1000
 #define tabHight   HEIGHT-ML_TopHeight-35-ML_TabBarHeight
 
@@ -427,8 +427,13 @@ static NSString *const bigIdentifer = @"bigCell";
     cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[MLHomeListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        
     }
-    
+    cell.reportBlock = ^{
+        ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
+                           @"ReportView" owner:nil options:nil ].lastObject;
+        [alert show];
+    };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSMutableArray *muArr = [NSMutableArray array];
     

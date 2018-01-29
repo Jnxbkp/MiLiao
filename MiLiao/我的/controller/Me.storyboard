@@ -372,9 +372,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000M币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-im-Qz1">
-                                    <rect key="frame" x="96.5" y="86" width="182" height="21"/>
+                                    <rect key="frame" x="0.0" y="86" width="375" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="182" id="F6z-HO-84T"/>
+                                        <constraint firstAttribute="width" constant="375" id="F6z-HO-84T"/>
                                         <constraint firstAttribute="height" constant="21" id="GaF-Pw-YSz"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>

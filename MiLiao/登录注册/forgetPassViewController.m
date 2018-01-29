@@ -57,18 +57,20 @@
             
         }
     }
-//    if (theTextField == self.yanZhengNum) {
-//        if ([_yanZhengNum.text isEqualToString:@""]) {
-////            self.nextBtn.enabled=NO;
-//            _nextBtn.backgroundColor = [UIColor whiteColor];
-//            
-//        }else{
-////            self.nextBtn.enabled=YES;
-//            
-//            _nextBtn.backgroundColor = ML_Color(250, 114, 152, 1);// 250  114  152
-//            
-//        }
-//    }
+    if (theTextField == self.yanZhengNum) {
+        if ([_yanZhengNum.text isEqualToString:@""]) {
+            self.nextBtn.enabled=NO;
+            _nextBtn.backgroundColor = [UIColor whiteColor];
+            [_nextBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+        }else{
+            self.nextBtn.enabled=YES;
+            
+            _nextBtn.backgroundColor = ML_Color(250, 114, 152, 1);// 250  114  152
+           [_nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            
+        }
+    }
     
 }
 - (void)leftButtonDidClick {

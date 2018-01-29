@@ -10,4 +10,6 @@
 @class VideoUserModel;
 @interface ChatRoomController : RCConversationViewController
 @property (nonatomic, strong) VideoUserModel *videoUser;
+@property (nonatomic, strong) NSString *isFSBase;
+
 @end

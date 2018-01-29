@@ -37,7 +37,12 @@
     if (UI_IS_IPHONE6PLUS) {
         _stateButton.frame = CGRectMake(WIDTH-52, ML_StatusBarHeight+32, 40, 20);
     }
-
+    //jubao
+    _rePortButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rePortButton.frame = CGRectMake(WIDTH-32, CGRectGetMaxY(_stateButton.frame)+24, 20, 20);
+    [_rePortButton setImage:[UIImage imageNamed:@"jubao"] forState:UIControlStateNormal];
+    [_rePortButton addTarget:self action:@selector(rePort) forControlEvents:UIControlEventTouchUpInside];
+    
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, WIDTH-68, (WIDTH-24)/2, 20)];
     _nameLabel.textColor = ML_Color(255, 255, 255, 1);
     _nameLabel.text = @"认证名称";
@@ -72,6 +77,7 @@
     
     [self addSubview:_loopView];
     [self addSubview:_stateButton];
+    [self addSubview:_rePortButton];
     [self addSubview:_focusButton];
     [self addSubview:_nameLabel];
     [self addSubview:_messageLabel];
@@ -151,6 +157,12 @@
         
     }
 
+}
+- (void)rePort
+{
+    if (self.reportBlock) {
+        self.reportBlock();
+    }
 }
 //关注
 - (void)selectFocusButton:(UIButton *)button {

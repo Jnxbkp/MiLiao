@@ -19,12 +19,19 @@
 
 #import "IQKeyboardManager.h"
 
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 
 #import "PublicManager.h"
+// iOS 10 notification
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
 
-@interface AppDelegate ()<RCIMReceiveMessageDelegate> {
+@interface AppDelegate ()<RCIMReceiveMessageDelegate,UNUserNotificationCenterDelegate>
+{
     NSUserDefaults *_userDefaults;
+    // iOS 10通知中心
+    UNUserNotificationCenter *_notificationCenter;
 }
 
 @end
@@ -60,7 +67,16 @@
     
     [self confitUShareSettings];
     
-   
+    // 初始化阿里云推送SDK
+    [self initCloudPush];
+    // APNs注册，获取deviceToken并上报
+    [self registerAPNS:application];
+    // 监听推送消息到达
+    [self registerMessageReceive];
+    // 点击通知将App从关闭状态启动时，将通知打开回执上报
+    // [CloudPushSDK handleLaunching:launchOptions];(Deprecated from v1.8.1)
+    [CloudPushSDK sendNotificationAck:launchOptions];
+    
     
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"8w7jv4qb8ch6y"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
@@ -80,7 +96,215 @@
 //    [self getHiddenVersion];
     return YES;
 }
+#pragma mark APNs Register
+/**
+ *    向APNs注册，获取deviceToken用于推送
+ *
+ *
+ */
+- (void)registerAPNS:(UIApplication *)application {
+    float systemVersionNum = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (systemVersionNum >= 10.0) {
+        // iOS 10 notifications
+        _notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
+         _notificationCenter.delegate = self; //遵循协议
+        // 创建category，并注册到通知中心
+        [self createCustomNotificationCategory];
+        _notificationCenter.delegate = self;
+        // 请求推送权限
+        [_notificationCenter requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (granted) {
+                // granted
+                NSLog(@"User authored notification.");
+                // 向APNs注册，获取deviceToken
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [application registerForRemoteNotifications];
+                });
+            } else {
+                // not granted
+                NSLog(@"User denied notification.");
+            }
+        }];
+    } else if (systemVersionNum >= 8.0) {
+        // iOS 8 Notifications
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+        [application registerUserNotificationSettings:
+         [UIUserNotificationSettings settingsForTypes:
+          (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
+                                           categories:nil]];
+        [application registerForRemoteNotifications];
+#pragma clang diagnostic pop
+    } else {
+        // iOS < 8 Notifications
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+#pragma clang diagnostic pop
+    }
+}
+/*
+*  苹果推送注册成功回调，将苹果返回的deviceToken上传到CloudPush服务器
+*/
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [CloudPushSDK registerDevice:deviceToken withCallback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Register deviceToken success.");
+        } else {
+            NSLog(@"Register deviceToken failed, error: %@", res.error);
+        }
+    }];
+}
+/*
+ *  APNs注册失败回调
+ */
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"didFailToRegisterForRemoteNotificationsWithError %@", error);
+}
+/**
+ *  创建并注册通知category(iOS 10+)
+ */
+- (void)createCustomNotificationCategory {
+    // 自定义`action1`和`action2`
+    UNNotificationAction *action1 = [UNNotificationAction actionWithIdentifier:@"action1" title:@"test1" options: UNNotificationActionOptionNone];
+    UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"action2" title:@"test2" options: UNNotificationActionOptionNone];
+    // 创建id为`test_category`的category，并注册两个action到category
+    // UNNotificationCategoryOptionCustomDismissAction表明可以触发通知的dismiss回调
+    UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"test_category" actions:@[action1, action2] intentIdentifiers:@[] options:
+                                        UNNotificationCategoryOptionCustomDismissAction];
+    // 注册category到通知中心
+    [_notificationCenter setNotificationCategories:[NSSet setWithObjects:category, nil]];
+}
+/**
+ *  处理iOS 10通知(iOS 10+)
+ */
+- (void)handleiOS10Notification:(UNNotification *)notification {
+    UNNotificationRequest *request = notification.request;
+    UNNotificationContent *content = request.content;
+    NSDictionary *userInfo = content.userInfo;
+    // 通知时间
+    NSDate *noticeDate = notification.date;
+    // 标题
+    NSString *title = content.title;
+    // 副标题
+    NSString *subtitle = content.subtitle;
+    // 内容
+    NSString *body = content.body;
+    // 角标
+    int badge = [content.badge intValue];
+    // 取得通知自定义字段内容，例：获取key为"Extras"的内容
+    NSString *extras = [userInfo valueForKey:@"Extras"];
+    // 通知角标数清0
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    // 同步角标数到服务端
+    // [self syncBadgeNum:0];
+    // 通知打开回执上报
+    [CloudPushSDK sendNotificationAck:userInfo];
+    NSLog(@"Notification, date: %@, title: %@, subtitle: %@, body: %@, badge: %d, extras: %@.", noticeDate, title, subtitle, body, badge, extras);
+}
+/**
+ *  App处于前台时收到通知(iOS 10+)
+ */
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    NSLog(@"Receive a notification in foregound.");
+    // 处理iOS 10通知，并上报通知打开回执
+    [self handleiOS10Notification:notification];
+    // 通知不弹出
+    completionHandler(UNNotificationPresentationOptionNone);
+    
+    // 通知弹出，且带有声音、内容和角标
+    //completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
+}
+/**
+ *  触发通知动作时回调，比如点击、删除通知和点击自定义action(iOS 10+)
+ */
 
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    NSString *userAction = response.actionIdentifier;
+    // 点击通知打开
+    if ([userAction isEqualToString:UNNotificationDefaultActionIdentifier]) {
+        NSLog(@"User opened the notification.");
+        // 处理iOS 10通知，并上报通知打开回执
+        [self handleiOS10Notification:response.notification];
+    }
+    // 通知dismiss，category创建时传入UNNotificationCategoryOptionCustomDismissAction才可以触发
+    if ([userAction isEqualToString:UNNotificationDismissActionIdentifier]) {
+        NSLog(@"User dismissed the notification.");
+    }
+    NSString *customAction1 = @"action1";
+    NSString *customAction2 = @"action2";
+    // 点击用户自定义Action1
+    if ([userAction isEqualToString:customAction1]) {
+        NSLog(@"User custom action1.");
+    }
+    
+    // 点击用户自定义Action2
+    if ([userAction isEqualToString:customAction2]) {
+        NSLog(@"User custom action2.");
+    }
+    completionHandler();
+}
+
+#pragma mark SDK Init
+- (void)initCloudPush {
+    // 正式上线建议关闭
+    [CloudPushSDK turnOnDebug];
+    // SDK初始化
+    [CloudPushSDK asyncInit:ALiPushAppKey appSecret:ALiPushAppSecret callback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+        } else {
+            NSLog(@"Push SDK init failed, error: %@", res.error);
+        }
+    }];
+}
+#pragma mark Notification Open
+/*
+ *  App处于启动状态时，通知打开回调
+ */
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
+    NSLog(@"Receive one notification.");
+    // 取得APNS通知内容
+    NSDictionary *aps = [userInfo valueForKey:@"aps"];
+    // 内容
+    NSString *content = [aps valueForKey:@"alert"];
+    // badge数量
+    NSInteger badge = [[aps valueForKey:@"badge"] integerValue];
+    // 播放声音
+    NSString *sound = [aps valueForKey:@"sound"];
+    // 取得通知自定义字段内容，例：获取key为"Extras"的内容
+    NSString *Extras = [userInfo valueForKey:@"Extras"]; //服务端中Extras字段，key是自己定义的
+    NSLog(@"content = [%@], badge = [%ld], sound = [%@], Extras = [%@]", content, (long)badge, sound, Extras);
+    // iOS badge 清0
+    application.applicationIconBadgeNumber = 0;
+    // 同步通知角标数到服务端
+    // [self syncBadgeNum:0];
+    // 通知打开回执上报
+    // [CloudPushSDK handleReceiveRemoteNotification:userInfo];(Deprecated from v1.8.1)
+    [CloudPushSDK sendNotificationAck:userInfo];
+}
+
+/**
+ *    注册推送消息到来监听
+ */
+- (void)registerMessageReceive {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onMessageReceived:)
+                                                 name:@"CCPDidReceiveMessageNotification"
+                                               object:nil];
+}
+/**
+ *    处理到来推送消息
+ *
+ *
+ */
+- (void)onMessageReceived:(NSNotification *)notification {
+    CCPSysMessage *message = [notification object];
+    NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
+    NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
+    NSLog(@"Receive message title: %@, content: %@.", title, body);
+}
 - (void)autoLogin{
   
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
@@ -215,20 +439,20 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     
-    //如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
-    if ([url.host isEqualToString:@"safepay"]) {
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
-            NSLog(@"result = %@",resultDic);
-        }];
-    }
-    if ([url.host isEqualToString:@"platformapi"]){//支付宝钱包快登授权返回authCode
-        
-        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
-            //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
-            NSLog(@"result = %@",resultDic);
-        }];
-    }
+//    //如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
+//    if ([url.host isEqualToString:@"safepay"]) {
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
+//            NSLog(@"result = %@",resultDic);
+//        }];
+//    }
+//    if ([url.host isEqualToString:@"platformapi"]){//支付宝钱包快登授权返回authCode
+//
+//        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
+//            NSLog(@"result = %@",resultDic);
+//        }];
+//    }
     return YES;
     
     

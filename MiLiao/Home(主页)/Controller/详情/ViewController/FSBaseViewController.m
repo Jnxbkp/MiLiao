@@ -32,7 +32,7 @@
 #import "EvaluateVideoViewController.h"//评价
 #import "PayWebViewController.h"
 #import "UserCallPowerModel.h"//通话能力
-
+#import "ReportView.h"//投诉弹窗
 
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
@@ -479,6 +479,7 @@
 - (void)chat {
     //新建一个聊天会话View Controller对象,建议这样初始化
     ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:self.videoUserModel.username];
+    chat.isFSBase = @"YES";
     chat.title = self.videoUserModel.nickname;
     chat.videoUser = self.videoUserModel;
     chat.automaticallyAdjustsScrollViewInsets = NO;
@@ -701,6 +702,11 @@
         if (!cell) {
             cell = [[FSBaseTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FSBaseTopTableViewCellIdentifier];
         }
+        cell.reportBlock = ^{
+            ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
+                                 @"ReportView" owner:nil options:nil ].lastObject;
+            [alert show];
+        };
         cell.delegate = self;
         if (_imageMuArr.count >0) {
             cell.loopView.imgResourceArr = _imageMuArr;

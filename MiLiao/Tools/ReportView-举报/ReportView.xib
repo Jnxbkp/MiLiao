@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReportView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAv-NM-6Nq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qW-vL-8C6">
+                    <rect key="frame" x="30" y="176" width="315" height="315"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="举报" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcf-03-J8t">
+                            <rect key="frame" x="143" y="15" width="29" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJD-eq-jwe">
+                            <rect key="frame" x="107.5" y="255" width="100" height="35"/>
+                            <color key="backgroundColor" red="0.97647058823529409" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="1Z8-HS-feA"/>
+                                <constraint firstAttribute="height" constant="35" id="3HG-j4-1hu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="提交">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sureButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bAw-79-XGC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYo-0h-rb7">
+                            <rect key="frame" x="20" y="102" width="127.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="色情低俗" image="weixuanzhong">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" image="xuanzhong"/>
+                            <connections>
+                                <action selector="buttonArrayClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="8ht-tZ-xIM"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-to-r6S">
+                            <rect key="frame" x="167.5" y="102" width="127.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="政治宗教" image="weixuanzhong">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" image="xuanzhong"/>
+                            <connections>
+                                <action selector="buttonArrayClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="axt-Bz-aje"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRy-4x-G1o">
+                            <rect key="frame" x="20" y="134" width="127.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="广告骚扰" image="weixuanzhong">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" image="xuanzhong"/>
+                            <connections>
+                                <action selector="buttonArrayClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="naI-XN-Lqz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-Pg-Xef">
+                            <rect key="frame" x="167.5" y="134" width="127.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="虚假欺骗" image="weixuanzhong">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" image="xuanzhong"/>
+                            <connections>
+                                <action selector="buttonArrayClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bX6-Wn-41Z"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-qi-XhU">
+                            <rect key="frame" x="20" y="166" width="127.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="违法暴力" image="weixuanzhong">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" image="xuanzhong"/>
+                            <connections>
+                                <action selector="buttonArrayClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="dn5-cO-4qq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjn-mF-aYO">
+                            <rect key="frame" x="167.5" y="166" width="127.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="人身攻击" image="weixuanzhong">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" image="xuanzhong"/>
+                            <connections>
+                                <action selector="buttonArrayClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="GI6-jU-RTI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lxt-to-r6S" firstAttribute="width" secondItem="EYo-0h-rb7" secondAttribute="width" id="07H-8O-6Op"/>
+                        <constraint firstItem="Tcf-03-J8t" firstAttribute="top" secondItem="2qW-vL-8C6" secondAttribute="top" constant="15" id="4LJ-1g-5o8"/>
+                        <constraint firstAttribute="bottom" secondItem="DJD-eq-jwe" secondAttribute="bottom" constant="25" id="CpK-Q4-91b"/>
+                        <constraint firstItem="Yjn-mF-aYO" firstAttribute="leading" secondItem="lxt-to-r6S" secondAttribute="leading" id="D0d-UD-hWX"/>
+                        <constraint firstItem="EYo-0h-rb7" firstAttribute="leading" secondItem="2qW-vL-8C6" secondAttribute="leading" constant="20" id="EUO-7r-qiG"/>
+                        <constraint firstItem="lxt-to-r6S" firstAttribute="leading" secondItem="EYo-0h-rb7" secondAttribute="trailing" constant="20" id="Qd6-3b-Dt0"/>
+                        <constraint firstItem="9Ji-Pg-Xef" firstAttribute="top" secondItem="lxt-to-r6S" secondAttribute="bottom" constant="15" id="VKh-cr-2Nz"/>
+                        <constraint firstItem="Nwp-qi-XhU" firstAttribute="leading" secondItem="EYo-0h-rb7" secondAttribute="leading" id="XGx-F4-7y6"/>
+                        <constraint firstAttribute="trailing" secondItem="lxt-to-r6S" secondAttribute="trailing" constant="20" id="YQg-6q-Bhc"/>
+                        <constraint firstItem="9Ji-Pg-Xef" firstAttribute="trailing" secondItem="lxt-to-r6S" secondAttribute="trailing" id="cAf-h6-LGG"/>
+                        <constraint firstItem="9Ji-Pg-Xef" firstAttribute="centerY" secondItem="2qW-vL-8C6" secondAttribute="centerY" constant="-15" id="d8M-VM-OXn"/>
+                        <constraint firstItem="Tcf-03-J8t" firstAttribute="centerX" secondItem="2qW-vL-8C6" secondAttribute="centerX" id="iw5-jZ-xry"/>
+                        <constraint firstItem="9Ji-Pg-Xef" firstAttribute="leading" secondItem="lxt-to-r6S" secondAttribute="leading" id="m8e-1v-mdg"/>
+                        <constraint firstItem="KRy-4x-G1o" firstAttribute="top" secondItem="EYo-0h-rb7" secondAttribute="bottom" constant="15" id="mDh-Mc-IdX"/>
+                        <constraint firstItem="KRy-4x-G1o" firstAttribute="trailing" secondItem="EYo-0h-rb7" secondAttribute="trailing" id="mqx-EL-JbN"/>
+                        <constraint firstItem="Yjn-mF-aYO" firstAttribute="top" secondItem="9Ji-Pg-Xef" secondAttribute="bottom" constant="15" id="n8T-0i-T52"/>
+                        <constraint firstItem="Nwp-qi-XhU" firstAttribute="trailing" secondItem="EYo-0h-rb7" secondAttribute="trailing" id="nyh-yw-6MP"/>
+                        <constraint firstItem="Nwp-qi-XhU" firstAttribute="top" secondItem="KRy-4x-G1o" secondAttribute="bottom" constant="15" id="ocK-lu-B0G"/>
+                        <constraint firstItem="Yjn-mF-aYO" firstAttribute="trailing" secondItem="lxt-to-r6S" secondAttribute="trailing" id="s20-hl-f7y"/>
+                        <constraint firstItem="KRy-4x-G1o" firstAttribute="leading" secondItem="EYo-0h-rb7" secondAttribute="leading" id="t6U-Cb-vJp"/>
+                        <constraint firstItem="DJD-eq-jwe" firstAttribute="centerX" secondItem="2qW-vL-8C6" secondAttribute="centerX" id="tty-nI-xfQ"/>
+                        <constraint firstAttribute="width" secondItem="2qW-vL-8C6" secondAttribute="height" id="uhy-hq-uZr"/>
+                        <constraint firstItem="KRy-4x-G1o" firstAttribute="centerY" secondItem="2qW-vL-8C6" secondAttribute="centerY" constant="-15" id="zmg-8V-SPg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2qW-vL-8C6" secondAttribute="trailing" constant="30" id="0m7-nX-f96"/>
+                <constraint firstAttribute="bottom" secondItem="vAv-NM-6Nq" secondAttribute="bottom" id="JMl-vv-x7o"/>
+                <constraint firstItem="vAv-NM-6Nq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LJn-Wr-sFE"/>
+                <constraint firstItem="2qW-vL-8C6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LbZ-1j-chZ"/>
+                <constraint firstItem="2qW-vL-8C6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="Wxo-7T-Vdg"/>
+                <constraint firstItem="vAv-NM-6Nq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="flR-7a-LrA"/>
+                <constraint firstAttribute="trailing" secondItem="vAv-NM-6Nq" secondAttribute="trailing" id="o0w-Wp-xrB"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="buttonArray" destination="EYo-0h-rb7" id="j0X-Ev-Gvn"/>
+                <outletCollection property="buttonArray" destination="lxt-to-r6S" id="Dn4-qh-HPg"/>
+                <outletCollection property="buttonArray" destination="KRy-4x-G1o" id="aRJ-NY-L08"/>
+                <outletCollection property="buttonArray" destination="9Ji-Pg-Xef" id="rwn-yL-Xrr"/>
+                <outletCollection property="buttonArray" destination="Nwp-qi-XhU" id="uKa-Lb-y8h"/>
+                <outletCollection property="buttonArray" destination="Yjn-mF-aYO" id="Zs8-Nv-wwr"/>
+            </connections>
+            <point key="canvasLocation" x="-27" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="weixuanzhong" width="12" height="12"/>
+        <image name="xuanzhong" width="12" height="12"/>
+    </resources>
+</document>

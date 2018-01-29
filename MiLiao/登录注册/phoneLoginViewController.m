@@ -123,21 +123,16 @@
 - (IBAction)login:(id)sender {
     [self.view endEditing:YES];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    //[CloudPushSDK getDeviceId]
 
-    [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text  deviceType:[NSNumber numberWithInt:1] success:^(NSDictionary *info) {
+    [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text  deviceType:[NSNumber numberWithInt:1] utdeviceId:[CloudPushSDK getDeviceId] success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
             [SVProgressHUD dismiss];
             //保存用户信息
-
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
-
-            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
-            NSLog(@"%@", [User ShardInstance].user_id);
-            
-            NSLog(@"nickname = %@",[User ShardInstance].nickname);
             NSLog(@"%ld", [YZCurrentUserModel sharedYZCurrentUserModel].roleType);
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
@@ -168,6 +163,7 @@
        
     } failure:^(NSError *error) {
         NSLog(@"----<<<>>>error%@",error);
+        [SVProgressHUD showErrorWithStatus:@"网络连接错误"];
     }];
 
 }

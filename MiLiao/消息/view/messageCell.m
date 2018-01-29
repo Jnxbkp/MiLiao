@@ -17,9 +17,10 @@
     _model = model;
     self.message.text = [NSString stringWithFormat:@"%@",model.createDate];
     [self.image sd_setImageWithURL:[NSURL URLWithString:model.headUrl]];
+    NSString *strTime = [NSString stringWithFormat:@"%@",model.callTime];
+    self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
 
 }
-
 
 
 @end

@@ -87,6 +87,9 @@ static NSString *kTempFolder = @"touxiang";
             //把自己信息存起来
 //            [self RCIM_currentUserInfo:info[@"data"][@"id"]];
             [self.navigationController popToRootViewControllerAnimated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
         }
     } failure:^(NSError *error) {
         
