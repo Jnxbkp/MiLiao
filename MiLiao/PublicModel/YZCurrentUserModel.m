@@ -43,6 +43,9 @@ singleton_m(YZCurrentUserModel)
         NSNumberFormatter *format = [[NSNumberFormatter alloc] init];
         self.user_id = [format stringFromNumber:(NSNumber *)value];
     }
+    if ([key isEqualToString:@"roleType"]) {
+        NSLog(@"%@", value);
+    }
     // 当发现没有定义的key值时 不处理
 }
 - (void)setValue:(id)value forKey:(NSString *)key {
