@@ -173,10 +173,21 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
                                                object:nil];
 
     RCUserInfo *userInfo = [[RCUserInfoCacheManager sharedManager] getUserInfo:self.callSession.targetId];
-   
+    NSLog(@"%@", userInfo);
     
     if (!userInfo) {
-        userInfo = [[RCUserInfo alloc] initWithUserId:self.callSession.targetId name:nil portrait:nil];
+        NSString *name;
+        NSString *portrait;
+        if (self.videoUser) {
+            name = self.videoUser.nickname;
+            portrait = self.videoUser.posterUrl;
+        }
+        
+        if (self.callListModel) {
+            name = self.callListModel.nickName;
+            portrait = self.callListModel.headUrl;
+        }
+        userInfo = [[RCUserInfo alloc] initWithUserId:self.callSession.targetId name:name portrait:portrait];
     }
     self.remoteUserInfo = userInfo;
     [self.remoteNameLabel setText:userInfo.name];
