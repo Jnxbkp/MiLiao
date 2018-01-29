@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^BackBlock)(void);
 @class VideoUserModel;
 
 
@@ -20,5 +20,7 @@
 @property (nonatomic ,strong)UILabel          *messageLabel;
 @property (nonatomic ,strong)PriceView        *priceView;
 @property (nonatomic, strong) VideoUserModel *videoUserModel;
+@property (nonatomic ,strong)UIButton         *rePortButton;
+@property (nonatomic, copy) BackBlock  reportBlock;
 
 @end

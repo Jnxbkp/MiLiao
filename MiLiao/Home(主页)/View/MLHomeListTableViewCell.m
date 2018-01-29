@@ -39,6 +39,11 @@
     _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
     _stateButton.frame = CGRectMake(WIDTH-64, 12, 40, 20);
 
+    //jubao
+    _rePortButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rePortButton.frame = CGRectMake(24, 12, 20, 20);
+    [_rePortButton setImage:[UIImage imageNamed:@"jubao"] forState:UIControlStateNormal];
+    [_rePortButton addTarget:self action:@selector(rePort) forControlEvents:UIControlEventTouchUpInside];
     _belowView = [[UIView alloc]initWithFrame:CGRectMake(12, WIDTH-66-24, WIDTH-24, 66)];
     _belowView.backgroundColor = ML_Color(0, 0, 0, 0.1);
     
@@ -52,10 +57,11 @@
    
     
     _priceView = [[PriceView alloc]initWithFrame:CGRectMake(WIDTH-154, _messageLabel.frame.origin.y, 130, 15) withPrice:@"0" kind:@"main"];
-   
+    _priceView.hidden = YES;
     
     [self.contentView addSubview:_mainImgageView];
     [self.contentView addSubview:_stateButton];
+    [self.contentView addSubview:_rePortButton];
     [self.contentView addSubview:_belowView];
     [self.contentView addSubview:_nameLabel];
     [self.contentView addSubview:_messageLabel];
@@ -63,7 +69,12 @@
 
     
 }
-
+- (void)rePort
+{
+    if (self.reportBlock) {
+        self.reportBlock();
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
