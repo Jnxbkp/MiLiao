@@ -33,7 +33,7 @@
     } else {
        return CGSizeMake(0 , 0);
     }
-    
+
 }
 + (CGSize)getNSStringHeight:(NSString *)str Font:(float)font maxSize:(CGSize)maxSize {
     if ([str isKindOfClass:[NSString class]]&&str.length > 0) {

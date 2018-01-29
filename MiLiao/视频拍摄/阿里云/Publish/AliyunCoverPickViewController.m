@@ -161,6 +161,7 @@
     } else {
         if (_titleView.text.length > 0&&_titleView.text.length <= 20) {
             _stateLabel.hidden = NO;
+            _stateLabel.text = @"";
             _backGroundView.hidden = NO;
             _finishHandler(_coverView.image);
             NSString *coverPath = [_taskPath stringByAppendingPathComponent:@"cover.png"];
@@ -171,11 +172,7 @@
                 NSInteger resultCode = [info[@"resultCode"] integerValue];
                 NSLog(@"-----%@",info);
                 if (resultCode == SUCCESS) {
-                    //                        NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp4"];
-                    //            NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"compileVideo" ofType:@"mp4"];
-                    
-                    //            NSLog(@"--------%@--%@",_videoPath,videoPath);
-                    //            NSString *audioPath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"png"];
+               
                     NSString *keyId = [[info objectForKey:@"data"] objectForKey:@"AccessKeyId"];
                     NSString *AccessKeySecret = [[info objectForKey:@"data"] objectForKey:@"AccessKeySecret"];
                     NSString *SecurityToken = [[info objectForKey:@"data"] objectForKey:@"SecurityToken"];
@@ -303,17 +300,25 @@
 -(void)uploadSuccessWithVid:(NSString *)vid imageUrl:(NSString *)imageUrl {
     NSLog(@"wz successvid:%@, imageurl:%@",vid, imageUrl);
     dispatch_async(dispatch_get_main_queue(), ^{
-        _stateLabel.text = [NSString stringWithFormat:@"success:%@",vid];
-        _backGroundView.hidden = YES;
+        _stateLabel.text = [NSString stringWithFormat:@"success"];
         
         [HLLoginManager NetPostSaveVideotoken:[_userDefaults objectForKey:@"token"] videoId:vid videoName:_titleView.text videoUrl:imageUrl success:^(NSDictionary *info) {
             NSLog(@"success--%@",info);
+            _backGroundView.hidden = YES;
+            NSString *code = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
+            if ([code isEqualToString:@"200"]) {
+                [self showAlert:@"视频上传成功" withViewController:self];
+            } else {
+                [self showAlert:@"视频上传失败，请重新上传" withViewController:self];
+            }
+            
         } failure:^(NSError *error) {
             NSLog(@"error%@",error);
+         
+            _backGroundView.hidden = YES;
+            [self showAlert:@"视频上传失败，请重新上传" withViewController:self];
         }];
         
-        [self.navigationController popToRootViewControllerAnimated:YES];
-//        [self dismissViewControllerAnimated:YES completion:nil];
     });
 }
 
@@ -322,7 +327,21 @@
         _stateLabel.text = [NSString stringWithFormat:@"%d %%",(int)(uploadedSize * 100/totalSize)];
     });
 }
-
+- (void)showAlert:(NSString *)message withViewController:(UIViewController *)viewController {
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self kindUpdateMessage:message];
+    }];
+    [alertCon addAction:okAction];
+    [viewController presentViewController:alertCon animated:YES completion:nil];
+}
+- (void)kindUpdateMessage:(NSString *)message {
+    if ([message isEqualToString:@"视频上传成功"]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } else {
+        
+    }
+}
 -(void)uploadTokenExpired {
     NSLog(@"uploadTokenExpired");
 }

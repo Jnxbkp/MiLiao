@@ -351,7 +351,6 @@ static NSString *const bigIdentifer = @"bigCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
         
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:bigIdentifer forIndexPath:indexPath];
-        
     for(id subView in cell.contentView.subviews){
         if(subView){
             [subView removeFromSuperview];

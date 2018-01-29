@@ -64,7 +64,7 @@
 }
 //用户登录
 //POST /v1/user/login
-+ (void)NetPostLoginMobile:(NSString *)mobile password:(NSString *)password  deviceType:(NSNumber *)deviceType success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
++ (void)NetPostLoginMobile:(NSString *)mobile password:(NSString *)password  deviceType:(NSNumber *)deviceType utdeviceId:(NSString *)utdeviceId success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
@@ -72,6 +72,7 @@
     param[@"mobile"] = mobile;
     param[@"password"] = password;
     param[@"deviceType"] = deviceType;
+    param[@"utdeviceId"] = utdeviceId;
 
     [manager POST:[NSString stringWithFormat:@"%@/v1/user/login",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         

@@ -40,7 +40,9 @@
 
 #define buyVChatButtonTag 800
 #define downButtonTag   2000
-
+#define ziLiaoStr      @"ziLiao"
+#define videoStr      @"shiPin"
+#define commentStr      @"pingLun"
 @interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate,topButtonDelegate> {
     NSUserDefaults  *_userDefaults;
     WomanModel      *_womanModel;
@@ -60,6 +62,8 @@
     UILabel         *_foucusLabel;
     NSString        *_isBuyWechat;
     NSString        *_isHidden;    //是否隐藏版本
+    
+    NSString        *_selectStr;
     
 }
 @property (nonatomic, strong) FSBaseTableView *tableView;
@@ -109,6 +113,7 @@
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
  
+    _selectStr = ziLiaoStr;
     //监听通知
     [self listenNotification];
     
@@ -594,7 +599,13 @@
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
         return HEIGHT-ML_TopHeight;
     } else {
-        return HEIGHT-ML_TopHeight-50;
+//        return HEIGHT-ML_TopHeight-50;
+        if([_selectStr isEqualToString:ziLiaoStr]) {
+            return HEIGHT-ML_TopHeight-50-250;
+        } else {
+            return HEIGHT-ML_TopHeight-50;
+        }
+        
     }
     
 }
@@ -846,7 +857,6 @@
 
       CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y-ML_StatusBarHeight-ML_TopHeight;
    
-//    NSLog(@"--------%lf-----%lf",bottomCellOffset,scrollView.contentOffset.y);
     if (scrollView.contentOffset.y >= bottomCellOffset) {
         scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
         if (self.canScroll) {
@@ -858,6 +868,21 @@
             scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
         }
     }
+  
+    NSLog(@"--------%lf-----%lf",bottomCellOffset,scrollView.contentOffset.y);
+//    if([_selectStr isEqualToString:ziLiaoStr]){
+//        if(scrollView.contentOffset.y >= 185) {
+//            NSLog(@"-------------=-==");
+//
+//            self.canScroll = NO;
+//            self.contentCell.cellCanScroll = YES;
+//        } else {
+//            if (!self.canScroll) {//子视图没到顶部
+//                scrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
+//            }
+//        }
+//    }
+    
     self.tableView.showsVerticalScrollIndicator = _canScroll?YES:NO;
 }
 

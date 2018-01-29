@@ -15,4 +15,7 @@
  */
 @interface PlayViewController : UIViewController
 
+@property (nonatomic, strong)DisbaseModel  *baseModel;
+@property (nonatomic, strong)DisVideoModelList  *videoModelList;
+
 @end

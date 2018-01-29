@@ -341,7 +341,7 @@
                 [_userDefaults setObject:@"yes" forKey:@"isHidden"];
             }
             NSString *isBigV = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"isBigV"]];
-            NSString *isLog = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"isBigV"]];
+            NSString *isLog = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"isLog"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",isLog,@"isLog", nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         } else {

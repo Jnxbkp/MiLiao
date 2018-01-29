@@ -28,6 +28,7 @@
         url = [NSString stringWithFormat:@"%@/v1/index/recommand/%@/%@/%@",HLRequestUrl,pageNumber,pageSize,token];
     }
     
+    NSLog(@"------------>>>>>>>>>>--%@",url);
     [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

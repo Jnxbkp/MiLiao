@@ -20,6 +20,9 @@
 @property (nonatomic, strong) NSString *videoName;
 @property (nonatomic, strong) NSString *videoStatus;
 @property (nonatomic, strong) NSString *videoUrl;
+@property (nonatomic, strong) NSString *headUrl;
+@property (nonatomic, strong) NSString *zanStatus;
+@property (nonatomic, strong) NSString *videoUp;//赞数
 
 @end
 

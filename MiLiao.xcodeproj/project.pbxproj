@@ -216,9 +216,6 @@
 		3CC753552008828700C03C6B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CC7533F2008828700C03C6B /* Info.plist */; };
 		3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753412008828700C03C6B /* RCCallKitUtility.m */; };
 		3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753432008828700C03C6B /* RCCallFloatingBoard.m */; };
-		3CCBAFC32008A256003071D2 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC12008A256003071D2 /* PlayViewController.m */; };
-		3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC22008A256003071D2 /* PlayViewController.xib */; };
-		3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */; };
 		3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFE2008D772003071D2 /* mask_matianyu.png */; };
 		3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFF2008D773003071D2 /* EatRabbi.png */; };
 		3CCBB0052008D773003071D2 /* yazui.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0002008D773003071D2 /* yazui.png */; };
@@ -275,7 +272,6 @@
 		E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929751FFCBC3800B6502D /* FSPageContentView.m */; };
 		E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929791FFCBC3800B6502D /* NSTimer+FSLoop.m */; };
 		E2620F8C20045D480092BA11 /* PublicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F8B20045D480092BA11 /* PublicManager.m */; };
-		E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
 		E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659C0B200B473700AA63CC /* DiscoverMananger.m */; };
 		E26CC8452010E1C200ADBA96 /* LogCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CC8442010E1C200ADBA96 /* LogCategory.m */; };
@@ -301,6 +297,11 @@
 		E2AB3704200CCF3B00458C41 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E2AB3700200CCF3B00458C41 /* README.md */; };
 		E2AB3715200CD45500458C41 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB3714200CD45500458C41 /* BaseModel.m */; };
 		E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB3717200CD49200458C41 /* WomanModel.m */; };
+		E2B0353E201EAF9D00FB0229 /* PlayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B0353B201EAF9C00FB0229 /* PlayCollectionViewCell.xib */; };
+		E2B0353F201EAF9D00FB0229 /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B0353D201EAF9D00FB0229 /* PlayCollectionViewCell.m */; };
+		E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B03540201EAFAA00FB0229 /* PlayViewController.xib */; };
+		E2B03544201EAFAA00FB0229 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B03541201EAFAA00FB0229 /* PlayViewController.m */; };
+		E2B0354A201EB21F00FB0229 /* VideoPeoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B03549201EB21F00FB0229 /* VideoPeoModel.m */; };
 		E2B497D31FFF48B50017A5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D21FFF48B50017A5B6 /* User.m */; };
 		E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */; };
 		E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */; };
@@ -755,12 +756,6 @@
 		3CC753422008828700C03C6B /* RCCallFloatingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallFloatingBoard.h; sourceTree = "<group>"; };
 		3CC753432008828700C03C6B /* RCCallFloatingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallFloatingBoard.m; sourceTree = "<group>"; };
 		3CC753442008828700C03C6B /* RCCallKitUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallKitUtility.h; sourceTree = "<group>"; };
-		3CCBAFC02008A256003071D2 /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
-		3CCBAFC12008A256003071D2 /* PlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
-		3CCBAFC22008A256003071D2 /* PlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
-		3CCBAFC52008A542003071D2 /* PlayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayCollectionViewCell.h; sourceTree = "<group>"; };
-		3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayCollectionViewCell.m; sourceTree = "<group>"; };
-		3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayCollectionViewCell.xib; sourceTree = "<group>"; };
 		3CCBAFFE2008D772003071D2 /* mask_matianyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_matianyu.png; sourceTree = "<group>"; };
 		3CCBAFFF2008D773003071D2 /* EatRabbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EatRabbi.png; sourceTree = "<group>"; };
 		3CCBB0002008D773003071D2 /* yazui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yazui.png; sourceTree = "<group>"; };
@@ -912,6 +907,14 @@
 		E2AB3714200CD45500458C41 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		E2AB3716200CD49200458C41 /* WomanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WomanModel.h; sourceTree = "<group>"; };
 		E2AB3717200CD49200458C41 /* WomanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WomanModel.m; sourceTree = "<group>"; };
+		E2B0353B201EAF9C00FB0229 /* PlayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayCollectionViewCell.xib; sourceTree = "<group>"; };
+		E2B0353C201EAF9D00FB0229 /* PlayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayCollectionViewCell.h; sourceTree = "<group>"; };
+		E2B0353D201EAF9D00FB0229 /* PlayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayCollectionViewCell.m; sourceTree = "<group>"; };
+		E2B03540201EAFAA00FB0229 /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
+		E2B03541201EAFAA00FB0229 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		E2B03542201EAFAA00FB0229 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		E2B03548201EB21F00FB0229 /* VideoPeoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPeoModel.h; sourceTree = "<group>"; };
+		E2B03549201EB21F00FB0229 /* VideoPeoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPeoModel.m; sourceTree = "<group>"; };
 		E2B497D11FFF48B50017A5B6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E2B497D21FFF48B50017A5B6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E2B497D41FFF50AE0017A5B6 /* HLTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLTabBar.h; sourceTree = "<group>"; };
@@ -2258,9 +2261,9 @@
 			children = (
 				E221B5A71FF5DE9B00353875 /* MLDiscoverViewController.h */,
 				E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */,
-				3CCBAFC02008A256003071D2 /* PlayViewController.h */,
-				3CCBAFC12008A256003071D2 /* PlayViewController.m */,
-				3CCBAFC22008A256003071D2 /* PlayViewController.xib */,
+				E2B03542201EAFAA00FB0229 /* PlayViewController.h */,
+				E2B03541201EAFAA00FB0229 /* PlayViewController.m */,
+				E2B03540201EAFAA00FB0229 /* PlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2268,11 +2271,11 @@
 		E221B5B71FF5DF4300353875 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2B0353C201EAF9D00FB0229 /* PlayCollectionViewCell.h */,
+				E2B0353D201EAF9D00FB0229 /* PlayCollectionViewCell.m */,
+				E2B0353B201EAF9C00FB0229 /* PlayCollectionViewCell.xib */,
 				E221B5CD1FF6184A00353875 /* MLDiscoverListCollectionViewCell.h */,
 				E221B5CE1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m */,
-				3CCBAFC52008A542003071D2 /* PlayCollectionViewCell.h */,
-				3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */,
-				3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */,
 				3C77AF892009A8E10029778B /* CommentView-评论view */,
 			);
 			path = View;
@@ -2526,6 +2529,8 @@
 				E2AB3714200CD45500458C41 /* BaseModel.m */,
 				E2AB3716200CD49200458C41 /* WomanModel.h */,
 				E2AB3717200CD49200458C41 /* WomanModel.m */,
+				E2B03548201EB21F00FB0229 /* VideoPeoModel.h */,
+				E2B03549201EB21F00FB0229 /* VideoPeoModel.m */,
 			);
 			path = zhang;
 			sourceTree = "<group>";
@@ -2855,11 +2860,13 @@
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
+				E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */,
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
 				3CFF061C20078D4600E20FDE /* release_note.txt in Resources */,
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
+				E2B0353E201EAF9D00FB0229 /* PlayCollectionViewCell.xib in Resources */,
 				3CCBB0072008D773003071D2 /* yuguan.png in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				186390222017232D00CAC217 /* phoneLoginViewController.xib in Resources */,
@@ -2874,7 +2881,6 @@
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				180B0DCA2012E03A00A19BA2 /* zhichuCell.xib in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
-				3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */,
 				183890E820186544009ED98C /* CallUSViewController.xib in Resources */,
 				3CFF061F20078D4600E20FDE /* face_beautification.bundle in Resources */,
 				1863902A2017238100CAC217 /* shourucell.xib in Resources */,
@@ -2893,7 +2899,6 @@
 				3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */,
 				3CC753552008828700C03C6B /* Info.plist in Resources */,
 				3CFF061620078D4600E20FDE /* yazui.bundle in Resources */,
-				3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */,
 				1863902F201723AE00CAC217 /* Me.storyboard in Resources */,
 				E2AB3703200CCF3B00458C41 /* LICENSE in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
@@ -2993,7 +2998,6 @@
 				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */,
-				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
@@ -3121,10 +3125,12 @@
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				1846CE28200F8680000BF772 /* MyVideoViewController.m in Sources */,
 				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
+				E2B03544201EAFAA00FB0229 /* PlayViewController.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
 				E26CC8452010E1C200ADBA96 /* LogCategory.m in Sources */,
 				3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
+				E2B0354A201EB21F00FB0229 /* VideoPeoModel.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
 				184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */,
@@ -3136,6 +3142,7 @@
 				E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */,
 				1846CE1F200F405D000BF772 /* administrateAccountViewController.m in Sources */,
 				185820402009AC3E0020C232 /* NickNameViewController.m in Sources */,
+				E2B0353F201EAF9D00FB0229 /* PlayCollectionViewCell.m in Sources */,
 				1846CE15200F27DA000BF772 /* MingXiModel.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
@@ -3189,7 +3196,6 @@
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */,
 				3CC7534F2008828700C03C6B /* RCCallMultiCallUserCell.m in Sources */,
-				3CCBAFC32008A256003071D2 /* PlayViewController.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,

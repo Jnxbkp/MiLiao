@@ -22,7 +22,8 @@
 - (void)creat {
     self.backgroundColor = [UIColor redColor];
     _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, itemWidth, itemHeight)];
-    _mainImgageView.image = [UIImage imageNamed:@"aaa"];
+    [_mainImgageView setContentMode:UIViewContentModeScaleAspectFill];
+    _mainImgageView.clipsToBounds = YES;
     
     _belowView = [[UIView alloc]initWithFrame:CGRectMake(0, itemHeight-56, itemWidth, 56)];
     _belowView.backgroundColor = ML_Color(0, 0, 0, 0.1);
