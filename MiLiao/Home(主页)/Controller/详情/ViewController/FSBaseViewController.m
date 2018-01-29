@@ -160,7 +160,8 @@
     [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
         NSLog(@"%@",msg);
         if (success) {
-            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = [dict[@"roleType"] integerValue];
+#warning roleType
+            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = dict[@"roleType"];
         }
     }];
 }

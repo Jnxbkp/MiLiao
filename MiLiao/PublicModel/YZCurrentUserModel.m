@@ -12,6 +12,10 @@
 singleton_m(YZCurrentUserModel)
 
 
+NSString *const RoleTypeCommon = @"COMMON";
+NSString *const RoleTypeAgent = @"AGENT";
+NSString *const RoleTypeBigV = @"BIGV";
+
 - (id)init
 {
     if (self = [super init]) {

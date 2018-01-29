@@ -210,16 +210,18 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 - (void)checkoutUserRole {
     [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
         if (success) {
-            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = [dict[@"roleType"] integerValue];
+            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = dict[@"roleType"];
             [self setupCostUserName];
         }
     }];
 }
 
+
+#warning roleType
 - (void)setupCostUserName {
-    NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
+    NSString *roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
     //普通用户
-    if (roleType == 0) {
+    if ([roleType isEqualToString:RoleTypeCommon]) {
         NSLog(@"%@", self.targetId);
         if (self.isCallIn) {
              //打进来的电话 网红的回拨
@@ -232,7 +234,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
         self.costUserName = self.callSession.myProfile.userId;
     }
     //大V
-    if (roleType == 2) {
+    if ([roleType isEqualToString:RoleTypeBigV]) {
         if (self.isCallIn) {
             
         } else {
@@ -321,7 +323,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     NSString *userName;
     NSString *userID;
     
-    if ( ![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:@"COMMON"]) {
+    if ( ![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
         return;
     }
 
@@ -370,9 +372,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     NSString *userName;//网红的
     NSString *costUserName;//扣费的
 //    NSString *isBigV = [YZCurrentUserModel sharedYZCurrentUserModel].isBigv;
-    NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
+    NSString  *roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
     
-    if (roleType == 0) {
+    if ([roleType isEqualToString:RoleTypeCommon]) {
         //普通用户
         if (self.callIn) {
             userName = self.callSession.caller;
@@ -387,7 +389,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
             }
             NSLog(@"%@", self.targetId);
         }
-    } else if (roleType == 2) {
+    } else if ([roleType isEqualToString:RoleTypeBigV]) {
         //大v
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
         if (self.callIn) {
@@ -456,9 +458,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 //        }
 //    }
     
-    NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
+    NSString  *roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
     
-    if (roleType == 0) {
+    if ([roleType isEqualToString:RoleTypeCommon]) {
         //普通用户
         if (self.callIn) {
             userName = self.callSession.caller;
@@ -472,7 +474,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
                 userName = self.callListModel.anchorAccount;
             }
         }
-    } else if (roleType == 2) {
+    } else if ([roleType isEqualToString:RoleTypeBigV]) {
         //大v
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
         if (self.callIn) {

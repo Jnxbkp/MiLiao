@@ -13,8 +13,9 @@
 
 @interface YZCurrentUserModel : NSObject
 
-
-
+extern  NSString *const RoleTypeCommon;
+extern NSString *const RoleTypeAgent;
+extern NSString *const RoleTypeBigV;
 
 /**用户名*/
 @property (nonatomic, strong) NSString      * username;
