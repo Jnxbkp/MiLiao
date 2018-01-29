@@ -12,8 +12,12 @@
 #import "DisVideoModel.h"
 #import "DisbaseModel.h"
 
+//#import "playViewController.h"
+//#import "AliyunPlaySDKDemoFullScreenScrollViewController.h"
+
 /**** Controller ****/
 #import "PlayViewController.h"
+
 
 #define selectButtonTag          2000
 #define tabHight   HEIGHT-ML_TopHeight-ML_TabBarHeight
@@ -45,8 +49,10 @@ static NSString *const hotIdentifer = @"hotCell";
     
     NSString            *_newPage;
     NSString            *_hotPage;
-    
+    DisbaseModel        *_disBaseModel;
+    DisVideoModelList    *_videoModelList;
    
+    NSDictionary    *testDic;
 
 }
 
@@ -65,7 +71,8 @@ static NSString *const hotIdentifer = @"hotCell";
     self.navigationController.navigationBar.translucent = NO;
     
     _userDefaults = [NSUserDefaults standardUserDefaults];
-
+//    _disBaseModel = [[DisbaseModel alloc]init];
+    
     _newsList = [NSMutableArray array];
     _hotList = [NSMutableArray array];
     _selectStr = newStr;
@@ -126,7 +133,10 @@ static NSString *const hotIdentifer = @"hotCell";
 - (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
     [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
+        testDic = [NSDictionary dictionary];
+        testDic = [info objectForKey:@"data"];
         [SVProgressHUD dismiss];
+        _disBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
         if (header == nil && footer == nil) {//首次请求
             NSMutableArray *muArr = [NSMutableArray array];
             NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
@@ -352,19 +362,23 @@ static NSString *const hotIdentifer = @"hotCell";
         cell.likeNumLabel.text = [NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]];
 
         NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
+        
         NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
+        NSLog(@"---------<<>><<><>---%@-----%f",timeStampString,[timeStampString doubleValue]);
          cell.timeLabel.text = timeStr;
        
         return cell;
     } else {
         MLDiscoverListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotIdentifer forIndexPath:indexPath];
-        CGSize likeSize = [NSStringSize getNSStringHeight:@"2223" Font:12.0];
+        CGSize likeSize = [NSStringSize getNSStringHeight:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]] Font:12.0];
         cell.likeNumLabel.frame = CGRectMake(itemWidth-likeSize.width-12, cell.timeLabel.frame.origin.y, likeSize.width, 12);
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
-        cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
-        cell.timeLabel.text = @"12小时";
+         [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"aaa"]];
+        NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
+        NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
+        cell.timeLabel.text = timeStr;
         cell.messageLabel.text = [[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoName"];
-        cell.likeNumLabel.text = @"22";
+        cell.likeNumLabel.text = [NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]];
         return cell;
     }
     
@@ -406,7 +420,24 @@ static NSString *const hotIdentifer = @"hotCell";
     }
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    PlayViewController *playController = [[PlayViewController alloc] init];
+    
+//    VideoPeoModel   *videoModel = [[VideoPeoModel alloc]init];
+    if (collectionView == _newCollectionView) {
+        _videoModelList = [[DisVideoModelList alloc]initWithArray:_newsList];
+    } else {
+        _videoModelList = [[DisVideoModelList alloc]initWithArray:_hotList];
+    }
+    
+    PlayViewController *playController = [[PlayViewController alloc]init];
+    playController.baseModel = _disBaseModel;
+    playController.videoModelList = _videoModelList;
+    
+//    AliyunPlaySDKDemoFullScreenScrollViewController *playController = [[AliyunPlaySDKDemoFullScreenScrollViewController alloc]init];
+//    playController.AccessKeyId = [testDic objectForKey:@"AccessKeyId"];
+//    playController.AccessKeySecret = [testDic objectForKey:@"AccessKeySecret"];
+//    playController.SecurityToken = [testDic objectForKey:@"SecurityToken"];
+//    playController.vid = [[[testDic objectForKey:@"userList"] objectAtIndex:0] objectForKey:@"videoId"];
+
     [self.navigationController pushViewController:playController animated:YES];
 }
 - (void)didReceiveMemoryWarning {
@@ -425,3 +456,4 @@ static NSString *const hotIdentifer = @"hotCell";
 */
 
 @end
+

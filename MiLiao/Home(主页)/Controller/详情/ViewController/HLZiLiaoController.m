@@ -232,7 +232,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-  
+    NSLog(@"-------<>><>><%lf",scrollView.contentOffset.y);
     if (!self.vcCanScroll) {
         scrollView.contentOffset = CGPointZero;
     }
