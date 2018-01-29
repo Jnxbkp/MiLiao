@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FSLoopScrollView.h"
+typedef void (^BackBlock)(void);
 
 @protocol topButtonDelegate <NSObject>
 
@@ -34,5 +35,7 @@
 @property (nonatomic ,strong)UIImageView         *headImage3;
 
 @property (nonatomic,weak) id<topButtonDelegate> delegate;
+@property (nonatomic ,strong)UIButton         *rePortButton;
+@property (nonatomic, copy) BackBlock  reportBlock;
 
 @end

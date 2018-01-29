@@ -32,7 +32,7 @@
 #import "EvaluateVideoViewController.h"//评价
 #import "PayWebViewController.h"
 #import "UserCallPowerModel.h"//通话能力
-
+#import "ReportView.h"//投诉弹窗
 
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
@@ -691,6 +691,11 @@
         if (!cell) {
             cell = [[FSBaseTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FSBaseTopTableViewCellIdentifier];
         }
+        cell.reportBlock = ^{
+            ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
+                                 @"ReportView" owner:nil options:nil ].lastObject;
+            [alert show];
+        };
         cell.delegate = self;
         if (_imageMuArr.count >0) {
             cell.loopView.imgResourceArr = _imageMuArr;
