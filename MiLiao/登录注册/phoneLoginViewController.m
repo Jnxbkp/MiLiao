@@ -133,8 +133,8 @@
             [SVProgressHUD dismiss];
             //保存用户信息
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
-            NSLog(@"%ld", [YZCurrentUserModel sharedYZCurrentUserModel].roleType);
-
+            NSLog(@"%@", [YZCurrentUserModel sharedYZCurrentUserModel].roleType);
+            NSLog(@"阿里推送ID是:%@",[CloudPushSDK getDeviceId]);
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
           //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
