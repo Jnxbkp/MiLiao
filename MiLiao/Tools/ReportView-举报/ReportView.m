@@ -39,6 +39,9 @@
         
     }];
 }
+- (IBAction)closeButtonClick:(id)sender {
+     [self removeFromSuperview];
+}
 
 - (IBAction)buttonArrayClick:(UIButton *)sender {
     if (self.perButton == sender) {
