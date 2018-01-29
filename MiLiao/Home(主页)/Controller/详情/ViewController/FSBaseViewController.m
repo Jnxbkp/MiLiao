@@ -590,7 +590,7 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             if ([_isHidden isEqualToString:@"yes"]) {
-               return WIDTH+108;
+               return WIDTH+58;
             }
             return WIDTH+158;
         }
@@ -601,7 +601,7 @@
     } else {
 //        return HEIGHT-ML_TopHeight-50;
         if([_selectStr isEqualToString:ziLiaoStr]) {
-            return HEIGHT-ML_TopHeight-50-250;
+            return HEIGHT-ML_TopHeight-50;
         } else {
             return HEIGHT-ML_TopHeight-50;
         }
