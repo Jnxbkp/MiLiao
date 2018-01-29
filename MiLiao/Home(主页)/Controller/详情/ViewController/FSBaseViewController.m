@@ -133,7 +133,12 @@
     //主播信息请求
     [self NetGetUserInformation:_user_id header:nil];
     
-    _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50+ML_StatusBarHeight) style:UITableViewStylePlain];
+    _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50) style:UITableViewStylePlain];
+    if (@available(iOS 11.0, *)) {
+        [_tableView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    } else {
+        // Fallback on earlier versions
+    }
     
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
         _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight);
