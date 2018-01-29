@@ -321,7 +321,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     NSString *userName;
     NSString *userID;
     
-    if ( [YZCurrentUserModel sharedYZCurrentUserModel].roleType != 0) {
+    if ( ![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:@"COMMON"]) {
         return;
     }
 
