@@ -248,8 +248,11 @@
 
 #pragma mark SDK Init
 - (void)initCloudPush {
+    
+#ifdef DEBUG
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
+#endif
     // SDK初始化
     [CloudPushSDK asyncInit:ALiPushAppKey appSecret:ALiPushAppSecret callback:^(CloudPushCallbackResult *res) {
         if (res.success) {
