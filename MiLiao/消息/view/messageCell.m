@@ -15,6 +15,7 @@
 }
 - (void)setModel:(CallListModel *)model {
     _model = model;
+    self.title.text = [NSString stringWithFormat:@"%@",model.nickName];
     self.message.text = [NSString stringWithFormat:@"%@",model.createDate];
     [self.image sd_setImageWithURL:[NSURL URLWithString:model.headUrl]];
     NSString *strTime = [NSString stringWithFormat:@"%@",model.callTime];

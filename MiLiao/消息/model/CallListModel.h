@@ -17,4 +17,5 @@
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *callId;
 @property (strong, nonatomic) NSString *callTime;
+@property (strong, nonatomic) NSString *nickName;
 @end
