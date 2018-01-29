@@ -894,8 +894,6 @@
 		E28F2A3D200D9EDC0012EC9F /* LoveTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveTableViewCell.m; sourceTree = "<group>"; };
 		E2AB36EE200C9E0800458C41 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		E2AB36EF200C9E0800458C41 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
-		E2AB36F2200CAFA100458C41 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		E2AB36F5200CAFDF00458C41 /* WomanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WomanModel.m; sourceTree = "<group>"; };
 		E2AB36FA200CCF3B00458C41 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		E2AB36FB200CCF3B00458C41 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
 		E2AB36FC200CCF3B00458C41 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
@@ -2516,8 +2514,6 @@
 		E2AB3705200CD2B100458C41 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				E2AB36F5200CAFDF00458C41 /* WomanModel.m */,
-				E2AB36F2200CAFA100458C41 /* BaseModel.m */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
