@@ -429,10 +429,20 @@ static NSString *const bigIdentifer = @"bigCell";
         cell = [[MLHomeListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
     }
+    //举报
     cell.reportBlock = ^{
         ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
                            @"ReportView" owner:nil options:nil ].lastObject;
         [alert show];
+    };
+    //拉黑
+    cell.laheiBlock = ^{
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"加入黑名单" message:@"确定加入黑名单，您将不会再收到对方消息" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+          
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
     };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSMutableArray *muArr = [NSMutableArray array];

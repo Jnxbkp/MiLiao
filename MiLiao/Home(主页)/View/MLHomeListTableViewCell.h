@@ -21,6 +21,9 @@ typedef void (^BackBlock)(void);
 @property (nonatomic ,strong)PriceView        *priceView;
 @property (nonatomic, strong) VideoUserModel *videoUserModel;
 @property (nonatomic ,strong)UIButton         *rePortButton;
+@property (nonatomic ,strong)UIButton         *laheiButton;
+
 @property (nonatomic, copy) BackBlock  reportBlock;
+@property (nonatomic, copy) BackBlock  laheiBlock;
 
 @end
