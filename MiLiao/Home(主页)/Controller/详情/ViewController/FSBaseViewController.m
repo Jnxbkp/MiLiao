@@ -464,21 +464,6 @@
         }];
     }
     
-
-//    //计算可通话时长
-//    [self calculatorCallTime:^(BOOL canCall) {
-//        if (canCall) {
-//            [weakSelf downButtonClickAction:but];
-//        } else {
-//            [weakSelf showPayAlertController:^{
-//                //跳转充值
-//            } continueCall:^{
-//                [weakSelf downButtonClickAction:but];
-//            }];
-//        }
-//    }];
-    
-    
 }
 
 ///聊天
