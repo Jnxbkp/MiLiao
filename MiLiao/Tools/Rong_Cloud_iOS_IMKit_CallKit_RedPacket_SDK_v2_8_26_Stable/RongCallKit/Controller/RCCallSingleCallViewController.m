@@ -14,7 +14,7 @@
 
 #import "FUVideoFrameObserverManager.h"
 #import "FUManager.h"
-#import <FUAPIDemoBar/FUAPIDemoBar.h>
+#import "FUAPIDemoBar.h"
 
 #import "CountDownView.h"//倒计时view
 #import "UserInfoNet.h"

@@ -53,7 +53,7 @@ static FUManager *shareManager = NULL;
         
         self.beautyLevel = 0.7; //美白程度
         
-        self.redLevel = 0.2; //红润程度
+        self.redLevel = 0.6; //红润程度
         
         self.thinningLevel = 1.0; //瘦脸程度
         
@@ -178,7 +178,8 @@ static FUManager *shareManager = NULL;
     
     /**设置美颜参数*/
     [self setBeautyParams];
-    
+    NSString *version = [FURenderer getVersion];
+    NSLog(@"%@", version);
     [[FURenderer shareRenderer] renderFrame:y u:u v:v ystride:ystride ustride:ustride vstride:vstride width:width height:height frameId:frameID items:items itemCount:3];//itemCount默认是3
     
     frameID += 1;
