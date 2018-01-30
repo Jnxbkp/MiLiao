@@ -77,6 +77,9 @@ static NSString *const bigIdentifer = @"bigCell";
     [titleView addSubview:searchBut];
     self.navigationItem.titleView = titleView;
     
+
+    ListenNotificationName_Func(@"lahei", @selector(notificationFunc:));
+    
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _careList = [NSMutableArray array];
     _newsList = [NSMutableArray array];
@@ -108,6 +111,44 @@ static NSString *const bigIdentifer = @"bigCell";
   
      [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeNone];
     [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:nil];
+}
+
+- (void)notificationFunc:(NSNotification *)notification {
+    if ([notification.name isEqualToString:@"lahei"]) {
+        NSDictionary *dict = notification.userInfo;
+        NSString *laheiID = dict[@"laheiID"];
+        
+        NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+        for (VideoUserModel  *model in _recommandList) {
+            NSString *str = model.ID;
+            if (![str isEqualToString:laheiID]){
+                [laheiAry addObject:model];
+                _recommandList = laheiAry;
+                
+            }
+        }
+        [_recommandTabelView reloadData];
+        NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+        for (VideoUserModel  *model in _careList) {
+            NSString *str = model.ID;
+            if (![str isEqualToString:laheiID]){
+                [laheiAry2 addObject:model];
+                _careList = laheiAry2;
+                
+            }
+        }
+        [_careTabelView reloadData];
+        NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+        for (VideoUserModel  *model in _newsList) {
+            NSString *str = model.ID;
+            if (![str isEqualToString:laheiID]){
+                [laheiAry3 addObject:model];
+                _newsList = laheiAry3;
+               
+            }
+        }
+         [_newTabelView reloadData];
+    }
 }
 //table选择视图
 - (void)addTableChoseView {
@@ -512,12 +553,7 @@ static NSString *const bigIdentifer = @"bigCell";
         cell = [[MLHomeListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
     }
-    //举报
-    cell.reportBlock = ^{
-        ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
-                           @"ReportView" owner:nil options:nil ].lastObject;
-        [alert show];
-    };
+  
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSMutableArray *muArr = [NSMutableArray array];
@@ -533,42 +569,10 @@ static NSString *const bigIdentifer = @"bigCell";
     cell.videoUserModel = videoUserModel;
     [cell.stateButton setStateStr:videoUserModel.status];
 
-    //拉黑
-    cell.laheiBlock = ^{
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"加入黑名单" message:@"确定加入黑名单，您将不会再收到对方消息" preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [_userDefaults setObject:videoUserModel.ID forKey:@"laheiID"];
-            NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
-            for (VideoUserModel  *model in _recommandList) {
-                NSString *str = model.ID;
-                if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                    [laheiAry addObject:model];
-                    _recommandList = laheiAry;
-                    [_recommandTabelView reloadData];
-                }
-            }
-            NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
-            for (VideoUserModel  *model in _careList) {
-                NSString *str = model.ID;
-                if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                    [laheiAry2 addObject:model];
-                    _careList = laheiAry2;
-                    [_careTabelView reloadData];
-                }
-            }
-            NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
-            for (VideoUserModel  *model in _newsList) {
-                NSString *str = model.ID;
-                if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                    [laheiAry3 addObject:model];
-                    _newsList = laheiAry3;
-                    [_newTabelView reloadData];
-                }
-            }
-            NSLog(@"拉黑的ID是：%@",videoUserModel.ID);
-        }]];
-        [weakSelf presentViewController:alert animated:YES completion:nil];
+    //举报
+    cell.reportBlock = ^{
+
+        [self showReportSheet:videoUserModel.ID];
     };
     
     
@@ -582,6 +586,70 @@ static NSString *const bigIdentifer = @"bigCell";
     return cell;
     
 }
+
+
+///弹出举报拉黑sheet
+- (void)showReportSheet:(NSString *)laheiID {
+    UIAlertController *reportAlertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    //举报
+    UIAlertAction *reportAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[ReportView ReportView] show];
+    }];
+    
+    [reportAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    //拉黑
+    UIAlertAction *blackAction = [UIAlertAction actionWithTitle:@"拉黑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"加入黑名单" message:@"确定加入黑名单，您将不会再收到对方消息" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [_userDefaults setObject:laheiID forKey:@"laheiID"];
+            NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+            for (VideoUserModel  *model in _recommandList) {
+                NSString *str = model.ID;
+                if (![str isEqualToString:laheiID]){
+                    [laheiAry addObject:model];
+                    _recommandList = laheiAry;
+                    
+                }
+            }
+            [_recommandTabelView reloadData];
+            NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+            for (VideoUserModel  *model in _careList) {
+                NSString *str = model.ID;
+                if (![str isEqualToString:laheiID]){
+                    [laheiAry2 addObject:model];
+                    _careList = laheiAry2;
+                    
+                }
+            }
+            [_careTabelView reloadData];
+            NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+            for (VideoUserModel  *model in _newsList) {
+                NSString *str = model.ID;
+                if (![str isEqualToString:laheiID]){
+                    [laheiAry3 addObject:model];
+                    _newsList = laheiAry3;
+                    
+                }
+            }
+            [_newTabelView reloadData];
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+    [blackAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [cancleAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    [reportAlertController addAction:reportAction];
+    [reportAlertController addAction:blackAction];
+    [reportAlertController addAction:cancleAction];
+    
+    [self presentViewController:reportAlertController animated:YES completion:nil];
+}
+
+
 #pragma mark 点击tablecell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];

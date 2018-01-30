@@ -45,10 +45,10 @@
     [_rePortButton setImage:[UIImage imageNamed:@"jubao"] forState:UIControlStateNormal];
     [_rePortButton addTarget:self action:@selector(rePort) forControlEvents:UIControlEventTouchUpInside];
     //拉黑
-    _laheiButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _laheiButton.frame = CGRectMake(12, CGRectGetMaxY(_rePortButton.frame), 40, 40);
-    [_laheiButton setImage:[UIImage imageNamed:@"lahei"] forState:UIControlStateNormal];
-    [_laheiButton addTarget:self action:@selector(lahei) forControlEvents:UIControlEventTouchUpInside];
+//    _laheiButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _laheiButton.frame = CGRectMake(12, CGRectGetMaxY(_rePortButton.frame), 40, 40);
+//    [_laheiButton setImage:[UIImage imageNamed:@"lahei"] forState:UIControlStateNormal];
+//    [_laheiButton addTarget:self action:@selector(lahei) forControlEvents:UIControlEventTouchUpInside];
     
     _belowView = [[UIView alloc]initWithFrame:CGRectMake(12, WIDTH-66-24, WIDTH-24, 66)];
     _belowView.backgroundColor = ML_Color(0, 0, 0, 0.1);
