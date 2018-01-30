@@ -464,21 +464,6 @@
         }];
     }
     
-
-//    //计算可通话时长
-//    [self calculatorCallTime:^(BOOL canCall) {
-//        if (canCall) {
-//            [weakSelf downButtonClickAction:but];
-//        } else {
-//            [weakSelf showPayAlertController:^{
-//                //跳转充值
-//            } continueCall:^{
-//                [weakSelf downButtonClickAction:but];
-//            }];
-//        }
-//    }];
-    
-    
 }
 
 ///聊天
@@ -497,6 +482,7 @@
 - (void)videoCall {
     NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+//    [[RCCall sharedRCCall] startSingleCall:self.videoUserModel.username mediaType:RCCallMediaVideo];
 }
 
 - (void)goPay {

@@ -27,7 +27,7 @@
     
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSLog(@"%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
     
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
@@ -37,12 +37,13 @@
     manager.securityPolicy = security;
     
     
-    NSString *url = [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString];
+    NSString *url = [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString];
     NSLog(@"\n\n请求参数parameter\n:%@\n\n", [parameters mj_JSONString]);
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"\n\n接口：%@\n\n", urlString);
-        NSLog(@"\n\n\n网络返回responseObject:\n\n%@\n\n",responseObject);
+        NSLog(@"\n\n接口地址:\n%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
+        NSLog(@"\n\n参数:\n%@", [parameters mj_JSONString]);
+        NSLog(@"\n\n\nPOST基类网络返回:\n%@\n",responseObject);
         if (success) {
             
             NSString *errMsg = responseObject[@"err_msg"];
@@ -56,9 +57,10 @@
         if (failure) {
             failure(task, error);
         }
+        NSLog(@"\n\n接口地址:\n%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
+        NSLog(@"\n\n参数:\n%@", [parameters mj_JSONString]);
         NSLog(@"\n\n接口：%@\n\n", urlString);
-    NSLog(@"\n=====================================================\n\n=====================================================\n\n=====================================================\n网络返回失败:%@", error.userInfo);
-        NSLog(@"%@", task);
+        NSLog(@"\nPOST基类网络返回失败:\n%@", error.userInfo);
     }];
 }
 
@@ -117,7 +119,7 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
    
-    NSLog(@"接口地址:%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+    NSLog(@"接口地址:%@",[NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
     
     manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10;
@@ -129,14 +131,18 @@
     security.allowInvalidCertificates = YES;
     manager.securityPolicy = security;
     
-    [manager GET:[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"接口地址:%@", [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+        NSLog(@"\n\n接口地址:\n%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
+        NSLog(@"\n\n参数:\n%@", [parameters mj_JSONString]);
         NSLog(@"\n\nGET基类请求返回:\n%@", responseObject);
         if (success) {
             success(task, responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"\n\n接口地址:\n%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
+        NSLog(@"\n\n参数:\n%@", [parameters mj_JSONString]);
+        NSLog(@"\n\n网络错误返回:\n%@", error.userInfo);
         if (failure) {
             failure(task, error);
         }
