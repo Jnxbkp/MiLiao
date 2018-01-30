@@ -3494,7 +3494,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
-					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS-lite",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.SE;
@@ -3563,7 +3562,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
-					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS-lite",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.SE;
