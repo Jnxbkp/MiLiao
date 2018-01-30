@@ -14,6 +14,8 @@
 #import "UserInfoNet.h"
 #import "GoPayTableViewController.h"
 #import "UserCallPowerModel.h"
+#import "EvaluateVideoViewController.h"//评价
+
 @interface MyCallViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
@@ -97,6 +99,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     __weak typeof(self) weakSelf = self;
+    self.callListModel = self.modelArray[indexPath.row];
     [UserInfoNet canCall:self.callListModel.anchorAccount result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             

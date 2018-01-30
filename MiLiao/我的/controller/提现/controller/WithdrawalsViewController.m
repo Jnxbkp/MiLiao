@@ -109,27 +109,28 @@
 - (void)tiXianLoad
 {
     [self.view endEditing:YES];
-    NSString *collectionAccount = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawAccount"]];
-    NSString *collectionName = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawName"]];
-
-    [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"username"] remark:@"" success:^(NSDictionary *info) {
-        NSLog(@"%@",info);
-        NSInteger resultCode = [info[@"resultCode"] integerValue];
-        if (resultCode == SUCCESS) {
-            if ([self.amount intValue] >= 100) {
-                [SVProgressHUD showSuccessWithStatus:@"提现成功"];
-            }else{
-                 [SVProgressHUD showErrorWithStatus:@"请重新输入"];
-            }
-
-        }else{
-            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
-        }
+    if ([self.amount intValue] >= 100){
+        NSString *collectionAccount = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawAccount"]];
+        NSString *collectionName = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawName"]];
         
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
-    }];
+        [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"username"] remark:@"" success:^(NSDictionary *info) {
+            NSLog(@"%@",info);
+            NSInteger resultCode = [info[@"resultCode"] integerValue];
+            if (resultCode == SUCCESS) {
+                [SVProgressHUD showSuccessWithStatus:@"提现成功"];
+
+            }else{
+                [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                
+            }
+            
+        } failure:^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        }];
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"满100可提现"];
+    }
+  
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

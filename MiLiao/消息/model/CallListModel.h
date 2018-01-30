@@ -18,4 +18,6 @@
 @property (strong, nonatomic) NSString *callId;
 @property (strong, nonatomic) NSString *callTime;
 @property (strong, nonatomic) NSString *nickName;
+@property (strong, nonatomic) NSString *sfpj;
+@property (strong, nonatomic) NSString *callType;
 @end
