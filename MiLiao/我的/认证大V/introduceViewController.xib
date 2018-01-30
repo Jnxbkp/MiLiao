@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="40" width="375" height="40"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="例:知名演员、模特" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-UH-fJa">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                            <rect key="frame" x="15" y="0.0" width="360" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -35,7 +35,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="gJA-UH-fJa" secondAttribute="trailing" id="5jG-3V-GrX"/>
                         <constraint firstAttribute="bottom" secondItem="gJA-UH-fJa" secondAttribute="bottom" id="Pmt-K5-2Fa"/>
-                        <constraint firstItem="gJA-UH-fJa" firstAttribute="leading" secondItem="Zg5-SA-81Q" secondAttribute="leading" id="Qbo-gn-KUv"/>
+                        <constraint firstItem="gJA-UH-fJa" firstAttribute="leading" secondItem="Zg5-SA-81Q" secondAttribute="leading" constant="15" id="Qbo-gn-KUv"/>
                         <constraint firstAttribute="height" constant="40" id="h0G-Hd-M9K"/>
                         <constraint firstItem="gJA-UH-fJa" firstAttribute="top" secondItem="Zg5-SA-81Q" secondAttribute="top" id="j2N-sy-2a3"/>
                     </constraints>
