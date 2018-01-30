@@ -136,11 +136,8 @@
                 [SVProgressHUD showErrorWithStatus:msg];
             }
         }];
-    } else {
-         [self videoCall];
     }
-    
-    
+   
 }
 ///视频聊天
 - (void)videoCall {
