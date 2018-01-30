@@ -25,10 +25,9 @@
                             <constraint firstAttribute="width" constant="40" id="r4x-3b-vxm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的通话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52g-Ku-HsY">
-                        <rect key="frame" x="76" y="11" width="193" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="我的通话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52g-Ku-HsY">
+                        <rect key="frame" x="76" y="11" width="61.5" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="193" id="eVg-49-Hdj"/>
                             <constraint firstAttribute="height" constant="21" id="ran-XM-rvs"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
