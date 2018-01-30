@@ -482,6 +482,7 @@
 - (void)videoCall {
     NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+//    [[RCCall sharedRCCall] startSingleCall:self.videoUserModel.username mediaType:RCCallMediaVideo];
 }
 
 - (void)goPay {
