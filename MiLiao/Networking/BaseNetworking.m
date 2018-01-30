@@ -27,7 +27,7 @@
     
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSLog(@"%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
     
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
@@ -37,7 +37,7 @@
     manager.securityPolicy = security;
     
     
-    NSString *url = [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString];
+    NSString *url = [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString];
     NSLog(@"\n\n请求参数parameter\n:%@\n\n", [parameters mj_JSONString]);
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -117,7 +117,7 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
    
-    NSLog(@"接口地址:%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+    NSLog(@"接口地址:%@",[NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
     
     manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10;
@@ -129,9 +129,9 @@
     security.allowInvalidCertificates = YES;
     manager.securityPolicy = security;
     
-    [manager GET:[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"接口地址:%@", [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+        NSLog(@"接口地址:%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
         NSLog(@"\n\nGET基类请求返回:\n%@", responseObject);
         if (success) {
             success(task, responseObject);
