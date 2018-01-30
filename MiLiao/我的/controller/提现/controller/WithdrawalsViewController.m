@@ -113,20 +113,25 @@
         NSString *collectionAccount = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawAccount"]];
         NSString *collectionName = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawName"]];
         
-        [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"username"] remark:@"" success:^(NSDictionary *info) {
-            NSLog(@"%@",info);
-            NSInteger resultCode = [info[@"resultCode"] integerValue];
-            if (resultCode == SUCCESS) {
-                [SVProgressHUD showSuccessWithStatus:@"提现成功"];
-
-            }else{
-                [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+        if ([collectionAccount isEqualToString:@""] || [collectionName isEqualToString:@""]) {
+            [SVProgressHUD showErrorWithStatus:@"请添加提现账户"];
+        }else{
+            [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"username"] remark:@"" success:^(NSDictionary *info) {
+                NSLog(@"%@",info);
+                NSInteger resultCode = [info[@"resultCode"] integerValue];
+                if (resultCode == SUCCESS) {
+                    [SVProgressHUD showSuccessWithStatus:@"提现成功"];
+                    
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                    
+                }
                 
-            }
-            
-        } failure:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
-        }];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络异常"];
+            }];
+        }
+       
     }else{
         [SVProgressHUD showErrorWithStatus:@"满100可提现"];
     }
