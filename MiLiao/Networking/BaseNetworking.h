@@ -10,8 +10,8 @@
 #import "MJExtension.h"
 
 
-#define kAPIURLBaseURL @"https://47.104.25.213:9000"
-
+//#define kAPIURLBaseURL @"https://47.104.25.213:9000"
+#define kAPIURLBaseURL @"https://devapi.jnxbkp.com:9999"
 //上传的baseurl
 #define kUPLOADBaseURL @""
 @interface BaseNetworking : NSObject
