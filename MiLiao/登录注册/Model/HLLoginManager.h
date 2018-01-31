@@ -12,7 +12,7 @@
 
 //获取短信验证码
 //GET /v1/user/getVerifyCode
-+ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile verifyMobile:(NSString *)verifyMobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //oss-token获取
 //GET /v1/oss/getOSSToken
