@@ -11,6 +11,11 @@
 
 #ifdef __OBJC__
 
+//pod 'UMengUShare/UI'
+//pod 'UMengUShare/Social/ReducedWeChat'
+//pod 'UMengUShare/Social/ReducedQQ'
+//pod 'UMengUShare/Social/ReducedSina'
+
 #import "MenuInfo.h"
 #import "DataManager.h"
 //#import "NSStringSize.h"
@@ -73,7 +78,6 @@
 #define SUCCESS 200
 //请求Url
 //#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
-
 #define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
 //中志Url
 //#define HLRequestUrl @"https://192.168.1.45:9999"
@@ -93,6 +97,9 @@
 //阿里云推送Key
 #define ALiPushAppKey @"24763364"
 #define ALiPushAppSecret @"bf89529fd2d41d5065f3341a2f4de4e7"
+
+
+#define holderImage     [UIImage imageNamed:@"holder_image"]
 
 #define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define KSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -163,8 +170,8 @@
 
 //阿里云的
 
-#import "AliyunIConfig.h"
-#import "AliyunImage.h"
+//#import "AliyunIConfig.h"
+//#import "AliyunImage.h"
 
 // 注释为Release版
 //#define kQPEnableDevNetwork

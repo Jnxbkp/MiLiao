@@ -9,11 +9,11 @@
 
 @implementation AliyunImage
 
-+ (UIImage *)imageNamed:(NSString *)name {
-    
-    NSString *fullName = [[AliyunIConfig config] imageName:name];
-    
-    return [UIImage imageNamed:fullName];
-}
+//+ (UIImage *)imageNamed:(NSString *)name {
+//    
+////    NSString *fullName = [[AliyunIConfig config] imageName:name];
+//    
+////    return [UIImage imageNamed:fullName];
+//}
 
 @end

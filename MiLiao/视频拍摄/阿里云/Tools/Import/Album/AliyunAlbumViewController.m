@@ -113,7 +113,7 @@
         _buttonTitle.bounds = CGRectMake(0, 0, 180, 44);
         _buttonTitle.center = CGPointMake(ScreenWidth / 2, 22 + StatusBarHeight);
         [_buttonTitle setTitleColor:[UIColor whiteColor] forState:0];
-        [_buttonTitle setImage:[AliyunImage imageNamed:@"roll_list"] forState:0];
+//        [_buttonTitle setImage:[AliyunImage imageNamed:@"roll_list"] forState:0];
         [_buttonTitle addTarget:self action:@selector(buttonTitleClick:) forControlEvents:UIControlEventTouchUpInside];
         _buttonTitle.titleLabel.font = [UIFont systemFontOfSize:14];
     }

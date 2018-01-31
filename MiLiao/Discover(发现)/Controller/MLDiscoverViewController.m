@@ -15,9 +15,6 @@
 //#import "playViewController.h"
 //#import "AliyunPlaySDKDemoFullScreenScrollViewController.h"
 
-/**** Controller ****/
-#import "PlayViewController.h"
-
 //zhang
 #import "VideoPlayViewController.h"
 
@@ -53,8 +50,6 @@ static NSString *const hotIdentifer = @"hotCell";
     NSString            *_hotPage;
     DisbaseModel        *_disBaseModel;
     DisVideoModelList    *_videoModelList;
-   
-    NSDictionary    *testDic;
 
 }
 
@@ -135,8 +130,7 @@ static NSString *const hotIdentifer = @"hotCell";
 - (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
     [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
-        testDic = [NSDictionary dictionary];
-        testDic = [info objectForKey:@"data"];
+
         [SVProgressHUD dismiss];
         _disBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
         if (header == nil && footer == nil) {//首次请求
@@ -358,7 +352,8 @@ static NSString *const hotIdentifer = @"hotCell";
         CGSize likeSize = [NSStringSize getNSStringHeight:[NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]] Font:12.0];
         cell.likeNumLabel.frame = CGRectMake(itemWidth-likeSize.width-12, cell.timeLabel.frame.origin.y, likeSize.width, 12);
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
-        [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"aaa"]];
+  
+        [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"holder_image"]];
        
         cell.messageLabel.text = [[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoName"];
         cell.likeNumLabel.text = [NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]];
@@ -375,7 +370,7 @@ static NSString *const hotIdentifer = @"hotCell";
         CGSize likeSize = [NSStringSize getNSStringHeight:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]] Font:12.0];
         cell.likeNumLabel.frame = CGRectMake(itemWidth-likeSize.width-12, cell.timeLabel.frame.origin.y, likeSize.width, 12);
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
-         [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"aaa"]];
+         [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"holder_image"]];
         NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
         NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
         cell.timeLabel.text = timeStr;
@@ -430,18 +425,11 @@ static NSString *const hotIdentifer = @"hotCell";
         _videoModelList = [[DisVideoModelList alloc]initWithArray:_hotList];
     }
     
-//    PlayViewController *playController = [[PlayViewController alloc]init];
-//    playController.baseModel = _disBaseModel;
-//    playController.videoModelList = _videoModelList;
+
     VideoPlayViewController *playController = [[VideoPlayViewController alloc]init];
     playController.baseModel = _disBaseModel;
     playController.videoModelList = _videoModelList;
     playController.currentCell = indexPath.row;
-//    AliyunPlaySDKDemoFullScreenScrollViewController *playController = [[AliyunPlaySDKDemoFullScreenScrollViewController alloc]init];
-//    playController.AccessKeyId = [testDic objectForKey:@"AccessKeyId"];
-//    playController.AccessKeySecret = [testDic objectForKey:@"AccessKeySecret"];
-//    playController.SecurityToken = [testDic objectForKey:@"SecurityToken"];
-//    playController.vid = [[[testDic objectForKey:@"userList"] objectAtIndex:0] objectForKey:@"videoId"];
 
     [self.navigationController pushViewController:playController animated:YES];
 }

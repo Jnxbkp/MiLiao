@@ -18,13 +18,17 @@
 {
     NSUserDefaults *_userDefaults;
 }
+@property (nonatomic, strong) UIView *navView;
+
 @end
 
 @implementation ChatRoomController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO];
+
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 //    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
 //    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
@@ -36,8 +40,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-//    [IQKeyboardManager sharedManager].enable = YES;
-//    [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
+//    [UIApplication sharedApplication].statusBarHidden = NO;
+    self.navView.hidden = YES;
 }
 
 - (void)viewDidLoad {
@@ -53,15 +57,25 @@
             self.conversationMessageCollectionView.contentInset = UIEdgeInsetsMake(ML_NavBarHeight, 0, 0, 0);
         }
     }
-    UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame  = CGRectMake(0, 0, 50, 30);
-    leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [leftButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
-    leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+    if (UI_IS_IPHONEX) {
+        if ([self.isFSBase isEqualToString:@"YES"]) {
+            self.navView = [[UIView alloc]init];
+            self.navView.backgroundColor = [UIColor whiteColor];
+            self.navView.frame = CGRectMake(0, 0, WIDTH,  ML_StatusBarHeight);
+            [self.navigationController.view addSubview:self.navView];
+            self.conversationMessageCollectionView.contentInset = UIEdgeInsetsMake(ML_NavBarHeight, 0, 0, 0);
+        }
+    }
+  
+//    UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
+//    leftButton.frame  = CGRectMake(0, 0, 50, 30);
+//    leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//    [leftButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+//    leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
+//    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+//    [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
     [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
     [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
     [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];

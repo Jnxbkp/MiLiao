@@ -11,13 +11,13 @@
 @implementation HLLoginManager
 //获取短信验证码
 //GET /v1/user/getVerifyCode
-+ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
++ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile verifyMobile:(NSString *)verifyMobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
         //设置请求头
     
-    [manager GET:[NSString stringWithFormat:@"%@/v1/user/getVerifyCode?mobile=%@",HLRequestUrl,mobile] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@/v1/user/getVerifyCode?mobile=%@&verifyMobile=%@",HLRequestUrl,mobile,verifyMobile] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
@@ -423,6 +423,19 @@
     param[@"status"] = status;
     
     [manager POST:[NSString stringWithFormat:@"%@/v1/user/updateStatus",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+// GET /v1/moneyDetail/getUserMoneyInfo  获取用户m币信息
++ (void)getUserMoneyInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    [manager GET:[NSString stringWithFormat:@"%@/v1/moneyDetail/getUserMoneyInfo?token=%@",HLRequestUrl,token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);

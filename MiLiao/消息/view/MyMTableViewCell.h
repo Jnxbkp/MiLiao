@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Mmodel;
 
 @interface MyMTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *time;
@@ -17,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *leftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *wChatImage;
+@property (strong, nonatomic) Mmodel *model;
 
 @end

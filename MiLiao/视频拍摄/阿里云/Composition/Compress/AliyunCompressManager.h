@@ -10,17 +10,17 @@
 #import "AliyunMediaConfig.h"
 
 @interface AliyunCompressManager : NSObject
-- (instancetype)initWithMediaConfig:(AliyunMediaConfig *)config;
-- (void)compressWithSourcePath:(NSString *)sourcePath
-                    outputPath:(NSString *)outputPath
-                    outputSize:(CGSize)outputSize
-                       success:(void (^)())success
-                       failure:(void(^)())failure;
-
-- (UIImage *)compressImageWithSourceImage:(UIImage *)sourceImage
-                               outputSize:(CGSize)outputSize;
-
-- (void)stopCompress;
+//- (instancetype)initWithMediaConfig:(AliyunMediaConfig *)config;
+//- (void)compressWithSourcePath:(NSString *)sourcePath
+//                    outputPath:(NSString *)outputPath
+//                    outputSize:(CGSize)outputSize
+//                       success:(void (^)())success
+//                       failure:(void(^)())failure;
+//
+//- (UIImage *)compressImageWithSourceImage:(UIImage *)sourceImage
+//                               outputSize:(CGSize)outputSize;
+//
+//- (void)stopCompress;
 
 
 @end

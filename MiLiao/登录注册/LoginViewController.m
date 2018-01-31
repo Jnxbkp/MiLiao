@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "phoneLoginViewController.h"
-#import <UMSocialCore/UMSocialCore.h>
+//#import <UMSocialCore/UMSocialCore.h>
 #import <RongIMKit/RongIMKit.h>
 
 @interface LoginViewController () {
@@ -41,115 +41,115 @@
 //}
 //三方登录
 - (IBAction)thirdLog:(UIButton *)sender {
-    if (sender == self.weChat) {
-        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
-            if (error) {
-                
-            } else {
-                UMSocialUserInfoResponse *resp = result;
-                
-                // 授权信息
-                NSLog(@"Wechat uid: %@", resp.uid);
-                NSLog(@"Wechat openid: %@", resp.openid);
-                NSLog(@"Wechat unionid: %@", resp.unionId);
-                NSLog(@"Wechat accessToken: %@", resp.accessToken);
-                NSLog(@"Wechat refreshToken: %@", resp.refreshToken);
-                NSLog(@"Wechat expiration: %@", resp.expiration);
-                
-                // 用户信息
-                NSLog(@"Wechat name: %@", resp.name);
-                NSLog(@"Wechat iconurl: %@", resp.iconurl);
-                NSLog(@"Wechat gender: %@", resp.unionGender);
-                
-                 [self quickLogInname:resp.name platform:@"WECHAT" token:resp.accessToken uid:resp.uid];
-            }
-        }];
-    }
-    if (sender == self.QQ) {
-        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
-            if (error) {
-                
-            } else {
-                UMSocialUserInfoResponse *resp = result;
-                
-                // 授权信息
-                NSLog(@"QQ uid: %@", resp.uid);
-                NSLog(@"QQ openid: %@", resp.openid);
-                NSLog(@"QQ unionid: %@", resp.unionId);
-                NSLog(@"QQ accessToken: %@", resp.accessToken);
-                NSLog(@"QQ expiration: %@", resp.expiration);
-                
-                // 用户信息
-                NSLog(@"QQ name: %@", resp.name);
-                NSLog(@"QQ iconurl: %@", resp.iconurl);
-                NSLog(@"QQ gender: %@", resp.unionGender);
-                
-                [self quickLogInname:resp.name platform:@"QQ" token:resp.accessToken uid:resp.uid];
-            
-            }
-        }];
-    }
-    if (sender == self.WeiBo) {
-        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_Sina currentViewController:nil completion:^(id result, NSError *error) {
-            if (error) {
-                
-            } else {
-                UMSocialUserInfoResponse *resp = result;
-                
-                // 授权信息
-                NSLog(@"Sina uid: %@", resp.uid);
-                NSLog(@"Sina accessToken: %@", resp.accessToken);
-                NSLog(@"Sina refreshToken: %@", resp.refreshToken);
-                NSLog(@"Sina expiration: %@", resp.expiration);
-                
-                // 用户信息
-                NSLog(@"Sina name: %@", resp.name);
-                NSLog(@"Sina iconurl: %@", resp.iconurl);
-                NSLog(@"Sina gender: %@", resp.unionGender);
-                [self quickLogInname:resp.name platform:@"SINA" token:resp.accessToken uid:resp.uid];
-                
-            }
-        }];
-    }
-    if (sender == self.phoneNumber) {
-
-        phoneLoginViewController*bvc = [[phoneLoginViewController alloc]init];
-        
-        YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:bvc];
-        
-        [self presentViewController:nav animated:NO completion:^{
-            
-            
-            
-        }];
-    }
+//    if (sender == self.weChat) {
+//        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
+//            if (error) {
+//
+//            } else {
+//                UMSocialUserInfoResponse *resp = result;
+//
+//                // 授权信息
+//                NSLog(@"Wechat uid: %@", resp.uid);
+//                NSLog(@"Wechat openid: %@", resp.openid);
+//                NSLog(@"Wechat unionid: %@", resp.unionId);
+//                NSLog(@"Wechat accessToken: %@", resp.accessToken);
+//                NSLog(@"Wechat refreshToken: %@", resp.refreshToken);
+//                NSLog(@"Wechat expiration: %@", resp.expiration);
+//
+//                // 用户信息
+//                NSLog(@"Wechat name: %@", resp.name);
+//                NSLog(@"Wechat iconurl: %@", resp.iconurl);
+//                NSLog(@"Wechat gender: %@", resp.unionGender);
+//
+//                 [self quickLogInname:resp.name platform:@"WECHAT" token:resp.accessToken uid:resp.uid];
+//            }
+//        }];
+//    }
+//    if (sender == self.QQ) {
+//        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
+//            if (error) {
+//
+//            } else {
+//                UMSocialUserInfoResponse *resp = result;
+//
+//                // 授权信息
+//                NSLog(@"QQ uid: %@", resp.uid);
+//                NSLog(@"QQ openid: %@", resp.openid);
+//                NSLog(@"QQ unionid: %@", resp.unionId);
+//                NSLog(@"QQ accessToken: %@", resp.accessToken);
+//                NSLog(@"QQ expiration: %@", resp.expiration);
+//
+//                // 用户信息
+//                NSLog(@"QQ name: %@", resp.name);
+//                NSLog(@"QQ iconurl: %@", resp.iconurl);
+//                NSLog(@"QQ gender: %@", resp.unionGender);
+//
+//                [self quickLogInname:resp.name platform:@"QQ" token:resp.accessToken uid:resp.uid];
+//
+//            }
+//        }];
+//    }
+//    if (sender == self.WeiBo) {
+//        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_Sina currentViewController:nil completion:^(id result, NSError *error) {
+//            if (error) {
+//
+//            } else {
+//                UMSocialUserInfoResponse *resp = result;
+//
+//                // 授权信息
+//                NSLog(@"Sina uid: %@", resp.uid);
+//                NSLog(@"Sina accessToken: %@", resp.accessToken);
+//                NSLog(@"Sina refreshToken: %@", resp.refreshToken);
+//                NSLog(@"Sina expiration: %@", resp.expiration);
+//
+//                // 用户信息
+//                NSLog(@"Sina name: %@", resp.name);
+//                NSLog(@"Sina iconurl: %@", resp.iconurl);
+//                NSLog(@"Sina gender: %@", resp.unionGender);
+//                [self quickLogInname:resp.name platform:@"SINA" token:resp.accessToken uid:resp.uid];
+//
+//            }
+//        }];
+//    }
+//    if (sender == self.phoneNumber) {
+//
+//        phoneLoginViewController*bvc = [[phoneLoginViewController alloc]init];
+//
+//        YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:bvc];
+//
+//        [self presentViewController:nav animated:NO completion:^{
+//
+//
+//
+//        }];
+//    }
 }
 //快速登录
 - (void)quickLogInname:(NSString *)name platform:(NSString *)platform token:(NSString *)token uid:(NSString *)uid {
-    [HLLoginManager NetPostquickLoginName:name platform:platform token:token uid:uid success:^(NSDictionary *info) {
-                            NSLog(@"------>>%@",info);
-        NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
-        if ([resultCode isEqualToString:@"200"]) {
-//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
-            NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
-            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
-            [_userDefaults setObject:isBigV forKey:@"isBigV"];
-            [_userDefaults setObject:@"yes" forKey:@"isLog"];
-            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
-            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
-            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
-            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
-            //rongCloudToken 登录返回的通云token
-            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
-
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
-            //融云登录操作
-            [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
-        }
-        
-    } failure:^(NSError *error) {
-        NSLog(@"error%@",error);
-    }];
+//    [HLLoginManager NetPostquickLoginName:name platform:platform token:token uid:uid success:^(NSDictionary *info) {
+//                            NSLog(@"------>>%@",info);
+//        NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
+//        if ([resultCode isEqualToString:@"200"]) {
+////            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
+//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
+//            [_userDefaults setObject:isBigV forKey:@"isBigV"];
+//            [_userDefaults setObject:@"yes" forKey:@"isLog"];
+//            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
+//            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
+//            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
+//            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
+//            //rongCloudToken 登录返回的通云token
+//            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
+//
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
+//            //融云登录操作
+//            [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
+//        }
+//        
+//    } failure:^(NSError *error) {
+//        NSLog(@"error%@",error);
+//    }];
 }
 
 - (void)settingRCIMToken:(NSString *)rongCloudToken {

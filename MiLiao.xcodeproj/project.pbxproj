@@ -116,6 +116,7 @@
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
 		1870EB452019ADDF000776EE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870EB442019ADDE000776EE /* UserNotifications.framework */; };
 		187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187E2EED20075CFD0014A2AE /* Assets.xcassets */; };
+		1881CE1120219A7D001E07B3 /* Mmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1881CE1020219A7D001E07B3 /* Mmodel.m */; };
 		18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */; };
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
@@ -154,63 +155,9 @@
 		3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9B2009BB840029778B /* BaseNetworking.m */; };
 		3C77AF9F2009D7DF0029778B /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9E2009D7DF0029778B /* Networking.m */; };
 		3C80D6A1200776E900D0DEA7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227451FFE0C40005D543F /* VideoToolbox.framework */; };
-		3C80D6A7200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; };
-		3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; };
-		3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */; };
 		3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */; };
 		3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC51493200C96CC00095AE8 /* VideoUserModel.m */; };
-		3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752102008499D00C03C6B /* AliyunAlbumModel.m */; };
-		3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */; };
-		3CC752962008499D00C03C6B /* AliyunImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752152008499D00C03C6B /* AliyunImage.m */; };
-		3CC752972008499D00C03C6B /* AliyunIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752162008499D00C03C6B /* AliyunIConfig.m */; };
-		3CC752982008499D00C03C6B /* AliyunPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7521A2008499D00C03C6B /* AliyunPathManager.m */; };
-		3CC752992008499D00C03C6B /* AliyunLibraryMusicImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7521D2008499D00C03C6B /* AliyunLibraryMusicImport.m */; };
-		3CC7529A2008499D00C03C6B /* AliyunMediaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752202008499D00C03C6B /* AliyunMediaConfig.m */; };
-		3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752242008499D00C03C6B /* AliyunPhotoAssetSelectedView.m */; };
-		3CC7529C2008499D00C03C6B /* AliyunPhotoListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752272008499D00C03C6B /* AliyunPhotoListViewCell.m */; };
-		3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7522A2008499D00C03C6B /* AliyunAlbumTableViewCell.m */; };
-		3CC7529E2008499D00C03C6B /* AliyunAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7522C2008499D00C03C6B /* AliyunAlbumViewController.m */; };
-		3CC7529F2008499D00C03C6B /* AliyunImportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7522E2008499D00C03C6B /* AliyunImportHeaderView.m */; };
-		3CC752A02008499D00C03C6B /* AliyunMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752312008499D00C03C6B /* AliyunMediator.m */; };
-		3CC752A12008499D00C03C6B /* AliyunCompressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752362008499D00C03C6B /* AliyunCompressManager.m */; };
-		3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752392008499D00C03C6B /* AliyunCompositionInfo.m */; };
-		3CC752A32008499D00C03C6B /* AliyunCompositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7523F2008499D00C03C6B /* AliyunCompositionCell.m */; };
-		3CC752A42008499D00C03C6B /* AliyunCompositionPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752402008499D00C03C6B /* AliyunCompositionPickView.m */; };
-		3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752412008499D00C03C6B /* AliyunCompositionPickCell.m */; };
-		3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752422008499D00C03C6B /* AliyunCompositionViewController.m */; };
-		3CC752A72008499E00C03C6B /* AliyunUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752462008499D00C03C6B /* AliyunUploadViewController.m */; };
-		3CC752A82008499E00C03C6B /* AliyunPublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752472008499D00C03C6B /* AliyunPublishService.m */; };
-		3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752482008499D00C03C6B /* AliyunPublishViewController.m */; };
-		3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */; };
-		3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7524B2008499D00C03C6B /* AliyunCoverPickView.m */; };
-		3CC752AC2008499E00C03C6B /* AliyunPublishTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */; };
-		3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7524F2008499D00C03C6B /* AliyunPublishProgressView.m */; };
-		3CC752AE2008499E00C03C6B /* QPSSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752562008499D00C03C6B /* QPSSZipArchive.m */; };
-		3CC752AF2008499E00C03C6B /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752582008499D00C03C6B /* unzip.c */; };
-		3CC752B02008499E00C03C6B /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752592008499D00C03C6B /* zip.c */; };
-		3CC752B12008499E00C03C6B /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7525A2008499D00C03C6B /* ioapi.c */; };
-		3CC752B22008499E00C03C6B /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7525B2008499D00C03C6B /* mztools.c */; };
-		3CC752B32008499E00C03C6B /* QUReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752642008499D00C03C6B /* QUReorderableCollectionViewFlowLayout.m */; };
-		3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752672008499D00C03C6B /* AVAsset+VideoInfo.m */; };
-		3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7526A2008499D00C03C6B /* UIView+Progress.m */; };
-		3CC752B62008499E00C03C6B /* UIButton+EnlargeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */; };
-		3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7526D2008499D00C03C6B /* QUMBProgressHUD.m */; };
-		3CC752B82008499E00C03C6B /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752712008499D00C03C6B /* FMDatabaseQueue.m */; };
-		3CC752B92008499E00C03C6B /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752742008499D00C03C6B /* FMDatabaseAdditions.m */; };
-		3CC752BA2008499E00C03C6B /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752752008499D00C03C6B /* FMDatabase.m */; };
-		3CC752BB2008499E00C03C6B /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752792008499D00C03C6B /* FMDatabasePool.m */; };
-		3CC752BC2008499E00C03C6B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7527A2008499D00C03C6B /* FMResultSet.m */; };
-		3CC752BD2008499E00C03C6B /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7527D2008499D00C03C6B /* JSONValueTransformer.m */; };
-		3CC752BE2008499E00C03C6B /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752802008499D00C03C6B /* JSONKeyMapper.m */; };
-		3CC752BF2008499E00C03C6B /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752832008499D00C03C6B /* JSONModel.m */; };
-		3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752842008499D00C03C6B /* JSONModelError.m */; };
-		3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752872008499D00C03C6B /* JSONModelClassProperty.m */; };
-		3CC752C22008499E00C03C6B /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7528B2008499D00C03C6B /* JSONHTTPClient.m */; };
-		3CC752C32008499E00C03C6B /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7528C2008499D00C03C6B /* JSONAPI.m */; };
-		3CC752C42008499E00C03C6B /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752902008499D00C03C6B /* JSONModel+networking.m */; };
-		3CC752C52008499E00C03C6B /* QUProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752932008499D00C03C6B /* QUProgressView.m */; };
 		3CC752C620084B5900C03C6B /* MLDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */; };
 		3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929781FFCBC3800B6502D /* FSLoopScrollView.m */; };
 		3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293F1FFCA96600B6502D /* phoneLoginViewController.m */; };
@@ -294,6 +241,70 @@
 		E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F661FFB311100096A6E /* MLDetailTableViewCell.m */; };
 		E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6C1FFB573400096A6E /* ItemsView.m */; };
 		E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */; };
+		E287894620219129002A50BE /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788E320219129002A50BE /* AliyunAlbumModel.m */; };
+		E287894720219129002A50BE /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788E420219129002A50BE /* AliyunPhotoLibraryManager.m */; };
+		E287894820219129002A50BE /* AliyunImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788E820219129002A50BE /* AliyunImage.m */; };
+		E287894920219129002A50BE /* AliyunIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788E920219129002A50BE /* AliyunIConfig.m */; };
+		E287894A20219129002A50BE /* AliyunPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788ED20219129002A50BE /* AliyunPathManager.m */; };
+		E287894B20219129002A50BE /* AliyunLibraryMusicImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788F020219129002A50BE /* AliyunLibraryMusicImport.m */; };
+		E287894C20219129002A50BE /* AliyunMediaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788F320219129002A50BE /* AliyunMediaConfig.m */; };
+		E287894D20219129002A50BE /* AliyunPhotoAssetSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788F720219129002A50BE /* AliyunPhotoAssetSelectedView.m */; };
+		E287894E20219129002A50BE /* AliyunPhotoListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788FA20219129002A50BE /* AliyunPhotoListViewCell.m */; };
+		E287894F20219129002A50BE /* AliyunAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788FD20219129002A50BE /* AliyunAlbumTableViewCell.m */; };
+		E287895020219129002A50BE /* AliyunAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28788FF20219129002A50BE /* AliyunAlbumViewController.m */; };
+		E287895120219129002A50BE /* AliyunImportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287890120219129002A50BE /* AliyunImportHeaderView.m */; };
+		E287895220219129002A50BE /* AliyunMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = E287890420219129002A50BE /* AliyunMediator.m */; };
+		E287895320219129002A50BE /* AliyunCompressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E287890920219129002A50BE /* AliyunCompressManager.m */; };
+		E287895420219129002A50BE /* AliyunCompositionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E287890C20219129002A50BE /* AliyunCompositionInfo.m */; };
+		E287895520219129002A50BE /* AliyunCompositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891220219129002A50BE /* AliyunCompositionCell.m */; };
+		E287895620219129002A50BE /* AliyunCompositionPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891320219129002A50BE /* AliyunCompositionPickView.m */; };
+		E287895720219129002A50BE /* AliyunCompositionPickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891420219129002A50BE /* AliyunCompositionPickCell.m */; };
+		E287895820219129002A50BE /* AliyunCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891520219129002A50BE /* AliyunCompositionViewController.m */; };
+		E287895920219129002A50BE /* AliyunCoverPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891820219129002A50BE /* AliyunCoverPickViewController.m */; };
+		E287895A20219129002A50BE /* AliyunCoverPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891A20219129002A50BE /* AliyunCoverPickView.m */; };
+		E287895B20219129002A50BE /* AliyunPublishTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891C20219129002A50BE /* AliyunPublishTopView.m */; };
+		E287895C20219129002A50BE /* AliyunPublishProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287891E20219129002A50BE /* AliyunPublishProgressView.m */; };
+		E287895D20219129002A50BE /* FxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E287892520219129002A50BE /* FxTableViewCell.xib */; };
+		E287895E20219129002A50BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E287892620219129002A50BE /* ViewController.m */; };
+		E287895F20219129002A50BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E287892820219129002A50BE /* Main.storyboard */; };
+		E287896020219129002A50BE /* FxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E287892920219129002A50BE /* FxTableViewCell.m */; };
+		E287896120219129002A50BE /* GenerationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287892C20219129002A50BE /* GenerationView.m */; };
+		E287896220219129002A50BE /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = E287892F20219129002A50BE /* QBImagePicker.strings */; };
+		E287896320219129002A50BE /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287893320219129002A50BE /* QBVideoIconView.m */; };
+		E287896420219129002A50BE /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287893420219129002A50BE /* QBVideoIndicatorView.m */; };
+		E287896520219129002A50BE /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E287893920219129002A50BE /* QBAlbumCell.m */; };
+		E287896620219129002A50BE /* QBImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E287893A20219129002A50BE /* QBImagePicker.storyboard */; };
+		E287896720219129002A50BE /* QBAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E287893C20219129002A50BE /* QBAlbumsViewController.m */; };
+		E287896820219129002A50BE /* QBAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E287893E20219129002A50BE /* QBAssetsViewController.m */; };
+		E287896920219129002A50BE /* QBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E287893F20219129002A50BE /* QBImagePickerController.m */; };
+		E287896A20219129002A50BE /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287894020219129002A50BE /* QBCheckmarkView.m */; };
+		E287896B20219129002A50BE /* QBSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E287894220219129002A50BE /* QBSlomoIconView.m */; };
+		E287896C20219129002A50BE /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E287894320219129002A50BE /* QBAssetCell.m */; };
+		E287896D20219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */ = {isa = PBXBuildFile; fileRef = E287894520219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */; };
+		E28789AF20219282002A50BE /* QPSSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = E287897120219282002A50BE /* QPSSZipArchive.m */; };
+		E28789B020219282002A50BE /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = E287897320219282002A50BE /* unzip.c */; };
+		E28789B120219282002A50BE /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = E287897420219282002A50BE /* zip.c */; };
+		E28789B220219282002A50BE /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = E287897520219282002A50BE /* ioapi.c */; };
+		E28789B320219282002A50BE /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = E287897620219282002A50BE /* mztools.c */; };
+		E28789B420219282002A50BE /* QUReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E287897F20219282002A50BE /* QUReorderableCollectionViewFlowLayout.m */; };
+		E28789B520219282002A50BE /* AVAsset+VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E287898220219282002A50BE /* AVAsset+VideoInfo.m */; };
+		E28789B620219282002A50BE /* UIView+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = E287898520219282002A50BE /* UIView+Progress.m */; };
+		E28789B720219282002A50BE /* UIButton+EnlargeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = E287898620219282002A50BE /* UIButton+EnlargeArea.m */; };
+		E28789B820219282002A50BE /* QUMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E287898820219282002A50BE /* QUMBProgressHUD.m */; };
+		E28789B920219282002A50BE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E287898C20219282002A50BE /* FMDatabaseQueue.m */; };
+		E28789BA20219282002A50BE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E287898F20219282002A50BE /* FMDatabaseAdditions.m */; };
+		E28789BB20219282002A50BE /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899020219282002A50BE /* FMDatabase.m */; };
+		E28789BC20219282002A50BE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899420219282002A50BE /* FMDatabasePool.m */; };
+		E28789BD20219282002A50BE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899520219282002A50BE /* FMResultSet.m */; };
+		E28789BE20219282002A50BE /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899820219282002A50BE /* JSONValueTransformer.m */; };
+		E28789BF20219282002A50BE /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899B20219282002A50BE /* JSONKeyMapper.m */; };
+		E28789C020219282002A50BE /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899E20219282002A50BE /* JSONModel.m */; };
+		E28789C120219282002A50BE /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = E287899F20219282002A50BE /* JSONModelError.m */; };
+		E28789C220219282002A50BE /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E28789A220219282002A50BE /* JSONModelClassProperty.m */; };
+		E28789C320219282002A50BE /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E28789A620219282002A50BE /* JSONHTTPClient.m */; };
+		E28789C420219282002A50BE /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E28789A720219282002A50BE /* JSONAPI.m */; };
+		E28789C520219282002A50BE /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = E28789AB20219282002A50BE /* JSONModel+networking.m */; };
+		E28789C620219282002A50BE /* QUProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E28789AE20219282002A50BE /* QUProgressView.m */; };
 		E28F2A3B200D9D470012EC9F /* LoveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28F2A3A200D9D470012EC9F /* LoveViewController.m */; };
 		E28F2A3E200D9EDC0012EC9F /* LoveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E28F2A3D200D9EDC0012EC9F /* LoveTableViewCell.m */; };
 		E2AB36F0200C9E0800458C41 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB36EF200C9E0800458C41 /* CommentTableViewCell.m */; };
@@ -303,8 +314,6 @@
 		E2AB3704200CCF3B00458C41 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E2AB3700200CCF3B00458C41 /* README.md */; };
 		E2AB3715200CD45500458C41 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB3714200CD45500458C41 /* BaseModel.m */; };
 		E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB3717200CD49200458C41 /* WomanModel.m */; };
-		E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B03540201EAFAA00FB0229 /* PlayViewController.xib */; };
-		E2B03544201EAFAA00FB0229 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B03541201EAFAA00FB0229 /* PlayViewController.m */; };
 		E2B0354A201EB21F00FB0229 /* VideoPeoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B03549201EB21F00FB0229 /* VideoPeoModel.m */; };
 		E2B0354D201EFFA000FB0229 /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B0354C201EFFA000FB0229 /* PlayCollectionViewCell.m */; };
 		E2B03550201F134600FB0229 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B0354F201F134600FB0229 /* VideoPlayViewController.m */; };
@@ -328,13 +337,8 @@
 		E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF21FFDD69A00597326 /* UIImage+Color.m */; };
 		E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF41FFDD69A00597326 /* UIImage+Common.m */; };
 		E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF51FFDD69A00597326 /* UIColor+expanded.m */; };
-		E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */; };
 		E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9D820008075006E0B2A /* UIColor+Hex.m */; };
 		E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9D920008075006E0B2A /* UIView+Frame.m */; };
-		E2C6B9E520008075006E0B2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9DA20008075006E0B2A /* ViewController.m */; };
-		E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C6B9DC20008075006E0B2A /* Main.storyboard */; };
-		E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */ = {isa = PBXBuildFile; fileRef = E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */; };
-		E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9E020008075006E0B2A /* FxTableViewCell.m */; };
 		E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9E920008169006E0B2A /* AVFoundation.framework */; };
 		E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9EB2000816F006E0B2A /* AssetsLibrary.framework */; };
 		E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9ED20008178006E0B2A /* MobileCoreServices.framework */; };
@@ -342,19 +346,9 @@
 		E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */; };
 		E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F320008194006E0B2A /* CoreMotion.framework */; };
 		E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F52000819C006E0B2A /* Accelerate.framework */; };
-		E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2D194E520033D0400EAEE57 /* QBImagePicker.strings */; };
-		E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */; };
-		E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */; };
-		E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */; };
-		E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */; };
-		E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F520033D0400EAEE57 /* QBImagePickerController.m */; };
-		E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */; };
-		E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */; };
-		E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F920033D0400EAEE57 /* QBAssetCell.m */; };
 		E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */; };
 		E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */; };
 		E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */; };
-		E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D1952F20035DD300EAEE57 /* GenerationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,18 +369,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3C10E3182007080800F46F00 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */,
-				3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3C723CEB200622040024F2BC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -570,6 +552,8 @@
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
 		187E2EED20075CFD0014A2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1881CE0F20219A7D001E07B3 /* Mmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mmodel.h; sourceTree = "<group>"; };
+		1881CE1020219A7D001E07B3 /* Mmodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mmodel.m; sourceTree = "<group>"; };
 		18F335C62001D8A600AE7CCD /* IQActionSheetPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetPickerView.h; sourceTree = "<group>"; };
 		18F335C72001D8A600AE7CCD /* IQActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetViewController.h; sourceTree = "<group>"; };
 		18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetPickerView.m; sourceTree = "<group>"; };
@@ -633,117 +617,11 @@
 		3C77AF9B2009BB840029778B /* BaseNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNetworking.m; sourceTree = "<group>"; };
 		3C77AF9D2009D7DF0029778B /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		3C77AF9E2009D7DF0029778B /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
-		3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
-		3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		3CA5FCD3200EFE7E000FCCD4 /* SetMoneyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetMoneyView.h; sourceTree = "<group>"; };
 		3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetMoneyView.m; sourceTree = "<group>"; };
 		3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetMoneyView.xib; sourceTree = "<group>"; };
 		3CC51492200C96CC00095AE8 /* VideoUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUserModel.h; sourceTree = "<group>"; };
 		3CC51493200C96CC00095AE8 /* VideoUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUserModel.m; sourceTree = "<group>"; };
-		3CC752102008499D00C03C6B /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
-		3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoLibraryManager.m; sourceTree = "<group>"; };
-		3CC752122008499D00C03C6B /* AliyunAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumModel.h; sourceTree = "<group>"; };
-		3CC752132008499D00C03C6B /* AliyunPhotoLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoLibraryManager.h; sourceTree = "<group>"; };
-		3CC752152008499D00C03C6B /* AliyunImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunImage.m; sourceTree = "<group>"; };
-		3CC752162008499D00C03C6B /* AliyunIConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunIConfig.m; sourceTree = "<group>"; };
-		3CC752172008499D00C03C6B /* AliyunImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunImage.h; sourceTree = "<group>"; };
-		3CC752182008499D00C03C6B /* AliyunIConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunIConfig.h; sourceTree = "<group>"; };
-		3CC7521A2008499D00C03C6B /* AliyunPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPathManager.m; sourceTree = "<group>"; };
-		3CC7521B2008499D00C03C6B /* AliyunPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPathManager.h; sourceTree = "<group>"; };
-		3CC7521D2008499D00C03C6B /* AliyunLibraryMusicImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunLibraryMusicImport.m; sourceTree = "<group>"; };
-		3CC7521E2008499D00C03C6B /* AliyunLibraryMusicImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunLibraryMusicImport.h; sourceTree = "<group>"; };
-		3CC752202008499D00C03C6B /* AliyunMediaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunMediaConfig.m; sourceTree = "<group>"; };
-		3CC752212008499D00C03C6B /* AliyunMediaConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediaConfig.h; sourceTree = "<group>"; };
-		3CC752242008499D00C03C6B /* AliyunPhotoAssetSelectedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoAssetSelectedView.m; sourceTree = "<group>"; };
-		3CC752252008499D00C03C6B /* AliyunPhotoAssetSelectedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoAssetSelectedView.h; sourceTree = "<group>"; };
-		3CC752262008499D00C03C6B /* AliyunPhotoListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoListViewCell.h; sourceTree = "<group>"; };
-		3CC752272008499D00C03C6B /* AliyunPhotoListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoListViewCell.m; sourceTree = "<group>"; };
-		3CC752292008499D00C03C6B /* AliyunAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumViewController.h; sourceTree = "<group>"; };
-		3CC7522A2008499D00C03C6B /* AliyunAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumTableViewCell.m; sourceTree = "<group>"; };
-		3CC7522B2008499D00C03C6B /* AliyunAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumTableViewCell.h; sourceTree = "<group>"; };
-		3CC7522C2008499D00C03C6B /* AliyunAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumViewController.m; sourceTree = "<group>"; };
-		3CC7522E2008499D00C03C6B /* AliyunImportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunImportHeaderView.m; sourceTree = "<group>"; };
-		3CC7522F2008499D00C03C6B /* AliyunImportHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunImportHeaderView.h; sourceTree = "<group>"; };
-		3CC752312008499D00C03C6B /* AliyunMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunMediator.m; sourceTree = "<group>"; };
-		3CC752322008499D00C03C6B /* AliyunMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediator.h; sourceTree = "<group>"; };
-		3CC752352008499D00C03C6B /* AliyunCompressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompressManager.h; sourceTree = "<group>"; };
-		3CC752362008499D00C03C6B /* AliyunCompressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompressManager.m; sourceTree = "<group>"; };
-		3CC752372008499D00C03C6B /* AliyunCompositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionViewController.h; sourceTree = "<group>"; };
-		3CC752392008499D00C03C6B /* AliyunCompositionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionInfo.m; sourceTree = "<group>"; };
-		3CC7523A2008499D00C03C6B /* AliyunCompositionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionInfo.h; sourceTree = "<group>"; };
-		3CC7523C2008499D00C03C6B /* AliyunCompositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionCell.h; sourceTree = "<group>"; };
-		3CC7523D2008499D00C03C6B /* AliyunCompositionPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionPickView.h; sourceTree = "<group>"; };
-		3CC7523E2008499D00C03C6B /* AliyunCompositionPickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionPickCell.h; sourceTree = "<group>"; };
-		3CC7523F2008499D00C03C6B /* AliyunCompositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionCell.m; sourceTree = "<group>"; };
-		3CC752402008499D00C03C6B /* AliyunCompositionPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionPickView.m; sourceTree = "<group>"; };
-		3CC752412008499D00C03C6B /* AliyunCompositionPickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionPickCell.m; sourceTree = "<group>"; };
-		3CC752422008499D00C03C6B /* AliyunCompositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionViewController.m; sourceTree = "<group>"; };
-		3CC752442008499D00C03C6B /* AliyunPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishViewController.h; sourceTree = "<group>"; };
-		3CC752452008499D00C03C6B /* AliyunCoverPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickViewController.h; sourceTree = "<group>"; };
-		3CC752462008499D00C03C6B /* AliyunUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunUploadViewController.m; sourceTree = "<group>"; };
-		3CC752472008499D00C03C6B /* AliyunPublishService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishService.m; sourceTree = "<group>"; };
-		3CC752482008499D00C03C6B /* AliyunPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishViewController.m; sourceTree = "<group>"; };
-		3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCoverPickViewController.m; sourceTree = "<group>"; };
-		3CC7524B2008499D00C03C6B /* AliyunCoverPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCoverPickView.m; sourceTree = "<group>"; };
-		3CC7524C2008499D00C03C6B /* AliyunPublishProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishProgressView.h; sourceTree = "<group>"; };
-		3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishTopView.m; sourceTree = "<group>"; };
-		3CC7524E2008499D00C03C6B /* AliyunCoverPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickView.h; sourceTree = "<group>"; };
-		3CC7524F2008499D00C03C6B /* AliyunPublishProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishProgressView.m; sourceTree = "<group>"; };
-		3CC752502008499D00C03C6B /* AliyunPublishTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishTopView.h; sourceTree = "<group>"; };
-		3CC752512008499D00C03C6B /* AliyunUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunUploadViewController.h; sourceTree = "<group>"; };
-		3CC752522008499D00C03C6B /* AliyunPublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishService.h; sourceTree = "<group>"; };
-		3CC752542008499D00C03C6B /* UIButton+EnlargeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeArea.h"; sourceTree = "<group>"; };
-		3CC752562008499D00C03C6B /* QPSSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPSSZipArchive.m; sourceTree = "<group>"; };
-		3CC752582008499D00C03C6B /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		3CC752592008499D00C03C6B /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		3CC7525A2008499D00C03C6B /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		3CC7525B2008499D00C03C6B /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		3CC7525C2008499D00C03C6B /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		3CC7525D2008499D00C03C6B /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		3CC7525E2008499D00C03C6B /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		3CC7525F2008499D00C03C6B /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		3CC752602008499D00C03C6B /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		3CC752612008499D00C03C6B /* QPSSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPSSZipArchive.h; sourceTree = "<group>"; };
-		3CC752632008499D00C03C6B /* QUReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		3CC752642008499D00C03C6B /* QUReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		3CC752662008499D00C03C6B /* AVAsset+VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+VideoInfo.h"; sourceTree = "<group>"; };
-		3CC752672008499D00C03C6B /* AVAsset+VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+VideoInfo.m"; sourceTree = "<group>"; };
-		3CC752692008499D00C03C6B /* UIView+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Progress.h"; sourceTree = "<group>"; };
-		3CC7526A2008499D00C03C6B /* UIView+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Progress.m"; sourceTree = "<group>"; };
-		3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeArea.m"; sourceTree = "<group>"; };
-		3CC7526D2008499D00C03C6B /* QUMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUMBProgressHUD.m; sourceTree = "<group>"; };
-		3CC7526E2008499D00C03C6B /* QUMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUMBProgressHUD.h; sourceTree = "<group>"; };
-		3CC752702008499D00C03C6B /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		3CC752712008499D00C03C6B /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		3CC752722008499D00C03C6B /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		3CC752732008499D00C03C6B /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		3CC752742008499D00C03C6B /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		3CC752752008499D00C03C6B /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		3CC752762008499D00C03C6B /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		3CC752772008499D00C03C6B /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		3CC752782008499D00C03C6B /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		3CC752792008499D00C03C6B /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		3CC7527A2008499D00C03C6B /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		3CC7527D2008499D00C03C6B /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
-		3CC7527E2008499D00C03C6B /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
-		3CC7527F2008499D00C03C6B /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
-		3CC752802008499D00C03C6B /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
-		3CC752812008499D00C03C6B /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		3CC752832008499D00C03C6B /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
-		3CC752842008499D00C03C6B /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
-		3CC752852008499D00C03C6B /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
-		3CC752862008499D00C03C6B /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
-		3CC752872008499D00C03C6B /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
-		3CC752882008499D00C03C6B /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
-		3CC752892008499D00C03C6B /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
-		3CC7528B2008499D00C03C6B /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
-		3CC7528C2008499D00C03C6B /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
-		3CC7528D2008499D00C03C6B /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
-		3CC7528E2008499D00C03C6B /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
-		3CC7528F2008499D00C03C6B /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
-		3CC752902008499D00C03C6B /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
-		3CC752922008499D00C03C6B /* QUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUProgressView.h; sourceTree = "<group>"; };
-		3CC752932008499D00C03C6B /* QUProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUProgressView.m; sourceTree = "<group>"; };
 		3CC753132008828700C03C6B /* RCCallKitExtensionModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallKitExtensionModule.m; sourceTree = "<group>"; };
 		3CC753142008828700C03C6B /* RCCallKitExtensionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallKitExtensionModule.h; sourceTree = "<group>"; };
 		3CC753162008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCVideoMultiCallUserCollectionLayout.h; sourceTree = "<group>"; };
@@ -874,8 +752,6 @@
 		E259297B1FFCBC3800B6502D /* NSTimer+FSLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+FSLoop.h"; sourceTree = "<group>"; };
 		E2620F8A20045D480092BA11 /* PublicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicManager.h; sourceTree = "<group>"; };
 		E2620F8B20045D480092BA11 /* PublicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicManager.m; sourceTree = "<group>"; };
-		E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/AliyunVideoSDKPro.framework"; sourceTree = "<group>"; };
-		E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E2659C0A200B473700AA63CC /* DiscoverMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DiscoverMananger.h; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.h"; sourceTree = SOURCE_ROOT; };
 		E2659C0B200B473700AA63CC /* DiscoverMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DiscoverMananger.m; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.m"; sourceTree = SOURCE_ROOT; };
 		E26CC8432010E1C200ADBA96 /* LogCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogCategory.h; sourceTree = "<group>"; };
@@ -908,6 +784,136 @@
 		E27E9F6C1FFB573400096A6E /* ItemsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsView.m; sourceTree = "<group>"; };
 		E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLSearchViewController.h; sourceTree = "<group>"; };
 		E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSearchViewController.m; sourceTree = "<group>"; };
+		E28788E320219129002A50BE /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
+		E28788E420219129002A50BE /* AliyunPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoLibraryManager.m; sourceTree = "<group>"; };
+		E28788E520219129002A50BE /* AliyunAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumModel.h; sourceTree = "<group>"; };
+		E28788E620219129002A50BE /* AliyunPhotoLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoLibraryManager.h; sourceTree = "<group>"; };
+		E28788E820219129002A50BE /* AliyunImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunImage.m; sourceTree = "<group>"; };
+		E28788E920219129002A50BE /* AliyunIConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunIConfig.m; sourceTree = "<group>"; };
+		E28788EA20219129002A50BE /* AliyunImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunImage.h; sourceTree = "<group>"; };
+		E28788EB20219129002A50BE /* AliyunIConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunIConfig.h; sourceTree = "<group>"; };
+		E28788ED20219129002A50BE /* AliyunPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPathManager.m; sourceTree = "<group>"; };
+		E28788EE20219129002A50BE /* AliyunPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPathManager.h; sourceTree = "<group>"; };
+		E28788F020219129002A50BE /* AliyunLibraryMusicImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunLibraryMusicImport.m; sourceTree = "<group>"; };
+		E28788F120219129002A50BE /* AliyunLibraryMusicImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunLibraryMusicImport.h; sourceTree = "<group>"; };
+		E28788F320219129002A50BE /* AliyunMediaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunMediaConfig.m; sourceTree = "<group>"; };
+		E28788F420219129002A50BE /* AliyunMediaConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediaConfig.h; sourceTree = "<group>"; };
+		E28788F720219129002A50BE /* AliyunPhotoAssetSelectedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoAssetSelectedView.m; sourceTree = "<group>"; };
+		E28788F820219129002A50BE /* AliyunPhotoAssetSelectedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoAssetSelectedView.h; sourceTree = "<group>"; };
+		E28788F920219129002A50BE /* AliyunPhotoListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoListViewCell.h; sourceTree = "<group>"; };
+		E28788FA20219129002A50BE /* AliyunPhotoListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoListViewCell.m; sourceTree = "<group>"; };
+		E28788FC20219129002A50BE /* AliyunAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumViewController.h; sourceTree = "<group>"; };
+		E28788FD20219129002A50BE /* AliyunAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumTableViewCell.m; sourceTree = "<group>"; };
+		E28788FE20219129002A50BE /* AliyunAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumTableViewCell.h; sourceTree = "<group>"; };
+		E28788FF20219129002A50BE /* AliyunAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumViewController.m; sourceTree = "<group>"; };
+		E287890120219129002A50BE /* AliyunImportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunImportHeaderView.m; sourceTree = "<group>"; };
+		E287890220219129002A50BE /* AliyunImportHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunImportHeaderView.h; sourceTree = "<group>"; };
+		E287890420219129002A50BE /* AliyunMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunMediator.m; sourceTree = "<group>"; };
+		E287890520219129002A50BE /* AliyunMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediator.h; sourceTree = "<group>"; };
+		E287890820219129002A50BE /* AliyunCompressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompressManager.h; sourceTree = "<group>"; };
+		E287890920219129002A50BE /* AliyunCompressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompressManager.m; sourceTree = "<group>"; };
+		E287890A20219129002A50BE /* AliyunCompositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionViewController.h; sourceTree = "<group>"; };
+		E287890C20219129002A50BE /* AliyunCompositionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionInfo.m; sourceTree = "<group>"; };
+		E287890D20219129002A50BE /* AliyunCompositionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionInfo.h; sourceTree = "<group>"; };
+		E287890F20219129002A50BE /* AliyunCompositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionCell.h; sourceTree = "<group>"; };
+		E287891020219129002A50BE /* AliyunCompositionPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionPickView.h; sourceTree = "<group>"; };
+		E287891120219129002A50BE /* AliyunCompositionPickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionPickCell.h; sourceTree = "<group>"; };
+		E287891220219129002A50BE /* AliyunCompositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionCell.m; sourceTree = "<group>"; };
+		E287891320219129002A50BE /* AliyunCompositionPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionPickView.m; sourceTree = "<group>"; };
+		E287891420219129002A50BE /* AliyunCompositionPickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionPickCell.m; sourceTree = "<group>"; };
+		E287891520219129002A50BE /* AliyunCompositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionViewController.m; sourceTree = "<group>"; };
+		E287891720219129002A50BE /* AliyunCoverPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickViewController.h; sourceTree = "<group>"; };
+		E287891820219129002A50BE /* AliyunCoverPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCoverPickViewController.m; sourceTree = "<group>"; };
+		E287891A20219129002A50BE /* AliyunCoverPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCoverPickView.m; sourceTree = "<group>"; };
+		E287891B20219129002A50BE /* AliyunPublishProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishProgressView.h; sourceTree = "<group>"; };
+		E287891C20219129002A50BE /* AliyunPublishTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishTopView.m; sourceTree = "<group>"; };
+		E287891D20219129002A50BE /* AliyunCoverPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickView.h; sourceTree = "<group>"; };
+		E287891E20219129002A50BE /* AliyunPublishProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishProgressView.m; sourceTree = "<group>"; };
+		E287891F20219129002A50BE /* AliyunPublishTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishTopView.h; sourceTree = "<group>"; };
+		E287892020219129002A50BE /* AliyunUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunUploadViewController.h; sourceTree = "<group>"; };
+		E287892120219129002A50BE /* AliyunPublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishService.h; sourceTree = "<group>"; };
+		E287892520219129002A50BE /* FxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FxTableViewCell.xib; sourceTree = "<group>"; };
+		E287892620219129002A50BE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E287892720219129002A50BE /* FxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FxTableViewCell.h; sourceTree = "<group>"; };
+		E287892820219129002A50BE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E287892920219129002A50BE /* FxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxTableViewCell.m; sourceTree = "<group>"; };
+		E287892A20219129002A50BE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E287892C20219129002A50BE /* GenerationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerationView.m; sourceTree = "<group>"; };
+		E287892E20219129002A50BE /* QBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerController.h; sourceTree = "<group>"; };
+		E287893020219129002A50BE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/QBImagePicker.strings"; sourceTree = "<group>"; };
+		E287893120219129002A50BE /* QBAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetsViewController.h; sourceTree = "<group>"; };
+		E287893220219129002A50BE /* QBAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumsViewController.h; sourceTree = "<group>"; };
+		E287893320219129002A50BE /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
+		E287893420219129002A50BE /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
+		E287893520219129002A50BE /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
+		E287893620219129002A50BE /* QBImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePicker.h; sourceTree = "<group>"; };
+		E287893720219129002A50BE /* QBAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCell.h; sourceTree = "<group>"; };
+		E287893820219129002A50BE /* QBSlomoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBSlomoIconView.h; sourceTree = "<group>"; };
+		E287893920219129002A50BE /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
+		E287893A20219129002A50BE /* QBImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QBImagePicker.storyboard; sourceTree = "<group>"; };
+		E287893B20219129002A50BE /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
+		E287893C20219129002A50BE /* QBAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumsViewController.m; sourceTree = "<group>"; };
+		E287893D20219129002A50BE /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
+		E287893E20219129002A50BE /* QBAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetsViewController.m; sourceTree = "<group>"; };
+		E287893F20219129002A50BE /* QBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerController.m; sourceTree = "<group>"; };
+		E287894020219129002A50BE /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
+		E287894120219129002A50BE /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
+		E287894220219129002A50BE /* QBSlomoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBSlomoIconView.m; sourceTree = "<group>"; };
+		E287894320219129002A50BE /* QBAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetCell.m; sourceTree = "<group>"; };
+		E287894420219129002A50BE /* GenerationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerationView.h; sourceTree = "<group>"; };
+		E287894520219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx"; sourceTree = "<group>"; };
+		E287896F20219282002A50BE /* UIButton+EnlargeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeArea.h"; sourceTree = "<group>"; };
+		E287897120219282002A50BE /* QPSSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPSSZipArchive.m; sourceTree = "<group>"; };
+		E287897320219282002A50BE /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		E287897420219282002A50BE /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		E287897520219282002A50BE /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		E287897620219282002A50BE /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		E287897720219282002A50BE /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		E287897820219282002A50BE /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		E287897920219282002A50BE /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		E287897A20219282002A50BE /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		E287897B20219282002A50BE /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		E287897C20219282002A50BE /* QPSSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPSSZipArchive.h; sourceTree = "<group>"; };
+		E287897E20219282002A50BE /* QUReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		E287897F20219282002A50BE /* QUReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		E287898120219282002A50BE /* AVAsset+VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+VideoInfo.h"; sourceTree = "<group>"; };
+		E287898220219282002A50BE /* AVAsset+VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+VideoInfo.m"; sourceTree = "<group>"; };
+		E287898420219282002A50BE /* UIView+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Progress.h"; sourceTree = "<group>"; };
+		E287898520219282002A50BE /* UIView+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Progress.m"; sourceTree = "<group>"; };
+		E287898620219282002A50BE /* UIButton+EnlargeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeArea.m"; sourceTree = "<group>"; };
+		E287898820219282002A50BE /* QUMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUMBProgressHUD.m; sourceTree = "<group>"; };
+		E287898920219282002A50BE /* QUMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUMBProgressHUD.h; sourceTree = "<group>"; };
+		E287898B20219282002A50BE /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		E287898C20219282002A50BE /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		E287898D20219282002A50BE /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		E287898E20219282002A50BE /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		E287898F20219282002A50BE /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		E287899020219282002A50BE /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		E287899120219282002A50BE /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		E287899220219282002A50BE /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		E287899320219282002A50BE /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E287899420219282002A50BE /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		E287899520219282002A50BE /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		E287899820219282002A50BE /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		E287899920219282002A50BE /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		E287899A20219282002A50BE /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		E287899B20219282002A50BE /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		E287899C20219282002A50BE /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		E287899E20219282002A50BE /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		E287899F20219282002A50BE /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		E28789A020219282002A50BE /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		E28789A120219282002A50BE /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		E28789A220219282002A50BE /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		E28789A320219282002A50BE /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		E28789A420219282002A50BE /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		E28789A620219282002A50BE /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		E28789A720219282002A50BE /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		E28789A820219282002A50BE /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		E28789A920219282002A50BE /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		E28789AA20219282002A50BE /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		E28789AB20219282002A50BE /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		E28789AD20219282002A50BE /* QUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUProgressView.h; sourceTree = "<group>"; };
+		E28789AE20219282002A50BE /* QUProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUProgressView.m; sourceTree = "<group>"; };
 		E28F2A39200D9D470012EC9F /* LoveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoveViewController.h; sourceTree = "<group>"; };
 		E28F2A3A200D9D470012EC9F /* LoveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveViewController.m; sourceTree = "<group>"; };
 		E28F2A3C200D9EDC0012EC9F /* LoveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoveTableViewCell.h; sourceTree = "<group>"; };
@@ -925,9 +931,6 @@
 		E2AB3714200CD45500458C41 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		E2AB3716200CD49200458C41 /* WomanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WomanModel.h; sourceTree = "<group>"; };
 		E2AB3717200CD49200458C41 /* WomanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WomanModel.m; sourceTree = "<group>"; };
-		E2B03540201EAFAA00FB0229 /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
-		E2B03541201EAFAA00FB0229 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
-		E2B03542201EAFAA00FB0229 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		E2B03548201EB21F00FB0229 /* VideoPeoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPeoModel.h; sourceTree = "<group>"; };
 		E2B03549201EB21F00FB0229 /* VideoPeoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPeoModel.m; sourceTree = "<group>"; };
 		E2B0354B201EFFA000FB0229 /* PlayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayCollectionViewCell.h; sourceTree = "<group>"; };
@@ -972,17 +975,10 @@
 		E2B77BF31FFDD69A00597326 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		E2B77BF41FFDD69A00597326 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		E2B77BF51FFDD69A00597326 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
-		E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FxTableViewCell.xib; sourceTree = "<group>"; };
 		E2C6B9D820008075006E0B2A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		E2C6B9D920008075006E0B2A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		E2C6B9DA20008075006E0B2A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FxTableViewCell.h; sourceTree = "<group>"; };
-		E2C6B9DC20008075006E0B2A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx"; sourceTree = "<group>"; };
 		E2C6B9DF20008075006E0B2A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		E2C6B9E020008075006E0B2A /* FxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxTableViewCell.m; sourceTree = "<group>"; };
-		E2C6B9E120008075006E0B2A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E2C6B9E920008169006E0B2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E2C6B9EB2000816F006E0B2A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E2C6B9ED20008178006E0B2A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -992,27 +988,6 @@
 		E2C6B9F52000819C006E0B2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
 		E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
-		E2D194E420033D0400EAEE57 /* QBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerController.h; sourceTree = "<group>"; };
-		E2D194E620033D0400EAEE57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/QBImagePicker.strings"; sourceTree = "<group>"; };
-		E2D194E720033D0400EAEE57 /* QBAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetsViewController.h; sourceTree = "<group>"; };
-		E2D194E820033D0400EAEE57 /* QBAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumsViewController.h; sourceTree = "<group>"; };
-		E2D194E920033D0400EAEE57 /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
-		E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
-		E2D194EB20033D0400EAEE57 /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
-		E2D194EC20033D0400EAEE57 /* QBImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePicker.h; sourceTree = "<group>"; };
-		E2D194ED20033D0400EAEE57 /* QBAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCell.h; sourceTree = "<group>"; };
-		E2D194EE20033D0400EAEE57 /* QBSlomoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBSlomoIconView.h; sourceTree = "<group>"; };
-		E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
-		E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QBImagePicker.storyboard; sourceTree = "<group>"; };
-		E2D194F120033D0400EAEE57 /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
-		E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumsViewController.m; sourceTree = "<group>"; };
-		E2D194F320033D0400EAEE57 /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
-		E2D194F420033D0400EAEE57 /* QBAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetsViewController.m; sourceTree = "<group>"; };
-		E2D194F520033D0400EAEE57 /* QBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerController.m; sourceTree = "<group>"; };
-		E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
-		E2D194F720033D0400EAEE57 /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
-		E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBSlomoIconView.m; sourceTree = "<group>"; };
-		E2D194F920033D0400EAEE57 /* QBAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetCell.m; sourceTree = "<group>"; };
 		E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkDeps.a; sourceTree = "<group>"; };
 		E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
 		E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkCore.a; sourceTree = "<group>"; };
@@ -1047,8 +1022,6 @@
 		E2D1952C2003510B00EAEE57 /* NvsAssetPackageParticleDescParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAssetPackageParticleDescParser.h; sourceTree = "<group>"; };
 		E2D1952D2003510B00EAEE57 /* NvsParticleSystemContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsParticleSystemContext.h; sourceTree = "<group>"; };
 		E2D1952E2003510B00EAEE57 /* NvsVideoFrameReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFrameReceiver.h; sourceTree = "<group>"; };
-		E2D1952F20035DD300EAEE57 /* GenerationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerationView.m; sourceTree = "<group>"; };
-		E2D1953020035DD300EAEE57 /* GenerationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerationView.h; sourceTree = "<group>"; };
 		EF51C1A8DE887E99131B1354 /* Pods-MiLiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1090,8 +1063,6 @@
 				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
 				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
-				3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */,
-				3C80D6A7200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Frameworks */,
 				18567F47200207C7003F1985 /* RongIMLib.framework in Frameworks */,
 				3C024D6520202255007F40F0 /* libnama.a in Frameworks */,
 				18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */,
@@ -1192,6 +1163,8 @@
 			children = (
 				1846CE0C200EE3D6000BF772 /* CallListModel.h */,
 				1846CE0D200EE3D6000BF772 /* CallListModel.m */,
+				1881CE0F20219A7D001E07B3 /* Mmodel.h */,
+				1881CE1020219A7D001E07B3 /* Mmodel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1270,8 +1243,8 @@
 				185820462009AC960020C232 /* MyQianBaoTableViewCell.h */,
 				185820472009AC960020C232 /* MyQianBaoTableViewCell.m */,
 				185820442009AC960020C232 /* MyQianBaoTableViewCell.xib */,
-				185820482009AC970020C232 /* CardCollectionViewCell.m */,
 				185820492009AC970020C232 /* CardCollectionViewCell.h */,
+				185820482009AC970020C232 /* CardCollectionViewCell.m */,
 				185820452009AC960020C232 /* CardCollectionViewCell.xib */,
 				182850312018AA180040F845 /* zhifuTableViewCell.h */,
 				182850322018AA180040F845 /* zhifuTableViewCell.m */,
@@ -1446,8 +1419,6 @@
 			children = (
 				1870EB442019ADDE000776EE /* UserNotifications.framework */,
 				3C6458AE200DFC1600E1721C /* CoreText.framework */,
-				E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */,
-				E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */,
 				18567F7320020BB7003F1985 /* SafariServices.framework */,
 				18567F7120020BA4003F1985 /* UIKit.framework */,
 				18567F6F20020B9B003F1985 /* SystemConfiguration.framework */,
@@ -1603,357 +1574,6 @@
 				3C77AF9E2009D7DF0029778B /* Networking.m */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		3CC7520D2008499D00C03C6B /* 阿里云 */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7520E2008499D00C03C6B /* Tools */,
-				3CC752332008499D00C03C6B /* Composition */,
-				3CC752432008499D00C03C6B /* Publish */,
-				3CC752532008499D00C03C6B /* Vendor */,
-			);
-			path = "阿里云";
-			sourceTree = "<group>";
-		};
-		3CC7520E2008499D00C03C6B /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7520F2008499D00C03C6B /* PhotoLibrary */,
-				3CC752142008499D00C03C6B /* UIConfig */,
-				3CC752192008499D00C03C6B /* PathManager */,
-				3CC7521C2008499D00C03C6B /* MusicImport */,
-				3CC7521F2008499D00C03C6B /* MediaConfig */,
-				3CC752222008499D00C03C6B /* Import */,
-				3CC752302008499D00C03C6B /* Mediator */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		3CC7520F2008499D00C03C6B /* PhotoLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752102008499D00C03C6B /* AliyunAlbumModel.m */,
-				3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */,
-				3CC752122008499D00C03C6B /* AliyunAlbumModel.h */,
-				3CC752132008499D00C03C6B /* AliyunPhotoLibraryManager.h */,
-			);
-			path = PhotoLibrary;
-			sourceTree = "<group>";
-		};
-		3CC752142008499D00C03C6B /* UIConfig */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752152008499D00C03C6B /* AliyunImage.m */,
-				3CC752162008499D00C03C6B /* AliyunIConfig.m */,
-				3CC752172008499D00C03C6B /* AliyunImage.h */,
-				3CC752182008499D00C03C6B /* AliyunIConfig.h */,
-			);
-			path = UIConfig;
-			sourceTree = "<group>";
-		};
-		3CC752192008499D00C03C6B /* PathManager */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7521A2008499D00C03C6B /* AliyunPathManager.m */,
-				3CC7521B2008499D00C03C6B /* AliyunPathManager.h */,
-			);
-			path = PathManager;
-			sourceTree = "<group>";
-		};
-		3CC7521C2008499D00C03C6B /* MusicImport */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7521D2008499D00C03C6B /* AliyunLibraryMusicImport.m */,
-				3CC7521E2008499D00C03C6B /* AliyunLibraryMusicImport.h */,
-			);
-			path = MusicImport;
-			sourceTree = "<group>";
-		};
-		3CC7521F2008499D00C03C6B /* MediaConfig */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752202008499D00C03C6B /* AliyunMediaConfig.m */,
-				3CC752212008499D00C03C6B /* AliyunMediaConfig.h */,
-			);
-			path = MediaConfig;
-			sourceTree = "<group>";
-		};
-		3CC752222008499D00C03C6B /* Import */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752232008499D00C03C6B /* SelectView */,
-				3CC752262008499D00C03C6B /* AliyunPhotoListViewCell.h */,
-				3CC752272008499D00C03C6B /* AliyunPhotoListViewCell.m */,
-				3CC752282008499D00C03C6B /* Album */,
-				3CC7522D2008499D00C03C6B /* Header */,
-			);
-			path = Import;
-			sourceTree = "<group>";
-		};
-		3CC752232008499D00C03C6B /* SelectView */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752242008499D00C03C6B /* AliyunPhotoAssetSelectedView.m */,
-				3CC752252008499D00C03C6B /* AliyunPhotoAssetSelectedView.h */,
-			);
-			path = SelectView;
-			sourceTree = "<group>";
-		};
-		3CC752282008499D00C03C6B /* Album */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752292008499D00C03C6B /* AliyunAlbumViewController.h */,
-				3CC7522A2008499D00C03C6B /* AliyunAlbumTableViewCell.m */,
-				3CC7522B2008499D00C03C6B /* AliyunAlbumTableViewCell.h */,
-				3CC7522C2008499D00C03C6B /* AliyunAlbumViewController.m */,
-			);
-			path = Album;
-			sourceTree = "<group>";
-		};
-		3CC7522D2008499D00C03C6B /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7522E2008499D00C03C6B /* AliyunImportHeaderView.m */,
-				3CC7522F2008499D00C03C6B /* AliyunImportHeaderView.h */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		3CC752302008499D00C03C6B /* Mediator */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752312008499D00C03C6B /* AliyunMediator.m */,
-				3CC752322008499D00C03C6B /* AliyunMediator.h */,
-			);
-			path = Mediator;
-			sourceTree = "<group>";
-		};
-		3CC752332008499D00C03C6B /* Composition */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752342008499D00C03C6B /* Compress */,
-				3CC752372008499D00C03C6B /* AliyunCompositionViewController.h */,
-				3CC752422008499D00C03C6B /* AliyunCompositionViewController.m */,
-				3CC752382008499D00C03C6B /* Model */,
-				3CC7523B2008499D00C03C6B /* View */,
-			);
-			path = Composition;
-			sourceTree = "<group>";
-		};
-		3CC752342008499D00C03C6B /* Compress */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752352008499D00C03C6B /* AliyunCompressManager.h */,
-				3CC752362008499D00C03C6B /* AliyunCompressManager.m */,
-			);
-			path = Compress;
-			sourceTree = "<group>";
-		};
-		3CC752382008499D00C03C6B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752392008499D00C03C6B /* AliyunCompositionInfo.m */,
-				3CC7523A2008499D00C03C6B /* AliyunCompositionInfo.h */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3CC7523B2008499D00C03C6B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7523C2008499D00C03C6B /* AliyunCompositionCell.h */,
-				3CC7523D2008499D00C03C6B /* AliyunCompositionPickView.h */,
-				3CC7523E2008499D00C03C6B /* AliyunCompositionPickCell.h */,
-				3CC7523F2008499D00C03C6B /* AliyunCompositionCell.m */,
-				3CC752402008499D00C03C6B /* AliyunCompositionPickView.m */,
-				3CC752412008499D00C03C6B /* AliyunCompositionPickCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3CC752432008499D00C03C6B /* Publish */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7524A2008499D00C03C6B /* View */,
-				3CC752442008499D00C03C6B /* AliyunPublishViewController.h */,
-				3CC752482008499D00C03C6B /* AliyunPublishViewController.m */,
-				3CC752452008499D00C03C6B /* AliyunCoverPickViewController.h */,
-				3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */,
-				3CC752512008499D00C03C6B /* AliyunUploadViewController.h */,
-				3CC752462008499D00C03C6B /* AliyunUploadViewController.m */,
-				3CC752522008499D00C03C6B /* AliyunPublishService.h */,
-				3CC752472008499D00C03C6B /* AliyunPublishService.m */,
-			);
-			path = Publish;
-			sourceTree = "<group>";
-		};
-		3CC7524A2008499D00C03C6B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7524E2008499D00C03C6B /* AliyunCoverPickView.h */,
-				3CC7524B2008499D00C03C6B /* AliyunCoverPickView.m */,
-				3CC7524C2008499D00C03C6B /* AliyunPublishProgressView.h */,
-				3CC7524F2008499D00C03C6B /* AliyunPublishProgressView.m */,
-				3CC752502008499D00C03C6B /* AliyunPublishTopView.h */,
-				3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3CC752532008499D00C03C6B /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752542008499D00C03C6B /* UIButton+EnlargeArea.h */,
-				3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */,
-				3CC752552008499D00C03C6B /* unzip */,
-				3CC752622008499D00C03C6B /* LXReorderableFlowLayout */,
-				3CC752652008499D00C03C6B /* Avasset+VideoSize */,
-				3CC752682008499D00C03C6B /* UIView+Progress */,
-				3CC7526C2008499D00C03C6B /* MBProgressHUD */,
-				3CC7526F2008499D00C03C6B /* fmdb */,
-				3CC7527B2008499D00C03C6B /* JSONModel */,
-				3CC752912008499D00C03C6B /* ProgressView */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		3CC752552008499D00C03C6B /* unzip */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752562008499D00C03C6B /* QPSSZipArchive.m */,
-				3CC752572008499D00C03C6B /* minizip */,
-				3CC752612008499D00C03C6B /* QPSSZipArchive.h */,
-			);
-			path = unzip;
-			sourceTree = "<group>";
-		};
-		3CC752572008499D00C03C6B /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752582008499D00C03C6B /* unzip.c */,
-				3CC752592008499D00C03C6B /* zip.c */,
-				3CC7525A2008499D00C03C6B /* ioapi.c */,
-				3CC7525B2008499D00C03C6B /* mztools.c */,
-				3CC7525C2008499D00C03C6B /* crypt.h */,
-				3CC7525D2008499D00C03C6B /* zip.h */,
-				3CC7525E2008499D00C03C6B /* unzip.h */,
-				3CC7525F2008499D00C03C6B /* mztools.h */,
-				3CC752602008499D00C03C6B /* ioapi.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
-		3CC752622008499D00C03C6B /* LXReorderableFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752632008499D00C03C6B /* QUReorderableCollectionViewFlowLayout.h */,
-				3CC752642008499D00C03C6B /* QUReorderableCollectionViewFlowLayout.m */,
-			);
-			path = LXReorderableFlowLayout;
-			sourceTree = "<group>";
-		};
-		3CC752652008499D00C03C6B /* Avasset+VideoSize */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752662008499D00C03C6B /* AVAsset+VideoInfo.h */,
-				3CC752672008499D00C03C6B /* AVAsset+VideoInfo.m */,
-			);
-			path = "Avasset+VideoSize";
-			sourceTree = "<group>";
-		};
-		3CC752682008499D00C03C6B /* UIView+Progress */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752692008499D00C03C6B /* UIView+Progress.h */,
-				3CC7526A2008499D00C03C6B /* UIView+Progress.m */,
-			);
-			path = "UIView+Progress";
-			sourceTree = "<group>";
-		};
-		3CC7526C2008499D00C03C6B /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7526D2008499D00C03C6B /* QUMBProgressHUD.m */,
-				3CC7526E2008499D00C03C6B /* QUMBProgressHUD.h */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		3CC7526F2008499D00C03C6B /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752702008499D00C03C6B /* FMDatabase.h */,
-				3CC752712008499D00C03C6B /* FMDatabaseQueue.m */,
-				3CC752722008499D00C03C6B /* FMResultSet.h */,
-				3CC752732008499D00C03C6B /* FMDatabasePool.h */,
-				3CC752742008499D00C03C6B /* FMDatabaseAdditions.m */,
-				3CC752752008499D00C03C6B /* FMDatabase.m */,
-				3CC752762008499D00C03C6B /* FMDatabaseQueue.h */,
-				3CC752772008499D00C03C6B /* FMDB.h */,
-				3CC752782008499D00C03C6B /* FMDatabaseAdditions.h */,
-				3CC752792008499D00C03C6B /* FMDatabasePool.m */,
-				3CC7527A2008499D00C03C6B /* FMResultSet.m */,
-			);
-			path = fmdb;
-			sourceTree = "<group>";
-		};
-		3CC7527B2008499D00C03C6B /* JSONModel */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7527C2008499D00C03C6B /* JSONModelTransformations */,
-				3CC752812008499D00C03C6B /* module.modulemap */,
-				3CC752822008499D00C03C6B /* JSONModel */,
-				3CC752892008499D00C03C6B /* JSONModelLib.h */,
-				3CC7528A2008499D00C03C6B /* JSONModelNetworking */,
-			);
-			path = JSONModel;
-			sourceTree = "<group>";
-		};
-		3CC7527C2008499D00C03C6B /* JSONModelTransformations */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7527D2008499D00C03C6B /* JSONValueTransformer.m */,
-				3CC7527E2008499D00C03C6B /* JSONKeyMapper.h */,
-				3CC7527F2008499D00C03C6B /* JSONValueTransformer.h */,
-				3CC752802008499D00C03C6B /* JSONKeyMapper.m */,
-			);
-			path = JSONModelTransformations;
-			sourceTree = "<group>";
-		};
-		3CC752822008499D00C03C6B /* JSONModel */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752832008499D00C03C6B /* JSONModel.m */,
-				3CC752842008499D00C03C6B /* JSONModelError.m */,
-				3CC752852008499D00C03C6B /* JSONModelClassProperty.h */,
-				3CC752862008499D00C03C6B /* JSONModel.h */,
-				3CC752872008499D00C03C6B /* JSONModelClassProperty.m */,
-				3CC752882008499D00C03C6B /* JSONModelError.h */,
-			);
-			path = JSONModel;
-			sourceTree = "<group>";
-		};
-		3CC7528A2008499D00C03C6B /* JSONModelNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7528B2008499D00C03C6B /* JSONHTTPClient.m */,
-				3CC7528C2008499D00C03C6B /* JSONAPI.m */,
-				3CC7528D2008499D00C03C6B /* JSONModel+networking.h */,
-				3CC7528E2008499D00C03C6B /* JSONHTTPClient.h */,
-				3CC7528F2008499D00C03C6B /* JSONAPI.h */,
-				3CC752902008499D00C03C6B /* JSONModel+networking.m */,
-			);
-			path = JSONModelNetworking;
-			sourceTree = "<group>";
-		};
-		3CC752912008499D00C03C6B /* ProgressView */ = {
-			isa = PBXGroup;
-			children = (
-				3CC752922008499D00C03C6B /* QUProgressView.h */,
-				3CC752932008499D00C03C6B /* QUProgressView.m */,
-			);
-			path = ProgressView;
 			sourceTree = "<group>";
 		};
 		3CC753112008828700C03C6B /* RongCallKit */ = {
@@ -2139,8 +1759,6 @@
 		E221B5621FF5D6FF00353875 = {
 			isa = PBXGroup;
 			children = (
-				3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */,
-				3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */,
 				E221B56D1FF5D6FF00353875 /* MiLiao */,
 				E221B5861FF5D70000353875 /* MiLiaoTests */,
 				E221B5911FF5D70000353875 /* MiLiaoUITests */,
@@ -2176,7 +1794,7 @@
 				E25929391FFCA96600B6502D /* 登录注册 */,
 				E221B5A11FF5DDF400353875 /* Home(主页) */,
 				E221B5A21FF5DE1600353875 /* Discover(发现) */,
-				E2C6B9D620008075006E0B2A /* 视频拍摄 */,
+				E28788DF20219129002A50BE /* 视频拍摄 */,
 				E25929521FFCA97200B6502D /* 消息 */,
 				E2D518B51FFE375D00A548DA /* 我的 */,
 				E2620F8920045D240092BA11 /* PublicManager */,
@@ -2304,9 +1922,6 @@
 				E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */,
 				E2B0354E201F134600FB0229 /* VideoPlayViewController.h */,
 				E2B0354F201F134600FB0229 /* VideoPlayViewController.m */,
-				E2B03542201EAFAA00FB0229 /* PlayViewController.h */,
-				E2B03541201EAFAA00FB0229 /* PlayViewController.m */,
-				E2B03540201EAFAA00FB0229 /* PlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2463,29 +2078,6 @@
 			path = FSLoopScrollView;
 			sourceTree = "<group>";
 		};
-		E2620F7C200457530092BA11 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E2D194E320033D0400EAEE57 /* QBImagePicker */,
-				E2D1953020035DD300EAEE57 /* GenerationView.h */,
-				E2D1952F20035DD300EAEE57 /* GenerationView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E2620F7D2004576E0092BA11 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */,
-				E2C6B9E020008075006E0B2A /* FxTableViewCell.m */,
-				E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */,
-				E2C6B9E120008075006E0B2A /* ViewController.h */,
-				E2C6B9DA20008075006E0B2A /* ViewController.m */,
-				E2C6B9DC20008075006E0B2A /* Main.storyboard */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		E2620F8920045D240092BA11 /* PublicManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2523,6 +2115,415 @@
 				E27E9F531FFB1E0C00096A6E /* SGPageView.h */,
 			);
 			path = SGPageView;
+			sourceTree = "<group>";
+		};
+		E28788DF20219129002A50BE /* 视频拍摄 */ = {
+			isa = PBXGroup;
+			children = (
+				E28788E020219129002A50BE /* 阿里云 */,
+				E287892420219129002A50BE /* Controller */,
+				E287892B20219129002A50BE /* View */,
+				E287894520219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
+			);
+			path = "视频拍摄";
+			sourceTree = "<group>";
+		};
+		E28788E020219129002A50BE /* 阿里云 */ = {
+			isa = PBXGroup;
+			children = (
+				E28788E120219129002A50BE /* Tools */,
+				E287890620219129002A50BE /* Composition */,
+				E287891620219129002A50BE /* Publish */,
+				E287896E20219282002A50BE /* Vendor */,
+			);
+			path = "阿里云";
+			sourceTree = "<group>";
+		};
+		E28788E120219129002A50BE /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E28788E220219129002A50BE /* PhotoLibrary */,
+				E28788E720219129002A50BE /* UIConfig */,
+				E28788EC20219129002A50BE /* PathManager */,
+				E28788EF20219129002A50BE /* MusicImport */,
+				E28788F220219129002A50BE /* MediaConfig */,
+				E28788F520219129002A50BE /* Import */,
+				E287890320219129002A50BE /* Mediator */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E28788E220219129002A50BE /* PhotoLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				E28788E320219129002A50BE /* AliyunAlbumModel.m */,
+				E28788E420219129002A50BE /* AliyunPhotoLibraryManager.m */,
+				E28788E520219129002A50BE /* AliyunAlbumModel.h */,
+				E28788E620219129002A50BE /* AliyunPhotoLibraryManager.h */,
+			);
+			path = PhotoLibrary;
+			sourceTree = "<group>";
+		};
+		E28788E720219129002A50BE /* UIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E28788E820219129002A50BE /* AliyunImage.m */,
+				E28788E920219129002A50BE /* AliyunIConfig.m */,
+				E28788EA20219129002A50BE /* AliyunImage.h */,
+				E28788EB20219129002A50BE /* AliyunIConfig.h */,
+			);
+			path = UIConfig;
+			sourceTree = "<group>";
+		};
+		E28788EC20219129002A50BE /* PathManager */ = {
+			isa = PBXGroup;
+			children = (
+				E28788ED20219129002A50BE /* AliyunPathManager.m */,
+				E28788EE20219129002A50BE /* AliyunPathManager.h */,
+			);
+			path = PathManager;
+			sourceTree = "<group>";
+		};
+		E28788EF20219129002A50BE /* MusicImport */ = {
+			isa = PBXGroup;
+			children = (
+				E28788F020219129002A50BE /* AliyunLibraryMusicImport.m */,
+				E28788F120219129002A50BE /* AliyunLibraryMusicImport.h */,
+			);
+			path = MusicImport;
+			sourceTree = "<group>";
+		};
+		E28788F220219129002A50BE /* MediaConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E28788F320219129002A50BE /* AliyunMediaConfig.m */,
+				E28788F420219129002A50BE /* AliyunMediaConfig.h */,
+			);
+			path = MediaConfig;
+			sourceTree = "<group>";
+		};
+		E28788F520219129002A50BE /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				E28788F620219129002A50BE /* SelectView */,
+				E28788F920219129002A50BE /* AliyunPhotoListViewCell.h */,
+				E28788FA20219129002A50BE /* AliyunPhotoListViewCell.m */,
+				E28788FB20219129002A50BE /* Album */,
+				E287890020219129002A50BE /* Header */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		E28788F620219129002A50BE /* SelectView */ = {
+			isa = PBXGroup;
+			children = (
+				E28788F720219129002A50BE /* AliyunPhotoAssetSelectedView.m */,
+				E28788F820219129002A50BE /* AliyunPhotoAssetSelectedView.h */,
+			);
+			path = SelectView;
+			sourceTree = "<group>";
+		};
+		E28788FB20219129002A50BE /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				E28788FC20219129002A50BE /* AliyunAlbumViewController.h */,
+				E28788FD20219129002A50BE /* AliyunAlbumTableViewCell.m */,
+				E28788FE20219129002A50BE /* AliyunAlbumTableViewCell.h */,
+				E28788FF20219129002A50BE /* AliyunAlbumViewController.m */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		E287890020219129002A50BE /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E287890120219129002A50BE /* AliyunImportHeaderView.m */,
+				E287890220219129002A50BE /* AliyunImportHeaderView.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		E287890320219129002A50BE /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				E287890420219129002A50BE /* AliyunMediator.m */,
+				E287890520219129002A50BE /* AliyunMediator.h */,
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
+		E287890620219129002A50BE /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				E287890720219129002A50BE /* Compress */,
+				E287890A20219129002A50BE /* AliyunCompositionViewController.h */,
+				E287891520219129002A50BE /* AliyunCompositionViewController.m */,
+				E287890B20219129002A50BE /* Model */,
+				E287890E20219129002A50BE /* View */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		E287890720219129002A50BE /* Compress */ = {
+			isa = PBXGroup;
+			children = (
+				E287890820219129002A50BE /* AliyunCompressManager.h */,
+				E287890920219129002A50BE /* AliyunCompressManager.m */,
+			);
+			path = Compress;
+			sourceTree = "<group>";
+		};
+		E287890B20219129002A50BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E287890C20219129002A50BE /* AliyunCompositionInfo.m */,
+				E287890D20219129002A50BE /* AliyunCompositionInfo.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E287890E20219129002A50BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E287890F20219129002A50BE /* AliyunCompositionCell.h */,
+				E287891020219129002A50BE /* AliyunCompositionPickView.h */,
+				E287891120219129002A50BE /* AliyunCompositionPickCell.h */,
+				E287891220219129002A50BE /* AliyunCompositionCell.m */,
+				E287891320219129002A50BE /* AliyunCompositionPickView.m */,
+				E287891420219129002A50BE /* AliyunCompositionPickCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E287891620219129002A50BE /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				E287891720219129002A50BE /* AliyunCoverPickViewController.h */,
+				E287891820219129002A50BE /* AliyunCoverPickViewController.m */,
+				E287891920219129002A50BE /* View */,
+				E287892020219129002A50BE /* AliyunUploadViewController.h */,
+				E287892120219129002A50BE /* AliyunPublishService.h */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		E287891920219129002A50BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E287891A20219129002A50BE /* AliyunCoverPickView.m */,
+				E287891B20219129002A50BE /* AliyunPublishProgressView.h */,
+				E287891C20219129002A50BE /* AliyunPublishTopView.m */,
+				E287891D20219129002A50BE /* AliyunCoverPickView.h */,
+				E287891E20219129002A50BE /* AliyunPublishProgressView.m */,
+				E287891F20219129002A50BE /* AliyunPublishTopView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E287892420219129002A50BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E287892720219129002A50BE /* FxTableViewCell.h */,
+				E287892920219129002A50BE /* FxTableViewCell.m */,
+				E287892520219129002A50BE /* FxTableViewCell.xib */,
+				E287892A20219129002A50BE /* ViewController.h */,
+				E287892620219129002A50BE /* ViewController.m */,
+				E287892820219129002A50BE /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E287892B20219129002A50BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E287892C20219129002A50BE /* GenerationView.m */,
+				E287892D20219129002A50BE /* QBImagePicker */,
+				E287894420219129002A50BE /* GenerationView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E287892D20219129002A50BE /* QBImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E287892E20219129002A50BE /* QBImagePickerController.h */,
+				E287892F20219129002A50BE /* QBImagePicker.strings */,
+				E287893120219129002A50BE /* QBAssetsViewController.h */,
+				E287893220219129002A50BE /* QBAlbumsViewController.h */,
+				E287893320219129002A50BE /* QBVideoIconView.m */,
+				E287893420219129002A50BE /* QBVideoIndicatorView.m */,
+				E287893520219129002A50BE /* QBCheckmarkView.h */,
+				E287893620219129002A50BE /* QBImagePicker.h */,
+				E287893720219129002A50BE /* QBAssetCell.h */,
+				E287893820219129002A50BE /* QBSlomoIconView.h */,
+				E287893920219129002A50BE /* QBAlbumCell.m */,
+				E287893A20219129002A50BE /* QBImagePicker.storyboard */,
+				E287893B20219129002A50BE /* QBVideoIndicatorView.h */,
+				E287893C20219129002A50BE /* QBAlbumsViewController.m */,
+				E287893D20219129002A50BE /* QBVideoIconView.h */,
+				E287893E20219129002A50BE /* QBAssetsViewController.m */,
+				E287893F20219129002A50BE /* QBImagePickerController.m */,
+				E287894020219129002A50BE /* QBCheckmarkView.m */,
+				E287894120219129002A50BE /* QBAlbumCell.h */,
+				E287894220219129002A50BE /* QBSlomoIconView.m */,
+				E287894320219129002A50BE /* QBAssetCell.m */,
+			);
+			path = QBImagePicker;
+			sourceTree = "<group>";
+		};
+		E287896E20219282002A50BE /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E287896F20219282002A50BE /* UIButton+EnlargeArea.h */,
+				E287897020219282002A50BE /* unzip */,
+				E287897D20219282002A50BE /* LXReorderableFlowLayout */,
+				E287898020219282002A50BE /* Avasset+VideoSize */,
+				E287898320219282002A50BE /* UIView+Progress */,
+				E287898620219282002A50BE /* UIButton+EnlargeArea.m */,
+				E287898720219282002A50BE /* MBProgressHUD */,
+				E287898A20219282002A50BE /* fmdb */,
+				E287899620219282002A50BE /* JSONModel */,
+				E28789AC20219282002A50BE /* ProgressView */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		E287897020219282002A50BE /* unzip */ = {
+			isa = PBXGroup;
+			children = (
+				E287897120219282002A50BE /* QPSSZipArchive.m */,
+				E287897220219282002A50BE /* minizip */,
+				E287897C20219282002A50BE /* QPSSZipArchive.h */,
+			);
+			path = unzip;
+			sourceTree = "<group>";
+		};
+		E287897220219282002A50BE /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				E287897320219282002A50BE /* unzip.c */,
+				E287897420219282002A50BE /* zip.c */,
+				E287897520219282002A50BE /* ioapi.c */,
+				E287897620219282002A50BE /* mztools.c */,
+				E287897720219282002A50BE /* crypt.h */,
+				E287897820219282002A50BE /* zip.h */,
+				E287897920219282002A50BE /* unzip.h */,
+				E287897A20219282002A50BE /* mztools.h */,
+				E287897B20219282002A50BE /* ioapi.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		E287897D20219282002A50BE /* LXReorderableFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				E287897E20219282002A50BE /* QUReorderableCollectionViewFlowLayout.h */,
+				E287897F20219282002A50BE /* QUReorderableCollectionViewFlowLayout.m */,
+			);
+			path = LXReorderableFlowLayout;
+			sourceTree = "<group>";
+		};
+		E287898020219282002A50BE /* Avasset+VideoSize */ = {
+			isa = PBXGroup;
+			children = (
+				E287898120219282002A50BE /* AVAsset+VideoInfo.h */,
+				E287898220219282002A50BE /* AVAsset+VideoInfo.m */,
+			);
+			path = "Avasset+VideoSize";
+			sourceTree = "<group>";
+		};
+		E287898320219282002A50BE /* UIView+Progress */ = {
+			isa = PBXGroup;
+			children = (
+				E287898420219282002A50BE /* UIView+Progress.h */,
+				E287898520219282002A50BE /* UIView+Progress.m */,
+			);
+			path = "UIView+Progress";
+			sourceTree = "<group>";
+		};
+		E287898720219282002A50BE /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E287898820219282002A50BE /* QUMBProgressHUD.m */,
+				E287898920219282002A50BE /* QUMBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E287898A20219282002A50BE /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				E287898B20219282002A50BE /* FMDatabase.h */,
+				E287898C20219282002A50BE /* FMDatabaseQueue.m */,
+				E287898D20219282002A50BE /* FMResultSet.h */,
+				E287898E20219282002A50BE /* FMDatabasePool.h */,
+				E287898F20219282002A50BE /* FMDatabaseAdditions.m */,
+				E287899020219282002A50BE /* FMDatabase.m */,
+				E287899120219282002A50BE /* FMDatabaseQueue.h */,
+				E287899220219282002A50BE /* FMDB.h */,
+				E287899320219282002A50BE /* FMDatabaseAdditions.h */,
+				E287899420219282002A50BE /* FMDatabasePool.m */,
+				E287899520219282002A50BE /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		E287899620219282002A50BE /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				E287899720219282002A50BE /* JSONModelTransformations */,
+				E287899C20219282002A50BE /* module.modulemap */,
+				E287899D20219282002A50BE /* JSONModel */,
+				E28789A420219282002A50BE /* JSONModelLib.h */,
+				E28789A520219282002A50BE /* JSONModelNetworking */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		E287899720219282002A50BE /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				E287899820219282002A50BE /* JSONValueTransformer.m */,
+				E287899920219282002A50BE /* JSONKeyMapper.h */,
+				E287899A20219282002A50BE /* JSONValueTransformer.h */,
+				E287899B20219282002A50BE /* JSONKeyMapper.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+		E287899D20219282002A50BE /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				E287899E20219282002A50BE /* JSONModel.m */,
+				E287899F20219282002A50BE /* JSONModelError.m */,
+				E28789A020219282002A50BE /* JSONModelClassProperty.h */,
+				E28789A120219282002A50BE /* JSONModel.h */,
+				E28789A220219282002A50BE /* JSONModelClassProperty.m */,
+				E28789A320219282002A50BE /* JSONModelError.h */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		E28789A520219282002A50BE /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				E28789A620219282002A50BE /* JSONHTTPClient.m */,
+				E28789A720219282002A50BE /* JSONAPI.m */,
+				E28789A820219282002A50BE /* JSONModel+networking.h */,
+				E28789A920219282002A50BE /* JSONHTTPClient.h */,
+				E28789AA20219282002A50BE /* JSONAPI.h */,
+				E28789AB20219282002A50BE /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		E28789AC20219282002A50BE /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				E28789AD20219282002A50BE /* QUProgressView.h */,
+				E28789AE20219282002A50BE /* QUProgressView.m */,
+			);
+			path = ProgressView;
 			sourceTree = "<group>";
 		};
 		E2AB36F7200CCF3B00458C41 /* SDAutoLayout */ = {
@@ -2641,45 +2642,6 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
-			isa = PBXGroup;
-			children = (
-				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
-				3CC7520D2008499D00C03C6B /* 阿里云 */,
-				E2620F7C200457530092BA11 /* View */,
-				E2620F7D2004576E0092BA11 /* Controller */,
-			);
-			path = "视频拍摄";
-			sourceTree = "<group>";
-		};
-		E2D194E320033D0400EAEE57 /* QBImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				E2D194E420033D0400EAEE57 /* QBImagePickerController.h */,
-				E2D194F520033D0400EAEE57 /* QBImagePickerController.m */,
-				E2D194E520033D0400EAEE57 /* QBImagePicker.strings */,
-				E2D194E720033D0400EAEE57 /* QBAssetsViewController.h */,
-				E2D194E820033D0400EAEE57 /* QBAlbumsViewController.h */,
-				E2D194E920033D0400EAEE57 /* QBVideoIconView.m */,
-				E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */,
-				E2D194EB20033D0400EAEE57 /* QBCheckmarkView.h */,
-				E2D194EC20033D0400EAEE57 /* QBImagePicker.h */,
-				E2D194ED20033D0400EAEE57 /* QBAssetCell.h */,
-				E2D194F920033D0400EAEE57 /* QBAssetCell.m */,
-				E2D194EE20033D0400EAEE57 /* QBSlomoIconView.h */,
-				E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */,
-				E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */,
-				E2D194F120033D0400EAEE57 /* QBVideoIndicatorView.h */,
-				E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */,
-				E2D194F320033D0400EAEE57 /* QBVideoIconView.h */,
-				E2D194F420033D0400EAEE57 /* QBAssetsViewController.m */,
-				E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */,
-				E2D194F720033D0400EAEE57 /* QBAlbumCell.h */,
-				E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */,
-			);
-			path = QBImagePicker;
-			sourceTree = "<group>";
-		};
 		E2D195052003510500EAEE57 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -2775,7 +2737,6 @@
 				C15C18F7950216FCBA8A992A /* [CP] Embed Pods Frameworks */,
 				D11AC3B0544B6B1558384B6D /* [CP] Copy Pods Resources */,
 				3C723CEB200622040024F2BC /* CopyFiles */,
-				3C10E3182007080800F46F00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2880,7 +2841,6 @@
 			files = (
 				182850352018AA180040F845 /* zhifuTableViewCell.xib in Resources */,
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
-				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
 				180B0DAE20117E3400A19BA2 /* BigVViewController.xib in Resources */,
 				3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */,
 				3C024D6420202255007F40F0 /* release_note.txt in Resources */,
@@ -2890,11 +2850,11 @@
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
 				1858203E2009AC3E0020C232 /* NickNameViewController.xib in Resources */,
+				E287895F20219129002A50BE /* Main.storyboard in Resources */,
 				3C024D6920202255007F40F0 /* face_beautification.bundle in Resources */,
 				180B0DB820117F9200A19BA2 /* AuditFailureViewController.xib in Resources */,
 				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
 				3C024D852020228A007F40F0 /* FUItemCell.xib in Resources */,
-				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3C024D6820202255007F40F0 /* anim_model.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
@@ -2903,22 +2863,24 @@
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
-				E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */,
 				3C024D862020228A007F40F0 /* FUDemoBar.xib in Resources */,
 				3C024D6720202255007F40F0 /* ardata_ex.bundle in Resources */,
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
-				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				3C024D6620202255007F40F0 /* v3.bundle in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
+				E287895D20219129002A50BE /* FxTableViewCell.xib in Resources */,
 				186390222017232D00CAC217 /* phoneLoginViewController.xib in Resources */,
 				1846CE25200F4B6A000BF772 /* MyMTableViewCell.xib in Resources */,
 				1846CE20200F405D000BF772 /* administrateAccountViewController.xib in Resources */,
+				E287896620219129002A50BE /* QBImagePicker.storyboard in Resources */,
+				E287896220219129002A50BE /* QBImagePicker.strings in Resources */,
 				184C6768200CD21500C852B4 /* tixianTableViewCell.xib in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */,
+				E287896D20219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				180B0DCA2012E03A00A19BA2 /* zhichuCell.xib in Resources */,
@@ -2942,7 +2904,6 @@
 				3CFF061620078D4600E20FDE /* yazui.bundle in Resources */,
 				1863902F201723AE00CAC217 /* Me.storyboard in Resources */,
 				E2AB3703200CCF3B00458C41 /* LICENSE in Resources */,
-				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				180B0DBD20117FAF00A19BA2 /* AuditSuccessViewController.xib in Resources */,
 				E2B77BD41FFDD64900597326 /* messageCell.xib in Resources */,
 			);
@@ -3014,8 +2975,6 @@
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
-				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -3035,45 +2994,48 @@
 			files = (
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
 				180B0DD520133D2A00A19BA2 /* YZNetWorking.m in Sources */,
+				E287896320219129002A50BE /* QBVideoIconView.m in Sources */,
 				E27024A4200F51F1002B08F5 /* StateButton.m in Sources */,
+				E287895820219129002A50BE /* AliyunCompositionViewController.m in Sources */,
 				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */,
-				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				E28F2A3B200D9D470012EC9F /* LoveViewController.m in Sources */,
-				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3C024D7F2020228A007F40F0 /* FUItemsView.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
 				184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */,
 				E2B0354D201EFFA000FB0229 /* PlayCollectionViewCell.m in Sources */,
-				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
+				E28789BD20219282002A50BE /* FMResultSet.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
-				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
 				183890E720186544009ED98C /* CallUSViewController.m in Sources */,
 				3C77AF9F2009D7DF0029778B /* Networking.m in Sources */,
 				3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */,
 				180B0DAD20117E3400A19BA2 /* BigVViewController.m in Sources */,
 				3CC753492008828700C03C6B /* RCCallVideoMultiCallViewController.m in Sources */,
-				3CC7529E2008499D00C03C6B /* AliyunAlbumViewController.m in Sources */,
 				183AAF10200356E4006D658A /* HXAddressManager.m in Sources */,
+				E287896A20219129002A50BE /* QBCheckmarkView.m in Sources */,
 				3CC753462008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m in Sources */,
+				E287895420219129002A50BE /* AliyunCompositionInfo.m in Sources */,
 				3CC752C620084B5900C03C6B /* MLDiscoverViewController.m in Sources */,
+				E287895620219129002A50BE /* AliyunCompositionPickView.m in Sources */,
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
+				E28789AF20219282002A50BE /* QPSSZipArchive.m in Sources */,
 				3C024D872020228A007F40F0 /* BeautySlider.m in Sources */,
 				3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */,
+				E287894B20219129002A50BE /* AliyunLibraryMusicImport.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
+				E28789B020219282002A50BE /* unzip.c in Sources */,
+				E287896720219129002A50BE /* QBAlbumsViewController.m in Sources */,
 				3CD1383E201C597800DB47C6 /* ReportView.m in Sources */,
 				1858203F2009AC3E0020C232 /* MeViewController.m in Sources */,
-				3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */,
 				3CFF062120078D4600E20FDE /* FUVideoFrameObserverManager.mm in Sources */,
 				184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */,
 				185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */,
-				3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
 				180B0DB220117F7200A19BA2 /* InReviewViewController.m in Sources */,
 				3CC753542008828700C03C6B /* RCDVideoFrameObserver.mm in Sources */,
@@ -3084,153 +3046,148 @@
 				3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
-				3CC752AC2008499E00C03C6B /* AliyunPublishTopView.m in Sources */,
 				180B0DBC20117FAF00A19BA2 /* AuditSuccessViewController.m in Sources */,
+				E287896020219129002A50BE /* FxTableViewCell.m in Sources */,
+				E287895720219129002A50BE /* AliyunCompositionPickCell.m in Sources */,
+				E28789B120219282002A50BE /* zip.c in Sources */,
+				E287894620219129002A50BE /* AliyunAlbumModel.m in Sources */,
 				3CC753502008828700C03C6B /* RCCallSelectingMemberCell.m in Sources */,
-				3CC752AE2008499E00C03C6B /* QPSSZipArchive.m in Sources */,
+				E287896B20219129002A50BE /* QBSlomoIconView.m in Sources */,
+				E28789C520219282002A50BE /* JSONModel+networking.m in Sources */,
 				3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */,
+				E28789B620219282002A50BE /* UIView+Progress.m in Sources */,
+				E287896420219129002A50BE /* QBVideoIndicatorView.m in Sources */,
+				E287896120219129002A50BE /* GenerationView.m in Sources */,
 				E2AB36F0200C9E0800458C41 /* CommentTableViewCell.m in Sources */,
-				3CC752BA2008499E00C03C6B /* FMDatabase.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				1835EC9B2015BF29003B4D8E /* SettingTableViewController.m in Sources */,
-				3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */,
 				180B0DC52012DCAF00A19BA2 /* zhichuModel.m in Sources */,
-				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
 				180B0DB720117F9200A19BA2 /* AuditFailureViewController.m in Sources */,
 				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
 				3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */,
+				E28789C620219282002A50BE /* QUProgressView.m in Sources */,
 				180B0DD220131E1400A19BA2 /* shouruModel.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
+				E28789BC20219282002A50BE /* FMDatabasePool.m in Sources */,
 				E27E9F571FFB1E0C00096A6E /* UIView+SGFrame.m in Sources */,
 				183AAF1420036C59006D658A /* introduceViewController.m in Sources */,
 				3CFF062220078D4600E20FDE /* FUManager.m in Sources */,
-				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
+				E287896520219129002A50BE /* QBAlbumCell.m in Sources */,
 				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
 				183890E220182C02009ED98C /* HelpViewController.m in Sources */,
-				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
+				E287895A20219129002A50BE /* AliyunCoverPickView.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
 				E27024AA200F6FAA002B08F5 /* DisVideoModel.m in Sources */,
+				E287895320219129002A50BE /* AliyunCompressManager.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
-				3CC752992008499D00C03C6B /* AliyunLibraryMusicImport.m in Sources */,
-				3CC752BB2008499E00C03C6B /* FMDatabasePool.m in Sources */,
 				1863902B2017238100CAC217 /* shourucell.m in Sources */,
-				3CC752B92008499E00C03C6B /* FMDatabaseAdditions.m in Sources */,
+				E28789B520219282002A50BE /* AVAsset+VideoInfo.m in Sources */,
 				3C024D812020228A007F40F0 /* UIImage+demobar.m in Sources */,
 				186390242017233B00CAC217 /* registerViewController.m in Sources */,
 				3CC7534D2008828700C03C6B /* RCCallAudioMultiCallViewController.m in Sources */,
 				E2AB3701200CCF3B00458C41 /* UIView+SDAutoLayout.m in Sources */,
-				3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */,
-				3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */,
 				3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */,
 				1819AEA92010CB6800379836 /* TagModel.m in Sources */,
+				E28789C320219282002A50BE /* JSONHTTPClient.m in Sources */,
 				18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */,
 				18639031201723C200CAC217 /* IdentificationVController.m in Sources */,
 				186390272017237100CAC217 /* zhichuCell.m in Sources */,
-				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
-				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
+				E287894A20219129002A50BE /* AliyunPathManager.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2AB3715200CD45500458C41 /* BaseModel.m in Sources */,
-				3CC752B62008499E00C03C6B /* UIButton+EnlargeArea.m in Sources */,
 				3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */,
 				3CE91D46202181E70012B997 /* RemoteUserInfoModel.m in Sources */,
 				3CC753512008828700C03C6B /* RCCallDetailMessageCell.m in Sources */,
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
+				E28789BB20219282002A50BE /* FMDatabase.m in Sources */,
+				E287894E20219129002A50BE /* AliyunPhotoListViewCell.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
-				3CC752A72008499E00C03C6B /* AliyunUploadViewController.m in Sources */,
+				E287896920219129002A50BE /* QBImagePickerController.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
-				3CC752C32008499E00C03C6B /* JSONAPI.m in Sources */,
-				E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
+				E287894920219129002A50BE /* AliyunIConfig.m in Sources */,
 				3C6458B6200E0ED100E1721C /* QLStarView.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				185820422009AC3E0020C232 /* MyMoneyViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
-				3CC752A12008499D00C03C6B /* AliyunCompressManager.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
 				186CBF182004B2D50023924D /* messageView.m in Sources */,
-				3CC752B22008499E00C03C6B /* mztools.c in Sources */,
-				3CC752C22008499E00C03C6B /* JSONHTTPClient.m in Sources */,
 				3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
-				3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */,
+				E28789BE20219282002A50BE /* JSONValueTransformer.m in Sources */,
 				1824923D200C525400A78B94 /* headerView.m in Sources */,
 				182850342018AA180040F845 /* zhifuTableViewCell.m in Sources */,
 				184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */,
 				1846CE24200F4B6A000BF772 /* MyMTableViewCell.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
-				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
 				3CC753522008828700C03C6B /* RCCallUserCallInfoModel.m in Sources */,
-				3CC7529A2008499D00C03C6B /* AliyunMediaConfig.m in Sources */,
+				E287894C20219129002A50BE /* AliyunMediaConfig.m in Sources */,
 				E2B03550201F134600FB0229 /* VideoPlayViewController.m in Sources */,
-				3CC752A42008499D00C03C6B /* AliyunCompositionPickView.m in Sources */,
 				183AAF19200372DD006D658A /* signViewController.m in Sources */,
+				E287895220219129002A50BE /* AliyunMediator.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
+				E28789B220219282002A50BE /* ioapi.c in Sources */,
+				E287896820219129002A50BE /* QBAssetsViewController.m in Sources */,
 				1846CE28200F8680000BF772 /* MyVideoViewController.m in Sources */,
-				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
 				3C024D7E2020228A007F40F0 /* FUDemoBar.m in Sources */,
-				E2B03544201EAFAA00FB0229 /* PlayViewController.m in Sources */,
+				E287894820219129002A50BE /* AliyunImage.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
+				E28789BA20219282002A50BE /* FMDatabaseAdditions.m in Sources */,
+				E287895C20219129002A50BE /* AliyunPublishProgressView.m in Sources */,
 				E26CC8452010E1C200ADBA96 /* LogCategory.m in Sources */,
 				3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */,
+				E287895520219129002A50BE /* AliyunCompositionCell.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
+				E287894720219129002A50BE /* AliyunPhotoLibraryManager.m in Sources */,
+				E287896C20219129002A50BE /* QBAssetCell.m in Sources */,
+				E287895020219129002A50BE /* AliyunAlbumViewController.m in Sources */,
 				E2B0354A201EB21F00FB0229 /* VideoPeoModel.m in Sources */,
+				E28789B720219282002A50BE /* UIButton+EnlargeArea.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
 				184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */,
-				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
-				3CC752A32008499D00C03C6B /* AliyunCompositionCell.m in Sources */,
 				18567F222001F568003F1985 /* BoardButton.m in Sources */,
 				E2B77BCC1FFDD4BA00597326 /* YZNavigationController.m in Sources */,
+				E28789B420219282002A50BE /* QUReorderableCollectionViewFlowLayout.m in Sources */,
 				E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */,
 				1846CE1F200F405D000BF772 /* administrateAccountViewController.m in Sources */,
 				185820402009AC3E0020C232 /* NickNameViewController.m in Sources */,
+				1881CE1120219A7D001E07B3 /* Mmodel.m in Sources */,
 				1846CE15200F27DA000BF772 /* MingXiModel.m in Sources */,
+				E287895920219129002A50BE /* AliyunCoverPickViewController.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
-				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
-				3CC752C42008499E00C03C6B /* JSONModel+networking.m in Sources */,
 				3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */,
+				E28789C120219282002A50BE /* JSONModelError.m in Sources */,
+				E287895120219129002A50BE /* AliyunImportHeaderView.m in Sources */,
 				3CC7534E2008828700C03C6B /* RCCallTipMessageCell.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
-				3CC7529C2008499D00C03C6B /* AliyunPhotoListViewCell.m in Sources */,
 				E2AB3702200CCF3B00458C41 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				E28789C220219282002A50BE /* JSONModelClassProperty.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
-				3CC752982008499D00C03C6B /* AliyunPathManager.m in Sources */,
 				E28F2A3E200D9EDC0012EC9F /* LoveTableViewCell.m in Sources */,
 				184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */,
 				1863902D2017239B00CAC217 /* WithdrawalsViewController.m in Sources */,
-				3CC752C52008499E00C03C6B /* QUProgressView.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
-				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
-				3CC752B32008499E00C03C6B /* QUReorderableCollectionViewFlowLayout.m in Sources */,
-				3CC752BD2008499E00C03C6B /* JSONValueTransformer.m in Sources */,
-				3CC752AF2008499E00C03C6B /* unzip.c in Sources */,
 				185820502009B3DD0020C232 /* GoPayTableViewController.m in Sources */,
-				3CC7529F2008499D00C03C6B /* AliyunImportHeaderView.m in Sources */,
-				3CC752B02008499E00C03C6B /* zip.c in Sources */,
 				1858204D2009AC970020C232 /* CardCollectionViewCell.m in Sources */,
-				E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
 				3CC7534C2008828700C03C6B /* RCCallBaseViewController.m in Sources */,
-				3CC752A82008499E00C03C6B /* AliyunPublishService.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
 				1858204C2009AC970020C232 /* MyQianBaoTableViewCell.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
 				3C024D802020228A007F40F0 /* FilterView.m in Sources */,
-				E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */,
 				E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */,
 				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
-				3CC752972008499D00C03C6B /* AliyunIConfig.m in Sources */,
 				18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */,
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
-				3CC752A02008499D00C03C6B /* AliyunMediator.m in Sources */,
 				18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */,
 				E24824EF20089B33000F1EC7 /* MainMananger.m in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
@@ -3238,35 +3195,36 @@
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
 				18567F212001F568003F1985 /* BoardView.m in Sources */,
 				18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */,
-				3CC752BC2008499E00C03C6B /* FMResultSet.m in Sources */,
-				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
+				E287894D20219129002A50BE /* AliyunPhotoAssetSelectedView.m in Sources */,
 				E27024AD200F7110002B08F5 /* DisbaseModel.m in Sources */,
 				183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */,
+				E28789B820219282002A50BE /* QUMBProgressHUD.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
-				3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */,
 				3CC7534F2008828700C03C6B /* RCCallMultiCallUserCell.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
-				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
-				3CC752B12008499E00C03C6B /* ioapi.c in Sources */,
+				E28789C020219282002A50BE /* JSONModel.m in Sources */,
+				E28789B920219282002A50BE /* FMDatabaseQueue.m in Sources */,
 				3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */,
 				180B0DC12012D40400A19BA2 /* tixianTableViewCell.m in Sources */,
 				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
 				185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */,
-				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
 				3C6458A7200DEC0700E1721C /* EvaluateVideoViewController.m in Sources */,
+				E28789B320219282002A50BE /* mztools.c in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
+				E287895B20219129002A50BE /* AliyunPublishTopView.m in Sources */,
+				E28789C420219282002A50BE /* JSONAPI.m in Sources */,
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
 				185820412009AC3E0020C232 /* edttViewController.m in Sources */,
-				3CC752BE2008499E00C03C6B /* JSONKeyMapper.m in Sources */,
 				E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */,
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
+				E287894F20219129002A50BE /* AliyunAlbumTableViewCell.m in Sources */,
+				E28789BF20219282002A50BE /* JSONKeyMapper.m in Sources */,
 				1846CE0E200EE3D6000BF772 /* CallListModel.m in Sources */,
+				E287895E20219129002A50BE /* ViewController.m in Sources */,
 				E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */,
 				1835EC9E2015C62D003B4D8E /* NSString+CYValidation.m in Sources */,
 				3CC753532008828700C03C6B /* RCCall.mm in Sources */,
-				3CC752BF2008499E00C03C6B /* JSONModel.m in Sources */,
-				3CC752B82008499E00C03C6B /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3327,10 +3285,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		E2D194E520033D0400EAEE57 /* QBImagePicker.strings */ = {
+		E287892F20219129002A50BE /* QBImagePicker.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E2D194E620033D0400EAEE57 /* zh-Hans */,
+				E287893020219129002A50BE /* zh-Hans */,
 			);
 			name = QBImagePicker.strings;
 			sourceTree = "<group>";

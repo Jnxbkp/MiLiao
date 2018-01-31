@@ -24,7 +24,7 @@
 #import "NvsVideoTrack.h"
 #import "GenerationView.h"
 
-#import "AliyunMediaConfig.h"
+//#import "AliyunMediaConfig.h"
 #import "AliyunCompositionViewController.h"
 
 #import "AliyunImportHeaderView.h"
@@ -36,8 +36,8 @@
 #import "AliyunPathManager.h"
 #import "AVAsset+VideoInfo.h"
 #import "AliyunCompressManager.h"
-#import <AliyunVideoSDKPro/AliyunEditor.h>
-#import <AliyunVideoSDKPro/AliyunImporter.h>
+//#import <AliyunVideoSDKPro/AliyunEditor.h>
+//#import <AliyunVideoSDKPro/AliyunImporter.h>
 #import "QUMBProgressHUD.h"
 #import "AliyunMediator.h"
 #import <sys/utsname.h>
@@ -743,27 +743,6 @@ typedef enum {
     [_videoTrack insertClip:urlAsset.URL.absoluteString clipIndex:(unsigned int)index];
     
 }
-#pragma mark - 视频保存
-//-(void)bottomView:(BottomView*)bottomView scBtnClick:(UIButton*)scBtn {
-//    NSLog(@"----------------.>>>>>生成");
-//    generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
-//    generationView.delegate = self;
-//    [self.view addSubview:generationView];
-//    bottomView.hidden = YES;
-//    NSFileManager *fm = [NSFileManager defaultManager];
-//    NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
-//    [_videoTrack removeAllClips];
-//    for (NSString *file in fileDir) {
-//        [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
-//    }
-//    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-//    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
-//    if ([fm fileExistsAtPath:compileVideo]) {
-//        [fm removeItemAtPath:compileVideo error:nil];
-//    }
-//    _context.delegate = self;
-//    [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
-//}
 - (void)preparePlay{
      [self stopCapturePreview];
     //创建timeline

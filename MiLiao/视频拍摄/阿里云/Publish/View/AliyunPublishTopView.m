@@ -32,7 +32,7 @@
     
     UIView *topView = [[UIView alloc] init];
     topView.frame = CGRectMake(0, 0, ScreenWidth, self.frame.size.height);
-    topView.backgroundColor = [AliyunIConfig config].backgroundColor;;
+//    topView.backgroundColor = [AliyunIConfig config].backgroundColor;;
     [self addSubview:topView];
     
     UIButton *backButton = [UIButton buttonWithType:(UIButtonTypeCustom)];

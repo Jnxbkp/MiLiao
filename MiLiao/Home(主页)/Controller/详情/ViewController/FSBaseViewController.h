@@ -14,6 +14,6 @@
 @property (nonatomic, strong) VideoUserModel *videoUserModel;
 @property (nonatomic,strong)NSString *user_id;
 
-@property (nonatomic, strong)NSString *kind;
+@property (nonatomic, strong)NSString *kind;//判断界面
 
 @end

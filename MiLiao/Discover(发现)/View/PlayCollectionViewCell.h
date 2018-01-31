@@ -47,6 +47,7 @@
 @property (nonatomic, strong) UILabel *messageLabel;
 
 @property (nonatomic, strong) NSString *isGuanZhu;
+@property (nonatomic, strong) UIImageView   *holderImageView;
 
 @property (nonatomic,weak) id<buttonClickDelegate> delegate;
 
@@ -59,6 +60,8 @@
 - (void)resumePlay;
 - (void)stopPlay;
 - (void)releasePlayer;
+
+- (void)prepareSts:(DisbaseModel *)videoModel videoId:(NSString *)videoId;
 /////准备视频
 //- (void)prepare;
 //
@@ -89,5 +92,5 @@
 // AliyunVodPlayerStateFinish,             //播放完成
 // AliyunVodPlayerStateLoading             //加载中
 // */
-//- (AliyunVodPlayerState)playerState;
+- (AliyunVodPlayerState)playerState;
 @end

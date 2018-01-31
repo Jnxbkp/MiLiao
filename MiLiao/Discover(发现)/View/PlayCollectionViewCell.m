@@ -20,6 +20,7 @@
 -(AliyunVodPlayer *)aliPlayer{
     if (!_aliPlayer) {
         _aliPlayer = [[AliyunVodPlayer alloc] init];
+        _aliPlayer.circlePlay = YES;
     }
     return _aliPlayer;
 }
@@ -27,10 +28,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.isStart = NO;
-//        self.playerView = [[UIView alloc]init];
-//        self.playerView.frame= CGRectMake(0, 0, WIDTH, HEIGHT);
-//        self.playerView.backgroundColor = [UIColor blackColor];
-//        [self.contentView addSubview:self.playerView];
+
         self.playerView = [[UIView alloc] init];
         self.playerView = self.aliPlayer.playerView;
         [self.contentView addSubview:self.playerView];
@@ -42,6 +40,10 @@
     return self;
 }
 - (void)creat {
+    _holderImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    [_holderImageView setContentMode:UIViewContentModeScaleAspectFill];
+    _holderImageView.clipsToBounds = YES;
+    
     _headButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _headButton.frame = CGRectMake(WIDTH-54, (HEIGHT-50)/2, 42, 50);
     _headButton.imageEdgeInsets =UIEdgeInsetsMake(0, 0, 8, 0);
@@ -107,6 +109,9 @@
         _messageLabel.frame = CGRectMake(12, _nameLabel.frame.origin.y+31, WIDTH-24, 12);
         
     }
+    
+    [self.contentView addSubview:_holderImageView];
+    
     [self.contentView addSubview:_headButton];
     [self.contentView addSubview:_guanZhuButton];
     [self.contentView addSubview:_guanLabel];
@@ -122,6 +127,8 @@
 - (void)setVideoModel:(DisVideoModel *)videoModel {
     _videoModel = videoModel;
     [_headButton sd_setImageWithURL:[NSURL URLWithString:videoModel.headUrl] forState:UIControlStateNormal];
+    [_holderImageView sd_setImageWithURL:[NSURL URLWithString:videoModel.videoUrl] placeholderImage:holderImage];
+    
     if ([videoModel.zanStatus isEqualToString:@"1"]) {
         [_zanButton setImage:[UIImage imageNamed:@"xihuan_video"] forState:UIControlStateNormal];
         _zanButton.selected = YES;
@@ -139,7 +146,6 @@
 
 - (void)setIsGuanZhu:(NSString *)isGuanZhu {
     _isGuanZhu = isGuanZhu;
-    NSLog(@"---------------><<>><><><%@",_isGuanZhu);
     if ([_isGuanZhu isEqualToString:@"1"]) {
         _guanZhuButton.hidden = YES;
     } else {
@@ -165,7 +171,10 @@
     [self.aliPlayer prepareWithURL:[NSURL URLWithString:urlStr]];
     //    [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"]];
 }
-
+- (void)prepareSts:(DisbaseModel *)videoModel videoId:(NSString *)videoId {
+    NSLog(@"---------%@--------%@",videoId,videoModel.AccessKeyId);
+    [self.aliPlayer prepareWithVid:videoId accessKeyId:videoModel.AccessKeyId accessKeySecret:videoModel.AccessKeySecret securityToken:videoModel.SecurityToken];
+}
 - (void)startPlay{
     [self.aliPlayer start];
     self.isStart = YES;

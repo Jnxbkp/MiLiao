@@ -16,18 +16,18 @@
 #import "AliyunPathManager.h"
 #import "AVAsset+VideoInfo.h"
 #import "AliyunCompressManager.h"
-#import <AliyunVideoSDKPro/AliyunEditor.h>
-#import <AliyunVideoSDKPro/AliyunImporter.h>
+//#import <AliyunVideoSDKPro/AliyunEditor.h>
+//#import <AliyunVideoSDKPro/AliyunImporter.h>
 #import "QUMBProgressHUD.h"
 #import "AliyunMediator.h"
 #import <sys/utsname.h>
 
-#import "AliyunPublishViewController.h"
+//#import "AliyunPublishViewController.h"
 #import "AliyunCoverPickViewController.h"
 
 
 @interface AliyunCompositionViewController () <AliyunImportHeaderViewDelegate, AliyunCompositionPickViewDelegate,UICollectionViewDelegate, UICollectionViewDataSource>
-@property (nonatomic, strong) AliyunEditor *editor;
+//@property (nonatomic, strong) AliyunEditor *editor;
 
 @property (nonatomic, strong) AliyunImportHeaderView *headerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -78,7 +78,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.manager stopCompress];
+//    [self.manager stopCompress];
 }
 
 - (void)setupSubviews {
@@ -122,12 +122,14 @@
     cell.labelDuration.hidden = model.type == 0;
     if (model.thumbnailImage) {
         cell.imageView.image = model.thumbnailImage;
+        
     } else {
         [[AliyunPhotoLibraryManager sharedManager] getPhotoWithAsset:model.asset thumbnailImage:YES photoWidth:80 completion:^(UIImage *photo, NSDictionary *info) {
             model.thumbnailImage = photo;
             dispatch_async(dispatch_get_main_queue(), ^{
                 AliyunCompositionCell *cell2 = (AliyunCompositionCell *)[collectionView cellForItemAtIndexPath:indexPath];
                 cell2.imageView.image = photo;
+                
             });
         }];
     }
@@ -208,8 +210,8 @@
 #pragma mark - AliyunImportHeaderViewDelegate
 
 -(void)headerViewDidCancel {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)headerViewDidSelect {
@@ -267,22 +269,22 @@
 ////            return;
 ////        }
         NSString *root = [AliyunPathManager compositionRootDir];
-        AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:root outputSize:_compositionConfig.outputSize];
+//        AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:root outputSize:_compositionConfig.outputSize];
         // add paths
         for (int i = 0; i < assets.count; i++) {
             AliyunCompositionInfo *info = assets[i];
 
             if (info.type == AliyunCompositionInfoTypePhoto) {
-                UIImage *image = [UIImage imageWithContentsOfFile:info.sourcePath];
-                NSString *imagePath = [importor addImage:image duration:info.duration animDuration:i == 0 ? 0 : 1];
-
-                info.sourcePath = imagePath;
-                if (!info.isFromCrop) {//从裁剪过来的图片 暂时保留在内存
-                    info.phImage = nil;
-                }
-                image = nil;
+//                UIImage *image = [UIImage imageWithContentsOfFile:info.sourcePath];
+//                NSString *imagePath = [importor addImage:image duration:info.duration animDuration:i == 0 ? 0 : 1];
+//
+//                info.sourcePath = imagePath;
+//                if (!info.isFromCrop) {//从裁剪过来的图片 暂时保留在内存
+//                    info.phImage = nil;
+//                }
+//                image = nil;
             } else {
-                [importor addVideoWithPath:info.sourcePath animDuration:i == 0 ? 0 : 1];
+//                [importor addVideoWithPath:info.sourcePath animDuration:i == 0 ? 0 : 1];
                 _compositionConfig.outputPath = info.sourcePath;
             }
         }
@@ -291,12 +293,18 @@
     pickVC.outputSize = _outputSize;
     pickVC.videoPath = _compositionConfig.outputPath;
     pickVC.taskPath = root;
+    
+    NSLog(@"--------------%@-------%@",pickVC.videoPath,pickVC.taskPath);
     pickVC.finishHandler = ^(UIImage *image) {
         //        _image = image;
         //        _coverImageView.image = image;
         //        _backgroundView.image = image;
     };
     [self.navigationController pushViewController:pickVC animated:YES];
+    
+    
+    
+    
 //    [self presentViewController:pickVC animated:YES completion:nil];
 //        // set video param
 //        AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
@@ -334,6 +342,8 @@
 
 -(void)cropViewControllerExit {
     [self.navigationController popViewControllerAnimated:YES];
+//    NSLog(@"-----------12323213123131312132123");
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
 }
 
 - (void)cropViewControllerFinish:(AliyunMediaConfig *)mediaInfo viewController:(UIViewController *)controller {
@@ -402,18 +412,18 @@
                         
 
                             UIImage *image = [UIImage imageWithContentsOfFile:info.sourcePath];
-                            UIImage *outputImage = [self.manager compressImageWithSourceImage:image outputSize:outputSize];
+//                            UIImage *outputImage = [self.manager compressImageWithSourceImage:image outputSize:outputSize];
                         
                             NSString *tmpPhotoName = [NSString stringWithFormat:@"%@", @([[NSDate date] timeIntervalSince1970])];
                             NSString *tmpPhotoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:tmpPhotoName];
-                            NSData *imageData = UIImageJPEGRepresentation(outputImage, 0.8);
-                            BOOL res = [imageData writeToFile:tmpPhotoPath atomically:YES];
-                            if (res) {
-                                info.sourcePath = tmpPhotoPath;
-                            }
-                            imageData = nil;
-                            outputImage = nil;
-                            image = nil;
+//                            NSData *imageData = UIImageJPEGRepresentation(outputImage, 0.8);
+//                            BOOL res = [imageData writeToFile:tmpPhotoPath atomically:YES];
+//                            if (res) {
+//                                info.sourcePath = tmpPhotoPath;
+//                            }
+//                            imageData = nil;
+//                            outputImage = nil;
+//                            image = nil;
 
                     }
                 } else {
@@ -429,17 +439,17 @@
                         CGFloat outputWidth = rint(size.width * factor / 2) * 2;
                         CGFloat outputHeight = rint(size.height * factor / 2) * 2;
                         CGSize outputSize = CGSizeMake(outputWidth, outputHeight);
-                        [self.manager compressWithSourcePath:info.sourcePath
-                                                  outputPath:outputPath
-                                                  outputSize:outputSize
-                                                     success:^{
-                                                         info.sourcePath = outputPath;
-                                                         dispatch_semaphore_signal(_semaphore);
-                                                     } failure:^{
-                                                         failed = YES;
-                                                         dispatch_semaphore_signal(_semaphore);
-                                                     }];
-                        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+//                        [self.manager compressWithSourcePath:info.sourcePath
+//                                                  outputPath:outputPath
+//                                                  outputSize:outputSize
+//                                                     success:^{
+//                                                         info.sourcePath = outputPath;
+//                                                         dispatch_semaphore_signal(_semaphore);
+//                                                     } failure:^{
+//                                                         failed = YES;
+//                                                         dispatch_semaphore_signal(_semaphore);
+//                                                     }];
+//                        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
                     }
                 }
             }
@@ -472,7 +482,7 @@
 
 - (AliyunCompressManager *)manager {
     if (!_manager) {
-        _manager = [[AliyunCompressManager alloc] initWithMediaConfig:_compositionConfig];
+//        _manager = [[AliyunCompressManager alloc] initWithMediaConfig:_compositionConfig];
     }
     return _manager;
 }

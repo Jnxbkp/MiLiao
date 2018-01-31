@@ -95,6 +95,7 @@
     for (PlayCollectionViewCell *cell in ary) {
         [cell stopPlay];
     }
+    [SVProgressHUD dismiss];
      [self.navigationController setNavigationBarHidden:NO];
 }
 - (void)viewDidLoad {
@@ -141,6 +142,7 @@
     static NSString *identifier=@"identifier";
     [collectionView registerClass:[PlayCollectionViewCell class] forCellWithReuseIdentifier:identifier];
     PlayCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.aliPlayer.delegate = self;
     cell.delegate = self;
     
     cell.headButton.tag = headButtonTag+indexPath.row;
@@ -156,74 +158,34 @@
         cell.videoButton.hidden = YES;
     }
     cell.backgroundColor = [UIColor whiteColor];
+    cell.holderImageView.hidden = NO;
     DisVideoModel *videoModel = [_videoModelList.videoArr objectAtIndex:indexPath.row];
-    NSLog(@"--------%@",videoModel.userId);
+
     cell.videoModel = videoModel;
-//    if (indexPath.row == _currentCell) {
-//        [self.aliPlayer stop];
-//        self.currentPlayerView = self.aliPlayer.playerView;
-//        self.currentPlayerView.frame = CGRectMake(10, 10, cell.playerView.width-20, cell.playerView.height-20);
-//        [cell.playerView addSubview:self.currentPlayerView];
-//                [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"]];
-//        [self.aliPlayer setAutoPlay: YES];
-//        [self.aliPlayer setCirclePlay:YES];
-//
-////        [self.aliPlayer prepareWithVid:VID
-////                           accessKeyId:ACCESS_KEY_ID
-////                       accessKeySecret:ACCESS_KEY_SECRET
-////                         securityToken:SECURITY_TOKEN];
-//        //        [self.aliPlayer start];
-//        //             self.tempIndexPath = indexPath;
-//    }
+    
+    
+    
 //    _currentCell = indexPath.row;
     [self NetGetAnchorSfgzVodeoId:videoModel.videoId token:[_userDefaults objectForKey:@"token"] anchorId:videoModel.userId cell:cell];
 
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+   
     PlayCollectionViewCell *temp =  (PlayCollectionViewCell*)cell;
-    //    [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"]];
-    //    @"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"
-    if (indexPath.row == 1) {
-        [temp prepare:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"];
-    } else {
-        [temp prepare:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
-    }
+    DisVideoModel *videoModel = [[DisVideoModel alloc]init];
+    videoModel = [_videoModelList.videoArr objectAtIndex:indexPath.row];
+    [temp prepareSts:_baseModel videoId:videoModel.videoId];
     
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+   
     PlayCollectionViewCell *temp =  (PlayCollectionViewCell*)cell;
     [temp stopPlay];
     
 }
-//-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-//    NSLog(@"scrollViewWillBeginDragging");
-//    if (self.aliPlayer.playerState == AliyunVodPlayerStatePlay) {
-//        [self.aliPlayer pause];
-//    }
-//}
-//
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-//    NSLog(@"scrollViewDidEndDecelerating");
-//    self.tempIndexPath = [NSIndexPath indexPathForRow:(int)(scrollView.contentOffset.y/WIDTH) inSection:0];
-//    PlayCollectionViewCell *temp = (PlayCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:self.tempIndexPath] ;
-//
-//    [self.aliPlayer stop];
-//    self.currentPlayerView = self.aliPlayer.playerView;
-//    self.currentPlayerView.frame = CGRectMake(0, 0, temp.playerView.width, temp.playerView.height);
-//    [temp.playerView addSubview:self.currentPlayerView];
-//        [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"]];
-//    [self.aliPlayer setAutoPlay: YES];
-//    [self.aliPlayer setCirclePlay:YES];
-////    [self.aliPlayer prepareWithVid:VID
-////                       accessKeyId:ACCESS_KEY_ID
-////                   accessKeySecret:ACCESS_KEY_SECRET
-////                     securityToken:SECURITY_TOKEN];
-////    [self.aliPlayer setAutoPlay: NO];
-//
-//    //    [self.aliPlayer start];
-//}
+
 //是否已关注大V
 - (void)NetGetAnchorSfgzVodeoId:(NSString *)videoId token:(NSString *)token anchorId:(NSString *)anchorId cell:(PlayCollectionViewCell *)cell{
     [DiscoverMananger NetGetgetAnchorSfgzVodeoId:videoId token:token anchorId:anchorId success:^(NSDictionary *info) {
@@ -320,13 +282,61 @@
     }];
 
 }
+
 -(void)vodPlayer:(AliyunVodPlayer *)vodPlayer onEventCallback:(AliyunVodPlayerEvent)event{
+    self.tempIndexPath = [NSIndexPath indexPathForRow:(int)(self.collectionView.contentOffset.y/HEIGHT) inSection:0];
+    PlayCollectionViewCell *temp = (PlayCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:self.tempIndexPath] ;
     if (event == AliyunVodPlayerEventPrepareDone) {
         if (vodPlayer.autoPlay) {
             
         }else{
+            
             [vodPlayer start];
         }
+    }
+    switch (event) {
+        case AliyunVodPlayerEventPrepareDone:
+            [SVProgressHUD dismiss];
+            
+            //播放准备完成时触发
+            break;
+        case AliyunVodPlayerEventPlay:
+            [SVProgressHUD dismiss];
+            //暂停后恢复播放时触发
+            break;
+        case AliyunVodPlayerEventFirstFrame:
+            [SVProgressHUD dismiss];
+            temp.holderImageView.hidden = YES;
+            //播放视频首帧显示出来时触发
+            break;
+        case AliyunVodPlayerEventPause:
+            [SVProgressHUD dismiss];
+            //视频暂停时触发
+            break;
+        case AliyunVodPlayerEventStop:
+            [SVProgressHUD dismiss];
+            //主动使用stop接口时触发
+            break;
+        case AliyunVodPlayerEventFinish:
+            [SVProgressHUD dismiss];
+            //视频正常播放完成时触发
+            break;
+        case AliyunVodPlayerEventBeginLoading:
+            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+            temp.holderImageView.hidden = NO;
+            //视频开始载入时触发
+            break;
+        case AliyunVodPlayerEventEndLoading:
+            [SVProgressHUD dismiss];
+            
+            //视频加载完成时触发
+            break;
+        case AliyunVodPlayerEventSeekDone:
+            [SVProgressHUD dismiss];
+            //视频Seek完成时触发
+            break;
+        default:
+            break;
     }
 }
 

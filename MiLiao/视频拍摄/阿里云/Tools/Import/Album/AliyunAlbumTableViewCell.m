@@ -54,7 +54,7 @@
     self.albumNameLabel.textColor = [UIColor whiteColor];
     [self.contentView addSubview:self.albumNameLabel];
     
-    self.indicatorImageView = [[UIImageView alloc] initWithImage:[AliyunImage imageNamed:@"roll_more"]];
+//    self.indicatorImageView = [[UIImageView alloc] initWithImage:[AliyunImage imageNamed:@"roll_more"]];
     self.indicatorImageView.frame = CGRectMake(ScreenWidth - 15 - 13, CGRectGetMidY(self.iconImageView.frame) - 13 / 2, 13, 13);
     [self.contentView addSubview:self.indicatorImageView];
 }

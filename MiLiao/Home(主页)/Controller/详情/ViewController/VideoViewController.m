@@ -9,6 +9,7 @@
 #import "VideoViewController.h"
 #import "MLDiscoverListCollectionViewCell.h"
 #import "MainMananger.h"
+#import "VideoPlayViewController.h"
 
 #define itemWidth                 (WIDTH-32)/2
 #define itemHeight                 itemWidth*16/9
@@ -16,6 +17,9 @@
 @interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
     NSUserDefaults   *_userDefaults;
     NSString        *_videoPage;
+    
+    DisbaseModel        *_disBaseModel;
+    DisVideoModelList    *_videoModelList;
 }
 
 @property (nonatomic, assign) BOOL fingerIsTouch;
@@ -74,6 +78,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [MainMananger NetGetgetVideoListById:Id token:[_userDefaults objectForKey:@"token"] pageNumber:_videoPage pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"------->>>video----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
+        _disBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
         if (resultCode == SUCCESS) {
             NSArray *arr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             _videoPage = [NSString stringWithFormat:@"%lu",[_videoPage integerValue] +1];
@@ -145,10 +150,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger currentPage = self.magicController.currentPage;
-    NSLog(@"==didSelectItemAtIndexPath%@ \n current page is: %ld==", indexPath, (long)currentPage);
-    //    VTDetailViewController *detailViewController = [[VTDetailViewController alloc] init];
-    //    detailViewController.hidesBottomBarWhenPushed = YES;
-    //    [self.navigationController pushViewController:detailViewController animated:YES];
+ 
+    _videoModelList = [[DisVideoModelList alloc]initWithArray:_dataArr];
+    
+    VideoPlayViewController *playController = [[VideoPlayViewController alloc]init];
+    playController.baseModel = _disBaseModel;
+    playController.videoModelList = _videoModelList;
+    playController.currentCell = indexPath.row;
+    
+    [self.navigationController pushViewController:playController animated:YES];
 }
 //UICollectionView item size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -173,13 +183,13 @@ static NSString * const reuseIdentifier = @"Cell";
 //判断屏幕触碰状态
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-        NSLog(@"接触屏幕");
+//        NSLog(@"接触屏幕");
     self.fingerIsTouch = YES;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-        NSLog(@"离开屏幕");
+//        NSLog(@"离开屏幕");
     self.fingerIsTouch = NO;
 }
 

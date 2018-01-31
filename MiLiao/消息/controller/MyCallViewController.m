@@ -66,6 +66,9 @@
             self.modelArray = [CallListModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
             [self.tableView reloadData];
 
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
         }
     } failure:^(NSError *error) {
         

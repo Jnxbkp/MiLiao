@@ -12,7 +12,7 @@
 
 //获取短信验证码
 //GET /v1/user/getVerifyCode
-+ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile verifyMobile:(NSString *)verifyMobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //oss-token获取
 //GET /v1/oss/getOSSToken
@@ -74,5 +74,6 @@
 + (void)verifyCodeResetPWD:(NSString *)mobile verifyCode:(NSString *)verifyCode  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/user/updateStatus 修改用户在线状态
 + (void)updateStatustoken:(NSString *)token status:(NSString *)status success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
-
+// GET /v1/moneyDetail/getUserMoneyInfo  获取用户m币信息
++ (void)getUserMoneyInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end

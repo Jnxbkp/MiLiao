@@ -8,9 +8,11 @@
 
 #import "MyMViewController.h"
 #import "MyMTableViewCell.h"
+#import "Mmodel.h"
 @interface MyMViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
+@property (nonatomic, strong) Mmodel *mmodel;
 
 @end
 
@@ -22,8 +24,9 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的M币"];
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的撩币"];
     [self setTableview];
+    [self loadData];
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -49,12 +52,23 @@
 //获取数据
 - (void)loadData
 {
-    
+    [HLLoginManager getUserMoneyInfotoken:[YZCurrentUserModel sharedYZCurrentUserModel].token success:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS)
+        {
+            self.modelArray = [Mmodel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+           [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-//    return self.modelArray.count;
-    return 3;
+    return self.modelArray.count;
 }
 //头部视图高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -65,8 +79,8 @@
 {
     static NSString *Identifier =@"MyMTableViewCell";
     MyMTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
-//    self.callListModel = self.modelArray[indexPath.row];
-//    cell.model =  self.callListModel;
+    self.mmodel = self.modelArray[indexPath.row];
+    cell.model =  self.mmodel;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
