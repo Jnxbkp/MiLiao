@@ -16,7 +16,7 @@
 }
 - (void)setModel:(MingXiModel *)model {
     _model = model;
-    self.money.text = [NSString stringWithFormat:@"-%@M币 | 剩余%@M币",model.amount,model.afterAmount];
+    self.money.text = [NSString stringWithFormat:@"-%@M币 | 剩余%@撩币",model.amount,model.afterAmount];
     ///时间戳转化成时间
     NSString *str=model.createDate;//时间戳
     NSTimeInterval time=[str doubleValue]/1000;

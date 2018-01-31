@@ -16,7 +16,7 @@
 }
 - (void)setModel:(zhichuModel *)model {
     _model = model;
-    self.money.text = [NSString stringWithFormat:@"-%@M币",model.amount];
+    self.money.text = [NSString stringWithFormat:@"-%@撩币",model.amount];
     self.nickName.text = [NSString stringWithFormat:@"视频通话 —%@",model.nickName];
     
     //时间戳转化成时间

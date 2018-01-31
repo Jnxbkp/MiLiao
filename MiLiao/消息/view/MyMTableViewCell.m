@@ -25,9 +25,38 @@
     [stampFormatter setDateFormat:@"MM-dd HH:mm"];
     //以 1970/01/01 GMT为基准，然后过了secs秒的时间
     NSDate *stampDate2 = [NSDate dateWithTimeIntervalSince1970:time];
-    NSLog(@"时间戳转化时间 >>> %@",[stampFormatter stringFromDate:stampDate2]);
-    NSString *strTime = [NSString stringWithFormat:@"%@",model.createDate];
-    self.time.text = [NSString stringWithFormat:@"%@ | 视频时长%@",[stampFormatter stringFromDate: stampDate2],[ToolObject getMMSSFromSS:strTime]];
+    self.time.text = [NSString stringWithFormat:@"%@",[stampFormatter stringFromDate: stampDate2]];
+    NSDateFormatter *stampFormatter2 = [[NSDateFormatter alloc] init];
+    [stampFormatter2 setDateFormat:@"MM-dd"];
+    self.timeTwo.text = [NSString stringWithFormat:@"%@",[stampFormatter2 stringFromDate: stampDate2]];
+    self.leftLabel.text = [NSString stringWithFormat:@"购买支付:%@元",model.amount];
+    self.Mmoney.text = [NSString stringWithFormat:@"%@M币",model.balance];
+   
+    /*
+     type 0:视频, 1:私信, 2:微信购买，  3提现 4充值
+     isbigV = 0普通用户 0,1,2,4 支出
+     isbigV = 3大V用户 0,1,2,3 收入
+     */
+    NSString *isV = [NSString stringWithFormat:@"%@",[YZCurrentUserModel sharedYZCurrentUserModel].isBigv];
+    if ([isV isEqualToString:@"0"]) {
+        
+    }
+    NSString *typeStr = [NSString stringWithFormat:@"%@",model.type];
+    if ([typeStr isEqualToString:@"0"]) {
+        self.rightLabel.text = @"视频通话";
+    }
+    if ([typeStr isEqualToString:@"1"]) {
+        self.rightLabel.text = @"购买微信";
+    }
+    if ([typeStr isEqualToString:@"2"]) {
+        self.rightLabel.text = @"视频通话";
+    }
+    if ([typeStr isEqualToString:@"3"]) {
+        self.rightLabel.text = @"提现";
+    }
+    if ([typeStr isEqualToString:@"4"]) {
+        self.rightLabel.text = @"充值";
+    }
 }
 
 
