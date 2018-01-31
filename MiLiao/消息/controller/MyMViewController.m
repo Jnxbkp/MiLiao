@@ -8,9 +8,11 @@
 
 #import "MyMViewController.h"
 #import "MyMTableViewCell.h"
+#import "Mmodel.h"
 @interface MyMViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
+@property (nonatomic, strong) Mmodel *mmodel;
 
 @end
 

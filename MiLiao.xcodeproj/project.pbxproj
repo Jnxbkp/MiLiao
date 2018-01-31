@@ -116,6 +116,7 @@
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
 		1870EB452019ADDF000776EE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870EB442019ADDE000776EE /* UserNotifications.framework */; };
 		187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187E2EED20075CFD0014A2AE /* Assets.xcassets */; };
+		1881CE1120219A7D001E07B3 /* Mmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1881CE1020219A7D001E07B3 /* Mmodel.m */; };
 		18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */; };
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
@@ -569,6 +570,8 @@
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
 		187E2EED20075CFD0014A2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1881CE0F20219A7D001E07B3 /* Mmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mmodel.h; sourceTree = "<group>"; };
+		1881CE1020219A7D001E07B3 /* Mmodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mmodel.m; sourceTree = "<group>"; };
 		18F335C62001D8A600AE7CCD /* IQActionSheetPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetPickerView.h; sourceTree = "<group>"; };
 		18F335C72001D8A600AE7CCD /* IQActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetViewController.h; sourceTree = "<group>"; };
 		18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetPickerView.m; sourceTree = "<group>"; };
@@ -1189,6 +1192,8 @@
 			children = (
 				1846CE0C200EE3D6000BF772 /* CallListModel.h */,
 				1846CE0D200EE3D6000BF772 /* CallListModel.m */,
+				1881CE0F20219A7D001E07B3 /* Mmodel.h */,
+				1881CE1020219A7D001E07B3 /* Mmodel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1267,8 +1272,8 @@
 				185820462009AC960020C232 /* MyQianBaoTableViewCell.h */,
 				185820472009AC960020C232 /* MyQianBaoTableViewCell.m */,
 				185820442009AC960020C232 /* MyQianBaoTableViewCell.xib */,
-				185820482009AC970020C232 /* CardCollectionViewCell.m */,
 				185820492009AC970020C232 /* CardCollectionViewCell.h */,
+				185820482009AC970020C232 /* CardCollectionViewCell.m */,
 				185820452009AC960020C232 /* CardCollectionViewCell.xib */,
 				182850312018AA180040F845 /* zhifuTableViewCell.h */,
 				182850322018AA180040F845 /* zhifuTableViewCell.m */,
@@ -3183,6 +3188,7 @@
 				E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */,
 				1846CE1F200F405D000BF772 /* administrateAccountViewController.m in Sources */,
 				185820402009AC3E0020C232 /* NickNameViewController.m in Sources */,
+				1881CE1120219A7D001E07B3 /* Mmodel.m in Sources */,
 				1846CE15200F27DA000BF772 /* MingXiModel.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
