@@ -11,6 +11,11 @@
 
 #ifdef __OBJC__
 
+//pod 'UMengUShare/UI'
+//pod 'UMengUShare/Social/ReducedWeChat'
+//pod 'UMengUShare/Social/ReducedQQ'
+//pod 'UMengUShare/Social/ReducedSina'
+
 #import "MenuInfo.h"
 #import "DataManager.h"
 //#import "NSStringSize.h"
@@ -72,13 +77,8 @@
 //网络请求成功
 #define SUCCESS 200
 //请求Url
-<<<<<<< HEAD
 //#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
-=======
-//#define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
-#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
 
->>>>>>> 8d7af8e828e79256a239801cd6a01fd8c8021764
 //中志Url
 #define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
 

@@ -1630,10 +1630,10 @@
 		3CC7520F2008499D00C03C6B /* PhotoLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				3CC752102008499D00C03C6B /* AliyunAlbumModel.m */,
-				3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */,
 				3CC752122008499D00C03C6B /* AliyunAlbumModel.h */,
+				3CC752102008499D00C03C6B /* AliyunAlbumModel.m */,
 				3CC752132008499D00C03C6B /* AliyunPhotoLibraryManager.h */,
+				3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */,
 			);
 			path = PhotoLibrary;
 			sourceTree = "<group>";
@@ -2906,7 +2906,6 @@
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				3C024D6620202255007F40F0 /* v3.bundle in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
-
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				186390222017232D00CAC217 /* phoneLoginViewController.xib in Resources */,
 				1846CE25200F4B6A000BF772 /* MyMTableViewCell.xib in Resources */,
@@ -3010,8 +3009,6 @@
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
-				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
