@@ -18,7 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [AliyunIConfig config].timelineBackgroundCollor;
+//        self.backgroundColor = [AliyunIConfig config].timelineBackgroundCollor;
         [self defaultParam];
     }
     return self;
@@ -28,9 +28,9 @@
     _pointArray = [NSMutableArray arrayWithCapacity:0];
     _lineWidth = CGRectGetHeight(self.bounds) * [UIScreen mainScreen].scale;
     _colorNotice = [UIColor whiteColor];
-    _colorProgress = [AliyunIConfig config].timelineTintColor;
+//    _colorProgress = [AliyunIConfig config].timelineTintColor;
     _colorSepatorPoint = [UIColor whiteColor];
-    _colorSelect = [AliyunIConfig config].timelineDeleteColor;
+//    _colorSelect = [AliyunIConfig config].timelineDeleteColor;
     _selectedIndex = -1;
 }
 
@@ -114,7 +114,7 @@
     if ( _showBlink && (_showBlink ? ++_times : (_times=1)) && (_times%2 == 1)) {
         
         CGFloat x = [self endPointX];
-        CGContextSetStrokeColorWithColor(context, [[AliyunIConfig config] timelineBackgroundCollor].CGColor);
+//        CGContextSetStrokeColorWithColor(context, [[AliyunIConfig config] timelineBackgroundCollor].CGColor);
         CGContextMoveToPoint(context, x + 0.5, 0);
         CGContextAddLineToPoint(context, x + 4, 0);
         CGContextStrokePath(context);

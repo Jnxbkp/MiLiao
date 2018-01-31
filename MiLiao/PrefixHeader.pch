@@ -167,8 +167,8 @@
 
 //阿里云的
 
-#import "AliyunIConfig.h"
-#import "AliyunImage.h"
+//#import "AliyunIConfig.h"
+//#import "AliyunImage.h"
 
 // 注释为Release版
 //#define kQPEnableDevNetwork

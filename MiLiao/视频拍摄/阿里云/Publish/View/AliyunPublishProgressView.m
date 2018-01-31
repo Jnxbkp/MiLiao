@@ -66,7 +66,7 @@
     
     
     _finishImageView = [[UIImageView alloc] initWithFrame:CGRectMake((width-26)/2, height/2-40, 26, 26)];
-    _finishImageView.image = [AliyunImage imageNamed:@"icon_composite_success"];
+//    _finishImageView.image = [AliyunImage imageNamed:@"icon_composite_success"];
     _finishImageView.hidden = YES;
     [self addSubview:_finishImageView];
 }
@@ -88,7 +88,7 @@
     _finishImageView.hidden = NO;
 }
 - (void)markAsFailed {
-    _finishImageView.image = [AliyunImage imageNamed:@"icon_composite_fail"];
+//    _finishImageView.image = [AliyunImage imageNamed:@"icon_composite_fail"];
     _middleLable.text = @"合成失败";
     _bottomLable.text = @"请返回编辑稍后再试";
     _topLable.hidden = YES;

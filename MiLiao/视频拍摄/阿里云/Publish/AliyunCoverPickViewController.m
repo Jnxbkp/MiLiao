@@ -98,12 +98,12 @@
     
     self.titleView = [[UITextField alloc] initWithFrame:CGRectMake(_coverView.frame.origin.x+5, _pickView.frame.origin.y-100, _coverView.frame.size.width-10, 54)];
     self.titleView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"点击输入标题..." attributes:@{NSForegroundColorAttributeName: rgba(188, 190, 197, 1)}];
-    self.titleView.tintColor = [AliyunIConfig config].timelineTintColor;;
+//    self.titleView.tintColor = [AliyunIConfig config].timelineTintColor;;
     self.titleView.textColor = [UIColor whiteColor];
     [self.titleView setFont:[UIFont systemFontOfSize:14]];
     self.titleView.returnKeyType = UIReturnKeyDone;
     self.titleView.delegate = self;
-    self.titleView.backgroundColor = [AliyunIConfig config].backgroundColor;
+//    self.titleView.backgroundColor = [AliyunIConfig config].backgroundColor;
     [self.view addSubview:self.titleView];
     
     _line = [[UIView alloc] initWithFrame:CGRectMake(_coverView.frame.origin.x+5, _titleView.frame.origin.y+_titleView.frame.size.height-2, _titleView.frame.size.width, 1)];
