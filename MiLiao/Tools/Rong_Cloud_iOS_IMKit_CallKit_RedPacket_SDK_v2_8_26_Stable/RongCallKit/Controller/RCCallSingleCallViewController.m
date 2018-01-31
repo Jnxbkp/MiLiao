@@ -678,7 +678,6 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         //最终扣费
 //        [self finalDeductMoney];
         [self getCurrentCallFee];
-        
         //如果是普通用户则发通知
         if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
             NSString *anchorName = self.targetId;
@@ -690,9 +689,43 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             if ([self isAppleCheck]) return;
             PostNotificationNameUserInfo(VideoCallEnd, dict);
         }
-        
     }
     
+    /*
+     如果 上一个控制器是视频播放控制器 则发出通知 以便让暂停的视频 继续播放
+     */
+    if ([[self getWindowTopViewController] isKindOfClass:NSClassFromString(@"VideoPlayViewController")]) {
+        PostNotificationNameUserInfo(VideoCallEnd, nil);
+    }
+    
+    
+   
+    
+}
+
+
+/**
+ 返回当前UIApplicationDelegate中的window下的最上层控制器
+ 融云一对一视频内部维护了一个 Window，
+
+ @return UIViewController
+ */
+- (UIViewController *)getWindowTopViewController {
+    
+    if ([[UIApplication sharedApplication].delegate.window.rootViewController isKindOfClass:[UITabBarController class]]) {
+        
+        UITabBarController *tabBarController = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+        if ([tabBarController.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navigationController = (UINavigationController *)tabBarController.selectedViewController;
+            UIViewController *vc = [navigationController.viewControllers lastObject];
+            return vc;
+        } else {
+            return nil;
+        }
+        
+    } else {
+        return nil;
+    }
 }
 
 - (RCloudImageView *)remotePortraitView {

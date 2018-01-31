@@ -20,6 +20,7 @@
 #import "EnoughCallTool.h"
 
 #import "PayWebViewController.h"
+#import "EvaluateVideoViewController.h"//评价
 
 #define headButtonTag   2000
 #define zanButtonTag    3000
@@ -38,6 +39,9 @@
 
 @property (nonatomic, assign) BOOL isChangedRow;
 @property (nonatomic, strong) NSIndexPath *tempIndexPath;
+
+///评价控制器
+@property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 
 @end
 
@@ -66,6 +70,13 @@
         _currentPlayerView = [[UIView alloc] init];
     }
     return _currentPlayerView;
+}
+
+- (EvaluateVideoViewController *)evaluateVideoViewConroller {
+    if (!_evaluateVideoViewConroller) {
+        _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+    }
+    return _evaluateVideoViewConroller;
 }
 
 //#pragma mark - naviBar
@@ -134,7 +145,7 @@
 
     [self backButton];
     
-    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    [self listenNotification];
     // Do any additional setup after loading the view.
 }
 
@@ -204,6 +215,34 @@
         NSLog(@"error%@",error);
     }];
 }
+
+#pragma mark - 通知方法
+- (void)listenNotification {
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    ListenNotificationName_Func(SetMoneySuccess, @selector(notificationFunc:));
+}
+
+- (void)notificationFunc:(NSNotification *)notification {
+    
+    //视频通话结束 添加评价界面
+    if ([notification.name isEqualToString:VideoCallEnd]) {
+        if (notification.userInfo == nil) {
+            NSArray *ary = [self.collectionView visibleCells];
+            for (PlayCollectionViewCell *cell in ary) {
+                [cell resumePlay];
+            }
+        } else {
+             [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+        }
+       
+    }
+    //结算成功
+    if ([notification.name isEqualToString:SetMoneySuccess]) {
+        [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
+    }
+    
+}
+
 #pragma mark -  cell button delegate
 - (void)headButtonSelect:(UIButton *)button {
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
@@ -289,15 +328,6 @@
 - (void)goPay {
     PayWebViewController *payViewController = [[PayWebViewController alloc] init];
     [self.navigationController pushViewController:payViewController animated:YES];
-}
-
-- (void)notificationFunc:(NSNotification *)notification {
-    if ([notification.name isEqualToString:VideoCallEnd]) {
-        NSArray *ary = [self.collectionView visibleCells];
-        for (PlayCollectionViewCell *cell in ary) {
-            [cell resumePlay];
-        }
-    }
 }
 
 

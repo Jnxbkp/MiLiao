@@ -85,6 +85,7 @@
 - (EvaluateVideoViewController *)evaluateVideoViewConroller {
     if (!_evaluateVideoViewConroller) {
         _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+        _evaluateVideoViewConroller.superview = self.view;
     }
     return _evaluateVideoViewConroller;
 }
@@ -187,54 +188,13 @@
 
     //视频通话结束 添加评价界面
     if ([notification.name isEqualToString:VideoCallEnd]) {
-        [self addEvaluatedView:notification.userInfo];
+        [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
     }
     //结算成功
     if ([notification.name isEqualToString:SetMoneySuccess]) {
-        [self setMoneySuccess:notification.userInfo];
+        [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
     }
     
-}
-
-//添加评价界面
-- (void)addEvaluatedView:(NSDictionary *)dict {
-    UIView *view = self.evaluateVideoViewConroller.view;
-    self.evaluateVideoViewConroller.evaluateDict = dict;
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.view).offset(5);
-        make.right.bottom.equalTo(self.view).offset(-5);
-    }];
-    __weak typeof(self) weakSelf = self;
-    [self.evaluateVideoViewConroller evaluateSuccess:^{
-        [weakSelf removeEvaluateView];
-    }];
-    [SVProgressHUD showInfoWithStatus:@"正在结算"];
-}
-
-//移除掉评价界面
-- (void)removeEvaluateView {
-    
-    UIView *view = self.evaluateVideoViewConroller.view;
-    [UIView animateWithDuration:0.2 animations:^{
-        view.transform = CGAffineTransformMakeScale(1.3, 1.3);
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.2 animations:^{
-            view.transform = CGAffineTransformMakeScale(0.1, 0.1);
-            view.alpha = 0;
-        } completion:^(BOOL finished) {
-            [view removeFromSuperview];
-            NSMutableArray *array = [self.childViewControllers mutableCopy];
-            [array removeObject:self.evaluateVideoViewConroller];
-            [self setValue:[array copy] forKey:@"childViewControllers"];
-        }];
-    }];
-}
-
-///结算成功
-- (void)setMoneySuccess:(NSDictionary *)dict {
-    [SVProgressHUD dismiss];
-    [self.evaluateVideoViewConroller showSetMoneySuccessView:dict];
 }
 
 - (void)setupSubViews
