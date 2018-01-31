@@ -72,8 +72,8 @@
 //网络请求成功
 #define SUCCESS 200
 //请求Url
-//#define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
-#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
+#define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
+//#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
 
 //中志Url
 //#define HLRequestUrl @"https://192.168.1.45:9000"
