@@ -319,7 +319,6 @@
 		E2B03550201F134600FB0229 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B0354F201F134600FB0229 /* VideoPlayViewController.m */; };
 		E2B497D31FFF48B50017A5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D21FFF48B50017A5B6 /* User.m */; };
 		E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */; };
-		E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */; };
 		E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497DB1FFF56760017A5B6 /* CHD_ListView_Structure.m */; };
 		E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497DD1FFF56760017A5B6 /* UIButton+Edge.m */; };
 		E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497DF1FFF56760017A5B6 /* UIView+Size.m */; };
@@ -941,7 +940,6 @@
 		E2B497D21FFF48B50017A5B6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E2B497D41FFF50AE0017A5B6 /* HLTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLTabBar.h; sourceTree = "<group>"; };
 		E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLTabBar.m; sourceTree = "<group>"; };
-		E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabar_plus_normal@2x.png"; sourceTree = "<group>"; };
 		E2B497DA1FFF56760017A5B6 /* UIView+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Size.h"; sourceTree = "<group>"; };
 		E2B497DB1FFF56760017A5B6 /* CHD_ListView_Structure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHD_ListView_Structure.m; sourceTree = "<group>"; };
 		E2B497DC1FFF56760017A5B6 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
@@ -1861,7 +1859,6 @@
 				E2B77BCA1FFDD4BA00597326 /* YZNavigationTitleLabel.m */,
 				E221B5B91FF5DFD000353875 /* MLTabBarController.h */,
 				E221B5BA1FF5DFD000353875 /* MLTabBarController.m */,
-				E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */,
 				E2B497D41FFF50AE0017A5B6 /* HLTabBar.h */,
 				E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */,
 				E2B497D91FFF56760017A5B6 /* CDCustom */,
@@ -2887,7 +2884,6 @@
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
 				183890E820186544009ED98C /* CallUSViewController.xib in Resources */,
 				1863902A2017238100CAC217 /* shourucell.xib in Resources */,
-				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				3CFF061920078D4600E20FDE /* mask_matianyu.bundle in Resources */,
 				E2AB3704200CCF3B00458C41 /* README.md in Resources */,
 				3C024D832020228A007F40F0 /* blurCell.xib in Resources */,
