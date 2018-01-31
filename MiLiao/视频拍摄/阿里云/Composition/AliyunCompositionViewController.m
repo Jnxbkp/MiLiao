@@ -210,8 +210,8 @@
 #pragma mark - AliyunImportHeaderViewDelegate
 
 -(void)headerViewDidCancel {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)headerViewDidSelect {
@@ -342,6 +342,8 @@
 
 -(void)cropViewControllerExit {
     [self.navigationController popViewControllerAnimated:YES];
+//    NSLog(@"-----------12323213123131312132123");
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
 }
 
 - (void)cropViewControllerFinish:(AliyunMediaConfig *)mediaInfo viewController:(UIViewController *)controller {

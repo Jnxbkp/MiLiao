@@ -12,10 +12,13 @@
 #import "MeViewController.h"
 #import "HLTabBar.h"
 #import "ViewController.h"
+#import "AliyunCompositionViewController.h"
 
 #import "ChatListController.h"
 
-@interface MLTabBarController ()<UITabBarControllerDelegate>
+@interface MLTabBarController ()<UITabBarControllerDelegate> {
+    AliyunMediaConfig   *_compositionConfig;
+}
 
 @end
 
@@ -65,14 +68,29 @@
     HLTabBar *tabBar = [[HLTabBar alloc] init];
     [self setValue:tabBar forKey:@"tabBar"];
     [tabBar setDidMiddBtn:^{
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        ViewController *VC = [story instantiateViewControllerWithIdentifier:@"ViewController"];
-        UINavigationController *ANavigationController = [[UINavigationController alloc] initWithRootViewController:VC];
+        _compositionConfig = [[AliyunMediaConfig alloc] init];
+        _compositionConfig.minDuration = 2.0;
+        _compositionConfig.maxDuration = 10*60.0;
+        _compositionConfig.fps = 25;
+        _compositionConfig.gop = 5;
+        _compositionConfig.videoQuality = 1;
+        _compositionConfig.outputSize = CGSizeMake(540, 720);
+        _compositionConfig.cutMode = AliyunMediaCutModeScaleAspectFill;
+        _compositionConfig.videoOnly = YES;
+        
+        AliyunCompositionViewController *aliVC = [[AliyunCompositionViewController alloc]init];
+        [aliVC setValue:_compositionConfig forKey:@"compositionConfig"];
+//        [self.navigationController pushViewController:aliVC animated:YES];
+//        [self presentViewController:aliVC animated:YES completion:nil];
+//        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//        ViewController *VC = [story instantiateViewControllerWithIdentifier:@"ViewController"];
+        UINavigationController *ANavigationController = [[UINavigationController alloc] initWithRootViewController:aliVC];
         ANavigationController.navigationBarHidden = YES;
         [self presentViewController:ANavigationController animated:YES completion:nil];
 
     }];
 }
+
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {
     
     UIImage *image = [UIImage imageNamed:imageName];

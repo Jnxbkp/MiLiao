@@ -172,6 +172,7 @@
     //    [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"]];
 }
 - (void)prepareSts:(DisbaseModel *)videoModel videoId:(NSString *)videoId {
+    NSLog(@"---------%@--------%@",videoId,videoModel.AccessKeyId);
     [self.aliPlayer prepareWithVid:videoId accessKeyId:videoModel.AccessKeyId accessKeySecret:videoModel.AccessKeySecret securityToken:videoModel.SecurityToken];
 }
 - (void)startPlay{

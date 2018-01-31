@@ -2252,9 +2252,9 @@
 			children = (
 				E287890720219129002A50BE /* Compress */,
 				E287890A20219129002A50BE /* AliyunCompositionViewController.h */,
+				E287891520219129002A50BE /* AliyunCompositionViewController.m */,
 				E287890B20219129002A50BE /* Model */,
 				E287890E20219129002A50BE /* View */,
-				E287891520219129002A50BE /* AliyunCompositionViewController.m */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
