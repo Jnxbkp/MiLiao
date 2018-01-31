@@ -16,6 +16,10 @@
 #import "VideoUserModel.h"
 
 #import "RongCallKit.h"
+#import "UserInfoNet.h"
+#import "EnoughCallTool.h"
+
+#import "PayWebViewController.h"
 
 #define headButtonTag   2000
 #define zanButtonTag    3000
@@ -241,13 +245,51 @@
 
 
 - (void)videoButtonSelect:(DisVideoModel *)videoModel {
+    
     VideoUserModel *videoUser = [[VideoUserModel alloc] init];
     videoUser.nickname = videoModel.nickName;
     videoUser.price = videoModel.price;
     videoUser.username = videoModel.anchorAccount;
     videoUser.posterUrl = videoModel.headUrl;
-    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
+    [UserInfoNet canCall:videoUser.username powerEnough:^(RequestState success, NSString *msg, MoneyEnoughType enoughType) {
+        if (success) {
+            //余额不充足 不能聊天 可以视频
+            if (enoughType == MoneyEnoughTypeNotEnough) {
+                [EnoughCallTool viewController:self showPayAlertController:^{
+                    [self goPay];//去充值
+                } continueCall:^{
+                    //继续视频
+                    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
+                }];
+            }
+            
+            //余额充足 既能聊天 有能视频
+            if (enoughType == MoneyEnoughTypeEnough) {
+                [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
+            }
+            
+            //余额为0
+            if (enoughType == MoneyEnoughTypeEmpty) {
+                [EnoughCallTool viewController:self showPayAlertController:^{
+                    [self goPay];
+                }];
+               
+            }
+        } else {
+            [SVProgressHUD showErrorWithStatus:msg];
+        }
+    }];
+    
+   
+    
 }
+
+- (void)goPay {
+    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    [self.navigationController pushViewController:payViewController animated:YES];
+}
+
+
 //赞视频
 - (void)NetPostZanButtonClick:(NSString *)zanStatus button:(UIButton *)button {
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
