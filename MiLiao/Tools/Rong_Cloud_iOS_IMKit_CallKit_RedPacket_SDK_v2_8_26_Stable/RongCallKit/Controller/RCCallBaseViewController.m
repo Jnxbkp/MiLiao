@@ -165,7 +165,13 @@
     [super viewDidLoad];
 
     self.backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.backgroundView.backgroundColor = RongVoIPUIColorFromRGB(0x262e42);
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"电话等待"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.backgroundView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.mas_equalTo(self.backgroundView);
+    }];
+//    self.backgroundView.backgroundColor = RongVoIPUIColorFromRGB(0x262e42);
     [self.view addSubview:self.backgroundView];
     self.backgroundView.hidden = NO;
 
@@ -290,7 +296,7 @@
     if (!_tipsLabel) {
         _tipsLabel = [[UILabel alloc] init];
         _tipsLabel.backgroundColor = [UIColor clearColor];
-        _tipsLabel.textColor = [UIColor whiteColor];
+        _tipsLabel.textColor = RGBColor(0X9a9a9a);
         _tipsLabel.font = [UIFont systemFontOfSize:18];
         _tipsLabel.textAlignment = NSTextAlignmentCenter;
 

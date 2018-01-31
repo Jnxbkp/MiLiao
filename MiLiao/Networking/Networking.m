@@ -78,9 +78,9 @@
  
  @param urlString url
  @param parameters parameers
- @param result 返回的字典回调
+ @param dictResult 返回的字典回调
  */
-+ (void)Post:(NSString *)urlString parameters:(id)parameters result:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))result {
++ (void)Post:(NSString *)urlString parameters:(id)parameters dictResult:(RequestDictResult)dictResult {
     
     [self POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -95,10 +95,10 @@
                 dict = responseObject[@"data"];
             }
         }
-        !result?:result(state, dict, responseObject[ResultMsg]);
+        !dictResult?:dictResult(state, dict, responseObject[ResultMsg]);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        !result?:result(Failure, nil, @"网络连接失败");
+        !dictResult?:dictResult(Failure, nil, @"网络连接失败");
     }];
 }
 
