@@ -14,4 +14,11 @@
 //GET /v1/video/videoList/{pageNumber}/{pageSize}/{token}/{videoType}
 + (void)NetGetVideoListVideoType:(NSString *)videoType token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
+//视频点赞
+//POST /v1/video/updateVideoZan
++ (void)NetPostUpdateVideoZanUserId:(NSString *)userId token:(NSString *)token videoId:(NSString *)videoId zanStatus:(NSString *)zanStatus success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//是否已关注daV
+// GET /v1/bigV/getAnchorSfgz
++ (void)NetGetgetAnchorSfgzVodeoId:(NSString *)videoId token:(NSString *)token anchorId:(NSString *)anchorId success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end

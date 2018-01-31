@@ -25,4 +25,44 @@
     }];
 }
 
+//视频点赞
+//POST /v1/video/updateVideoZan
++ (void)NetPostUpdateVideoZanUserId:(NSString *)userId token:(NSString *)token videoId:(NSString *)videoId zanStatus:(NSString *)zanStatus success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"anchorId"] = userId;
+    param[@"token"] = token;
+    param[@"videoId"] = videoId;
+    param[@"zanSatatus"] = zanStatus;
+    NSLog(@"-----%@-----%@",[NSString stringWithFormat:@"%@/v1/video/updateVideoZan",HLRequestUrl],param);
+    [manager POST:[NSString stringWithFormat:@"%@/v1/video/updateVideoZan",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+    
+}
+
+//是否已关注daV  anchorId(大vID)
+// GET /v1/bigV/getAnchorSfgz
++ (void)NetGetgetAnchorSfgzVodeoId:(NSString *)videoId token:(NSString *)token anchorId:(NSString *)anchorId success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"videoId"] = videoId;
+    param[@"token"] = token;
+    param[@"anchorId"] = anchorId;
+    [manager GET:[NSString stringWithFormat:@"%@/v1/bigV/getAnchorSfgz",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 @end

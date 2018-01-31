@@ -18,6 +18,8 @@
 /**** Controller ****/
 #import "PlayViewController.h"
 
+//zhang
+#import "VideoPlayViewController.h"
 
 #define selectButtonTag          2000
 #define tabHight   HEIGHT-ML_TopHeight-ML_TabBarHeight
@@ -364,7 +366,7 @@ static NSString *const hotIdentifer = @"hotCell";
         NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
         
         NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
-        NSLog(@"---------<<>><<><>---%@-----%f",timeStampString,[timeStampString doubleValue]);
+        
          cell.timeLabel.text = timeStr;
        
         return cell;
@@ -428,10 +430,13 @@ static NSString *const hotIdentifer = @"hotCell";
         _videoModelList = [[DisVideoModelList alloc]initWithArray:_hotList];
     }
     
-    PlayViewController *playController = [[PlayViewController alloc]init];
+//    PlayViewController *playController = [[PlayViewController alloc]init];
+//    playController.baseModel = _disBaseModel;
+//    playController.videoModelList = _videoModelList;
+    VideoPlayViewController *playController = [[VideoPlayViewController alloc]init];
     playController.baseModel = _disBaseModel;
     playController.videoModelList = _videoModelList;
-    
+    playController.currentCell = indexPath.row;
 //    AliyunPlaySDKDemoFullScreenScrollViewController *playController = [[AliyunPlaySDKDemoFullScreenScrollViewController alloc]init];
 //    playController.AccessKeyId = [testDic objectForKey:@"AccessKeyId"];
 //    playController.AccessKeySecret = [testDic objectForKey:@"AccessKeySecret"];

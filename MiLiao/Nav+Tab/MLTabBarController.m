@@ -42,7 +42,7 @@
     } else {
 
     }
-    
+
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     
     NSString *isHidden = [userDefaults objectForKey:@"isHidden"];
