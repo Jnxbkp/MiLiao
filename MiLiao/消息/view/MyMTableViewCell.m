@@ -30,7 +30,7 @@
     [stampFormatter2 setDateFormat:@"MM-dd"];
     self.timeTwo.text = [NSString stringWithFormat:@"%@",[stampFormatter2 stringFromDate: stampDate2]];
     self.leftLabel.text = [NSString stringWithFormat:@"购买支付:%@元",model.amount];
-    self.Mmoney.text = [NSString stringWithFormat:@"%@M币",model.balance];
+    self.Mmoney.text = [NSString stringWithFormat:@"%@撩币",model.balance];
    
     /*
      type 0:视频, 1:私信, 2:微信购买，  3提现 4充值
@@ -44,18 +44,29 @@
     NSString *typeStr = [NSString stringWithFormat:@"%@",model.type];
     if ([typeStr isEqualToString:@"0"]) {
         self.rightLabel.text = @"视频通话";
+        self.moneyLabel.text = @"支出金额";
+        self.title.text  = @"支出";
     }
     if ([typeStr isEqualToString:@"1"]) {
         self.rightLabel.text = @"购买微信";
+        self.moneyLabel.text = @"支出金额";
+        self.title.text  = @"支出";
+
     }
     if ([typeStr isEqualToString:@"2"]) {
         self.rightLabel.text = @"视频通话";
+        self.moneyLabel.text = @"支出金额";
+        self.title.text  = @"支出";
+
     }
     if ([typeStr isEqualToString:@"3"]) {
         self.rightLabel.text = @"提现";
     }
     if ([typeStr isEqualToString:@"4"]) {
         self.rightLabel.text = @"充值";
+        self.moneyLabel.text = @"充值金额";
+        self.title.text  = @"充值";
+
     }
 }
 

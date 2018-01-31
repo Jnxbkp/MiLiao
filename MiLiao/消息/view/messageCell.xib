@@ -50,14 +50,36 @@
                             <constraint firstAttribute="width" constant="34" id="lG8-FK-XSC"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anA-wf-XWu" customClass="BoardButton">
+                        <rect key="frame" x="274" y="13" width="46" height="16"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.45098039215686275" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="kVi-8t-eQ0"/>
+                            <constraint firstAttribute="width" constant="46" id="rgh-7U-YJK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="补评" image="buping">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="buping:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="K9T-kH-Mx2"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="gfb-rY-iAh" firstAttribute="leading" secondItem="anA-wf-XWu" secondAttribute="trailing" constant="15" id="03b-Gz-ukn"/>
                     <constraint firstItem="HeA-xi-xoR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1jb-dV-leY"/>
                     <constraint firstItem="gfb-rY-iAh" firstAttribute="leading" secondItem="aZ1-3I-Qu5" secondAttribute="trailing" constant="8" id="7Hd-rZ-P4x"/>
                     <constraint firstItem="52g-Ku-HsY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8Uc-47-bkx"/>
                     <constraint firstItem="HeA-xi-xoR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="H2e-QK-Ufv"/>
                     <constraint firstItem="aZ1-3I-Qu5" firstAttribute="leading" secondItem="HeA-xi-xoR" secondAttribute="trailing" constant="20" id="T3L-77-fZp"/>
                     <constraint firstItem="gfb-rY-iAh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Vsi-KG-BvV"/>
+                    <constraint firstItem="anA-wf-XWu" firstAttribute="centerY" secondItem="52g-Ku-HsY" secondAttribute="centerY" id="aph-Ms-ZNP"/>
                     <constraint firstAttribute="trailing" secondItem="gfb-rY-iAh" secondAttribute="trailing" constant="6" id="cJL-09-TLx"/>
                     <constraint firstAttribute="bottom" secondItem="gfb-rY-iAh" secondAttribute="bottom" constant="21.5" id="fYK-CS-txm"/>
                     <constraint firstAttribute="bottom" secondItem="HeA-xi-xoR" secondAttribute="bottom" constant="13.5" id="jHa-Kr-unO"/>
@@ -75,6 +97,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="buping" width="8" height="8"/>
         <image name="shipin拷贝2" width="24" height="16"/>
     </resources>
 </document>
