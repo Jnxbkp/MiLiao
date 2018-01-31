@@ -297,7 +297,7 @@
         _tipsLabel = [[UILabel alloc] init];
         _tipsLabel.backgroundColor = [UIColor clearColor];
         _tipsLabel.textColor = RGBColor(0X9a9a9a);
-        _tipsLabel.font = [UIFont systemFontOfSize:18];
+        _tipsLabel.font = [UIFont systemFontOfSize:17];
         _tipsLabel.textAlignment = NSTextAlignmentCenter;
 
         [self.view addSubview:_tipsLabel];

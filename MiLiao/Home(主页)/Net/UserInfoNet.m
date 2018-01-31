@@ -159,16 +159,16 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
  @param result 返回
  */
 + (void)perMinuteDedectionUserName:(NSString *)userName costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result {
-   ;
+   
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"costUserName"] = costUserName;
     parameter[@"token"] = tokenForCurrentUser();
     parameter[@"userName"] = userName;
     NSLog(@"传入的pid：%@", pid);
-    if (!pid || pid.length < 1) {
-        parameter[@"pid"] = @"0";
+    if (pid || pid.length >=1) {
+         parameter[@"pid"] = pid;
     } else {
-        parameter[@"pid"] = pid;
+        parameter[@"pid"] = @"0";
     }
     NSLog(@"\n\n\n执行扣费接口的pid:%@", pid);
     

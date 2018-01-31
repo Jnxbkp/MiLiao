@@ -174,7 +174,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 //        self.anchorPricerLabel.attributedText = str;
         self.anchorPricerLabel.text = price;
         [self.anchorPricerLabel sizeToFit];
-        CGFloat width = self.anchorPricerLabel.width;
+        CGFloat width = self.anchorPricerLabel.width + 30;
         [self.anchorPricerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(@(width));
         }];
@@ -450,6 +450,8 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
     NSString *userName = self.targetId;
     NSString *costUserName = self.callSession.myProfile.userId;
+    NSString *pid = self.pid;
+    NSLog(@"%@", pid);
     
     [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         NSLog(@"userName is %@", userName);
@@ -458,12 +460,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             self.pid = canCall.pid;
             NSLog(@"执行扣费成功");
-            if (!self.isCallIn) {
+            if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self isContinueCanVideoCall:canCall];
                 });
             }
-           
         }
     }];
 }
@@ -712,7 +713,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         _remoteNameLabel = [[UILabel alloc] init];
         _remoteNameLabel.backgroundColor = [UIColor clearColor];
         _remoteNameLabel.textColor = RGBColor(0X4e4e4e);
-        _remoteNameLabel.font = [UIFont systemFontOfSize:18];
+        _remoteNameLabel.font = [UIFont boldSystemFontOfSize:20];
         _remoteNameLabel.textAlignment = NSTextAlignmentCenter;
 
         [self.view addSubview:_remoteNameLabel];
