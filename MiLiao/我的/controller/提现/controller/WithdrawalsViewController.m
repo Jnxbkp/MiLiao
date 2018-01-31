@@ -121,7 +121,7 @@
                 NSInteger resultCode = [info[@"resultCode"] integerValue];
                 if (resultCode == SUCCESS) {
                     [SVProgressHUD showSuccessWithStatus:@"提现成功"];
-                    
+                    [self.navigationController popToRootViewControllerAnimated:YES];
                 }else{
                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
                     

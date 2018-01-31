@@ -62,7 +62,9 @@
           //  headUrl
             [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",info[@"data"][@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"默认头像"] options:SDWebImageRefreshCached];
             self.nickName.text = [NSString stringWithFormat:@"%@",info[@"data"][@"nickname"]];
-
+             NSString *isBigV = [NSString stringWithFormat:@"%@",info[@"data"][@"isBigV"]];
+             [_userDefaults setObject:isBigV forKey:@"isBigV"];
+            [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
@@ -122,7 +124,9 @@
         //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
         if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"])
         {
-            
+            if (indexPath.section == 2 && indexPath.row == 0) {
+                return 50;
+            }
         }else{
             if (indexPath.section == 2 && indexPath.row == 0) {
                 return 0;

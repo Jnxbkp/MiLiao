@@ -34,7 +34,7 @@
 //    [[UITabBar appearance] insertSubview:view atIndex:0];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
+    NSString *isBigV = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"isBigV"]];
     self.delegate = self;
     
 //    if ([isBigV isEqualToString:@"3"]) {
