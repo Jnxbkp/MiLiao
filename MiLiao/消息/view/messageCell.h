@@ -14,6 +14,7 @@ typedef void (^BackBlock)(void);
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *message;
+@property (weak, nonatomic) IBOutlet UIButton *buping;
 @property (strong, nonatomic) CallListModel *model;
 @property (nonatomic, copy) BackBlock Block;
 

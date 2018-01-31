@@ -89,6 +89,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="buping" destination="anA-wf-XWu" id="4o2-9w-PnE"/>
                 <outlet property="image" destination="HeA-xi-xoR" id="n25-qw-yRI"/>
                 <outlet property="message" destination="aZ1-3I-Qu5" id="J3k-pE-cID"/>
                 <outlet property="title" destination="52g-Ku-HsY" id="YbW-KT-Ydj"/>

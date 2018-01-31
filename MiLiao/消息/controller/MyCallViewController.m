@@ -19,11 +19,17 @@
 @interface MyCallViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
-
+///评价控制器
+@property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 @end
 
 @implementation MyCallViewController
-
+- (EvaluateVideoViewController *)evaluateVideoViewConroller {
+    if (!_evaluateVideoViewConroller) {
+        _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+    }
+    return _evaluateVideoViewConroller;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置状态栏为黑色
@@ -33,13 +39,14 @@
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的通话"];
    
     [self setTableview];
-    [self loadData];
 
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self loadData];
+
 }
 - (void)setTableview
 {
@@ -90,8 +97,40 @@
     self.callListModel = self.modelArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model =  self.callListModel;
-
+    cell.Block = ^{
+        NSLog(@"补评补评补评补评补评补评");
+        UIView *view = self.evaluateVideoViewConroller.view;
+        self.evaluateVideoViewConroller.callID = self.callListModel.anchorId;
+        self.evaluateVideoViewConroller.anchorName = self.callListModel.nickName;
+        [self.view addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.equalTo(self.view).offset(5);
+            make.right.bottom.equalTo(self.view).offset(-5);
+        }];
+        __weak typeof(self) weakSelf = self;
+        [self.evaluateVideoViewConroller evaluateSuccess:^{
+            [weakSelf removeEvaluateView];
+        }];
+    };
     return cell;
+}
+//移除掉评价界面
+- (void)removeEvaluateView {
+    
+    UIView *view = self.evaluateVideoViewConroller.view;
+    [UIView animateWithDuration:0.2 animations:^{
+        view.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            view.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            view.alpha = 0;
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+            NSMutableArray *array = [self.childViewControllers mutableCopy];
+            [array removeObject:self.evaluateVideoViewConroller];
+            [self setValue:[array copy] forKey:@"childViewControllers"];
+        }];
+    }];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
