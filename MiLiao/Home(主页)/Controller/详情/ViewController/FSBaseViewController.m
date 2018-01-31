@@ -875,7 +875,6 @@
     self.tableView.showsVerticalScrollIndicator = _canScroll?YES:NO;
 }
 
-
 #pragma mark - 网络方法
 ///获取当前网红的价格
 - (void)getNetHotPrice:(void(^)(CGFloat price))price {

@@ -133,6 +133,8 @@
     [self.view addSubview:self.collectionView];
 
     [self backButton];
+    
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
     // Do any additional setup after loading the view.
 }
 
@@ -244,8 +246,7 @@
 }
 
 
-- (void)videoButtonSelect:(DisVideoModel *)videoModel {
-    
+- (void)playCollectionViewCell:(PlayCollectionViewCell *)cell videoButtonSelect:(DisVideoModel *)videoModel {
     VideoUserModel *videoUser = [[VideoUserModel alloc] init];
     videoUser.nickname = videoModel.nickName;
     videoUser.price = videoModel.price;
@@ -258,6 +259,7 @@
                 [EnoughCallTool viewController:self showPayAlertController:^{
                     [self goPay];//去充值
                 } continueCall:^{
+                    [cell pausePlay];
                     //继续视频
                     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
                 }];
@@ -265,6 +267,7 @@
             
             //余额充足 既能聊天 有能视频
             if (enoughType == MoneyEnoughTypeEnough) {
+                [cell pausePlay];
                 [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
             }
             
@@ -273,20 +276,28 @@
                 [EnoughCallTool viewController:self showPayAlertController:^{
                     [self goPay];
                 }];
-               
+                
             }
         } else {
             [SVProgressHUD showErrorWithStatus:msg];
         }
     }];
     
-   
-    
 }
+
 
 - (void)goPay {
     PayWebViewController *payViewController = [[PayWebViewController alloc] init];
     [self.navigationController pushViewController:payViewController animated:YES];
+}
+
+- (void)notificationFunc:(NSNotification *)notification {
+    if ([notification.name isEqualToString:VideoCallEnd]) {
+        NSArray *ary = [self.collectionView visibleCells];
+        for (PlayCollectionViewCell *cell in ary) {
+            [cell resumePlay];
+        }
+    }
 }
 
 
@@ -395,6 +406,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 /*
 #pragma mark - Navigation
