@@ -28,7 +28,7 @@
     NSString *callType = [NSString stringWithFormat:@"%@",model.callType];
     //已评价
     if ([model.sfpj isEqualToString:@"1"]) {
-        
+        self.buping.hidden = YES;
     }else{
         
     }
