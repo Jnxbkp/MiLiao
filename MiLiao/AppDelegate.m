@@ -484,13 +484,13 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    UIViewController *topmostVC = [self topViewController];
-    if ([topmostVC isKindOfClass:[ViewController class]]) {
-        ViewController *VC = topmostVC;
-        [VC resumeCapturePreview];
-    } else {
-        
-    }
+//    UIViewController *topmostVC = [self topViewController];
+//    if ([topmostVC isKindOfClass:[ViewController class]]) {
+//        ViewController *VC = topmostVC;
+//        [VC resumeCapturePreview];
+//    } else {
+//        
+//    }
 //    [self switchRootViewController:nil];
      _enterBackgroundFlag = false;
 }
@@ -498,13 +498,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    UIViewController *topmostVC = [self topViewController];
-    if ([topmostVC isKindOfClass:[ViewController class]]) {
-        ViewController *VC = topmostVC;
-        [VC clear];
-    } else {
-        
-    }
+//    UIViewController *topmostVC = [self topViewController];
+//    if ([topmostVC isKindOfClass:[ViewController class]]) {
+//        ViewController *VC = topmostVC;
+//        [VC clear];
+//    } else {
+//
+//    }
 }
 //AFNetWorking leaks
 static AFHTTPSessionManager *manager ;

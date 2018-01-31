@@ -66,7 +66,7 @@
         [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
         sendBtn.adjustsImageWhenHighlighted = NO;
         sendBtn.size = CGSizeMake(30, 30);
-        sendBtn.centerX = w*2+w/2;
+        sendBtn.centerX = w*2g+w/2;
         sendBtn.centerY = 20;
         [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self addSubview:sendBtn];
