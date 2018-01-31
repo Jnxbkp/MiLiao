@@ -47,7 +47,7 @@
                         <constraint firstAttribute="height" constant="46" id="jt9-Dz-9Hm"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的M币" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25F-we-DoH">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的撩币" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25F-we-DoH">
                     <rect key="frame" x="69" y="96" width="98" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="98" id="0eD-w5-Kha"/>

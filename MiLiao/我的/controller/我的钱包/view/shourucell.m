@@ -17,7 +17,7 @@
 - (void)setModel:(shouruModel *)model {
     _model = model;
     self.nickName.text = [NSString stringWithFormat:@"%@",model.nickName];
-    self.money.text = [NSString stringWithFormat:@"+%@M币",model.amount];
+    self.money.text = [NSString stringWithFormat:@"+%@撩币",model.amount];
    ///时间戳转化成时间
     NSString *str=model.createDate;//时间戳
     NSTimeInterval time=[str doubleValue]/1000;

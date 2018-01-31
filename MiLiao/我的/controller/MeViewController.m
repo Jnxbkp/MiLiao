@@ -60,6 +60,7 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
           //  headUrl
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",info[@"data"][@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"默认头像"] options:SDWebImageRefreshCached];
             self.nickName.text = [NSString stringWithFormat:@"%@",info[@"data"][@"nickname"]];
              NSString *isBigV = [NSString stringWithFormat:@"%@",info[@"data"][@"isBigV"]];
