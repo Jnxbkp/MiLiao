@@ -88,7 +88,7 @@
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     [SVProgressHUD setMaximumDismissTimeInterval:2];
     //设置视频分辨率
-    [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
+    [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_720P];
     //注册监听 美颜视频流
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
@@ -248,8 +248,11 @@
 
 #pragma mark SDK Init
 - (void)initCloudPush {
+    
+#ifdef DEBUG
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
+#endif
     // SDK初始化
     [CloudPushSDK asyncInit:ALiPushAppKey appSecret:ALiPushAppSecret callback:^(CloudPushCallbackResult *res) {
         if (res.success) {

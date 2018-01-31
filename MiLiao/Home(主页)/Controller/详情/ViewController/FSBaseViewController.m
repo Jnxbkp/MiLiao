@@ -133,7 +133,12 @@
     //主播信息请求
     [self NetGetUserInformation:_user_id header:nil];
     
-    _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50+ML_StatusBarHeight) style:UITableViewStylePlain];
+    _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50) style:UITableViewStylePlain];
+    if (@available(iOS 11.0, *)) {
+        [_tableView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    } else {
+        // Fallback on earlier versions
+    }
     
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
         _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight);
@@ -165,7 +170,7 @@
     [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
         NSLog(@"%@",msg);
         if (success) {
-#warning roleType
+
             [YZCurrentUserModel sharedYZCurrentUserModel].roleType = dict[@"roleType"];
         }
     }];
@@ -459,21 +464,6 @@
         }];
     }
     
-
-//    //计算可通话时长
-//    [self calculatorCallTime:^(BOOL canCall) {
-//        if (canCall) {
-//            [weakSelf downButtonClickAction:but];
-//        } else {
-//            [weakSelf showPayAlertController:^{
-//                //跳转充值
-//            } continueCall:^{
-//                [weakSelf downButtonClickAction:but];
-//            }];
-//        }
-//    }];
-    
-    
 }
 
 ///聊天
@@ -492,6 +482,7 @@
 - (void)videoCall {
     NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+//    [[RCCall sharedRCCall] startSingleCall:self.videoUserModel.username mediaType:RCCallMediaVideo];
 }
 
 - (void)goPay {
@@ -704,9 +695,10 @@
             cell = [[FSBaseTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FSBaseTopTableViewCellIdentifier];
         }
         cell.reportBlock = ^{
-            ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
-                                 @"ReportView" owner:nil options:nil ].lastObject;
-            [alert show];
+//            ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
+//                                 @"ReportView" owner:nil options:nil ].lastObject;
+//            [alert show];
+            [self showReportSheet];
         };
         cell.delegate = self;
         if (_imageMuArr.count >0) {
@@ -772,6 +764,40 @@
         return cell;
     }
     return nil;
+}
+
+
+///弹出举报拉黑sheet
+- (void)showReportSheet {
+    UIAlertController *reportAlertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    //举报
+    UIAlertAction *reportAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[ReportView ReportView] show];
+    }];
+    
+    [reportAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    //拉黑
+    UIAlertAction *blackAction = [UIAlertAction actionWithTitle:@"拉黑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"加入黑名单" message:@"确定加入黑名单，您将不会再收到对方消息" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[NSUserDefaults standardUserDefaults] setObject:self.videoUserModel.ID forKey:@"laheiID"];
+            [self.navigationController popViewControllerAnimated:YES];
+            PostNotificationNameUserInfo(@"lahei", @{@"laheiID":self.videoUserModel.ID});
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+    [blackAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [cancleAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    [reportAlertController addAction:reportAction];
+    [reportAlertController addAction:blackAction];
+    [reportAlertController addAction:cancleAction];
+    
+    [self presentViewController:reportAlertController animated:YES completion:nil];
 }
 
 #pragma mark topCellDelegate

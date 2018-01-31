@@ -44,7 +44,7 @@ static NSString *const bigIdentifer = @"bigCell";
     NSString            *_newPage; //加载的页
     NSString            *_carePage;
     NSString            *_recommandPage;
-    
+    NSDictionary      *infoDic;
     
 }
 ///模型数组
@@ -77,6 +77,9 @@ static NSString *const bigIdentifer = @"bigCell";
     [titleView addSubview:searchBut];
     self.navigationItem.titleView = titleView;
     
+
+    ListenNotificationName_Func(@"lahei", @selector(notificationFunc:));
+    
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _careList = [NSMutableArray array];
     _newsList = [NSMutableArray array];
@@ -108,6 +111,44 @@ static NSString *const bigIdentifer = @"bigCell";
   
      [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeNone];
     [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:nil];
+}
+
+- (void)notificationFunc:(NSNotification *)notification {
+    if ([notification.name isEqualToString:@"lahei"]) {
+        NSDictionary *dict = notification.userInfo;
+        NSString *laheiID = dict[@"laheiID"];
+        
+        NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+        for (VideoUserModel  *model in _recommandList) {
+            NSString *str = model.ID;
+            if (![str isEqualToString:laheiID]){
+                [laheiAry addObject:model];
+                _recommandList = laheiAry;
+                
+            }
+        }
+        [_recommandTabelView reloadData];
+        NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+        for (VideoUserModel  *model in _careList) {
+            NSString *str = model.ID;
+            if (![str isEqualToString:laheiID]){
+                [laheiAry2 addObject:model];
+                _careList = laheiAry2;
+                
+            }
+        }
+        [_careTabelView reloadData];
+        NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+        for (VideoUserModel  *model in _newsList) {
+            NSString *str = model.ID;
+            if (![str isEqualToString:laheiID]){
+                [laheiAry3 addObject:model];
+                _newsList = laheiAry3;
+               
+            }
+        }
+         [_newTabelView reloadData];
+    }
 }
 //table选择视图
 - (void)addTableChoseView {
@@ -197,11 +238,11 @@ static NSString *const bigIdentifer = @"bigCell";
 - (void)netGetListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
    NSLog(@"----token--%@----%@",[_userDefaults objectForKey:@"token"],pageNumber);
     [MainMananger NetGetMainListKind:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
+        infoDic = info;
         NSLog(@"---success--%@",info);
         [SVProgressHUD dismiss];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-            
             self.modelArray = [VideoUserModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
             NSLog(@"%ld", self.modelArray.count);
 
@@ -209,22 +250,49 @@ static NSString *const bigIdentifer = @"bigCell";
                 if([selectStr isEqualToString:newStr]) {
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     _newsList = [self.modelArray mutableCopy];
-                    [self newTabReload];
+//                    [self newTabReload];
+                    NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _newsList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry3 addObject:model];
+                            _newsList = laheiAry3;
+                            [_newTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count > 0) {
                         _newTabelView.mj_footer.hidden = NO;
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     _careList = [self.modelArray mutableCopy];
-                    [self careTabReload];
+//                    [self careTabReload];
+                    NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _careList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry2 addObject:model];
+                            _careList = laheiAry2;
+                            [_careTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count > 0) {
                         _careTabelView.mj_footer.hidden = NO;
                     }
                 } else {
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     _recommandList = [self.modelArray mutableCopy];
-                    [self recommandTabReload];
-                    
+                 
+//                    [self recommandTabReload];
+                    NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _recommandList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry addObject:model];
+                            _recommandList = laheiAry;
+                            [_recommandTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count > 0) {
                         _recommandTabelView.mj_footer.hidden = NO;
                     }
@@ -234,21 +302,49 @@ static NSString *const bigIdentifer = @"bigCell";
                 if([selectStr isEqualToString:newStr]) {
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     [_newsList addObjectsFromArray:[self.modelArray mutableCopy]];
-                    [self newTabReload];
+//                    [self newTabReload];
+                    NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _newsList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry3 addObject:model];
+                            _newsList = laheiAry3;
+                            [_newTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count <= 0) {
                         [footer endRefreshingWithNoMoreData];
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     [_careList addObjectsFromArray:[self.modelArray mutableCopy]];
-                    [self careTabReload];
+//                    [self careTabReload];
+                    NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _careList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry2 addObject:model];
+                            _careList = laheiAry2;
+                            [_careTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count <= 0) {
                         [footer endRefreshingWithNoMoreData];
                     }
                 } else {
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     [_recommandList addObjectsFromArray:[self.modelArray mutableCopy]];
-                    [self recommandTabReload];
+                  
+//                    [self recommandTabReload];
+                    NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _recommandList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry addObject:model];
+                            _recommandList = laheiAry;
+                            [_recommandTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count <= 0) {
                         [footer endRefreshingWithNoMoreData];
                     }
@@ -260,7 +356,16 @@ static NSString *const bigIdentifer = @"bigCell";
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     _newsList = [NSMutableArray array];
                     _newsList = [self.modelArray mutableCopy];
-                    [self newTabReload];
+//                    [self newTabReload];
+                    NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _newsList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry3 addObject:model];
+                            _newsList = laheiAry3;
+                            [_newTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count > 0) {
                         _newTabelView.mj_footer.hidden = NO;
                     }
@@ -268,7 +373,16 @@ static NSString *const bigIdentifer = @"bigCell";
                     _careList = [NSMutableArray array];
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     _careList = [self.modelArray mutableCopy];
-                    [self careTabReload];
+//                    [self careTabReload];
+                    NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _careList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry2 addObject:model];
+                            _careList = laheiAry2;
+                            [_careTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count > 0) {
                         _careTabelView.mj_footer.hidden = NO;
                     }
@@ -276,7 +390,16 @@ static NSString *const bigIdentifer = @"bigCell";
                     _recommandList = [NSMutableArray array];
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     _recommandList = [self.modelArray mutableCopy];
-                    [_recommandTabelView reloadData];
+//                    [_recommandTabelView reloadData];
+                    NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+                    for (VideoUserModel  *model in _recommandList) {
+                        NSString *str = model.ID;
+                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
+                            [laheiAry addObject:model];
+                            _recommandList = laheiAry;
+                            [_recommandTabelView reloadData];
+                        }
+                    }
                     if (self.modelArray.count > 0) {
                         _recommandTabelView.mj_footer.hidden = NO;
                     }
@@ -422,6 +545,7 @@ static NSString *const bigIdentifer = @"bigCell";
 
 #pragma mark 添加tabelcell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __weak typeof(self) weakSelf = self;
     MLHomeListTableViewCell *cell = nil;
     static NSString *cellID = @"cell.Identifier";
     cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -429,11 +553,8 @@ static NSString *const bigIdentifer = @"bigCell";
         cell = [[MLHomeListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
     }
-    cell.reportBlock = ^{
-        ReportView *alert = [[NSBundle mainBundle] loadNibNamed:
-                           @"ReportView" owner:nil options:nil ].lastObject;
-        [alert show];
-    };
+  
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSMutableArray *muArr = [NSMutableArray array];
     
@@ -448,7 +569,13 @@ static NSString *const bigIdentifer = @"bigCell";
     cell.videoUserModel = videoUserModel;
     [cell.stateButton setStateStr:videoUserModel.status];
 
+    //举报
+    cell.reportBlock = ^{
 
+        [self showReportSheet:videoUserModel.ID];
+    };
+    
+    
 ////    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
 //    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
 //    cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
@@ -459,6 +586,70 @@ static NSString *const bigIdentifer = @"bigCell";
     return cell;
     
 }
+
+
+///弹出举报拉黑sheet
+- (void)showReportSheet:(NSString *)laheiID {
+    UIAlertController *reportAlertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    //举报
+    UIAlertAction *reportAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[ReportView ReportView] show];
+    }];
+    
+    [reportAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    //拉黑
+    UIAlertAction *blackAction = [UIAlertAction actionWithTitle:@"拉黑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"加入黑名单" message:@"确定加入黑名单，您将不会再收到对方消息" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [_userDefaults setObject:laheiID forKey:@"laheiID"];
+            NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
+            for (VideoUserModel  *model in _recommandList) {
+                NSString *str = model.ID;
+                if (![str isEqualToString:laheiID]){
+                    [laheiAry addObject:model];
+                    _recommandList = laheiAry;
+                    
+                }
+            }
+            [_recommandTabelView reloadData];
+            NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
+            for (VideoUserModel  *model in _careList) {
+                NSString *str = model.ID;
+                if (![str isEqualToString:laheiID]){
+                    [laheiAry2 addObject:model];
+                    _careList = laheiAry2;
+                    
+                }
+            }
+            [_careTabelView reloadData];
+            NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
+            for (VideoUserModel  *model in _newsList) {
+                NSString *str = model.ID;
+                if (![str isEqualToString:laheiID]){
+                    [laheiAry3 addObject:model];
+                    _newsList = laheiAry3;
+                    
+                }
+            }
+            [_newTabelView reloadData];
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+    [blackAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [cancleAction setValue:[UIColor lightGrayColor] forKey:@"titleTextColor"];
+    
+    [reportAlertController addAction:reportAction];
+    [reportAlertController addAction:blackAction];
+    [reportAlertController addAction:cancleAction];
+    
+    [self presentViewController:reportAlertController animated:YES completion:nil];
+}
+
+
 #pragma mark 点击tablecell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];

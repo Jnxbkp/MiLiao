@@ -70,6 +70,14 @@ static NSString *kTempFolder = @"touxiang";
 @property (weak, nonatomic) IBOutlet UITextField *wx;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
+@property(nonatomic,strong)NSMutableArray *photoMuArray;
+@property(nonatomic,strong)UIImageView *imageViewOne;
+@property(nonatomic,strong)UIImageView *imageViewTwo;
+@property(nonatomic,strong)UIImageView *imageViewThree;
+@property(nonatomic,strong)UIImageView *imageViewFour;
+@property(nonatomic,strong)UIImageView *imageViewFive;
+@property(nonatomic,strong)UIImageView *imageViewSix;
+
 @property (nonatomic,strong) HXProvincialCitiesCountiesPickerview *regionPickerView;
 
 @end
@@ -87,6 +95,7 @@ static NSString *kTempFolder = @"touxiang";
     [self.fiveBtn setTag:4];
     [self.sixBtn setTag:5];
     [self.eightBtn setTag:6];
+   
     
     self.item1String = @"";
     self.item2String = @"";
@@ -290,7 +299,7 @@ static NSString *kTempFolder = @"touxiang";
             NSLog(@"%@",result);
             [self takePhoto];
             //把图片路径添加到数组
-            NSMutableArray *photoMuArray = [[NSMutableArray alloc] initWithObjects:
+            self.photoMuArray = [[NSMutableArray alloc] initWithObjects:
                                             self.item1String,
                                             self.item2String,
                                             self.item3String,
@@ -299,7 +308,7 @@ static NSString *kTempFolder = @"touxiang";
                                             self.item6String,
                                             nil];
             [posters removeAllObjects];
-            for (NSString *photoUrl in photoMuArray) {
+            for (NSString *photoUrl in  self.photoMuArray) {
                 if (photoUrl.length > 0) {
                     [posters addObject:photoUrl];
                 }
@@ -316,28 +325,46 @@ static NSString *kTempFolder = @"touxiang";
     if (BtnTag == 1) {
         self.item1String = [NSString stringWithFormat:@"%@",result];
         [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item1String]] forState:UIControlStateNormal];
+        self.imageViewOne = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shuaxin"]];
+        self.imageViewOne.frame = CGRectMake(0, 0, 34, 34);
+        [self.oneBtn addSubview:self.imageViewOne];
    }
     if (BtnTag == 2) {
        self.item2String = [NSString stringWithFormat:@"%@",result];
         [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item2String]] forState:UIControlStateNormal];
+        self.imageViewTwo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
+        self.imageViewTwo.frame = CGRectMake(0, 0, 34, 34);
+        [self.twoBtn addSubview:self.imageViewTwo];
     }
 
     if (BtnTag == 3) {
         self.item3String = [NSString stringWithFormat:@"%@",result];
         [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item3String]] forState:UIControlStateNormal];
+        self.imageViewThree = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
+        self.imageViewThree.frame = CGRectMake(0, 0, 34, 34);
+        [self.fourBtn addSubview:self.imageViewThree];
     }
     if (BtnTag == 4) {
         self.item4String = [NSString stringWithFormat:@"%@",result];
         [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item4String]] forState:UIControlStateNormal];
+        self.imageViewFour = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
+        self.imageViewFour.frame = CGRectMake(0, 0, 34, 34);
+        [self.fiveBtn addSubview:self.imageViewFour];
    }
     if (BtnTag == 5) {
         self.item5String = [NSString stringWithFormat:@"%@",result];
         [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item5String]] forState:UIControlStateNormal];
+        self.imageViewFive = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
+        self.imageViewFive.frame = CGRectMake(0, 0, 34, 34);
+        [self.sixBtn addSubview:self.imageViewFive];
   }
 
     if (BtnTag == 6) {
         self.item6String = [NSString stringWithFormat:@"%@",result];
         [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item6String]] forState:UIControlStateNormal];
+        self.imageViewSix = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
+        self.imageViewSix.frame = CGRectMake(0, 0, 34, 34);
+        [self.eightBtn addSubview:self.imageViewSix];
   }
 
     [self.tableView reloadData];

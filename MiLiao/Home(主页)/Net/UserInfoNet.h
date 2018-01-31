@@ -116,4 +116,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
  @param complete <#complete description#>
  */
 + (void)getUserRole:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))complete;
+
+
++ (void)getAnchorInfoByMobile:(NSString *)mobile complete:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))complete;
 @end

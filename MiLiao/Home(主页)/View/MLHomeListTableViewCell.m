@@ -41,9 +41,15 @@
 
     //jubao
     _rePortButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _rePortButton.frame = CGRectMake(24, 12, 20, 20);
+    _rePortButton.frame = CGRectMake(12, 12, 40, 40);
     [_rePortButton setImage:[UIImage imageNamed:@"jubao"] forState:UIControlStateNormal];
     [_rePortButton addTarget:self action:@selector(rePort) forControlEvents:UIControlEventTouchUpInside];
+    //拉黑
+//    _laheiButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _laheiButton.frame = CGRectMake(12, CGRectGetMaxY(_rePortButton.frame), 40, 40);
+//    [_laheiButton setImage:[UIImage imageNamed:@"lahei"] forState:UIControlStateNormal];
+//    [_laheiButton addTarget:self action:@selector(lahei) forControlEvents:UIControlEventTouchUpInside];
+    
     _belowView = [[UIView alloc]initWithFrame:CGRectMake(12, WIDTH-66-24, WIDTH-24, 66)];
     _belowView.backgroundColor = ML_Color(0, 0, 0, 0.1);
     
@@ -62,12 +68,19 @@
     [self.contentView addSubview:_mainImgageView];
     [self.contentView addSubview:_stateButton];
     [self.contentView addSubview:_rePortButton];
+    [self.contentView addSubview:_laheiButton];
     [self.contentView addSubview:_belowView];
     [self.contentView addSubview:_nameLabel];
     [self.contentView addSubview:_messageLabel];
     [self.contentView addSubview:_priceView];
 
     
+}
+- (void)lahei
+{
+    if (self.laheiBlock) {
+        self.laheiBlock();
+    }
 }
 - (void)rePort
 {

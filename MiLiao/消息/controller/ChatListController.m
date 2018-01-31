@@ -28,6 +28,7 @@
 //    [self.navigationController setNavigationBarHidden:NO];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 //    self.navigationController.navigationBar.translucent = NO;
+    [RCIM sharedRCIM].userInfoDataSource = self;
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -127,7 +128,7 @@
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [RCIM sharedRCIM].userInfoDataSource = self;
+    
 
 }
 - (void)leftButtonDidClick {

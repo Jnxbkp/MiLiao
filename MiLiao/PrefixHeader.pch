@@ -72,7 +72,13 @@
 //网络请求成功
 #define SUCCESS 200
 //请求Url
+<<<<<<< HEAD
 //#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
+=======
+//#define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
+#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
+
+>>>>>>> 8d7af8e828e79256a239801cd6a01fd8c8021764
 //中志Url
 #define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
 
@@ -184,13 +190,19 @@
 
 
 
-
 #define IS_IPHONEX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
 #define SafeTop (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 44)
 #define SafeBottom (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 43)
 #define StatusBarHeight (([[UIScreen mainScreen] bounds].size.height-812) ? 20 : 44)
 
 
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+//#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+//#define debugMethod()
+#endif
 
 #endif
 #endif /* PrefixHeader_pch */

@@ -14,6 +14,8 @@
 #import "UserInfoNet.h"
 #import "GoPayTableViewController.h"
 #import "UserCallPowerModel.h"
+#import "EvaluateVideoViewController.h"//评价
+
 @interface MyCallViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
@@ -97,40 +99,45 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:self.callListModel.anchorAccount result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-        if (success) {
-            
-            UserCallPowerModel *callPower = (UserCallPowerModel *)model;
-            MoneyEnoughType moneyType = callPower.typeCode;
-            //余额不充足 不能聊天 可以视频
-            if (moneyType == MoneyEnoughTypeNotEnough) {
-                [self showPayAlertController:^{
-                    //去充值
-                    //                    GoPayTableViewController *goPayVC = [[GoPayTableViewController alloc]init];
-                    //                    [weakSelf.navigationController pushViewController:goPayVC animated:YES];
-                } continueCall:^{
-                    //继续视频
-                    weakSelf.callListModel = weakSelf.modelArray[indexPath.row];
-                    [weakSelf videoCall];
-                }];
+    self.callListModel = self.modelArray[indexPath.row];
+    
+    //普通用户
+    if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+        [UserInfoNet canCall:self.callListModel.anchorAccount result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+            if (success) {
+                
+                UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+                MoneyEnoughType moneyType = callPower.typeCode;
+                //余额不充足 不能聊天 可以视频
+                if (moneyType == MoneyEnoughTypeNotEnough) {
+                    [self showPayAlertController:^{
+                        //去充值
+                        //                    GoPayTableViewController *goPayVC = [[GoPayTableViewController alloc]init];
+                        //                    [weakSelf.navigationController pushViewController:goPayVC animated:YES];
+                    } continueCall:^{
+                        //继续视频
+                        [weakSelf videoCall];
+                    }];
+                }
+                
+                //余额充足 既能聊天 有能视频
+                if (moneyType == MoneyEnoughTypeEnough) {
+                    [self videoCall];
+                }
+                
+                //余额为0
+                if (moneyType == MoneyEnoughTypeEmpty) {
+                    [self showPayAlertController:^{
+                        
+                    }];
+                }
+                
+            } else {
+                [SVProgressHUD showErrorWithStatus:msg];
             }
-            
-            //余额充足 既能聊天 有能视频
-            if (moneyType == MoneyEnoughTypeEnough) {
-                [self videoCall];
-            }
-            
-            //余额为0
-            if (moneyType == MoneyEnoughTypeEmpty) {
-                [self showPayAlertController:^{
-                    
-                }];
-            }
-            
-        } else {
-           [SVProgressHUD showErrorWithStatus:msg];
-        }
-    }];
+        }];
+    }
+   
 }
 ///视频聊天
 - (void)videoCall {

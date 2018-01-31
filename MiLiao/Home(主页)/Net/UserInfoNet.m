@@ -33,6 +33,8 @@ static NSString *EvaluateTagModel = @"EvaluateTagModel";
 static NSString *SaveEvaluate = @"/v1/bigV/saveBigVEvaluation";
 
 
+static NSString *GetAnchorInfoByMobile = @"/v1/user/getAnchorInfoByMobile";
+
 /////////类名
 
 ///通话能力模型
@@ -239,6 +241,10 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     NSString *token = tokenForCurrentUser();
     NSString *api = [GetUserRoleType stringByAppendingString:[NSString stringWithFormat:@"/%@/%@", userName, token]];
     [self Get:api parameters:nil result:complete];
+}
+
++ (void)getAnchorInfoByMobile:(NSString *)mobile complete:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))complete {
+    [self Get:GetAnchorInfoByMobile parameters:@{@"mobile":mobile,@"token":tokenForCurrentUser()} result:complete];
 }
 
 
