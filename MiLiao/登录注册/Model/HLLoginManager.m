@@ -11,13 +11,13 @@
 @implementation HLLoginManager
 //获取短信验证码
 //GET /v1/user/getVerifyCode
-+ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
++ (void)NetGetgetVerifyCodeMobile:(NSString *)mobile verifyMobile:(NSString *)verifyMobile success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
         //设置请求头
     
-    [manager GET:[NSString stringWithFormat:@"%@/v1/user/getVerifyCode?mobile=%@",HLRequestUrl,mobile] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@/v1/user/getVerifyCode?mobile=%@&verifyMobile=%@",HLRequestUrl,mobile,verifyMobile] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);

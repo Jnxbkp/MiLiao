@@ -80,7 +80,7 @@
         return;
     }
 //    self.getButton.enabled=NO;
-    [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {
+    [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text verifyMobile:@"2" success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
