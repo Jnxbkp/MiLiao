@@ -60,17 +60,30 @@
         
         UIButton *sendBtn = [[UIButton alloc] init];
         sendBtn.backgroundColor = [UIColor clearColor];
-        [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal@2x"] forState:UIControlStateNormal];
+        [sendBtn setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
         
         sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
         [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
         sendBtn.adjustsImageWhenHighlighted = NO;
-        sendBtn.size = CGSizeMake(w, 70);
-        sendBtn.centerX = self.width / 2;
-        sendBtn.centerY = 12;
+        sendBtn.size = CGSizeMake(30, 30);
+        sendBtn.centerX = w*2+w/2;
+        sendBtn.centerY = 20;
         [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self addSubview:sendBtn];
         self.middleBtn = sendBtn;
+//        UIButton *sendBtn = [[UIButton alloc] init];
+//        sendBtn.backgroundColor = [UIColor clearColor];
+//        [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal@2x"] forState:UIControlStateNormal];
+//
+//        sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+//        [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        sendBtn.adjustsImageWhenHighlighted = NO;
+//        sendBtn.size = CGSizeMake(w, 70);
+//        sendBtn.centerX = self.width / 2;
+//        sendBtn.centerY = 12;
+//        [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [self addSubview:sendBtn];
+//        self.middleBtn = sendBtn;
         
         [sendBtn setImagePositionWithType:SSImagePositionTypeTop spacing:4];
         // 其他位置按钮

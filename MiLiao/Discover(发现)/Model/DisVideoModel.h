@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *anchorAccount;
 @property (nonatomic, strong) NSString *createDate;
+@property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *Id;
 @property (nonatomic, strong) NSString *remark;
 @property (nonatomic, strong) NSString *updateDate;

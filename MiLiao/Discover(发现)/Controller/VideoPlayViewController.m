@@ -13,6 +13,9 @@
 #import "FSBaseViewController.h"
 #import "DiscoverMananger.h"
 #import "MainMananger.h"
+#import "VideoUserModel.h"
+
+#import "RongCallKit.h"
 
 #define headButtonTag   2000
 #define zanButtonTag    3000
@@ -236,8 +239,14 @@
 
 }
 
-- (void)videoButtonSelect:(UIButton *)button {
-    
+
+- (void)videoButtonSelect:(DisVideoModel *)videoModel {
+    VideoUserModel *videoUser = [[VideoUserModel alloc] init];
+    videoUser.nickname = videoModel.nickName;
+    videoUser.price = videoModel.price;
+    videoUser.username = videoModel.anchorAccount;
+    videoUser.posterUrl = videoModel.headUrl;
+    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
 }
 //赞视频
 - (void)NetPostZanButtonClick:(NSString *)zanStatus button:(UIButton *)button {

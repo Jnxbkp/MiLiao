@@ -50,8 +50,6 @@ static NSString *const hotIdentifer = @"hotCell";
     NSString            *_hotPage;
     DisbaseModel        *_disBaseModel;
     DisVideoModelList    *_videoModelList;
-   
-    NSDictionary    *testDic;
 
 }
 
@@ -132,8 +130,7 @@ static NSString *const hotIdentifer = @"hotCell";
 - (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
     [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
-        testDic = [NSDictionary dictionary];
-        testDic = [info objectForKey:@"data"];
+
         [SVProgressHUD dismiss];
         _disBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
         if (header == nil && footer == nil) {//首次请求

@@ -22,6 +22,7 @@
 #import "PayWebViewController.h"
 
 #import "RCCallKitUtility.h"
+#import "RemoteUserInfoModel.h"//主播模型
 
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
@@ -53,13 +54,18 @@
 ///电话是否接通过
 @property (nonatomic, assign, getter=isCallConnect) BOOL callConnect;
 
+///主播每分钟扣费金额的label
+@property (nonatomic, strong) UILabel *anchorPricerLabel;
+
+///对端的主播
+@property (nonatomic, strong) RemoteUserInfoModel *remoteAncher;
 
 
 @end
 
 
 
-///分钟计费的时间间隔
+///分钟计费的时间间隔(秒)
 static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 @implementation RCCallSingleCallViewController
@@ -116,6 +122,24 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     return _bar ;
 }
 
+- (UILabel *)anchorPricerLabel {
+    if (!_anchorPricerLabel) {
+        _anchorPricerLabel = [[UILabel alloc] init];
+        _anchorPricerLabel.backgroundColor = RGBColor(0XCCCCCC);
+        _anchorPricerLabel.layer.cornerRadius = 15.0;
+        _anchorPricerLabel.layer.masksToBounds = YES;
+        _anchorPricerLabel.textColor = [UIColor whiteColor];
+        _anchorPricerLabel.textAlignment = NSTextAlignmentCenter;
+        [self.backgroundView addSubview:_anchorPricerLabel];
+        [_anchorPricerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.view);
+            make.bottom.mas_equalTo(self.hangupButton.mas_top).mas_offset(-15);
+            make.height.equalTo(@30);
+        }];
+    }
+    return _anchorPricerLabel;
+}
+
 
 ///获取本次通话的callID
 - (NSString *)getCurrentCallID {
@@ -139,8 +163,28 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     self.bar.hidden = !showBar;
 }
 
+- (void)setRemoteAncher:(RemoteUserInfoModel *)remoteAncher {
+    _remoteAncher = remoteAncher;
+    if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+        NSString *price = [NSString stringWithFormat:@"每分钟%@M币", remoteAncher.price];
+//        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:price];
+//        [str addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0,3)];
+//        [str addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(3,2)];
+//        [str addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(5,2)];
+//        self.anchorPricerLabel.attributedText = str;
+        self.anchorPricerLabel.text = price;
+        [self.anchorPricerLabel sizeToFit];
+        CGFloat width = self.anchorPricerLabel.width;
+        [self.anchorPricerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(@(width));
+        }];
+    }
+   
+    
+}
 
-// init
+
+#pragma mark - init
 - (instancetype)initWithIncomingCall:(RCCallSession *)callSession {
     return [super initWithIncomingCall:callSession];
 }
@@ -158,6 +202,17 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 
 #pragma mark - View
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UserInfoNet getUserInfoFromUserName:self.targetId modelResult:^(RequestState success, id model, NSInteger code, NSString *msg) {
+        NSLog(@"%@", model);
+        self.remoteAncher = (RemoteUserInfoModel *)model;
+    }];
+   
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -183,21 +238,25 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             userInfo = [[RCUserInfo alloc] initWithUserId:self.callSession.targetId name:name portrait:portrait];
         }
         self.remoteUserInfo = userInfo;
-//        [self resetRemoteUserInfoIfNeed];
         [self.remoteNameLabel setText:userInfo.name];
         [self.remotePortraitView setImageURL:[NSURL URLWithString:userInfo.portraitUri]];
     }
     if (self.callSession.callStatus == RCCallIncoming) {
         //呼入
         self.callIn = YES;
-        [UserInfoNet getAnchorInfoByMobile:self.targetId complete:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
-            NSLog(@"%@", dict);
-            self.remoteUserInfo = [[RCUserInfo alloc] initWithUserId:self.targetId name:dict[@"nickname"] portrait:dict[@"headUrl"]];
-            dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.remoteAncher) {
+            self.remoteUserInfo = [[RCUserInfo alloc] initWithUserId:self.targetId name:self.remoteAncher.nickName portrait:self.remoteAncher.headUrl];
+            [self.remoteNameLabel setText:userInfo.name];
+            [self.remotePortraitView setImageURL:[NSURL URLWithString:userInfo.portraitUri]];
+        } else {
+            [UserInfoNet getUserInfoFromUserName:self.targetId modelResult:^(RequestState success, id model, NSInteger code, NSString *msg) {
+                self.remoteAncher = (RemoteUserInfoModel *)model;
+                self.remoteUserInfo = [[RCUserInfo alloc] initWithUserId:self.targetId name:self.remoteAncher.nickName portrait:self.remoteAncher.headUrl];
                 [self.remoteNameLabel setText:self.remoteUserInfo.name];
                 [self.remotePortraitView setImageURL:[NSURL URLWithString:self.remoteUserInfo.portraitUri]];
-            });
-        }];
+            }];
+        } 
+       
     }
     
     //验证用户身份
@@ -206,10 +265,6 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
                                              selector:@selector(onUserInfoUpdate:)
                                                  name:RCKitDispatchUserInfoUpdateNotification
                                                object:nil];
-
-    
-   
-    
     //加载手势
     [self loadGesture];
     
@@ -220,7 +275,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     //注册监听 美颜视频流
     [FUVideoFrameObserverManager registerVideoFrameObserver];
     
-    
+    NSLog(@"%@", self.mainVideoView);
     
 }
 
@@ -377,51 +432,28 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if ([self isAppleCheck]) return;
     
     NSLog(@"准备执行扣费");
+    /*
     NSString *userName;//网红的
     NSString *costUserName;//扣费的
-//    NSString *isBigV = [YZCurrentUserModel sharedYZCurrentUserModel].isBigv;
     NSString  *roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
     
     //普通用户
     if ([roleType isEqualToString:RoleTypeCommon]) {
         userName = self.targetId;
         costUserName = self.callSession.myProfile.userId;
-//        //呼入的电话
-//        if (self.callIn) {
-//            userName = self.callSession.caller;
-//            NSLog(@"costUserName is %@", [YZCurrentUserModel sharedYZCurrentUserModel].username);
-//            NSLog(@"%@", self.callSession.targetId);
-//            costUserName = self.callSession.myProfile.userId;
-//        } else {
-//            //呼出的电话
-//            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-//            if (self.videoUser) {
-//                userName = self.videoUser.username;
-//            }
-//            if (self.callListModel) {
-//                userName = self.callListModel.anchorAccount;
-//            }
-//            userName = self.callSession.targetId;
-//            NSLog(@"%@", self.targetId);
-//        }
     } else if ([roleType isEqualToString:RoleTypeBigV]) {
         //大v
         userName = self.callSession.myProfile.userId;//[YZCurrentUserModel sharedYZCurrentUserModel].username;
         costUserName = self.callSession.targetId;
-//        if (self.callIn) {
-//            costUserName = self.callSession.caller;
-//        } else {
-//            if (self.videoUser) {
-//                costUserName = self.videoUser.username;
-//            }
-//            if (self.callListModel) {
-//                costUserName = self.callListModel.anchorAccount;
-//            }
-//        }
     }
+     */
 
+    NSString *userName = self.targetId;
+    NSString *costUserName = self.callSession.myProfile.userId;
     
     [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+        NSLog(@"userName is %@", userName);
+        NSLog(@"costUserName is %@", costUserName);
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             self.pid = canCall.pid;
@@ -480,14 +512,36 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 //        }
     }
     
-    [UserInfoNet finalDeductMoneyCallTime:[self getCallTime] callID:self.callSession.callId costUserName:costUserName userName:userName pid:self.pid result:^(RequestState success, NSDictionary *dict, NSString *msg) {
+    long callTime = [[self getCallTime] longLongValue];
+    if (callTime <= 5) {
+        
+    } else {
+        [UserInfoNet finalDeductMoneyCallTime:[self getCallTime] callID:self.callSession.callId costUserName:costUserName userName:userName pid:self.pid result:^(RequestState success, NSDictionary *dict, NSString *msg) {
+            if (success) {
+                NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+                mutableDict[@"time"] = [RCCallKitUtility getReadableStringForTime:[[self getCallTime] longLongValue]];
+                PostNotificationNameUserInfo(SetMoneySuccess, mutableDict);
+            }
+        }];
+    }
+    
+}
+
+///获取本次通话的费用
+- (void)getCurrentCallFee {
+    
+    if ([self isAppleCheck]) return;
+    if (![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+        return;
+    }
+    [UserInfoNet getCallFeeFromUserName:self.targetId pid:self.pid dictResult:^(RequestState success, NSDictionary *dict, NSString *msg) {
+        NSLog(@"%@", dict);
         if (success) {
             NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary:dict];
             mutableDict[@"time"] = [RCCallKitUtility getReadableStringForTime:[[self getCallTime] longLongValue]];
             PostNotificationNameUserInfo(SetMoneySuccess, mutableDict);
         }
     }];
-        
 }
 
 ///是否是苹果审核员
@@ -622,6 +676,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if (self.isCallConnect) {
         //最终扣费
 //        [self finalDeductMoney];
+        [self getCurrentCallFee];
         
         //如果是普通用户则发通知
         if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
@@ -656,7 +711,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if (!_remoteNameLabel) {
         _remoteNameLabel = [[UILabel alloc] init];
         _remoteNameLabel.backgroundColor = [UIColor clearColor];
-        _remoteNameLabel.textColor = [UIColor whiteColor];
+        _remoteNameLabel.textColor = RGBColor(0X4e4e4e);
         _remoteNameLabel.font = [UIFont systemFontOfSize:18];
         _remoteNameLabel.textAlignment = NSTextAlignmentCenter;
 
@@ -733,6 +788,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
     UIImage *remoteHeaderImage = self.remotePortraitView.image;
 
+    //音频通话
     if (mediaType == RCCallMediaAudio) {
         self.remotePortraitView.frame = CGRectMake((self.view.frame.size.width - RCCallHeaderLength) / 2,
                                                    RCCallVerticalMargin * 3, RCCallHeaderLength, RCCallHeaderLength);
@@ -762,15 +818,24 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         self.subVideoView.hidden = YES;
         [self resetRemoteUserInfoIfNeed];
     } else {
+        //视频通话
         if (callStatus == RCCallDialing) {
+            //正在呼出
             self.mainVideoView.hidden = NO;
             [self.callSession setVideoView:self.mainVideoView
                                     userId:[RCIMClient sharedRCIMClient].currentUserInfo.userId];
             self.blurView.hidden = YES;
+            self.anchorPricerLabel.hidden = NO;
+            self.mainVideoView.hidden = YES;
+            
+//            self.backgroundView.backgroundColor = [UIColor blueColor];
         } else if (callStatus == RCCallActive) {
+            //正在通话
             self.mainVideoView.hidden = NO;
+            self.anchorPricerLabel.hidden = YES;
             [self.callSession setVideoView:self.mainVideoView userId:self.callSession.targetId];
             self.blurView.hidden = YES;
+            self.anchorPricerLabel.hidden = YES;
         } else {
             self.mainVideoView.hidden = YES;
         }

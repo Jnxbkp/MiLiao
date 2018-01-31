@@ -855,14 +855,14 @@
 #pragma mark FSSegmentTitleViewDelegate
 - (void)FSContenViewDidEndDecelerating:(FSPageContentView *)contentView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex
 {
-    NSLog(@"-----------------%lu",endIndex);
+//    NSLog(@"-----------------%lu",endIndex);
     self.titleView.selectIndex = endIndex;
     _tableView.scrollEnabled = YES;//此处其实是监测scrollview滚动，pageView滚动结束主tableview可以滑动，或者通过手势监听或者kvo，这里只是提供一种实现方式
 }
 
 - (void)FSSegmentTitleView:(FSSegmentTitleView *)titleView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex
 {
-    NSLog(@"--------------->>>select--%lu",endIndex);
+//    NSLog(@"--------------->>>select--%lu",endIndex);
     self.contentCell.pageContentView.contentViewCurrentIndex = endIndex;
 }
 
@@ -896,7 +896,7 @@
         }
     }
   
-    NSLog(@"--------%lf-----%lf",bottomCellOffset,scrollView.contentOffset.y);
+//    NSLog(@"--------%lf-----%lf",bottomCellOffset,scrollView.contentOffset.y);
 //    if([_selectStr isEqualToString:ziLiaoStr]){
 //        if(scrollView.contentOffset.y >= 185) {
 //            NSLog(@"-------------=-==");
