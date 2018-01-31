@@ -24,9 +24,11 @@ typedef NS_ENUM(NSUInteger, RequestState) {
 typedef void(^RequestResult)(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg);
 
 
-///网络返回字典(单个模型)的回调
+///网络返回单个模型的回调
 typedef void(^RequestModelResult)(RequestState success, id model, NSInteger code, NSString *msg);
 
+///往返返回字典的回调
+typedef void(^RequestDictResult)(RequestState success, NSDictionary *dict, NSString *msg);
 
 typedef void(^CompleteBlock)(RequestState success, NSString *msg);
 
@@ -64,9 +66,9 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
 
  @param urlString url
  @param parameters parameers
- @param result 返回的字典回调
+ @param dictResult 返回的字典回调
  */
-+ (void)Post:(NSString *)urlString parameters:(id)parameters result:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))result;
++ (void)Post:(NSString *)urlString parameters:(id)parameters dictResult:(RequestDictResult)dictResult;
 
 
 
@@ -106,8 +108,8 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
 /**
  GET请求 返回成功或失败
 
- @param urlString
- @param parameters
+ @param urlString urlString
+ @param parameters parameters
  @param complete 返回成功或失败
  */
 + (void)Get:(NSString *)urlString parameters:(id)parameters complete:(CompleteBlock)complete;

@@ -52,7 +52,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 
 @interface UserInfoNet : Networking
 
-
+#pragma mark - 获取用户的M币
 /**
 获取用户的M币
 
@@ -64,7 +64,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)canCall:(NSString *)userName result:(RequestModelResult)result;
 
 
-
+#pragma mark - 分钟扣费
 /**
  分钟扣费
 
@@ -75,17 +75,17 @@ SelfCallEndState getSelfCallState(NSInteger callState);
  */
 + (void)perMinuteDedectionUserName:(NSString *)userName costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result;
 
-
+#pragma mark - 保存通话记录
 ///保存通话记录
 + (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete;
-
+#pragma mark - 获取评价标签
 ///获取评价标签
 + (void)getEvaluate:(RequestResult)result;
 
 
-
+#pragma mark - 视频通话的最终扣费 废弃
 /**
- 视频通话的最终扣费
+ 视频通话的最终扣费 废弃
 
  @param callTime 通话时间
   @param callId callID
@@ -96,7 +96,12 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)finalDeductMoneyCallTime:(NSString *)callTime callID:(NSString *)callId costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))result;
 
 
+#pragma mark - 本次通话费用
+///获取本次通话费用
++ (void)getCallFeeFromUserName:(NSString *)userName pid:(NSString *)pid dictResult:(RequestDictResult)dictResult;
 
+
+#pragma mark -  保存对大V的评价
 /**
  保存对大V的评价
 
@@ -109,7 +114,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)saveEvaluateAnchorName:(NSString *)anchorName callId:(NSString *)callId score:(NSString *)score tags:(NSArray *)tags complete:(CompleteBlock)complete;
 
 
-
+#pragma mark - 获取用户角色
 /**
  获取用户角色
 
@@ -118,5 +123,22 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)getUserRole:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))complete;
 
 
-+ (void)getAnchorInfoByMobile:(NSString *)mobile complete:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))complete;
+#pragma mark - 获取指定手机号的主播(网红)模型
+/**
+ 获取指定手机号的主播(网红)模型
+
+ @param mobile 手机号
+ @param modelResult 模型
+ */
++ (void)getAncherInfoByMobile:(NSString *)mobile modelResult:(RequestModelResult)modelResult;
+
+#pragma mark - 获取用户信息
+/**
+ 获取给定手机号的用户信息
+
+ @param userId 手机号
+ @param modelResult 用户模型
+ */
++ (void)getUserInfoFromUserName:(NSString *)userId modelResult:(RequestModelResult)modelResult;
+
 @end

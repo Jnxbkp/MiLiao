@@ -26,6 +26,10 @@ static NSString *GetUserRoleType = @"/v1/user/getUserRole";
 static NSString *GetEvaluate = @"/v1/dict/getTags";
 ///最终扣费
 static NSString *FinalDeduct = @"/v1/cost/overCost";
+
+///获取本次通话费用
+static NSString *GetCallFee = @"/v1/cost/getCallFee";
+
 ///评价标签模型
 static NSString *EvaluateTagModel = @"EvaluateTagModel";
 
@@ -35,18 +39,23 @@ static NSString *SaveEvaluate = @"/v1/bigV/saveBigVEvaluation";
 
 static NSString *GetAnchorInfoByMobile = @"/v1/user/getAnchorInfoByMobile";
 
+
 /////////类名
 
 ///通话能力模型
 static NSString *UserCallPowerModelClass = @"UserCallPowerModel";
 
+///网红(主播)模型
+static NSString *RemoteUserInfoModelClassString = @"RemoteUserInfoModel";
 
-//获取当前用户的token
+#pragma mark - 获取当前用户的token
+///获取当前用户的token
 NSString *tokenForCurrentUser() {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     return [userDefaults objectForKey:@"token"];
 }
 
+#pragma mark - 返回当前要保存到后台的通话状态
 ///返回当前要保存到后台的通话状态
 /*callState 由融云返回，具体字段请参考RongCallLib/RCCallSession.h下的disconnectReason属性
  */
@@ -98,6 +107,7 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 
 @implementation UserInfoNet
 
+#pragma mark -  获取用户的M币
 /**
  获取用户的M币
  
@@ -119,6 +129,7 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     }];
 }
 
+#pragma mark - 判定余额足够消费
 ///判定余额足够消费
 + (void)canCall:(NSString *)userName result:(RequestModelResult)result {
     
@@ -131,6 +142,7 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     
 }
 
+#pragma mark - 分钟扣费
 /**
  分钟扣费
  
@@ -157,9 +169,9 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     
 }
 
+#pragma mark - 保存通话记录
 ///保存通话记录
 + (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete {
-#warning 有电话呼入时， 呼叫方在电话未接通时挂断电话 崩溃
     YZCurrentUserModel *user = [YZCurrentUserModel sharedYZCurrentUserModel];
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"anchorAccount"] = anchorAccount;
@@ -178,8 +190,10 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     
 }
 
+
+#pragma mark - 视频通话的最终扣费 废弃
 /**
- 视频通话的最终扣费
+ 视频通话的最终扣费 废弃
  
  @param callTime 通话时间
  @param costUserName 对端用户名
@@ -196,16 +210,33 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  @"token":tokenForCurrentUser(),
                                  @"userName":userName
                                  };
-    [self Post:FinalDeduct parameters:parameters result:result];
+    [self Post:FinalDeduct parameters:parameters dictResult:result];
    
 }
 
+#pragma mark - 本次通话费用
+///获取本次通话费用
++ (void)getCallFeeFromUserName:(NSString *)userName pid:(NSString *)pid dictResult:(RequestDictResult)dictResult {
+    
+    if (!pid || pid.length < 1) {
+        pid = @"0";
+    }
+    NSDictionary *parameters = @{@"costUserName":[YZCurrentUserModel sharedYZCurrentUserModel].username,
+                                 @"pid":pid,
+                                 @"token":tokenForCurrentUser(),
+                                 @"userName":userName
+                                 };
+    [self Post:GetCallFee parameters:parameters dictResult:dictResult];
+}
+
+#pragma mark - 获取评价标签
 ///获取评价标签
 + (void)getEvaluate:(RequestResult)result {
     [self Get:GetEvaluate parameters:@{@"token":tokenForCurrentUser()} modelClass:NSClassFromString(EvaluateTagModel) result:result];
 }
 
 
+#pragma mark - 保存对大V的评价
 /**
  保存对大V的评价
  
@@ -227,10 +258,9 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     [self Post:SaveEvaluate parameters:parameters complete:complete];
 }
 
+#pragma mark - 获取用户角色
 /**
  获取用户角色
- 
- @param complete
  */
 + (void)getUserRole:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))complete {
     NSDictionary *parameter = @{
@@ -243,9 +273,32 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     [self Get:api parameters:nil result:complete];
 }
 
-+ (void)getAnchorInfoByMobile:(NSString *)mobile complete:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))complete {
-    [self Get:GetAnchorInfoByMobile parameters:@{@"mobile":mobile,@"token":tokenForCurrentUser()} result:complete];
+
+#pragma mark -  获取指定手机号的主播(网红)模型
+/**
+ 获取指定手机号的主播(网红)模型
+ 
+ @param mobile 手机号
+ @param modelResult 模型
+ */
++ (void)getAncherInfoByMobile:(NSString *)mobile modelResult:(RequestModelResult)modelResult {
+    NSDictionary *parameters = @{@"mobile":mobile,@"token":tokenForCurrentUser()};
+    [self Get:GetAnchorInfoByMobile parameters:parameters modelClass:NSClassFromString(RemoteUserInfoModelClassString) modelResult:modelResult];
 }
 
+#pragma mark - 获取用户信息
+/**
+ 获取给定手机号的用户信息
+ 
+ @param userId 手机号
+ @param modelResult 用户模型
+ */
++ (void)getUserInfoFromUserName:(NSString *)userId modelResult:(RequestModelResult)modelResult {
+    NSDictionary *parameters = @{@"userId":userId,
+                                 @"token":tokenForCurrentUser()
+                                 };
+    [self Get:GetUserInfo parameters:parameters modelClass:NSClassFromString(RemoteUserInfoModelClassString) modelResult:modelResult];
+    
+}
 
 @end
