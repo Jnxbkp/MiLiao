@@ -20,7 +20,7 @@
 }
 
 - (void)creat {
-    self.backgroundColor = [UIColor redColor];
+    
     _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, itemWidth, itemHeight)];
     [_mainImgageView setContentMode:UIViewContentModeScaleAspectFill];
     _mainImgageView.clipsToBounds = YES;
