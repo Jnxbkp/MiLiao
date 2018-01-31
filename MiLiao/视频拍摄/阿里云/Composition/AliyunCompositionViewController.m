@@ -122,12 +122,14 @@
     cell.labelDuration.hidden = model.type == 0;
     if (model.thumbnailImage) {
         cell.imageView.image = model.thumbnailImage;
+        
     } else {
         [[AliyunPhotoLibraryManager sharedManager] getPhotoWithAsset:model.asset thumbnailImage:YES photoWidth:80 completion:^(UIImage *photo, NSDictionary *info) {
             model.thumbnailImage = photo;
             dispatch_async(dispatch_get_main_queue(), ^{
                 AliyunCompositionCell *cell2 = (AliyunCompositionCell *)[collectionView cellForItemAtIndexPath:indexPath];
                 cell2.imageView.image = photo;
+                
             });
         }];
     }

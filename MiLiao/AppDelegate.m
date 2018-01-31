@@ -92,15 +92,12 @@
     //注册监听 美颜视频流
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
-<<<<<<< HEAD
-    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
-    [self getHiddenVersion];
-    
-//    [_userDefaults setObject:@"no" forKey:@"isHidden"];
-=======
-    [_userDefaults setObject:@"no" forKey:@"isHidden"];
+
+//    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
 //    [self getHiddenVersion];
->>>>>>> 8bdacc21386efb01a39a21273d35448bdb4729f9
+    
+    [_userDefaults setObject:@"no" forKey:@"isHidden"];
+
     return YES;
 }
 #pragma mark APNs Register

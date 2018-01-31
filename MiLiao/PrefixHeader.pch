@@ -78,11 +78,6 @@
 #define SUCCESS 200
 //请求Url
 //#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
-
-<<<<<<< HEAD
-//中志Url
-=======
->>>>>>> 8bdacc21386efb01a39a21273d35448bdb4729f9
 #define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
 //中志Url
 //#define HLRequestUrl @"https://192.168.1.45:9999"
