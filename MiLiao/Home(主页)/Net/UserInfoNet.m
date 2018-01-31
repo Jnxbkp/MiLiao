@@ -8,6 +8,8 @@
 
 #import "UserInfoNet.h"
 
+#import "UserCallPowerModel.h"
+
 /////////API
 ///获取用户信息的api
 static NSString *GetUserInfo = @"/v1/user/getUserInfo";
@@ -137,9 +139,14 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  @"userName":userName
                                  };
     [self Get:CanCallEnoughAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
+}
 
-   
-    
+///判定余额足够消费
++ (void)canCall:(NSString *)userName powerEnough:(void(^)(RequestState success, NSString *msg, MoneyEnoughType enoughType))powerEnough {
+    [self canCall:userName result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+        UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+        !powerEnough?:powerEnough(success, msg, (MoneyEnoughType)callPower.typeCode);
+    }];
 }
 
 #pragma mark - 分钟扣费
