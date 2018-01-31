@@ -98,6 +98,9 @@
 #define ALiPushAppKey @"24763364"
 #define ALiPushAppSecret @"bf89529fd2d41d5065f3341a2f4de4e7"
 
+
+#define holderImage     [UIImage imageNamed:@"holder_image"]
+
 #define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define KSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 // 屏幕比例

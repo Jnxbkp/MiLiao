@@ -312,8 +312,6 @@
 		E2AB3704200CCF3B00458C41 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E2AB3700200CCF3B00458C41 /* README.md */; };
 		E2AB3715200CD45500458C41 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB3714200CD45500458C41 /* BaseModel.m */; };
 		E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB3717200CD49200458C41 /* WomanModel.m */; };
-		E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B03540201EAFAA00FB0229 /* PlayViewController.xib */; };
-		E2B03544201EAFAA00FB0229 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B03541201EAFAA00FB0229 /* PlayViewController.m */; };
 		E2B0354A201EB21F00FB0229 /* VideoPeoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B03549201EB21F00FB0229 /* VideoPeoModel.m */; };
 		E2B0354D201EFFA000FB0229 /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B0354C201EFFA000FB0229 /* PlayCollectionViewCell.m */; };
 		E2B03550201F134600FB0229 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B0354F201F134600FB0229 /* VideoPlayViewController.m */; };
@@ -927,9 +925,6 @@
 		E2AB3714200CD45500458C41 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		E2AB3716200CD49200458C41 /* WomanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WomanModel.h; sourceTree = "<group>"; };
 		E2AB3717200CD49200458C41 /* WomanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WomanModel.m; sourceTree = "<group>"; };
-		E2B03540201EAFAA00FB0229 /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
-		E2B03541201EAFAA00FB0229 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
-		E2B03542201EAFAA00FB0229 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		E2B03548201EB21F00FB0229 /* VideoPeoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPeoModel.h; sourceTree = "<group>"; };
 		E2B03549201EB21F00FB0229 /* VideoPeoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPeoModel.m; sourceTree = "<group>"; };
 		E2B0354B201EFFA000FB0229 /* PlayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1917,9 +1912,6 @@
 				E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */,
 				E2B0354E201F134600FB0229 /* VideoPlayViewController.h */,
 				E2B0354F201F134600FB0229 /* VideoPlayViewController.m */,
-				E2B03542201EAFAA00FB0229 /* PlayViewController.h */,
-				E2B03541201EAFAA00FB0229 /* PlayViewController.m */,
-				E2B03540201EAFAA00FB0229 /* PlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2861,7 +2853,6 @@
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
-				E2B03543201EAFAA00FB0229 /* PlayViewController.xib in Resources */,
 				3C024D862020228A007F40F0 /* FUDemoBar.xib in Resources */,
 				3C024D6720202255007F40F0 /* ardata_ex.bundle in Resources */,
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
@@ -3133,7 +3124,6 @@
 				E287896820219129002A50BE /* QBAssetsViewController.m in Sources */,
 				1846CE28200F8680000BF772 /* MyVideoViewController.m in Sources */,
 				3C024D7E2020228A007F40F0 /* FUDemoBar.m in Sources */,
-				E2B03544201EAFAA00FB0229 /* PlayViewController.m in Sources */,
 				E287894820219129002A50BE /* AliyunImage.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
 				E28789BA20219282002A50BE /* FMDatabaseAdditions.m in Sources */,

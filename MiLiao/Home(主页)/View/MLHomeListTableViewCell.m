@@ -23,8 +23,8 @@
 
 - (void)setVideoUserModel:(VideoUserModel *)videoUserModel {
     _videoUserModel = videoUserModel;
-    [_mainImgageView sd_setImageWithURL:[NSURL URLWithString:videoUserModel.posterUrl]];
-    
+  
+    [_mainImgageView sd_setImageWithURL:[NSURL URLWithString:videoUserModel.posterUrl] placeholderImage:[UIImage imageNamed:@"holder_image"]];
     _nameLabel.text = videoUserModel.nickname;
     _messageLabel.text = videoUserModel.personalSign;
     [_priceView setPrice:videoUserModel.price];
@@ -35,7 +35,6 @@
     [_mainImgageView setContentMode:UIViewContentModeScaleAspectFill];
     _mainImgageView.clipsToBounds = YES;
 
-    
     _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
     _stateButton.frame = CGRectMake(WIDTH-64, 12, 40, 20);
 
