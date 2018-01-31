@@ -802,7 +802,6 @@
 
 #pragma mark topCellDelegate
 - (void)focusButtonSelect:(UIButton *)button {
-
     if (button.selected == YES) {
         [self NetPostSelectFocusButtonisFocus:@"0" button:button];
     } else {
@@ -835,7 +834,6 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             if (button.selected == YES) {
-                
                 _foucusLabel.text = [NSString stringWithFormat:@"%@关注",[[info objectForKey:@"data"] objectForKey:@"fansNum"]];
                 button.selected = NO;
                 [_focusButton setImage:[UIImage imageNamed:@"guanzhu"] forState:UIControlStateNormal];
@@ -846,6 +844,9 @@
                 [_focusButton setImage:nil forState:UIControlStateNormal];
                 [_focusButton setTitle:@"已关注" forState:UIControlStateNormal];
             }
+            //通知改变关注
+            NSNotification *notification =[NSNotification notificationWithName:@"foucusStatusChange" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);

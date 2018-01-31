@@ -36,7 +36,7 @@
     self.labelDuration.font = [UIFont systemFontOfSize:12.0];
     [self addSubview:self.labelDuration];
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.closeButton setImage:[AliyunImage imageNamed:@"import_delete"] forState:UIControlStateNormal];
+//    [self.closeButton setImage:[AliyunImage imageNamed:@"import_delete"] forState:UIControlStateNormal];
     [self.closeButton addTarget:self action:@selector(closeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.closeButton];
 }

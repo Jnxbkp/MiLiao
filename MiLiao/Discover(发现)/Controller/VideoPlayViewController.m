@@ -182,14 +182,10 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     PlayCollectionViewCell *temp =  (PlayCollectionViewCell*)cell;
-    //    [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"]];
-    //    @"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"
-    if (indexPath.row == 1) {
-        [temp prepare:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"];
-    } else {
-        [temp prepare:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
-    }
-    
+
+    DisVideoModel *videoModel = [[DisVideoModel alloc]init];
+    videoModel = [_videoModelList.videoArr objectAtIndex:indexPath.row];
+    [temp prepareSts:_baseModel videoId:videoModel.videoId];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

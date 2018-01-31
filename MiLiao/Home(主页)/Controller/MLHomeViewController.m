@@ -67,7 +67,6 @@ static NSString *const bigIdentifer = @"bigCell";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, WIDTH-10, 44)];
-
     UIButton *searchBut = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateNormal];
     [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateHighlighted];
@@ -78,6 +77,9 @@ static NSString *const bigIdentifer = @"bigCell";
     self.navigationItem.titleView = titleView;
     
 
+    //foucusStatusChange
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(foucusStatusChange) name:@"foucusStatusChange" object:nil];
+    
     ListenNotificationName_Func(@"lahei", @selector(notificationFunc:));
     
     _userDefaults = [NSUserDefaults standardUserDefaults];
@@ -278,6 +280,8 @@ static NSString *const bigIdentifer = @"bigCell";
                     }
                     if (self.modelArray.count > 0) {
                         _careTabelView.mj_footer.hidden = NO;
+                    } else if (self.modelArray.count == 0) {
+                        [self careTabReload];
                     }
                 } else {
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
@@ -461,6 +465,10 @@ static NSString *const bigIdentifer = @"bigCell";
     } else {
         [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:footer];
     }
+}
+#pragma mark - 通知刷新关注列表
+- (void)foucusStatusChange {
+    [self netGetListPageSelectStr:careStr pageNumber:page header:nil footer:nil];
 }
 //collection section
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

@@ -59,6 +59,8 @@
 - (void)resumePlay;
 - (void)stopPlay;
 - (void)releasePlayer;
+
+- (void)prepareSts:(DisbaseModel *)videoModel videoId:(NSString *)videoId;
 /////准备视频
 //- (void)prepare;
 //
