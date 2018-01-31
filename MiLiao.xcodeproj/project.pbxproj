@@ -140,7 +140,6 @@
 		3C024D862020228A007F40F0 /* FUDemoBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C024D752020228A007F40F0 /* FUDemoBar.xib */; };
 		3C024D872020228A007F40F0 /* BeautySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C024D782020228A007F40F0 /* BeautySlider.m */; };
 		3C024D882020228A007F40F0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C024D7A2020228A007F40F0 /* Info.plist */; };
-		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
@@ -588,8 +587,6 @@
 		3C024D7A2020228A007F40F0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C024D7B2020228A007F40F0 /* FUAPIDemoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUAPIDemoBar.h; sourceTree = "<group>"; };
 		3C024D7C2020228A007F40F0 /* UIImage+demobar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+demobar.h"; sourceTree = "<group>"; };
-		3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDeduction.h; sourceTree = "<group>"; };
-		3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDeduction.m; sourceTree = "<group>"; };
 		3C0FA5A0200C4B280098AC28 /* CountDownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownView.h; sourceTree = "<group>"; };
 		3C0FA5A1200C4B280098AC28 /* CountDownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDownView.m; sourceTree = "<group>"; };
 		3C0FA5A3200C4B320098AC28 /* CountDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountDownView.xib; sourceTree = "<group>"; };
@@ -1509,15 +1506,6 @@
 			path = MiLiao/FaceUnity/FUAPIDemoBar;
 			sourceTree = SOURCE_ROOT;
 		};
-		3C0FA59C200C42D70098AC28 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */,
-				3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
 		3C12A3FF200A13EC0044A6A2 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -1829,7 +1817,6 @@
 		E221B5A11FF5DDF400353875 /* Home(主页) */ = {
 			isa = PBXGroup;
 			children = (
-				3C0FA59C200C42D70098AC28 /* Tools */,
 				3C12A3FF200A13EC0044A6A2 /* Net */,
 				E221B5B31FF5DF1600353875 /* Model */,
 				E221B5B41FF5DF1E00353875 /* View */,
@@ -2865,7 +2852,6 @@
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
 				3C024D6620202255007F40F0 /* v3.bundle in Resources */,
-				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				E287895D20219129002A50BE /* FxTableViewCell.xib in Resources */,
 				186390222017232D00CAC217 /* phoneLoginViewController.xib in Resources */,
@@ -3039,7 +3025,6 @@
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
-				3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				180B0DBC20117FAF00A19BA2 /* AuditSuccessViewController.m in Sources */,

@@ -164,7 +164,10 @@
 }
 
 - (void)videoButton:(UIButton *)button {
-    [self.delegate videoButtonSelect:button];
+    if ([self.delegate respondsToSelector:@selector(videoButtonSelect:)]) {
+        [self.delegate videoButtonSelect:self.videoModel];
+    }
+    
 }
 
 - (void)prepare:(NSString *)urlStr{
