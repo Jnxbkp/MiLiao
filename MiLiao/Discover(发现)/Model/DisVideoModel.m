@@ -13,6 +13,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     if (self = [super initWithDictionary:dict]) {
         
+        self.anchorAccount = [NSString stringWithFormat:@"%@",[dict objectForKey:@"anchorAccount"]];
         self.createDate = [NSString stringWithFormat:@"%@",[dict objectForKey:@"createDate"]];
         self.Id = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
         self.remark = [dict objectForKey:@"remark"];
@@ -20,13 +21,14 @@
         self.userId = [NSString stringWithFormat:@"%@",[dict objectForKey:@"userId"]];
         self.videoCount = [NSString stringWithFormat:@"%@",[dict objectForKey:@"videoCount"]];
         self.videoId = [NSString stringWithFormat:@"%@",[dict objectForKey:@"videoId"]];
-      
+        self.nickName = [NSString stringWithFormat:@"%@",[dict objectForKey:@"nickName"]];
         self.videoName = [NSString stringWithFormat:@"%@",[dict objectForKey:@"videoName"]];
         self.videoStatus = [NSString stringWithFormat:@"%@",[dict objectForKey:@"videoStatus"]];
         self.videoUrl = [NSString stringWithFormat:@"%@",[dict objectForKey:@"videoUrl"]];
         self.headUrl = [NSString stringWithFormat:@"%@",[dict objectForKey:@"headUrl"]];
         self.zanStatus = [NSString stringWithFormat:@"%@",[dict objectForKey:@"zanStatus"]];
         self.videoUp = [NSString stringWithFormat:@"%@",[dict objectForKey:@"videoUp"]];
+        self.fansNum = [NSString stringWithFormat:@"%@",[dict objectForKey:@"fansNum"]];
     }
     return self;
 }

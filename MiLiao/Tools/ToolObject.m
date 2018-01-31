@@ -35,10 +35,8 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
     //获取此时时间戳长度
     NSTimeInterval nowTimeinterval = [[NSDate date] timeIntervalSince1970];
-    int timeInt = nowTimeinterval - timeIntrval; //时间差
-//    NSLog(@"--------------%f-----%f-----%d",nowTimeinterval,timeIntrval,timeInt);
-    4744150394017690935;
-    4789036155158986752;
+    int timeInt = nowTimeinterval - timeIntrval/1000; //时间差
+
     int year = timeInt / (3600 * 24 * 30 *12);
     int month = timeInt / (3600 * 24 * 30);
     int day = timeInt / (3600 * 24);
