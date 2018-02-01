@@ -129,6 +129,9 @@
         [cell stopPlay];
     }
     [SVProgressHUD dismiss];
+    
+//    NSNotification *notification =[NSNotification notificationWithName:@"zanVideoNum" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
      [self.navigationController setNavigationBarHidden:NO];
 }
 - (void)viewDidLoad {
@@ -376,6 +379,11 @@
                 [muarr removeObjectAtIndex:button.tag-zanButtonTag];
                 [muarr insertObject:model atIndex:button.tag-zanButtonTag];
                 _videoModelList.videoArr = muarr;
+                
+//                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:model.videoUp,@"videoUp",button.tag-zanButtonTag,@"currentCell",@"0",@"zanStatus" ,nil];
+               
+//                NSNotification *notification =[NSNotification notificationWithName:@"zanVideoNum" object:nil userInfo:nil];
+//                [[NSNotificationCenter defaultCenter] postNotification:notification];
             } else {
                 button.selected = YES;
                 [_zanButton setImage:[UIImage imageNamed:@"xihuan_video"] forState:UIControlStateNormal];
@@ -386,7 +394,13 @@
                 [muarr removeObjectAtIndex:button.tag-zanButtonTag];
                 [muarr insertObject:model atIndex:button.tag-zanButtonTag];
                 _videoModelList.videoArr = muarr;
+             
+//                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:model.videoUp,@"videoUp",button.tag-zanButtonTag,@"currentCell",@"1",@"zanStatus", nil];
+                
+//                NSNotification *notification =[NSNotification notificationWithName:@"zanVideoNum" object:nil userInfo:nil];
+//                [[NSNotificationCenter defaultCenter] postNotification:notification];
             }
+            
         }
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
