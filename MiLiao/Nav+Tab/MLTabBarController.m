@@ -40,11 +40,11 @@
     NSString *isBigV = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"isBigV"]];
     self.delegate = self;
     
-//    if ([isBigV isEqualToString:@"3"]) {
+    if ([isBigV isEqualToString:@"3"]) {
         [self InitMiddleView];
-//    } else {
-//
-//    }
+    } else {
+
+    }
 
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     
