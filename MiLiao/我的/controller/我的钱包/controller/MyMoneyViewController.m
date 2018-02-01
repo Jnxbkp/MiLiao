@@ -47,15 +47,18 @@
 }
 - (void)loadData
 {
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     [HLLoginManager getWalletInfotoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSLog(@"%@",info);
 //        self.dict = info[@"data"];
+        [SVProgressHUD dismiss];
         self.MMmoney = info[@"data"][@"mMoney"];
         self.mmoney = info[@"data"][@"money"];
 //money
          self.money.text = [NSString stringWithFormat:@"%@撩币",info[@"data"][@"mMoney"]];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
     }];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

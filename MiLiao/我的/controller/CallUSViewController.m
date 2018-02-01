@@ -9,6 +9,9 @@
 #import "CallUSViewController.h"
 
 @interface CallUSViewController ()
+{
+    NSUserDefaults   *_userDefaults;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end
@@ -22,7 +25,9 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"联系我们"];
-    NSString *bigv = [NSString stringWithFormat:@"%@",[YZCurrentUserModel sharedYZCurrentUserModel].isBigv];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+
+    NSString *bigv = [_userDefaults objectForKey:@"isBigV"];
     if ([bigv isEqualToString:@"3"]) {
         if (UI_IS_IPHONEX) {
             self.image.image = [UIImage imageNamed:@"网红1125"];
