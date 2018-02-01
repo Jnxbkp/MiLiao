@@ -43,6 +43,9 @@
 ///准备倒计时的倒计时
 @property (nonatomic, strong) dispatch_source_t prepareShowCountDownTimer;
 
+///检查是否充值的定时器
+@property (nonatomic, strong) dispatch_source_t checkPayMoneyTimer;
+
 ///倒计时view
 @property (nonatomic, strong) CountDownView *countDownView;
 
@@ -341,7 +344,14 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 - (void)countDownSeconds:(NSInteger)second {
     NSLog(@"控制器内倒计时%ld", second);
-    if (second <= 5) {
+    if (second <= 3) {
+        
+        self.checkPayMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+        dispatch_source_set_timer(self.checkPayMoneyTimer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, <#leewayInSeconds#> * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(self.checkPayMoneyTimer, ^{
+            [self checkIsPayMoney];
+        });
+        dispatch_resume(self.checkPayMoneyTimer);
         
         if (second <= 0) {
             [self hangupButton];
@@ -350,12 +360,34 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 }
 
 #pragma mark - 通话能力相关方法
+
+//检查是否已充值
+- (void)checkIsPayMoney {
+    
+    NSString *userName = self.targetId;
+    NSString *costUserName = self.callSession.myProfile.userId;
+    
+    [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+       
+        if (success) {
+            UserCallPowerModel *canCall = (UserCallPowerModel *)model;
+            self.pid = canCall.pid;
+            long seconds = [canCall.seconds longLongValue];
+            if (seconds >= 60*2) {
+                dispatch_cancel(self.checkMoneyTimer);
+                self.countDownView.hidden = YES;
+                [self.countDownView reset];
+            }
+        }
+    }];
+}
+
 //检查M币
 - (void)checkMoney {
     
     long start = [[NSDate date] timeIntervalSince1970];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
         //没分钟执行一次检查M币（60秒）
         dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
         
