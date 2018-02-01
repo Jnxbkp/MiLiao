@@ -30,7 +30,7 @@
 #define seeLabelTag  6000
 #define guanZhuTag  7000
 #define guanNumTag  8000
-@interface VideoPlayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,AliyunVodPlayerDelegate,buttonClickDelegate>
+@interface VideoPlayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,AliyunVodPlayerDelegate,buttonClickDelegate, EvaluateVideoViewControllerDelegate>
 
 @property (nonatomic, strong)UICollectionView *collectionView;
 
@@ -39,7 +39,7 @@
 
 @property (nonatomic, assign) BOOL isChangedRow;
 @property (nonatomic, strong) NSIndexPath *tempIndexPath;
-
+@property (nonatomic, strong) PlayCollectionViewCell *currentPlayCell;
 ///评价控制器
 @property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 
@@ -75,8 +75,22 @@
 - (EvaluateVideoViewController *)evaluateVideoViewConroller {
     if (!_evaluateVideoViewConroller) {
         _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+        _evaluateVideoViewConroller.superview = self.view;
+        _evaluateVideoViewConroller.delegate = self;
+//        __weak typeof(self) weakSelf = self;
+//        [_evaluateVideoViewConroller evaluateSuccess:^{
+//            [weakSelf.currentPlayCell resumePlay];
+//        }];
     }
     return _evaluateVideoViewConroller;
+}
+#pragma mark - 评价的代理
+///评价成功或关闭
+- (void)evaluateSuccessOrClose {
+    NSArray *ary = [self.collectionView visibleCells];
+    for (PlayCollectionViewCell *cell in ary) {
+        [cell resumePlay];
+    }
 }
 
 //#pragma mark - naviBar
@@ -225,14 +239,17 @@
 
 - (void)notificationFunc:(NSNotification *)notification {
     
-    //视频通话结束 添加评价界面
+    //视频通话结束
     if ([notification.name isEqualToString:VideoCallEnd]) {
+        
+        //没有接通过 继续播放当前视频
         if (notification.userInfo == nil) {
             NSArray *ary = [self.collectionView visibleCells];
             for (PlayCollectionViewCell *cell in ary) {
                 [cell resumePlay];
             }
         } else {
+            //添加评价界面
              [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
         }
        
@@ -287,6 +304,9 @@
 
 
 - (void)playCollectionViewCell:(PlayCollectionViewCell *)cell videoButtonSelect:(DisVideoModel *)videoModel {
+    
+    self.currentPlayCell = cell;
+    
     VideoUserModel *videoUser = [[VideoUserModel alloc] init];
     videoUser.nickname = videoModel.nickName;
     videoUser.price = videoModel.price;

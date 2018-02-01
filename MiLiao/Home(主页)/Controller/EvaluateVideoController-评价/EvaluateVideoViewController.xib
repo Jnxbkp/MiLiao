@@ -16,7 +16,8 @@
                 <outlet property="mainView" destination="oTh-Xm-OYQ" id="d1u-pR-aQD"/>
                 <outlet property="moneyLabel" destination="Xh9-BI-qKV" id="c3S-FG-aHe"/>
                 <outlet property="starView" destination="2Q1-g3-EQX" id="NIr-qt-4u7"/>
-                <outlet property="tagView" destination="J2v-Je-N54" id="S6d-Li-O8Y"/>
+                <outlet property="tagContentView" destination="9uk-uB-dQI" id="2Pg-oQ-N2H"/>
+                <outlet property="tagContentViewHeightConstraint" destination="WIr-jV-HDy" id="nYo-4S-wVp"/>
                 <outlet property="timeLabel" destination="yD4-lD-O06" id="QZ1-YP-dXB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -106,29 +107,44 @@
                                 <action selector="sureButtonClick:" destination="-1" eventType="touchUpInside" id="HEF-8O-Dbi"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2v-Je-N54">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iq-xt-Tkx" userLabel="TagScroll View">
                             <rect key="frame" x="0.0" y="117" width="295" height="295"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uk-uB-dQI" userLabel="TagContentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="295" height="295"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="295" id="WIr-jV-HDy"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="9uk-uB-dQI" firstAttribute="leading" secondItem="3iq-xt-Tkx" secondAttribute="leading" id="DjV-NF-SW7"/>
+                                <constraint firstItem="9uk-uB-dQI" firstAttribute="top" secondItem="3iq-xt-Tkx" secondAttribute="top" id="HvH-4g-Ozk"/>
+                                <constraint firstItem="9uk-uB-dQI" firstAttribute="width" secondItem="3iq-xt-Tkx" secondAttribute="width" id="OYR-Hv-AHd"/>
+                                <constraint firstAttribute="trailing" secondItem="9uk-uB-dQI" secondAttribute="trailing" id="PbK-UT-Tdv"/>
+                                <constraint firstAttribute="bottom" secondItem="9uk-uB-dQI" secondAttribute="bottom" id="zL0-B4-Q4S"/>
+                            </constraints>
+                        </scrollView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="lej-iP-xyk" firstAttribute="top" secondItem="Wvb-LD-Tyd" secondAttribute="bottom" constant="30" id="1P2-IX-vtC"/>
-                        <constraint firstItem="J2v-Je-N54" firstAttribute="leading" secondItem="oTh-Xm-OYQ" secondAttribute="leading" id="1hm-sw-cn9"/>
                         <constraint firstAttribute="trailing" secondItem="2Q1-g3-EQX" secondAttribute="trailing" constant="30" id="2xh-sg-bua"/>
                         <constraint firstItem="fV6-r4-yu8" firstAttribute="leading" secondItem="oTh-Xm-OYQ" secondAttribute="leading" constant="20" id="67z-a4-h4a"/>
                         <constraint firstItem="Wvb-LD-Tyd" firstAttribute="top" secondItem="fV6-r4-yu8" secondAttribute="top" id="AgZ-R7-SN5"/>
                         <constraint firstAttribute="trailing" secondItem="dgk-C7-TAp" secondAttribute="trailing" id="BMv-bA-jOI"/>
                         <constraint firstItem="Xh9-BI-qKV" firstAttribute="leading" secondItem="Wvb-LD-Tyd" secondAttribute="trailing" id="BYt-PD-1SA"/>
                         <constraint firstItem="lej-iP-xyk" firstAttribute="centerX" secondItem="oTh-Xm-OYQ" secondAttribute="centerX" id="BbV-vZ-m7a"/>
-                        <constraint firstAttribute="trailing" secondItem="J2v-Je-N54" secondAttribute="trailing" id="F5H-2s-WtM"/>
                         <constraint firstItem="gUY-zl-OLu" firstAttribute="leading" secondItem="oTh-Xm-OYQ" secondAttribute="leading" id="FCh-Bw-jaj"/>
-                        <constraint firstItem="dgk-C7-TAp" firstAttribute="top" secondItem="J2v-Je-N54" secondAttribute="bottom" id="Il1-ud-WrT"/>
                         <constraint firstItem="2Q1-g3-EQX" firstAttribute="leading" secondItem="oTh-Xm-OYQ" secondAttribute="leading" constant="30" id="MS4-A6-A48"/>
                         <constraint firstAttribute="trailing" secondItem="gUY-zl-OLu" secondAttribute="trailing" id="OKB-uT-Ur9"/>
                         <constraint firstAttribute="bottom" secondItem="dgk-C7-TAp" secondAttribute="bottom" id="PHE-BV-EvK"/>
+                        <constraint firstAttribute="trailing" secondItem="3iq-xt-Tkx" secondAttribute="trailing" id="StQ-b7-D3i"/>
+                        <constraint firstItem="3iq-xt-Tkx" firstAttribute="top" secondItem="gUY-zl-OLu" secondAttribute="bottom" id="Xr1-IE-IHv"/>
+                        <constraint firstItem="3iq-xt-Tkx" firstAttribute="leading" secondItem="oTh-Xm-OYQ" secondAttribute="leading" id="arw-tL-5N9"/>
                         <constraint firstItem="fV6-r4-yu8" firstAttribute="top" secondItem="oTh-Xm-OYQ" secondAttribute="top" constant="15" id="dlp-Sn-hRA"/>
-                        <constraint firstItem="J2v-Je-N54" firstAttribute="top" secondItem="gUY-zl-OLu" secondAttribute="bottom" id="hNB-aZ-Oo3"/>
+                        <constraint firstItem="dgk-C7-TAp" firstAttribute="top" secondItem="3iq-xt-Tkx" secondAttribute="bottom" id="gkr-S6-hjb"/>
                         <constraint firstItem="dgk-C7-TAp" firstAttribute="leading" secondItem="oTh-Xm-OYQ" secondAttribute="leading" id="oQA-DW-Sft"/>
                         <constraint firstItem="Xh9-BI-qKV" firstAttribute="top" secondItem="fV6-r4-yu8" secondAttribute="top" id="pus-xf-VNH"/>
                         <constraint firstItem="yD4-lD-O06" firstAttribute="leading" secondItem="fV6-r4-yu8" secondAttribute="trailing" id="rqz-Fx-y0Q"/>
@@ -169,6 +185,7 @@
                 <constraint firstItem="oTh-Xm-OYQ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="zuI-14-EXT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
     <resources>

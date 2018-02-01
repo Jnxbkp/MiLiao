@@ -689,14 +689,16 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             if ([self isAppleCheck]) return;
             PostNotificationNameUserInfo(VideoCallEnd, dict);
         }
+    } else {
+        /*
+         如果 上一个控制器是视频播放控制器 则发出通知 以便让暂停的视频 继续播放
+         */
+        if ([[self getWindowTopViewController] isKindOfClass:NSClassFromString(@"VideoPlayViewController")]) {
+            PostNotificationNameUserInfo(VideoCallEnd, nil);
+        }
     }
+     
     
-    /*
-     如果 上一个控制器是视频播放控制器 则发出通知 以便让暂停的视频 继续播放
-     */
-    if ([[self getWindowTopViewController] isKindOfClass:NSClassFromString(@"VideoPlayViewController")]) {
-        PostNotificationNameUserInfo(VideoCallEnd, nil);
-    }
     
     
    
