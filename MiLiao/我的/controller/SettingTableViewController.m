@@ -33,11 +33,12 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"设置"];
     if ([[_userDefaults objectForKey:@"status"]isEqualToString:@"BUSY"]) {
-        self.swich.on = NO;
+        self.swich.on = YES;
     }else if ([[_userDefaults objectForKey:@"status"]isEqualToString:@"TALKING"])
     {
-        self.swich.on = YES;
+        self.swich.on = NO;
     }else{
+        NSLog(@"其他");
         self.swich.on = NO;//设置初始为off的一边
         
     }
