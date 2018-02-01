@@ -30,7 +30,7 @@
     [stampFormatter2 setDateFormat:@"MM-dd"];
     self.timeTwo.text = [NSString stringWithFormat:@"%@",[stampFormatter2 stringFromDate: stampDate2]];
     self.leftLabel.text = [NSString stringWithFormat:@"购买支付:%lld元",[model.amount longLongValue]*2];
-    self.Mmoney.text = [NSString stringWithFormat:@"%@撩币",model.balance];
+    self.Mmoney.text = [NSString stringWithFormat:@"%@撩币",model.amount];
    
     /*
      type 0:视频, 1:私信, 2:微信购买，  3提现 4充值
