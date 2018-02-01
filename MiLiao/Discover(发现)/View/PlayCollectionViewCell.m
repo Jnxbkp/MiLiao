@@ -164,8 +164,8 @@
 }
 
 - (void)videoButton:(UIButton *)button {
-    if ([self.delegate respondsToSelector:@selector(videoButtonSelect:)]) {
-        [self.delegate videoButtonSelect:self.videoModel];
+    if ([self.delegate respondsToSelector:@selector(playCollectionViewCell:videoButtonSelect:)]) {
+        [self.delegate playCollectionViewCell:self videoButtonSelect:self.videoModel];
     }
     
 }

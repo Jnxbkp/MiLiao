@@ -54,13 +54,14 @@
             
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (failure) {
-            failure(task, error);
-        }
         NSLog(@"\n\n接口地址:\n%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);
         NSLog(@"\n\n参数:\n%@", [parameters mj_JSONString]);
         NSLog(@"\n\n接口：%@\n\n", urlString);
         NSLog(@"\nPOST基类网络返回失败:\n%@", error.userInfo);
+        if (failure) {
+            failure(task, error);
+        }
+        
     }];
 }
 

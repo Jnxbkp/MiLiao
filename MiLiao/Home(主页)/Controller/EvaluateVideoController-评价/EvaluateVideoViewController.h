@@ -25,6 +25,9 @@ typedef void(^EvaluateSuccessBlock)(void);
  */
 @interface EvaluateVideoViewController : UIViewController
 
+///当前控制器view的父视图
+@property (nonatomic, strong) UIView *superview;
+
 ///评价传值的字典
 @property (nonatomic, strong) NSDictionary *evaluateDict;
 
@@ -32,6 +35,10 @@ typedef void(^EvaluateSuccessBlock)(void);
 @property (nonatomic, strong) NSString *anchorName;
 ///通话id
 @property (nonatomic, strong) NSString *callID;
+
+///弹出凭借界面
+- (void)showEvaluaateView:(NSDictionary *)dict;
+
 
 ///评价成功的回调
 - (void)evaluateSuccess:(EvaluateSuccessBlock)success;
