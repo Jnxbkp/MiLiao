@@ -93,8 +93,8 @@
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
 
-    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
-    [self getHiddenVersion];
+    [_userDefaults setObject:@"no" forKey:@"isHidden"];
+//    [self getHiddenVersion];
     
 //     [_userDefaults setObject:@"no" forKey:@"isHidden"];
     return YES;
