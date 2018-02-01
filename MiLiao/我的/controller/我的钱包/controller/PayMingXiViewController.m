@@ -44,17 +44,21 @@
 }
 - (void)loadData
 {
+    
     [HLLoginManager expenditureDetailstoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
+            [SVProgressHUD dismiss];
             self.modelArray = [zhichuModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
             [self.tableView reloadData];
         }else{
             
         }
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
     }];
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+
 }
 - (void)setTableview
 {
