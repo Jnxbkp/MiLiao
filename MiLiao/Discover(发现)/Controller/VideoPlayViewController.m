@@ -215,6 +215,7 @@
    
     PlayCollectionViewCell *temp =  (PlayCollectionViewCell*)cell;
     [temp stopPlay];
+
     
 }
 

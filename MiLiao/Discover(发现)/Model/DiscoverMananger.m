@@ -16,6 +16,7 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
+//    NSLog(@"-----------net---%@",[NSString stringWithFormat:@"%@/v1/video/videoList/%@/%@/%@/%@",HLRequestUrl,pageNumber,pageSize,token,videoType]);
     [manager GET:[NSString stringWithFormat:@"%@/v1/video/videoList/%@/%@/%@/%@",HLRequestUrl,pageNumber,pageSize,token,videoType] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
