@@ -30,7 +30,7 @@
 #define seeLabelTag  6000
 #define guanZhuTag  7000
 #define guanNumTag  8000
-@interface VideoPlayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,AliyunVodPlayerDelegate,buttonClickDelegate>
+@interface VideoPlayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,AliyunVodPlayerDelegate,buttonClickDelegate, EvaluateVideoViewControllerDelegate>
 
 @property (nonatomic, strong)UICollectionView *collectionView;
 
@@ -76,12 +76,21 @@
     if (!_evaluateVideoViewConroller) {
         _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
         _evaluateVideoViewConroller.superview = self.view;
-        __weak typeof(self) weakSelf = self;
-        [_evaluateVideoViewConroller evaluateSuccess:^{
-            [weakSelf.currentPlayCell resumePlay];
-        }];
+        _evaluateVideoViewConroller.delegate = self;
+//        __weak typeof(self) weakSelf = self;
+//        [_evaluateVideoViewConroller evaluateSuccess:^{
+//            [weakSelf.currentPlayCell resumePlay];
+//        }];
     }
     return _evaluateVideoViewConroller;
+}
+#pragma mark - 评价的代理
+///评价成功或关闭
+- (void)evaluateSuccessOrClose {
+    NSArray *ary = [self.collectionView visibleCells];
+    for (PlayCollectionViewCell *cell in ary) {
+        [cell resumePlay];
+    }
 }
 
 //#pragma mark - naviBar

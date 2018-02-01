@@ -97,7 +97,10 @@
 
 @interface EvaluateVideoViewController ()<QLStarViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *tagView;
+@property (weak, nonatomic) IBOutlet UIView *tagContentView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagContentViewHeightConstraint;
+
 @property (nonatomic, strong) NSArray *tagModelArray;
 @property (nonatomic, strong) NSArray<TagButton *> *tagButtonArray;
 ///通话时长label
@@ -139,7 +142,7 @@
         TagButton *button = [TagButton buttonWithType:UIButtonTypeCustom];
         button.evaluateTag = tag;
         [mutableArray addObject:button];
-        [self.tagView addSubview:button];
+        [self.tagContentView addSubview:button];
         [button addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     self.tagButtonArray = [mutableArray copy];
@@ -173,7 +176,7 @@
         if (i >= 1) {
             TagButton *preButton = self.tagButtonArray[i-1];
             x = CGRectGetMaxX(preButton.frame) + margin;
-            if (x + CGRectGetMaxX(button.frame) + margin > self.tagView.width) {
+            if (x + CGRectGetMaxX(button.frame) + margin > self.tagContentView.width) {
                 x = margin;
                 j++;
             }
@@ -181,6 +184,8 @@
         CGFloat y = margin * (j+1) + j*30;
         button.frame = CGRectMake(x, y, width, 30);
     }
+    TagButton *button = [self.tagButtonArray lastObject];
+    self.tagContentViewHeightConstraint.constant = CGRectGetMaxY(button.frame) + 20;
 }
 
 ///弹出凭借界面
@@ -280,12 +285,18 @@
         [SVProgressHUD showSuccessWithStatus:message];
         [self.view removeFromSuperview];
         !_evaluateBlock?:_evaluateBlock();
+        if ([self.delegate respondsToSelector:@selector(evaluateSuccessOrClose)]) {
+            [self.delegate evaluateSuccessOrClose];
+        }
     }];
 }
 
 - (IBAction)cancleButtonClick:(UIButton *)sender {
     [self.view removeFromSuperview];
     !_evaluateBlock?:_evaluateBlock();
+    if ([self.delegate respondsToSelector:@selector(evaluateSuccessOrClose)]) {
+        [self.delegate evaluateSuccessOrClose];
+    }
 }
 
 
