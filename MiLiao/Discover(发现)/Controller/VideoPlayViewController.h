@@ -15,4 +15,6 @@
 @property (nonatomic, strong)DisVideoModelList  *videoModelList;
 @property (assign) NSInteger    currentCell;
 
+@property (nonatomic, strong)NSString  *kind;
+
 @end

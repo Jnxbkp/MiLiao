@@ -32,6 +32,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //zanVideoNum
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zanVideoChange:) name:@"xiangQingVideoNum" object:nil];
    //下拉刷新
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"refreshWomanData" object:nil];
     
@@ -127,6 +130,11 @@ static NSString * const reuseIdentifier = @"Cell";
 //    NSLog(@"--------%@",[NSString stringWithFormat:@"%@",_videoUserModel.ID]);
 //    [self netGetUserVideoListId:_videoUserModel.ID footer:nil isFresh:@"yes"];
 }
+#pragma mark - 赞视频通知
+- (void)zanVideoChange:(NSNotification *)text {
+    _videoPage = @"1";
+    [self netGetUserVideoListId:_videoUserModel.ID footer:nil isFresh:@"yes"];
+}
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataArr.count;
@@ -157,6 +165,7 @@ static NSString * const reuseIdentifier = @"Cell";
     playController.baseModel = _disBaseModel;
     playController.videoModelList = _videoModelList;
     playController.currentCell = indexPath.row;
+    playController.kind = @"xiangQingVC";
     
     [self.navigationController pushViewController:playController animated:YES];
 }
