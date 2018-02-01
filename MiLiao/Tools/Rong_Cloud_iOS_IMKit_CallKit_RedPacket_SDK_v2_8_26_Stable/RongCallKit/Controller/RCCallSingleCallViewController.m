@@ -346,7 +346,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     if (second <= 3) {
         
-        if (self.checkMoneyTimer) {
+        if (self.checkPayMoneyTimer) {
             return;
         }
         self.checkPayMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
@@ -685,6 +685,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     [super callDidDisconnect];
     RCCallDisconnectReason reason = self.callSession.disconnectReason;
     if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
+    if (self.checkPayMoneyTimer) dispatch_cancel(self.checkPayMoneyTimer);
     //保存通话
     [self saveCall:reason];
     
