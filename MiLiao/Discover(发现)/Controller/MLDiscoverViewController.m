@@ -50,7 +50,7 @@ static NSString *const hotIdentifer = @"hotCell";
     NSString            *_hotPage;
     DisbaseModel        *_disBaseModel;
     DisVideoModelList    *_videoModelList;
-
+    
 }
 
 @end
@@ -67,6 +67,9 @@ static NSString *const hotIdentifer = @"hotCell";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
+    
+    //zanVideoNum
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zanVideoChange:) name:@"zanVideoNum" object:nil];
     
     _userDefaults = [NSUserDefaults standardUserDefaults];
 //    _disBaseModel = [[DisbaseModel alloc]init];
@@ -143,10 +146,12 @@ static NSString *const hotIdentifer = @"hotCell";
             NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             for (int i = 0; i < dataArr.count; i ++) {
                 NSDictionary *dic = [dataArr objectAtIndex:i];
+//                DisVideoModel *videoModel = [[DisVideoModel alloc]initWithDictionary:dic];
                 [muArr addObject:dic];
             }
             
             if([selectStr isEqualToString:newStr]) {
+                _newsList = [NSMutableArray array];
                 _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
@@ -154,6 +159,7 @@ static NSString *const hotIdentifer = @"hotCell";
                     _newCollectionView.mj_footer.hidden = NO;
                 }
             } else {
+                _hotList = [NSMutableArray array];
                 _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
@@ -168,6 +174,8 @@ static NSString *const hotIdentifer = @"hotCell";
             NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             for (int i = 0; i < dataArr.count; i ++) {
                 NSDictionary *dic = [dataArr objectAtIndex:i];
+//                DisVideoModel *videoModel = [[DisVideoModel alloc]initWithDictionary:dic];
+//                [muArr addObject:videoModel];
                 [muArr addObject:dic];
             }
             
@@ -194,6 +202,8 @@ static NSString *const hotIdentifer = @"hotCell";
             for (int i = 0; i < dataArr.count; i ++) {
                 NSDictionary *dic = [dataArr objectAtIndex:i];
                 [muArr addObject:dic];
+//                DisVideoModel *videoModel = [[DisVideoModel alloc]initWithDictionary:dic];
+//                [muArr addObject:videoModel];
             }
             
             if([selectStr isEqualToString:newStr]) {
@@ -365,22 +375,25 @@ static NSString *const hotIdentifer = @"hotCell";
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
   
         [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"holder_image"]];
-       
+
         cell.messageLabel.text = [[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoName"];
         cell.likeNumLabel.text = [NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]];
 
         NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_newsList objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
-        
+
         NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
-        
+
          cell.timeLabel.text = timeStr;
        
         return cell;
     } else {
         MLDiscoverListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotIdentifer forIndexPath:indexPath];
+        
         CGSize likeSize = [NSStringSize getNSStringHeight:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUp"]] Font:12.0];
         cell.likeNumLabel.frame = CGRectMake(itemWidth-likeSize.width-12, cell.timeLabel.frame.origin.y, likeSize.width, 12);
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
+        
+        
          [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"holder_image"]];
         NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_hotList objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
         NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
@@ -433,8 +446,10 @@ static NSString *const hotIdentifer = @"hotCell";
 //    VideoPeoModel   *videoModel = [[VideoPeoModel alloc]init];
     if (collectionView == _newCollectionView) {
         _videoModelList = [[DisVideoModelList alloc]initWithArray:_newsList];
+       
     } else {
         _videoModelList = [[DisVideoModelList alloc]initWithArray:_hotList];
+
     }
     
 
@@ -444,6 +459,33 @@ static NSString *const hotIdentifer = @"hotCell";
     playController.currentCell = indexPath.row;
 
     [self.navigationController pushViewController:playController animated:YES];
+}
+#pragma mark - 赞视频通知
+- (void)zanVideoChange:(NSNotification *)text {
+    if ([_selectStr isEqualToString:newStr]) {
+        _newPage = page;
+        [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage header:nil footer:nil];
+//        NSMutableDictionary *muDic = [[_newsList objectAtIndex:[text.userInfo[@"currentCell"] integerValue]] mutableCopy];
+//
+//        [muDic setValue:text.userInfo[@"videoUp"] forKey:@"videoUp"];
+//        [muDic setValue:text.userInfo[@"zanStatus"] forKey:@"zanStatus"];
+//        [_newsList removeObjectAtIndex:[text.userInfo[@"currentCell"] integerValue]];
+//        [_newsList insertObject:muDic atIndex:[text.userInfo[@"currentCell"] integerValue]];
+//
+//        [_newCollectionView reloadData];
+        
+    } else {
+        _hotPage = page;
+        [self netGetVideoListPageSelectStr:_selectStr pageNumber:_hotPage header:nil footer:nil];
+//        NSMutableDictionary *muDic = [[_newsList objectAtIndex:[text.userInfo[@"currentCell"] integerValue]] mutableCopy];
+//
+//        [muDic setValue:text.userInfo[@"videoUp"] forKey:@"videoUp"];
+//        [muDic setValue:text.userInfo[@"zanStatus"] forKey:@"zanStatus"];
+//        [_hotList removeObjectAtIndex:[text.userInfo[@"currentCell"] integerValue]];
+//        [_hotList insertObject:muDic atIndex:[text.userInfo[@"currentCell"] integerValue]];
+//
+//        [_hotCollectionView reloadData];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
