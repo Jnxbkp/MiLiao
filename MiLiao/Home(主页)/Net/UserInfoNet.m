@@ -109,11 +109,11 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 
 @implementation UserInfoNet
 
-#pragma mark -  获取用户的M币
+#pragma mark -  获取用户的撩币
 /**
- 获取用户的M币
+ 获取用户的撩币
  
- @param balance M币
+ @param balance 撩币
  */
 + (void)getUserBalance:(void(^)(CGFloat balance))balance {
     

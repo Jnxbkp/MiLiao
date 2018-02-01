@@ -85,8 +85,8 @@
         NSLog(@"我的通话");
     };
     vc.MBlock = ^{
-        //我的M币
-        NSLog(@"我的M币");
+        //我的撩币
+        NSLog(@"我的撩币");
         MyMViewController *Mvc = [[MyMViewController alloc]init];
         [weakSelf.navigationController pushViewController:Mvc animated:YES];
     };

@@ -73,7 +73,7 @@
 @property (nonatomic, strong) FSBottomTableViewCell *contentCell;
 @property (nonatomic, strong) FSSegmentTitleView *titleView;
 @property (nonatomic, assign) BOOL canScroll;
-///当前用户的M币
+///当前用户的撩币
 @property (nonatomic, assign) CGFloat balance;
 ///当前网红的价格
 @property (nonatomic, assign) CGFloat netHotPrice;

@@ -95,7 +95,7 @@
 -(void)actionSheetPickerView:(IQActionSheetPickerView *)pickerView didSelectTitles:(NSArray *)titles
 {
         self.strCM = [titles objectAtIndex:1];
-        self.money.text = [NSString stringWithFormat:@"%@M币/分钟", self.strCM];
+        self.money.text = [NSString stringWithFormat:@"%@撩币/分钟", self.strCM];
     
     [HLLoginManager setPrice:[self.strCM intValue] token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];

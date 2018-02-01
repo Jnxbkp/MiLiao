@@ -143,47 +143,66 @@ static NSString *kTempFolder = @"touxiang";
 }
 //提交认证申请
 - (IBAction)commit:(id)sender {
+    if ([self.sign.text isEqualToString:@"请设置个性签名(必填)"]) {
+        self.sign.text = @"";
+    }
+    if ([self.peopleJieshao.text isEqualToString:@"请编辑个人介绍(必填)"]) {
+        self.peopleJieshao.text = @"";
+    }
     if ([self.country isEqualToString:@"中国"])
      {
          if ([provincename isEqualToString:@"北京"]) {
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height:@([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSLog(@"%@",info);
-                 NSLog(@"12122121%@",info[@"resultMsg"]);
-                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self.navigationController pushViewController:inreview animated:YES];
+                 NSInteger resultCode = [info[@"resultCode"] integerValue];
+                 if (resultCode == SUCCESS) {
+                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                     [self.navigationController pushViewController:inreview animated:YES];
+                 }else{
+                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+                 }
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
          }else if ([provincename isEqualToString:@"上海"])
          {
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSLog(@"%@",info);
-                 NSLog(@"12122121%@",info[@"resultMsg"]);
-                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self.navigationController pushViewController:inreview animated:YES];
+                 NSInteger resultCode = [info[@"resultCode"] integerValue];
+                 if (resultCode == SUCCESS) {
+                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                     [self.navigationController pushViewController:inreview animated:YES];
+                 }else{
+                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
 
+                 }
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
          }else if ([provincename isEqualToString:@"天津"])
          {
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSLog(@"%@",info);
-                 NSLog(@"12122121%@",info[@"resultMsg"]);
-                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self.navigationController pushViewController:inreview animated:YES];
+                 NSInteger resultCode = [info[@"resultCode"] integerValue];
+                 if (resultCode == SUCCESS) {
+                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                     [self.navigationController pushViewController:inreview animated:YES];
+                 }else{
+                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
 
+                 }
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
          }else if ([provincename isEqualToString:@"重庆"])
          {
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSLog(@"%@",info);
-                 NSLog(@"12122121%@",info[@"resultMsg"]);
-                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self.navigationController pushViewController:inreview animated:YES];
+                 NSInteger resultCode = [info[@"resultCode"] integerValue];
+                 if (resultCode == SUCCESS) {
+                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                     [self.navigationController pushViewController:inreview animated:YES];
+                 }else{
+                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
 
+                 }
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -191,8 +210,15 @@ static NSString *kTempFolder = @"touxiang";
              [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
-                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self.navigationController pushViewController:inreview animated:YES];
+                 NSInteger resultCode = [info[@"resultCode"] integerValue];
+                 if (resultCode == SUCCESS) {
+                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                     [self.navigationController pushViewController:inreview animated:YES];
+                 }else{
+                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+                 }
+                
 
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
@@ -203,8 +229,15 @@ static NSString *kTempFolder = @"touxiang";
     if ([self.country isEqualToString:@"国外"]) {
         [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
             NSLog(@"%@",info);
-            InReviewViewController *inreview = [[InReviewViewController alloc]init];
-            [self.navigationController pushViewController:inreview animated:YES];
+            NSInteger resultCode = [info[@"resultCode"] integerValue];
+            if (resultCode == SUCCESS) {
+                InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                [self.navigationController pushViewController:inreview animated:YES];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+            }
+          
 
         } failure:^(NSError *error) {
             
@@ -267,15 +300,17 @@ static NSString *kTempFolder = @"touxiang";
     UIImage *avatar = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     [picker dismissViewControllerAnimated:YES completion:nil];
     //判断图片是不是png格式的文件
-    if (UIImagePNGRepresentation(avatar)) {
-        //返回为png图像。
-        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
-        self.imageData = UIImagePNGRepresentation(imagenew);
-    }else {
-        //返回为JPEG图像。
-        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
-        self.imageData = UIImageJPEGRepresentation(imagenew, 0.8);
-    }
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.imageData = UIImageJPEGRepresentation(image, 0.8);
+//    if (UIImagePNGRepresentation(avatar)) {
+//        //返回为png图像。
+//        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
+//        self.imageData = UIImagePNGRepresentation(imagenew);
+//    }else {
+//        //返回为JPEG图像。
+//        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
+//        self.imageData = UIImageJPEGRepresentation(imagenew, 1);
+//    }
     // 参数设置
     NSString *endpoint = @"http://oss-cn-beijing.aliyuncs.com";
     // 明文设置secret的方式建议只在测试时使用，更多鉴权模式参考后面链接给出的官网完整文档的`访问控制`章节
@@ -323,48 +358,57 @@ static NSString *kTempFolder = @"touxiang";
 }
 - (void)takePhoto {
     if (BtnTag == 1) {
-        self.item1String = [NSString stringWithFormat:@"%@",result];
-        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item1String]] forState:UIControlStateNormal];
         self.imageViewOne = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shuaxin"]];
         self.imageViewOne.frame = CGRectMake(0, 0, 34, 34);
         [self.oneBtn addSubview:self.imageViewOne];
+        self.item1String = [NSString stringWithFormat:@"%@",result];
+//        self.oneBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.oneBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item1String]] forState:UIControlStateNormal];
+//        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item1String]] forState:UIControlStateNormal];
+//        self.oneBtn.imageView.clipsToBounds = YES;
+     
    }
     if (BtnTag == 2) {
-       self.item2String = [NSString stringWithFormat:@"%@",result];
-        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item2String]] forState:UIControlStateNormal];
         self.imageViewTwo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
         self.imageViewTwo.frame = CGRectMake(0, 0, 34, 34);
         [self.twoBtn addSubview:self.imageViewTwo];
+       self.item2String = [NSString stringWithFormat:@"%@",result];
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item2String]] forState:UIControlStateNormal];
+     
     }
 
     if (BtnTag == 3) {
-        self.item3String = [NSString stringWithFormat:@"%@",result];
-        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item3String]] forState:UIControlStateNormal];
         self.imageViewThree = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
         self.imageViewThree.frame = CGRectMake(0, 0, 34, 34);
         [self.fourBtn addSubview:self.imageViewThree];
+        self.item3String = [NSString stringWithFormat:@"%@",result];
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item3String]] forState:UIControlStateNormal];
+      
     }
     if (BtnTag == 4) {
-        self.item4String = [NSString stringWithFormat:@"%@",result];
-        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item4String]] forState:UIControlStateNormal];
         self.imageViewFour = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
         self.imageViewFour.frame = CGRectMake(0, 0, 34, 34);
         [self.fiveBtn addSubview:self.imageViewFour];
+        self.item4String = [NSString stringWithFormat:@"%@",result];
+        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item4String]] forState:UIControlStateNormal];
+      
    }
     if (BtnTag == 5) {
-        self.item5String = [NSString stringWithFormat:@"%@",result];
-        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item5String]] forState:UIControlStateNormal];
         self.imageViewFive = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
         self.imageViewFive.frame = CGRectMake(0, 0, 34, 34);
         [self.sixBtn addSubview:self.imageViewFive];
+        self.item5String = [NSString stringWithFormat:@"%@",result];
+        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item5String]] forState:UIControlStateNormal];
+      
   }
 
     if (BtnTag == 6) {
-        self.item6String = [NSString stringWithFormat:@"%@",result];
-        [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item6String]] forState:UIControlStateNormal];
         self.imageViewSix = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"guanbi"]];
         self.imageViewSix.frame = CGRectMake(0, 0, 34, 34);
         [self.eightBtn addSubview:self.imageViewSix];
+        self.item6String = [NSString stringWithFormat:@"%@",result];
+        [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item6String]] forState:UIControlStateNormal];
+       
   }
 
     [self.tableView reloadData];
@@ -417,11 +461,9 @@ static NSString *kTempFolder = @"touxiang";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 1) {
-        //手机号
-        
+        //手机
     }
     if (indexPath.row == 2) {
-      
     }
       if (indexPath.row == 3) {
           //身高

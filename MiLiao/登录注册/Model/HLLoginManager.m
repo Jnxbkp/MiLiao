@@ -335,11 +335,11 @@
     }];
 }
 //GET /v1/dict/getTags 获取评论标签
-+ (void)getTagstoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)getTagstoken:(NSString *)token type:(NSString *)type success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
-    [manager GET:[NSString stringWithFormat:@"%@/v1/dict/getTags?token=%@",HLRequestUrl,token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@/v1/dict/getTags?token=%@&type=%@",HLRequestUrl,token,type] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
@@ -430,7 +430,7 @@
         failure(error);
     }];
 }
-// GET /v1/moneyDetail/getUserMoneyInfo  获取用户m币信息
+// GET /v1/moneyDetail/getUserMoneyInfo  获取用户撩币信息
 + (void)getUserMoneyInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
