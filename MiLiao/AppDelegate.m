@@ -76,7 +76,8 @@
     // 点击通知将App从关闭状态启动时，将通知打开回执上报
     // [CloudPushSDK handleLaunching:launchOptions];(Deprecated from v1.8.1)
     [CloudPushSDK sendNotificationAck:launchOptions];
-    
+    application.applicationIconBadgeNumber = 0;
+
     
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"8w7jv4qb8ch6y"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
@@ -93,10 +94,10 @@
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
 
-//    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
-//    [self getHiddenVersion];
+    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+    [self getHiddenVersion];
     
-     [_userDefaults setObject:@"no" forKey:@"isHidden"];
+//     [_userDefaults setObject:@"no" forKey:@"isHidden"];
 
     return YES;
 }
@@ -202,10 +203,20 @@
     // 通知角标数清0
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // 同步角标数到服务端
-    // [self syncBadgeNum:0];
+     [self syncBadgeNum:0];
     // 通知打开回执上报
     [CloudPushSDK sendNotificationAck:userInfo];
     NSLog(@"Notification, date: %@, title: %@, subtitle: %@, body: %@, badge: %d, extras: %@.", noticeDate, title, subtitle, body, badge, extras);
+}
+/* 同步通知角标数到服务端 */
+- (void)syncBadgeNum:(NSUInteger)badgeNum {
+    [CloudPushSDK syncBadgeNum:badgeNum withCallback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Sync badge num: [%lu] success.", (unsigned long)badgeNum);
+        } else {
+            NSLog(@"Sync badge num: [%lu] failed, error: %@", (unsigned long)badgeNum, res.error);
+        }
+    }];
 }
 /**
  *  App处于前台时收到通知(iOS 10+)

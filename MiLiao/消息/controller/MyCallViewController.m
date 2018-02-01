@@ -102,6 +102,8 @@
         UIView *view = self.evaluateVideoViewConroller.view;
         self.evaluateVideoViewConroller.callID = self.callListModel.anchorId;
         self.evaluateVideoViewConroller.anchorName = self.callListModel.nickName;
+        self.evaluateVideoViewConroller.moneyLabel.hidden = YES;
+        self.evaluateVideoViewConroller.xiaofeiLab.hidden = YES;
         [self.view addSubview:view];
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.equalTo(self.view).offset(5);

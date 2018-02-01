@@ -141,91 +141,85 @@ static NSString *kTempFolder = @"touxiang";
         
     }];
 }
-//提交认证申请
-- (IBAction)commit:(id)sender {
-    if ([self.sign.text isEqualToString:@"请设置个性签名(必填)"]) {
-        self.sign.text = @"";
-    }
-    if ([self.peopleJieshao.text isEqualToString:@"请编辑个人介绍(必填)"]) {
-        self.peopleJieshao.text = @"";
-    }
+- (void)comit
+{
     if ([self.country isEqualToString:@"中国"])
-     {
-         if ([provincename isEqualToString:@"北京"]) {
-             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height:@([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSInteger resultCode = [info[@"resultCode"] integerValue];
-                 if (resultCode == SUCCESS) {
-                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                     [self.navigationController pushViewController:inreview animated:YES];
-                 }else{
-                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
-                 }
-             } failure:^(NSError *error) {
-                 NSLog(@"%@",error);
-             }];
-         }else if ([provincename isEqualToString:@"上海"])
-         {
-             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSInteger resultCode = [info[@"resultCode"] integerValue];
-                 if (resultCode == SUCCESS) {
-                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                     [self.navigationController pushViewController:inreview animated:YES];
-                 }else{
-                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
-                 }
-             } failure:^(NSError *error) {
-                 NSLog(@"%@",error);
-             }];
-         }else if ([provincename isEqualToString:@"天津"])
-         {
-             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSInteger resultCode = [info[@"resultCode"] integerValue];
-                 if (resultCode == SUCCESS) {
-                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                     [self.navigationController pushViewController:inreview animated:YES];
-                 }else{
-                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
-                 }
-             } failure:^(NSError *error) {
-                 NSLog(@"%@",error);
-             }];
-         }else if ([provincename isEqualToString:@"重庆"])
-         {
-             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSInteger resultCode = [info[@"resultCode"] integerValue];
-                 if (resultCode == SUCCESS) {
-                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                     [self.navigationController pushViewController:inreview animated:YES];
-                 }else{
-                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
-                 }
-             } failure:^(NSError *error) {
-                 NSLog(@"%@",error);
-             }];
-         }else{
-             [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
-                 NSLog(@"%@",info);
-                 NSLog(@"12122121%@",info[@"resultMsg"]);
-                 NSInteger resultCode = [info[@"resultCode"] integerValue];
-                 if (resultCode == SUCCESS) {
-                     InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                     [self.navigationController pushViewController:inreview animated:YES];
-                 }else{
-                     [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
-                 }
+    {
+        if ([provincename isEqualToString:@"北京"]) {
+            [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height:@([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                NSInteger resultCode = [info[@"resultCode"] integerValue];
+                if (resultCode == SUCCESS) {
+                    InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                    [self.navigationController pushViewController:inreview animated:YES];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                    
+                }
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
+        }else if ([provincename isEqualToString:@"上海"])
+        {
+            [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                NSInteger resultCode = [info[@"resultCode"] integerValue];
+                if (resultCode == SUCCESS) {
+                    InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                    [self.navigationController pushViewController:inreview animated:YES];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                    
+                }
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
+        }else if ([provincename isEqualToString:@"天津"])
+        {
+            [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                NSInteger resultCode = [info[@"resultCode"] integerValue];
+                if (resultCode == SUCCESS) {
+                    InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                    [self.navigationController pushViewController:inreview animated:YES];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                    
+                }
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
+        }else if ([provincename isEqualToString:@"重庆"])
+        {
+            [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                NSInteger resultCode = [info[@"resultCode"] integerValue];
+                if (resultCode == SUCCESS) {
+                    InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                    [self.navigationController pushViewController:inreview animated:YES];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                    
+                }
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
+        }else{
+            [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                NSLog(@"%@",info);
+                NSLog(@"12122121%@",info[@"resultMsg"]);
+                NSInteger resultCode = [info[@"resultCode"] integerValue];
+                if (resultCode == SUCCESS) {
+                    InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                    [self.navigationController pushViewController:inreview animated:YES];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+                    
+                }
                 
-
-             } failure:^(NSError *error) {
-                 NSLog(@"%@",error);
-             }];
-         }
-       
-     }
+                
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
+        }
+        
+    }
     if ([self.country isEqualToString:@"国外"]) {
         [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
             NSLog(@"%@",info);
@@ -235,18 +229,30 @@ static NSString *kTempFolder = @"touxiang";
                 [self.navigationController pushViewController:inreview animated:YES];
             }else{
                 [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
-
+                
             }
-          
-
+            
+            
         } failure:^(NSError *error) {
             
         }];
     }
     else{
-       
+        
     }
-   
+    
+}
+//提交认证申请
+- (IBAction)commit:(id)sender {
+    if ([self.sign.text isEqualToString:@"请设置个性签名(必填)"]) {
+        [SVProgressHUD showErrorWithStatus:@"请设置个性签名"];
+    }else if ([self.peopleJieshao.text isEqualToString:@"请编辑个人介绍(必填)"])
+    {
+         [SVProgressHUD showErrorWithStatus:@"请编辑个人介绍"];
+    }else {
+        [self comit];
+    }
+    
     
 }
 - (void)notificationVTags:(NSNotification *)note {

@@ -52,8 +52,10 @@ extern NSString *const COMMON;
 ///大v的用户名
 @property (nonatomic, strong) NSString *anchorName;
 ///通话id
+@property (weak, nonatomic) IBOutlet UILabel *xiaofeiLab;
 @property (nonatomic, strong) NSString *callID;
-
+///消费金额label
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 ///弹出凭借界面
 - (void)showEvaluaateView:(NSDictionary *)dict;
 
