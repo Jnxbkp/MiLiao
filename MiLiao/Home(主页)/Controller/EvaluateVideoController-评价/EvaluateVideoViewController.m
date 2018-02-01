@@ -110,8 +110,7 @@ NSString *const COMMON = @"COMMON";
 @property (nonatomic, strong) NSArray<TagButton *> *tagButtonArray;
 ///通话时长label
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-///消费金额label
-@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+
 @property (weak, nonatomic) IBOutlet QLStarView *starView;
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 
