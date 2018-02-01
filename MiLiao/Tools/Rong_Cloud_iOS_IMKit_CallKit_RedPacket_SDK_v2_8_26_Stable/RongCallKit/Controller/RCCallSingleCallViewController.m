@@ -343,19 +343,18 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 
 - (void)countDownSeconds:(NSInteger)second {
-    NSLog(@"控制器内倒计时%ld", second);
+    
     if (second <= 3) {
         
+        if (self.checkMoneyTimer) {
+            return;
+        }
         self.checkPayMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
         dispatch_source_set_timer(self.checkPayMoneyTimer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, <#leewayInSeconds#> * NSEC_PER_SEC);
         dispatch_source_set_event_handler(self.checkPayMoneyTimer, ^{
             [self checkIsPayMoney];
         });
         dispatch_resume(self.checkPayMoneyTimer);
-        
-        if (second <= 0) {
-            [self hangupButton];
-        }
     }
 }
 
@@ -413,7 +412,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
      long seconds = [canCall.seconds longLongValue];
     
-    //剩余两分钟时 开始倒计时
+    //剩余三分钟时 开始准备倒计时
     if (seconds <= 60 * 3) {
         if (!self.isDidPrepareCountDown) {
             //准备显示倒计时
