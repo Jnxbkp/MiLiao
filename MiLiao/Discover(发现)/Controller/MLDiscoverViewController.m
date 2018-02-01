@@ -59,6 +59,7 @@ static NSString *const hotIdentifer = @"hotCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
@@ -76,7 +77,6 @@ static NSString *const hotIdentifer = @"hotCell";
     _newPage = @"1";
     _hotPage = @"1";
 
-    
     [self addHeadView];
     UICollectionViewFlowLayout *dealLayout = [[UICollectionViewFlowLayout alloc]init];
     dealLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -85,6 +85,11 @@ static NSString *const hotIdentifer = @"hotCell";
     _bigCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, tabHight) collectionViewLayout:dealLayout];
     [_bigCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:bigIdentifer];
     
+    if (@available(iOS 11.0, *)) {
+        [_bigCollectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    } else {
+        // Fallback on earlier versions
+    }
     _bigCollectionView.showsVerticalScrollIndicator = NO;
     _bigCollectionView.showsHorizontalScrollIndicator = NO;
     _bigCollectionView.delegate = self;
@@ -324,10 +329,16 @@ static NSString *const hotIdentifer = @"hotCell";
         }
         UICollectionViewFlowLayout *layou = [[UICollectionViewFlowLayout alloc]init];
         UICollectionView *CollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0 ,0 ,WIDTH ,tabHight) collectionViewLayout:layou];
+        
        
         CollectionView.backgroundColor =  [UIColor clearColor];//背景色
         CollectionView.delegate = self;//代理
         CollectionView.dataSource = self;
+        if (@available(iOS 11.0, *)) {
+            [CollectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        } else {
+            // Fallback on earlier versions
+        }
         
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing:)];
         CollectionView.mj_header = header;
@@ -384,6 +395,7 @@ static NSString *const hotIdentifer = @"hotCell";
 //UICollectionView item size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView == _bigCollectionView) {
+      
         return CGSizeMake(WIDTH, tabHight);
     } else {
         return CGSizeMake(itemWidth, itemHeight);

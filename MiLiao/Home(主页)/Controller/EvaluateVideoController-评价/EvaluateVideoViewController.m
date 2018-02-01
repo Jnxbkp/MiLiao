@@ -15,6 +15,9 @@
 
 #import "UserInfoNet.h"
 
+NSString *const BIGV = @"BIGV";
+NSString *const COMMON = @"COMMON";
+
 @implementation TagButton
 
 - (void)setEvaluateTag:(EvaluateTagModel *)evaluateTag {
@@ -97,7 +100,12 @@
 
 @interface EvaluateVideoViewController ()<QLStarViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *tagView;
+
+
+@property (weak, nonatomic) IBOutlet UIView *tagContentView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagContentViewHeightConstraint;
+
 @property (nonatomic, strong) NSArray *tagModelArray;
 @property (nonatomic, strong) NSArray<TagButton *> *tagButtonArray;
 ///通话时长label
@@ -113,7 +121,13 @@
 @property (nonatomic, strong) NSString *score;
 @end
 
+
+
+
+
 @implementation EvaluateVideoViewController
+
+
 {
     EvaluateSuccessBlock _evaluateBlock;
 }
@@ -123,6 +137,13 @@
         _selecetdEvaluateArray = [NSMutableArray array];
     }
     return _selecetdEvaluateArray;
+}
+
+- (NSString *)userType {
+    if (!_userType) {
+        _userType = COMMON;
+    }
+    return _userType;
 }
 
 #pragma mark - Setter
@@ -139,7 +160,7 @@
         TagButton *button = [TagButton buttonWithType:UIButtonTypeCustom];
         button.evaluateTag = tag;
         [mutableArray addObject:button];
-        [self.tagView addSubview:button];
+        [self.tagContentView addSubview:button];
         [button addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     self.tagButtonArray = [mutableArray copy];
@@ -173,7 +194,7 @@
         if (i >= 1) {
             TagButton *preButton = self.tagButtonArray[i-1];
             x = CGRectGetMaxX(preButton.frame) + margin;
-            if (x + CGRectGetMaxX(button.frame) + margin > self.tagView.width) {
+            if (x + CGRectGetMaxX(button.frame) + margin > self.tagContentView.width) {
                 x = margin;
                 j++;
             }
@@ -181,6 +202,8 @@
         CGFloat y = margin * (j+1) + j*30;
         button.frame = CGRectMake(x, y, width, 30);
     }
+    TagButton *button = [self.tagButtonArray lastObject];
+    self.tagContentViewHeightConstraint.constant = CGRectGetMaxY(button.frame) + 20;
 }
 
 ///弹出凭借界面
@@ -217,15 +240,26 @@
     });
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UserInfoNet getUserType:self.userType evaluateResult:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
+        if (success) {
+            self.tagModelArray = modelArray;
+        } else {
+            
+        }
+    }];
+    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
+        
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.starView.delegate = self;
     self.score = @"5";
-    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
-        if (success) {
-            self.tagModelArray = modelArray;
-        }
-    }];
+    
   
     // Do any additional setup after loading the view from its nib.
 }
@@ -280,11 +314,18 @@
         [SVProgressHUD showSuccessWithStatus:message];
         [self.view removeFromSuperview];
         !_evaluateBlock?:_evaluateBlock();
+        if ([self.delegate respondsToSelector:@selector(evaluateSuccessOrClose)]) {
+            [self.delegate evaluateSuccessOrClose];
+        }
     }];
 }
 
 - (IBAction)cancleButtonClick:(UIButton *)sender {
     [self.view removeFromSuperview];
+    !_evaluateBlock?:_evaluateBlock();
+    if ([self.delegate respondsToSelector:@selector(evaluateSuccessOrClose)]) {
+        [self.delegate evaluateSuccessOrClose];
+    }
 }
 
 

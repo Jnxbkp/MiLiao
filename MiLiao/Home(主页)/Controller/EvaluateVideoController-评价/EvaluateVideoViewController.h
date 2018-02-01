@@ -10,6 +10,10 @@
 
 #import "EvaluateTagModel.h"
 
+
+
+
+
 @interface TagButton: UIButton
 
 @property (nonatomic, strong) EvaluateTagModel *evaluateTag;
@@ -19,14 +23,28 @@
 ///评价成功的block
 typedef void(^EvaluateSuccessBlock)(void);
 
+@protocol EvaluateVideoViewControllerDelegate <NSObject>
+
+///评价成功或关闭
+- (void)evaluateSuccessOrClose;
+
+@end
+
 
 /**
  对当前的一对一视频女主播做出评价
  */
 @interface EvaluateVideoViewController : UIViewController
 
+extern NSString *const BIGV;
+extern NSString *const COMMON;
+
+@property (nonatomic, weak) id<EvaluateVideoViewControllerDelegate> delegate;
+
 ///当前控制器view的父视图
 @property (nonatomic, strong) UIView *superview;
+
+@property (nonatomic, strong) NSString *userType;
 
 ///评价传值的字典
 @property (nonatomic, strong) NSDictionary *evaluateDict;

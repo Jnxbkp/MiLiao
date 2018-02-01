@@ -506,7 +506,8 @@
             if ([_isHidden isEqualToString:@"yes"]) {
                return WIDTH+58;
             }
-            return WIDTH+158;
+//            return WIDTH+158;
+            return WIDTH+108;
         }
         return 0;
     }
@@ -805,7 +806,7 @@
         _colorView.alpha = alpha;
     }
 
-      CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y-ML_StatusBarHeight-ML_TopHeight;
+      CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y-ML_TopHeight;
    
     if (scrollView.contentOffset.y >= bottomCellOffset) {
         scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
