@@ -205,9 +205,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.callSession.isMuted) {
-        [self.callSession setMuted:NO];
-    }
+//    if (self.callSession.isMuted) {
+//        [self.callSession setMuted:NO];
+//    }
     [UserInfoNet getUserInfoFromUserName:self.targetId modelResult:^(RequestState success, id model, NSInteger code, NSString *msg) {
         NSLog(@"%@", model);
         self.remoteAncher = (RemoteUserInfoModel *)model;
