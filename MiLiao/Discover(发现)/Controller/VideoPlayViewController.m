@@ -87,10 +87,11 @@
 #pragma mark - 评价的代理
 ///评价成功或关闭
 - (void)evaluateSuccessOrClose {
-    NSArray *ary = [self.collectionView visibleCells];
-    for (PlayCollectionViewCell *cell in ary) {
-        [cell resumePlay];
-    }
+//    NSArray *ary = [self.collectionView visibleCells];
+//    for (PlayCollectionViewCell *cell in ary) {
+//        [cell resumePlay];
+//    }
+    [self.currentPlayCell resumePlay];
 }
 
 //#pragma mark - naviBar
@@ -196,10 +197,7 @@
     DisVideoModel *videoModel = [_videoModelList.videoArr objectAtIndex:indexPath.row];
 
     cell.videoModel = videoModel;
-    
-    
-    
-//    _currentCell = indexPath.row;
+
     [self NetGetAnchorSfgzVodeoId:videoModel.videoId token:[_userDefaults objectForKey:@"token"] anchorId:videoModel.userId cell:cell];
 
     return cell;
