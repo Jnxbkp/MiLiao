@@ -85,6 +85,8 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 ///获取评价标签
 + (void)getEvaluate:(RequestResult)result;
 
++ (void)getUserType:(NSString *)userType evaluateResult:(RequestResult)result;
+
 
 #pragma mark - 视频通话的最终扣费 废弃
 /**

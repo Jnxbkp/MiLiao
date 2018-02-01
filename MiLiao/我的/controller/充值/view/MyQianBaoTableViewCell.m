@@ -23,7 +23,7 @@ static NSString *const reuseIdentifier = @"Cell";
     selectedArray = [[NSMutableArray alloc] initWithArray:array];
     MAry = [[NSArray alloc]init];
     moneyAry = [[NSArray alloc]init];
-    MAry = @[@"10M币",@"50M币",@"100M币",@"200M币",@"500M币",@"1000M币",@"2000M币",@"5000M币",@"10000M币"];
+    MAry = @[@"10撩币",@"50撩币",@"100撩币",@"200撩币",@"500撩币",@"1000撩币",@"2000撩币",@"5000撩币",@"10000撩币"];
     moneyAry = @[@"￥20",@"￥100",@"￥200",@"￥400",@"￥1000",@"￥2000",@"￥4000",@"￥10000",@"￥20000"];
     [self loadData];
 

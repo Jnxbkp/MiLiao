@@ -20,6 +20,7 @@
 #import "EnoughCallTool.h"
 
 #import "PayWebViewController.h"
+#import "GoPayTableViewController.h"
 #import "EvaluateVideoViewController.h"//评价
 
 #define headButtonTag   2000
@@ -348,7 +349,7 @@
 
 
 - (void)goPay {
-    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    GoPayTableViewController *payViewController = [[GoPayTableViewController alloc] init];
     [self.navigationController pushViewController:payViewController animated:YES];
 }
 

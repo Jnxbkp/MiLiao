@@ -12,13 +12,17 @@
 #import "UserInfoNet.h"
 #import "UserCallPowerModel.h"//通话能力
 #import "PayWebViewController.h"
+#import "GoPayTableViewController.h"
+#import "EnoughCallTool.h"
 //#import "PersonHomepageController.h"
 //#import "DatingModel.h"
 @interface ChatRoomController ()<RCIMUserInfoDataSource>
 {
     NSUserDefaults *_userDefaults;
+    MoneyEnoughType moneyType;
 }
 @property (nonatomic, strong) UIView *navView;
+@property (nonatomic, assign) NSInteger typeCode;
 
 @end
 
@@ -26,16 +30,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-//    [self.navigationController setNavigationBarHidden:NO];
+    
+    [UserInfoNet canCall:self.videoUser.username powerEnough:^(RequestState success, NSString *msg, MoneyEnoughType enoughType) {
+        if (success) {
 
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-//    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
-//    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
-//                                     NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]};
-//    self.navigationController.navigationBar.titleTextAttributes = textAttributes; // 导航栏标题字体大小及颜色
-//    [IQKeyboardManager sharedManager].enable = NO;
-//    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+              moneyType = enoughType;
+        }
+    }];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -66,16 +68,6 @@
             self.conversationMessageCollectionView.contentInset = UIEdgeInsetsMake(ML_NavBarHeight, 0, 0, 0);
         }
     }
-  
-//    UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
-//    leftButton.frame  = CGRectMake(0, 0, 50, 30);
-//    leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-//    [leftButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
-//    leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
-//    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-//    [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
     [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
     [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
     [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
@@ -113,40 +105,39 @@
 - (RCMessageContent *)willSendMessage:(RCMessageContent *)messageContent
 {
     __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:self.videoUser.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-        if (success) {
-            UserCallPowerModel *callPower = (UserCallPowerModel *)model;
-            MoneyEnoughType moneyType = callPower.typeCode;
-            //余额不充足 不能聊天
-            if (moneyType == MoneyEnoughTypeNotEnough) {
-                [self showPayAlertController:^{
-                    [weakSelf goPay];
-                }];
-            }
-            //余额为0
-            if (moneyType == MoneyEnoughTypeEmpty) {
-                [self showPayAlertController:^{
-                    [weakSelf goPay];
-                }];
-            }
-        }else {
-            [SVProgressHUD showErrorWithStatus:msg];
-        }
-    }];
-    
+    //余额不充足 不能聊天
+    if (moneyType == MoneyEnoughTypeNotEnough) {
+        [self showPayAlertController:^{
+            [weakSelf goPay];
+            [self.view endEditing:YES];
+
+        }];
+        return nil;
+    }
+    //余额为0
+    if (moneyType == MoneyEnoughTypeEmpty) {
+        [self showPayAlertController:^{
+            [weakSelf goPay];
+            [self.view endEditing:YES];
+
+        }];
+        return nil;
+    }
     return messageContent;
 }
 - (void)goPay {
-    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    GoPayTableViewController *payViewController = [[GoPayTableViewController alloc] init];
     [self.navigationController pushViewController:payViewController animated:YES];
 }
 ///去充值
 - (void)showPayAlertController:(void(^)(void))pay {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的撩币不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self.view endEditing:YES];
+
     }];
     UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.view endEditing:YES];
         !pay?:pay();
     }];
     [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];

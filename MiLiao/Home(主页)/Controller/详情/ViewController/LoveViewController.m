@@ -133,7 +133,7 @@
     UIView *footView = [[UIView alloc]init];
     footView.backgroundColor = [UIColor clearColor];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 12, WIDTH, 11)];
-    label.text = @"对大M每消费1M币，增加1点亲密值";
+    label.text = @"对大M每消费1撩币，增加1点亲密值";
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:11.0];
     label.textColor = Color155;

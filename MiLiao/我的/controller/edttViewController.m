@@ -32,8 +32,6 @@ static NSString *kTempFolder = @"touxiang";
 @property(nonatomic,strong)NSString *AccessKeyId;
 @property(nonatomic,strong)NSString *AccessKeySecret;
 @property(nonatomic,strong)NSString *SecurityToken;
-@property(nonatomic,strong)NSString *nickName;
-@property(nonatomic,strong)NSString *headerUrl;
 @property (assign,nonatomic) BOOL dianji;
 
 @end
@@ -52,28 +50,16 @@ static NSString *kTempFolder = @"touxiang";
     //初始化尾部视图
     [self setupFootView];
 }
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-//    }
-//}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    self.headerUrl = [_userDefaults objectForKey:@"headUrl"];
-    NSString *nickname = [_userDefaults objectForKey:@"nickname"];
-
-    self.nickName = nickname;
+//    self.headerUrl = [_userDefaults objectForKey:@"headUrl"];
+    
+//    NSString *nickname = [_userDefaults objectForKey:@"nickname"];
+//
+//    self.nickName = nickname;
 }
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [super viewDidDisappear:animated];
-//    //在其他离开改页面的方法同样加上下面代码
-//    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-//    }
-//}
 //初始化尾部视图
 -(void)setupFootView
 {
@@ -152,8 +138,6 @@ static NSString *kTempFolder = @"touxiang";
     } failure:^(NSError *error) {
         
     }];
-    
-    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *headerImg;
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 @property (strong, nonatomic) IBOutlet UILabel *nickName;
+@property(nonatomic,strong)NSString *headerUrl;
+
 @end
 
 @implementation MeViewController
@@ -48,7 +50,6 @@
     self.edit.hidden = YES;
 //    [self loadData];
 
-//    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
 //    NSLog(@"wowowowowowowowo%@",[_userDefaults objectForKey:@"headUrl"]);
 //    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
 }
@@ -61,6 +62,7 @@
         if (resultCode == SUCCESS) {
           //  headUrl
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+            self.headerUrl = info[@"data"][@"headUrl"];
             [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",info[@"data"][@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"默认头像"] options:SDWebImageRefreshCached];
             self.nickName.text = [NSString stringWithFormat:@"%@",info[@"data"][@"nickname"]];
              NSString *isBigV = [NSString stringWithFormat:@"%@",info[@"data"][@"isBigV"]];
@@ -79,7 +81,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]]forBarMetrics:UIBarMetricsDefault];
 //    self.nickName.text = [YZCurrentUserModel sharedYZCurrentUserModel].nickname;
     NSLog(@"%@^^^",[YZCurrentUserModel sharedYZCurrentUserModel].nickname);
-    
+//    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+
     [self loadData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -178,6 +181,8 @@
         if (indexPath.row == 2) {
             //编辑个人资料
             edttViewController *edit = [[edttViewController alloc]init];
+            edit.headerUrl = self.headerUrl;
+            edit.nickName = self.nickName.text;
             [self.navigationController pushViewController:edit animated:YES];
         }
         if (indexPath.row == 3) {

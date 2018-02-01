@@ -239,7 +239,15 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 #pragma mark - 获取评价标签
 ///获取评价标签
 + (void)getEvaluate:(RequestResult)result {
-    [self Get:GetEvaluate parameters:@{@"token":tokenForCurrentUser()} modelClass:NSClassFromString(EvaluateTagModel) result:result];
+    [self Get:GetEvaluate parameters:@{@"token":tokenForCurrentUser(),
+                                       @"type":@"BIGV"
+                                       } modelClass:NSClassFromString(EvaluateTagModel) result:result];
+}
+
++ (void)getUserType:(NSString *)userType evaluateResult:(RequestResult)result {
+    [self Get:GetEvaluate parameters:@{@"token":tokenForCurrentUser(),
+                                       @"type":userType
+                                       } modelClass:NSClassFromString(EvaluateTagModel) result:result];
 }
 
 

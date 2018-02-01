@@ -28,7 +28,8 @@
     NSDate *stampDate2 = [NSDate dateWithTimeIntervalSince1970:time];
     NSLog(@"时间戳转化时间 >>> %@",[stampFormatter stringFromDate:stampDate2]);
     NSString *strTime = [NSString stringWithFormat:@"%@",model.callTime];
-    self.time.text = [NSString stringWithFormat:@"%@ | 视频时长%@",[stampFormatter stringFromDate: stampDate2],[ToolObject getMMSSFromSS:strTime]];
+    self.time.text = [NSString stringWithFormat:@"%@ | 计费时长%@",[stampFormatter stringFromDate: stampDate2],[ToolObject getMMSSFromSS:strTime]];
+    NSLog(@"**************%@",[ToolObject getMMSSFromSS:strTime]);
 }
 
 

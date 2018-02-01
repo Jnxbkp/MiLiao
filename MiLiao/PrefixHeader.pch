@@ -79,6 +79,7 @@
 //请求Url
 //#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
 #define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
+//#define HLRequestUrl @"https://192.168.1.20:9999"
 //中志Url
 //#define HLRequestUrl @"https://192.168.1.45:9999"
 #define USHARE_DEMO_APPKEY  @"5a4cae02f29d9852a4000170"
@@ -97,8 +98,12 @@
 //阿里云推送Key
 #define ALiPushAppKey @"24763364"
 #define ALiPushAppSecret @"bf89529fd2d41d5065f3341a2f4de4e7"
-
-
+///支付宝身份ID
+#define AliPartner @""
+///支付宝账号
+#define AliSeller @""
+//支付宝私钥
+#define AliPrivateKey @""
 #define holderImage     [UIImage imageNamed:@"holder_image"]
 
 #define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width

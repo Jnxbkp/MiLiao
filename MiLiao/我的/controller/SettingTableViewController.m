@@ -85,7 +85,7 @@
         //        picker.titleFont = [UIFont systemFontOfSize:16];
         picker.toolbarButtonColor = [UIColor blackColor];
         [picker setIsRangePickerView:YES];
-        [picker setTitlesForComponents:@[@[@"向Ta收取"],@[@"100", @"95",@"90",@"85",@"80",@"75",@"70",@"65",@"60",@"55",@"50",@"45",@"40",@"35",@"30",@"25",@"20",@"15",@"10"],@[@"M币/分钟"]]];
+        [picker setTitlesForComponents:@[@[@"向Ta收取"],@[@"100", @"95",@"90",@"85",@"80",@"75",@"70",@"65",@"60",@"55",@"50",@"45",@"40",@"35",@"30",@"25",@"20",@"15",@"10"],@[@"撩币/分钟"]]];
         [picker show];
     }
     

@@ -23,7 +23,8 @@
 @property (nonatomic, strong)UIWebView * webView;
 @property (nonatomic, strong)NSURL * url;
 @property (nonatomic, strong)JSContext * context;
-
+@property (nonatomic ,strong)NSString * alipayCode;//支付宝返回的状态码
+@property (nonatomic, strong) NSString *backCode;//点击系统左上角的返回app的状态码，这里随便给一个值，前提是你和H5端商量好的值
 @end
 
 @implementation PayWebViewController
@@ -36,6 +37,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"支付"];
     self.view.backgroundColor = ML_Color(248, 248, 248, 1);
+    self.alipayCode = @"";//给初始值
+    self.backCode = @"";//给初始值
     [self wwebview];
 
 }
@@ -43,8 +46,9 @@
 {
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT - ML_TopHeight)];
     self.webView.delegate = self;
-    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=%@",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username,self.money];
-//    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=0.01",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username];
+//    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=%@",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username,self.money];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://192.168.1.20:9999/payment/index?token=%@&username=%@&totalFee=0.01",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username];
 
     NSLog(@"支付宝连接~~~~~~~~~%@",urlStr);
     NSURL * url = [NSURL URLWithString:urlStr];
@@ -90,6 +94,14 @@
     {
         context.exception = exceptionValue;
     };
+     if (![self.alipayCode isEqualToString:@""])
+     {
+         //表示有值
+         NSString *alipayCodeJS=[NSString stringWithFormat:@"h5端的方法名('%@')",self.alipayCode];
+         //准备执行的js代码
+         [self.context evaluateScript: alipayCodeJS];//通过oc方法调用js的alert
+         self.alipayCode = @""; //给回空值
+     }
     //GCD 防止主线程卡死
     dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(globalQueue, ^{
@@ -105,5 +117,8 @@
     
     
 }
-
+//最后在写一个在支付过程中直接点击左上角的返回App的处理当点击左上角返回App的时候回调用AppDelegate.h用的这个方法
+//- (void)applicationWillEnterForeground:(UIApplication *)application {
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"resumeBack" object:nil userInfo:nil];
+//}
 @end
