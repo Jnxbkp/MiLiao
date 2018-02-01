@@ -198,7 +198,7 @@
      [SVProgressHUD dismiss];
     SetMoneyView *view = [SetMoneyView SetMoneyView];
     NSString *time = dict[@"time"];
-    NSString *money = [NSString stringWithFormat:@"%@M币", dict[@"totalFee"]] ;
+    NSString *money = [NSString stringWithFormat:@"%@撩币", dict[@"totalFee"]] ;
     NSLog(@"time is %@, money is %@", time, money);
     self.timeLabel.text = time;
     self.moneyLabel.text = money;

@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.price = price;
-        NSString *str = [NSString stringWithFormat:@"%@ M币/分钟",price];
+        NSString *str = [NSString stringWithFormat:@"%@ 撩币/分钟",price];
         CGSize labelSize = [NSStringSize getNSStringHeight:str Font:14.0];
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width-labelSize.width, 0, labelSize.width, 15)];
         _priceLabel.text = str;
@@ -37,7 +37,7 @@
     return self;
 }
 - (void)setPrice:(NSString *)price {
-    NSString *str = [NSString stringWithFormat:@"%@ M币/分钟",price];
+    NSString *str = [NSString stringWithFormat:@"%@ 撩币/分钟",price];
     CGSize labelSize = [NSStringSize getNSStringHeight:str Font:14.0];
     _priceLabel.frame = CGRectMake(self.frame.size.width-labelSize.width, 0, labelSize.width, 15);
     _priceLabel.text = str;

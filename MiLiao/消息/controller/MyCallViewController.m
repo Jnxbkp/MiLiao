@@ -189,7 +189,7 @@
 - (void)showPayAlertController:(void(^)(void))pay {
     __weak typeof(self) weakSelf = self;
 
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的撩币不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
@@ -208,7 +208,7 @@
 - (void)showPayAlertController:(void(^)(void))pay continueCall:(void(^)(void))continueCall {
     __weak typeof(self) weakSelf = self;
 
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足不够与大V通话5分钟" message:@"是否去充值" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的撩币不足不够与大V通话5分钟" message:@"是否去充值" preferredStyle:UIAlertControllerStyleAlert];
     //继续通话
     UIAlertAction *continueCallAction = [UIAlertAction actionWithTitle:@"继续通话" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         !continueCall?:continueCall();

@@ -100,7 +100,7 @@
     self.tableView.tableHeaderView = header;
     UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, WIDTH*0.637)];
     UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, WIDTH*0.637)];
-    imageV.image = [UIImage imageNamed:@"组1"];
+    imageV.image = [UIImage imageNamed:@"提现规则"];
     [footView addSubview:imageV];
     self.tableView.tableFooterView = footView;
     [self.view addSubview:self.tableView];

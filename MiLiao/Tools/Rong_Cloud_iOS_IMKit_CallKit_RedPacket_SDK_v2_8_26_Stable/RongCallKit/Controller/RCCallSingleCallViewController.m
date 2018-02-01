@@ -166,7 +166,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 - (void)setRemoteAncher:(RemoteUserInfoModel *)remoteAncher {
     _remoteAncher = remoteAncher;
     if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
-        NSString *price = [NSString stringWithFormat:@"每分钟%@M币", remoteAncher.price];
+        NSString *price = [NSString stringWithFormat:@"每分钟%@撩币", remoteAncher.price];
 //        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:price];
 //        [str addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0,3)];
 //        [str addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(3,2)];

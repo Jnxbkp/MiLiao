@@ -31,6 +31,7 @@
 #import "LoveViewController.h"
 #import "EvaluateVideoViewController.h"//评价
 #import "PayWebViewController.h"
+#import "GoPayTableViewController.h"
 #import "UserCallPowerModel.h"//通话能力
 #import "ReportView.h"//投诉弹窗
 
@@ -216,7 +217,7 @@
     
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 28, _buyVChatView.frame.size.width, 14)];
     titleLabel.font = [UIFont systemFontOfSize:14.0];
-    titleLabel.text = @"需支付1000M币，是否立即支付";
+    titleLabel.text = @"需支付1000撩币，是否立即支付";
     titleLabel.textColor = Color155;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     NSArray *buttonArr = [NSArray arrayWithObjects:@"否",@"是", nil];
@@ -443,7 +444,7 @@
 }
 
 - (void)goPay {
-    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    GoPayTableViewController *payViewController = [[GoPayTableViewController alloc] init];
     [self.navigationController pushViewController:payViewController animated:YES];
 }
 
