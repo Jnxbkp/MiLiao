@@ -58,7 +58,23 @@
         NSLog(@"%@",error);
     }];
 }
-//- (void)
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *bigv = [NSString stringWithFormat:@"%@",[YZCurrentUserModel sharedYZCurrentUserModel].isBigv];
+    if ([bigv isEqualToString:@"3"]) {
+        return 50;
+    }else{
+        if (indexPath.section == 0 && indexPath.row == 1) {
+            return 0;
+        }
+        if (indexPath.section == 1 && indexPath.row == 0) {
+            return 0;
+        }if (indexPath.section == 1 && indexPath.row == 2) {
+            return 0;
+        }
+    }
+   
+    return 50;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {

@@ -94,13 +94,13 @@
         self.amount = @([str integerValue]);
         NSLog(@"输入的提现金额是:%@",self.amount);
     };
-   header.Mmoney.text = [NSString stringWithFormat:@"%@",self.Mmoney];
+   header.Mmoney.text = [NSString stringWithFormat:@"%@撩币",self.Mmoney];
     header.money.text = [NSString stringWithFormat:@"%@",self.money];
 
     self.tableView.tableHeaderView = header;
     UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, WIDTH*0.637)];
     UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, WIDTH*0.637)];
-    imageV.image = [UIImage imageNamed:@"提现规则"];
+    imageV.image = [UIImage imageNamed:@"tixianguize"];
     [footView addSubview:imageV];
     self.tableView.tableFooterView = footView;
     [self.view addSubview:self.tableView];
@@ -155,16 +155,16 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (self.wirthdrawAccount.length>0) {
-        cell.zhanghu.text = [NSString stringWithFormat:@"提现账户(支付宝):  %@",self.dict[@"wirthdrawAccount"]];
+        cell.zhanghu.text = [NSString stringWithFormat:@"支付宝账号:  %@",self.dict[@"wirthdrawAccount"]];
 
     }else{
-        cell.zhanghu.text =@"提现账户(支付宝): ";
+        cell.zhanghu.text =@"支付宝账号: ";
 
     }
     if (self.wirthdrawName.length>0) {
-       cell.zhanghuName.text = [NSString stringWithFormat:@"账户名称(支付宝):  %@",self.dict[@"wirthdrawName"]];
+       cell.zhanghuName.text = [NSString stringWithFormat:@"真实姓名:      %@",self.dict[@"wirthdrawName"]];
     }else{
-        cell.zhanghuName.text = @"账户名称(支付宝):";
+        cell.zhanghuName.text = @"真实姓名:";
 
 
     }
