@@ -18,7 +18,8 @@
     [super viewDidLoad];
     self.interactivePopGestureRecognizer.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:NavColor size:CGSizeMake(WIDTH, ML_TopHeight)] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:NavColor size:CGSizeMake(WIDTH, ML_TopHeight)] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationBar setBackgroundImage:[UIImage imageWithColor:ML_Color(255, 255, 255, 1.0) size:CGSizeMake(WIDTH, ML_TopHeight)] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {

@@ -58,7 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setStatusBarBackgroundColor:NavColor];
+    [self setStatusBarBackgroundColor:ML_Color(242, 242, 242, 1)];
     self.view.backgroundColor = ML_Color(242, 242, 242, 1);
     
     _searchArr = [NSMutableArray array];

@@ -79,7 +79,7 @@
 //请求Url
 //#define HLRequestUrl @"https://devapi.jnxbkp.com:9000"
 #define HLRequestUrl @"https://devapi.jnxbkp.com:9999"
-//#define HLRequestUrl @"https://192.168.1.20:9999"
+
 //中志Url
 //#define HLRequestUrl @"https://192.168.1.45:9999"
 #define USHARE_DEMO_APPKEY  @"5a4cae02f29d9852a4000170"
