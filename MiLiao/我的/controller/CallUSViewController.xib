@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lianxi" translatesAutoresizingMaskIntoConstraints="NO" id="l4G-Wf-rlt">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l4G-Wf-rlt">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
             </subviews>
@@ -36,7 +36,4 @@
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="lianxi" width="375" height="603"/>
-    </resources>
 </document>

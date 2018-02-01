@@ -136,7 +136,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFW-JM-1NS">
                     <rect key="frame" x="210" y="367" width="112" height="44"/>
-                    <color key="backgroundColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.36078431372549019" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="2Ci-8c-gU7"/>
                         <constraint firstAttribute="width" constant="112" id="WEb-JS-5Yh"/>
@@ -205,8 +205,8 @@
     </objects>
     <resources>
         <image name="biaozhi" width="70" height="70"/>
-        <image name="mima" width="20" height="25"/>
-        <image name="shouji" width="17" height="25"/>
+        <image name="mima" width="14" height="18"/>
+        <image name="shouji" width="14" height="20"/>
         <image name="yanjing" width="15" height="9"/>
         <image name="yanjingbi" width="15" height="7"/>
     </resources>

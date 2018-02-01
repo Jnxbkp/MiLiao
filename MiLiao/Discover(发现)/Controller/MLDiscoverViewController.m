@@ -114,8 +114,8 @@ static NSString *const hotIdentifer = @"hotCell";
         button.frame = CGRectMake(WIDTH/4*(i+1), 0, WIDTH/4, 38);
         [button setTitle:arr[i] forState:UIControlStateNormal];
         [button setTitle:arr[i] forState:UIControlStateSelected];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [button setTitleColor:ML_Color(77, 77, 77, 1) forState:UIControlStateNormal];
+        [button setTitleColor:NavColor forState:UIControlStateSelected];
         button.titleLabel.font = [UIFont systemFontOfSize:15.0];
         button.tag = selectButtonTag+i;
         [button addTarget:self action:@selector(choseStyle:) forControlEvents:UIControlEventTouchUpInside];
@@ -124,7 +124,7 @@ static NSString *const hotIdentifer = @"hotCell";
             button.selected = YES;
             _newButton = button;
             _downView = [[UIView alloc]initWithFrame:CGRectMake((button.frame.origin.x+(button.frame.size.width-(strSize.width+10))/2), 38, strSize.width+10, 2)];
-            [_downView setBackgroundColor:[UIColor whiteColor]];
+            [_downView setBackgroundColor:NavColor];
             [titleView addSubview:_downView];
         } else if (i == 1) {
             button.selected = NO;
@@ -457,6 +457,7 @@ static NSString *const hotIdentifer = @"hotCell";
     playController.baseModel = _disBaseModel;
     playController.videoModelList = _videoModelList;
     playController.currentCell = indexPath.row;
+    playController.kind = @"videoListVC";
 
     [self.navigationController pushViewController:playController animated:YES];
 }

@@ -60,7 +60,7 @@
     
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
     MeViewController *meViewController = [story instantiateViewControllerWithIdentifier:@"MeViewController"];
-    [self addChildViewController:meViewController title:nil imageName:@"wode" navigationIsHidden:@"yes"];
+    [self addChildViewController:meViewController title:nil imageName:@"tab_wode_nomal" navigationIsHidden:@"yes"];
     
 }
 - (void)InitMiddleView
@@ -104,8 +104,8 @@
         selectedImageName = @"tab_discover";
     } else if ([imageName isEqualToString:@"tab_message_nomal"]) {
         selectedImageName = @"tab_message";
-    } else if ([imageName isEqualToString:@"wode"]) {
-        selectedImageName = @"wode2";
+    } else if ([imageName isEqualToString:@"tab_wode_nomal"]) {
+        selectedImageName = @"tab_wode";
     } 
     
     UIImage *selectedImage = [UIImage imageNamed:selectedImageName];

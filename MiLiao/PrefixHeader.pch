@@ -139,7 +139,8 @@
 //颜色
 #define ML_Color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 //粉红色
-#define NavColor [UIColor colorWithRed:247.0/255.0 green:116.0/255.0 blue:153.0/255.0 alpha:1.0]
+//#define NavColor [UIColor colorWithRed:247.0/255.0 green:116.0/255.0 blue:153.0/255.0 alpha:1.0]
+#define NavColor [UIColor colorWithRed:250.0/255.0 green:92.0/255.0 blue:110.0/255.0 alpha:1.0]
 //75
 #define Color75 [UIColor colorWithRed:75.0/255.0 green:75.0/255.0 blue:75.0/255.0 alpha:1.0]
 //155

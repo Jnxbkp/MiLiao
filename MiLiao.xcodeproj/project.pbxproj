@@ -3870,6 +3870,159 @@
 			};
 			name = Release;
 		};
+		E25D344E20233328005214F2 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "ad hoc distribution";
+		};
+		E25D344F20233328005214F2 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF51C1A8DE887E99131B1354 /* Pods-MiLiao.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MiLiao/MiLiao.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinan Small Fast Running Network Technology Co., Ltd. (8HXC4DQC3M)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HXC4DQC3M;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiLiao",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/CallLib",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMKit",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/JrmfIMLib",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/AlipaySDK",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/CallKit",
+					"$(PROJECT_DIR)/MiLiao/FaceUnity",
+					"$(PROJECT_DIR)/MiLiao/Tools/AliSDK",
+					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK",
+					"$(PROJECT_DIR)/MiLiao/Tools/AlipaySDK_No_UTDID-2/IOS",
+					"$(PROJECT_DIR)/MiLiao/Tools",
+					"$(PROJECT_DIR)/MiLiao/Tools/支付宝",
+				);
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AliyunOSSiOS\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
+					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
+					"\"${PODS_ROOT}/Headers/Public/YYText\"",
+					"\"$(SRCROOT)/MiLiao/Tools/include/sdkcore/ios\"",
+					"$(SRCROOT)/MiLiao/Tools/支付宝",
+				);
+				INFOPLIST_FILE = MiLiao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AliyunOSSiOS\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDCycleScrollView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/VTMagic\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/YYText\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDKPlugin\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
+					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
+					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
+					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS-lite",
+					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
+					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.SE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "ad hoc distribution";
+		};
+		E25D345020233328005214F2 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MiLiaoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiLiao.app/MiLiao";
+			};
+			name = "ad hoc distribution";
+		};
+		E25D345120233328005214F2 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				INFOPLIST_FILE = MiLiaoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MiLiao;
+			};
+			name = "ad hoc distribution";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3878,6 +4031,7 @@
 			buildConfigurations = (
 				E221B5951FF5D70000353875 /* Debug */,
 				E221B5961FF5D70000353875 /* Release */,
+				E25D344E20233328005214F2 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3887,6 +4041,7 @@
 			buildConfigurations = (
 				E221B5981FF5D70000353875 /* Debug */,
 				E221B5991FF5D70000353875 /* Release */,
+				E25D344F20233328005214F2 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3896,6 +4051,7 @@
 			buildConfigurations = (
 				E221B59B1FF5D70000353875 /* Debug */,
 				E221B59C1FF5D70000353875 /* Release */,
+				E25D345020233328005214F2 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3905,6 +4061,7 @@
 			buildConfigurations = (
 				E221B59E1FF5D70000353875 /* Debug */,
 				E221B59F1FF5D70000353875 /* Release */,
+				E25D345120233328005214F2 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -50,7 +50,7 @@
 
     _focusButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _focusButton.backgroundColor = ML_Color(255, 255, 255, 0.7);
-    [_focusButton setTitleColor:ML_Color(250, 114, 152, 1) forState:UIControlStateNormal];
+    [_focusButton setTitleColor:NavColor forState:UIControlStateNormal];
    
    
     _focusButton.frame = CGRectMake(WIDTH-76, _nameLabel.frame.origin.y, 64, 20);
@@ -205,11 +205,20 @@
 }
 //亲密度和微信
 - (void)mindButtonSelect:(UIButton *)button {
-    if (button.tag == buttonTag+1) {
-        [self.delegate loveNumButtonselect];
-    } else if (button.tag == buttonTag+2) {
-        [self.delegate weiXinButtonSelect];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *isHidden = [userDefaults objectForKey:@"isHidden"];
+    if ([isHidden isEqualToString:@"yes"]) {
+        if (button.tag == buttonTag) {
+            [self.delegate loveNumButtonselect];
+        }
+    } else {
+        if (button.tag == buttonTag+1) {
+            [self.delegate loveNumButtonselect];
+        } else if (button.tag == buttonTag+2) {
+            [self.delegate weiXinButtonSelect];
+        }
     }
+    
 }
 //- (void)backBarButtonSelect:(UIButton *)button {
 //    [self.navigationController popViewControllerAnimated:YES];

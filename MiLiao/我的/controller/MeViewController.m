@@ -104,6 +104,9 @@
     return 0.01;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 0;
+    }
     //隐藏客服
     if (indexPath.section == 1 && indexPath.row == 0) {
         return 0;
@@ -122,9 +125,7 @@
         if (indexPath.section == 0 && indexPath.row == 1) {
             return 0;
         }
-        if (indexPath.section == 0 && indexPath.row == 0) {
-            return 0;
-        }
+      
         //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
         if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"])
         {
@@ -143,10 +144,10 @@
         {
             
         }else{
-            //隐藏小视频
-            if (indexPath.section == 0 && indexPath.row == 0) {
-                return 0;
-            }
+//            //隐藏小视频
+//            if (indexPath.section == 0 && indexPath.row == 0) {
+//                return 0;
+//            }
             if (indexPath.section == 2 && indexPath.row == 0) {
                 return 0;
             }
