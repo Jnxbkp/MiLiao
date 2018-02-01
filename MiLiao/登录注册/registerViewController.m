@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *password;
 @property (strong, nonatomic) IBOutlet UITextField *yanzhengNum;
 @property (strong, nonatomic) IBOutlet UIButton *getButton;//获取验证码
+@property (weak, nonatomic) IBOutlet UIButton *next;
 
 @end
 
@@ -34,6 +35,10 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"注册"];
+    _getButton.backgroundColor = [UIColor grayColor];
+    _next.backgroundColor = [UIColor whiteColor];
+    [_phoneNum addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_password addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame  = CGRectMake(0, 0, 50, 30);
     leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -53,6 +58,35 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 
+}
+#pragma mark -输入框实时变化改变颜色
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    if (theTextField == self.phoneNum){
+        if ([_phoneNum.text isEqualToString:@""]) {
+            self.getButton.enabled=NO;
+            _getButton.backgroundColor = [UIColor grayColor];
+            
+        }else{
+            self.getButton.enabled=YES;
+            
+            _getButton.backgroundColor = ML_Color(250, 114, 152, 1);// 250  114  152
+            
+        }
+    }
+    if (theTextField == self.yanzhengNum) {
+        if ([_yanzhengNum.text isEqualToString:@""]) {
+            self.next.enabled=NO;
+            _next.backgroundColor = [UIColor whiteColor];
+            [_next setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            
+        }else{
+            self.next.enabled=YES;
+            
+            _next.backgroundColor = ML_Color(250, 114, 152, 1);// 250  114  152
+            [_next setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            
+        }
+    }
 }
 //- (void)viewWillDisappear:(BOOL)animated{
 //    self.navigationController.navigationBarHidden = NO;
@@ -79,7 +113,7 @@
         [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
         return;
     }
-//    self.getButton.enabled=NO;
+    self.getButton.enabled=NO;
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text verifyMobile:@"2" success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
@@ -110,7 +144,7 @@
     _secondCountDown--;
     
     NSString*secondStr1=[NSString stringWithFormat:@"重新发送(%ld秒)",(long)_secondCountDown];
-    [self.getButton setTitle:secondStr1 forState:UIControlStateDisabled];
+    [self.getButton setTitle:secondStr1 forState:UIControlStateNormal];
     
     if (_secondCountDown==0) {
         [_countDownTimer invalidate];

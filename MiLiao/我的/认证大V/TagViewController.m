@@ -108,7 +108,7 @@
 
 - (void)loadData
 {
-    [HLLoginManager getTagstoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+    [HLLoginManager getTagstoken:[_userDefaults objectForKey:@"token"] type:@"BIGV" success:^(NSDictionary *info) {
         NSLog(@"%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
