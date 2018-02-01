@@ -22,11 +22,23 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"联系我们"];
-    if (UI_IS_IPHONEX) {
-        self.image.image = [UIImage imageNamed:@"1125"];
-    }
-}
+    NSString *bigv = [NSString stringWithFormat:@"%@",[YZCurrentUserModel sharedYZCurrentUserModel].isBigv];
+    if ([bigv isEqualToString:@"3"]) {
+        if (UI_IS_IPHONEX) {
+            self.image.image = [UIImage imageNamed:@"网红1125"];
+        }else{
+            self.image.image = [UIImage imageNamed:@"网红"];
 
+        }
+    }else{
+        if (UI_IS_IPHONEX) {
+            self.image.image = [UIImage imageNamed:@"用户1125"];
+        }else{
+            self.image.image = [UIImage imageNamed:@"用户"];
+    }
+   
+}
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

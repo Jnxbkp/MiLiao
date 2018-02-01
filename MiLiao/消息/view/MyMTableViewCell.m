@@ -29,7 +29,7 @@
     NSDateFormatter *stampFormatter2 = [[NSDateFormatter alloc] init];
     [stampFormatter2 setDateFormat:@"MM-dd"];
     self.timeTwo.text = [NSString stringWithFormat:@"%@",[stampFormatter2 stringFromDate: stampDate2]];
-    self.leftLabel.text = [NSString stringWithFormat:@"购买支付:%lldd元",[model.amount longLongValue]*2];
+    self.leftLabel.text = [NSString stringWithFormat:@"购买支付:%lld元",[model.amount longLongValue]*2];
     self.Mmoney.text = [NSString stringWithFormat:@"%@撩币",model.balance];
    
     /*
