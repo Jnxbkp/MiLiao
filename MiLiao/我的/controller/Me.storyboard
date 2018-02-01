@@ -37,7 +37,6 @@
                                         <constraint firstAttribute="width" constant="359" id="MLf-lx-cl9"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQb-tY-mpG">
@@ -52,7 +51,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="k7y-Dr-AAv" firstAttribute="centerX" secondItem="RYw-E8-k1f" secondAttribute="centerX" id="UUd-Kg-obr"/>
                                 <constraint firstItem="k7y-Dr-AAv" firstAttribute="top" secondItem="odP-Cb-z2k" secondAttribute="bottom" constant="28" id="dGH-Gu-YiD"/>
