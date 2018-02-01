@@ -2117,10 +2117,10 @@
 		E28788DF20219129002A50BE /* 视频拍摄 */ = {
 			isa = PBXGroup;
 			children = (
+				E287894520219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
 				E28788E020219129002A50BE /* 阿里云 */,
 				E287892420219129002A50BE /* Controller */,
 				E287892B20219129002A50BE /* View */,
-				E287894520219129002A50BE /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
 			);
 			path = "视频拍摄";
 			sourceTree = "<group>";
@@ -2153,10 +2153,10 @@
 		E28788E220219129002A50BE /* PhotoLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				E28788E320219129002A50BE /* AliyunAlbumModel.m */,
-				E28788E420219129002A50BE /* AliyunPhotoLibraryManager.m */,
 				E28788E520219129002A50BE /* AliyunAlbumModel.h */,
+				E28788E320219129002A50BE /* AliyunAlbumModel.m */,
 				E28788E620219129002A50BE /* AliyunPhotoLibraryManager.h */,
+				E28788E420219129002A50BE /* AliyunPhotoLibraryManager.m */,
 			);
 			path = PhotoLibrary;
 			sourceTree = "<group>";
@@ -2164,10 +2164,10 @@
 		E28788E720219129002A50BE /* UIConfig */ = {
 			isa = PBXGroup;
 			children = (
-				E28788E820219129002A50BE /* AliyunImage.m */,
-				E28788E920219129002A50BE /* AliyunIConfig.m */,
 				E28788EA20219129002A50BE /* AliyunImage.h */,
+				E28788E820219129002A50BE /* AliyunImage.m */,
 				E28788EB20219129002A50BE /* AliyunIConfig.h */,
+				E28788E920219129002A50BE /* AliyunIConfig.m */,
 			);
 			path = UIConfig;
 			sourceTree = "<group>";
@@ -2175,8 +2175,8 @@
 		E28788EC20219129002A50BE /* PathManager */ = {
 			isa = PBXGroup;
 			children = (
-				E28788ED20219129002A50BE /* AliyunPathManager.m */,
 				E28788EE20219129002A50BE /* AliyunPathManager.h */,
+				E28788ED20219129002A50BE /* AliyunPathManager.m */,
 			);
 			path = PathManager;
 			sourceTree = "<group>";
@@ -2184,8 +2184,8 @@
 		E28788EF20219129002A50BE /* MusicImport */ = {
 			isa = PBXGroup;
 			children = (
-				E28788F020219129002A50BE /* AliyunLibraryMusicImport.m */,
 				E28788F120219129002A50BE /* AliyunLibraryMusicImport.h */,
+				E28788F020219129002A50BE /* AliyunLibraryMusicImport.m */,
 			);
 			path = MusicImport;
 			sourceTree = "<group>";
@@ -2193,8 +2193,8 @@
 		E28788F220219129002A50BE /* MediaConfig */ = {
 			isa = PBXGroup;
 			children = (
-				E28788F320219129002A50BE /* AliyunMediaConfig.m */,
 				E28788F420219129002A50BE /* AliyunMediaConfig.h */,
+				E28788F320219129002A50BE /* AliyunMediaConfig.m */,
 			);
 			path = MediaConfig;
 			sourceTree = "<group>";
@@ -2234,8 +2234,8 @@
 		E287890020219129002A50BE /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				E287890120219129002A50BE /* AliyunImportHeaderView.m */,
 				E287890220219129002A50BE /* AliyunImportHeaderView.h */,
+				E287890120219129002A50BE /* AliyunImportHeaderView.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -2243,8 +2243,8 @@
 		E287890320219129002A50BE /* Mediator */ = {
 			isa = PBXGroup;
 			children = (
-				E287890420219129002A50BE /* AliyunMediator.m */,
 				E287890520219129002A50BE /* AliyunMediator.h */,
+				E287890420219129002A50BE /* AliyunMediator.m */,
 			);
 			path = Mediator;
 			sourceTree = "<group>";
@@ -2252,9 +2252,9 @@
 		E287890620219129002A50BE /* Composition */ = {
 			isa = PBXGroup;
 			children = (
-				E287890720219129002A50BE /* Compress */,
 				E287890A20219129002A50BE /* AliyunCompositionViewController.h */,
 				E287891520219129002A50BE /* AliyunCompositionViewController.m */,
+				E287890720219129002A50BE /* Compress */,
 				E287890B20219129002A50BE /* Model */,
 				E287890E20219129002A50BE /* View */,
 			);
@@ -2333,9 +2333,9 @@
 		E287892B20219129002A50BE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E287894420219129002A50BE /* GenerationView.h */,
 				E287892C20219129002A50BE /* GenerationView.m */,
 				E287892D20219129002A50BE /* QBImagePicker */,
-				E287894420219129002A50BE /* GenerationView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2372,11 +2372,11 @@
 			isa = PBXGroup;
 			children = (
 				E287896F20219282002A50BE /* UIButton+EnlargeArea.h */,
+				E287898620219282002A50BE /* UIButton+EnlargeArea.m */,
 				E287897020219282002A50BE /* unzip */,
 				E287897D20219282002A50BE /* LXReorderableFlowLayout */,
 				E287898020219282002A50BE /* Avasset+VideoSize */,
 				E287898320219282002A50BE /* UIView+Progress */,
-				E287898620219282002A50BE /* UIButton+EnlargeArea.m */,
 				E287898720219282002A50BE /* MBProgressHUD */,
 				E287898A20219282002A50BE /* fmdb */,
 				E287899620219282002A50BE /* JSONModel */,
@@ -2388,9 +2388,9 @@
 		E287897020219282002A50BE /* unzip */ = {
 			isa = PBXGroup;
 			children = (
+				E287897C20219282002A50BE /* QPSSZipArchive.h */,
 				E287897120219282002A50BE /* QPSSZipArchive.m */,
 				E287897220219282002A50BE /* minizip */,
-				E287897C20219282002A50BE /* QPSSZipArchive.h */,
 			);
 			path = unzip;
 			sourceTree = "<group>";
@@ -2865,7 +2865,6 @@
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
 				3C024D6620202255007F40F0 /* v3.bundle in Resources */,
-				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				E287895D20219129002A50BE /* FxTableViewCell.xib in Resources */,
 				186390222017232D00CAC217 /* phoneLoginViewController.xib in Resources */,

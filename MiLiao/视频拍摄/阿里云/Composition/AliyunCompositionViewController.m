@@ -69,6 +69,7 @@
     [_libraryDataArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(AliyunAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [[AliyunPhotoLibraryManager sharedManager] getPhotoWithAsset:obj.asset thumbnailImage:YES photoWidth:200 completion:^(UIImage *photo, NSDictionary *info) {
             obj.thumbnailImage = photo;
+          
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
             });
