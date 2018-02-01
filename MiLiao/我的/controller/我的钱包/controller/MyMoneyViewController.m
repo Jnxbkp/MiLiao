@@ -36,7 +36,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的钱包"];
     _userDefaults = [NSUserDefaults standardUserDefaults];
-//    self.money.text = [NSString stringWithFormat:@"%@M币",[_userDefaults objectForKey:@"balance"]];
+//    self.money.text = [NSString stringWithFormat:@"%@撩币",[_userDefaults objectForKey:@"balance"]];
 }
 - (void)viewWillAppear:(BOOL)animated
 {

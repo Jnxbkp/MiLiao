@@ -37,7 +37,7 @@
 @property (nonatomic, strong) FUAPIDemoBar *bar;
 ///控件容器数组
 @property (nonatomic, strong) NSArray *controlContainerArray;
-///检查M币的定时器
+///检查撩币的定时器
 @property (nonatomic, strong) dispatch_source_t checkMoneyTimer;
 
 ///准备倒计时的倒计时
@@ -381,13 +381,13 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     }];
 }
 
-//检查M币
+//检查撩币
 - (void)checkMoney {
     
     long start = [[NSDate date] timeIntervalSince1970];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-        //没分钟执行一次检查M币（60秒）
+        //没分钟执行一次检查撩币（60秒）
         dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
         
         dispatch_source_set_event_handler(self.checkMoneyTimer, ^{

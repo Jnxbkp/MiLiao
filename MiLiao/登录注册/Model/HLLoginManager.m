@@ -430,7 +430,7 @@
         failure(error);
     }];
 }
-// GET /v1/moneyDetail/getUserMoneyInfo  获取用户m币信息
+// GET /v1/moneyDetail/getUserMoneyInfo  获取用户撩币信息
 + (void)getUserMoneyInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];

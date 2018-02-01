@@ -207,11 +207,11 @@
                 
             }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
                 if ([[_userDefaults objectForKey:@"price"] intValue] >0) {
-                    //已经设置了M币了
-                    NSLog(@"已经设置M币了我草特码了不能点了");
+                    //已经设置了撩币了
+                    NSLog(@"已经设置撩币了我草特码了不能点了");
                 }else{
-                    AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
-                    [self.navigationController pushViewController:AuditSuccess animated:YES];
+//                    AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
+//                    [self.navigationController pushViewController:AuditSuccess animated:YES];
                 }
                 
             }
