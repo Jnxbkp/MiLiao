@@ -31,9 +31,9 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJD-eq-jwe">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJD-eq-jwe">
                             <rect key="frame" x="107.5" y="255" width="100" height="35"/>
-                            <color key="backgroundColor" red="0.97647058823529409" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="1Z8-HS-feA"/>
                                 <constraint firstAttribute="height" constant="35" id="3HG-j4-1hu"/>
@@ -184,6 +184,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="submitButton" destination="DJD-eq-jwe" id="BpC-G8-koy"/>
                 <outletCollection property="buttonArray" destination="EYo-0h-rb7" id="j0X-Ev-Gvn"/>
                 <outletCollection property="buttonArray" destination="lxt-to-r6S" id="Dn4-qh-HPg"/>
                 <outletCollection property="buttonArray" destination="KRy-4x-G1o" id="aRJ-NY-L08"/>
