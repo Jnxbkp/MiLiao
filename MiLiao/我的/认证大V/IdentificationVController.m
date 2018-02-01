@@ -274,7 +274,7 @@ static NSString *kTempFolder = @"touxiang";
     }else {
         //返回为JPEG图像。
         UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
-        self.imageData = UIImageJPEGRepresentation(imagenew, 0.1);
+        self.imageData = UIImageJPEGRepresentation(imagenew, 0.8);
     }
     // 参数设置
     NSString *endpoint = @"http://oss-cn-beijing.aliyuncs.com";
