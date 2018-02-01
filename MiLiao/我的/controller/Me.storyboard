@@ -317,7 +317,7 @@
                                                         <constraint firstAttribute="width" constant="128" id="yjg-Jt-bAh"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.98039215686274506" green="0.36078431372549019" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1163,7 +1163,7 @@
     </scenes>
     <resources>
         <image name="bianji" width="24" height="25"/>
-        <image name="chongzhi" width="20" height="20"/>
+        <image name="chongzhi" width="50" height="50"/>
         <image name="shangchuanhaibao" width="109" height="109"/>
         <image name="shangchuantupian" width="109" height="109"/>
         <image name="shouru" width="20" height="20"/>
