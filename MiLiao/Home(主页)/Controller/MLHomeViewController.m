@@ -252,32 +252,33 @@ static NSString *const bigIdentifer = @"bigCell";
                 if([selectStr isEqualToString:newStr]) {
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     _newsList = [self.modelArray mutableCopy];
-//                    [self newTabReload];
-                    NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _newsList) {
+                    
+                    for (int i = 0; i < _newsList.count; i ++) {
+                        VideoUserModel *model = [_newsList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry3 addObject:model];
-                            _newsList = laheiAry3;
-                            [_newTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_newsList removeObjectAtIndex:i];
                         }
                     }
+
+                    [self newTabReload];
                     if (self.modelArray.count > 0) {
                         _newTabelView.mj_footer.hidden = NO;
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     _careList = [self.modelArray mutableCopy];
-//                    [self careTabReload];
-                    NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _careList) {
+
+                    for (int i = 0; i < _careList.count; i ++) {
+                        VideoUserModel *model = [_careList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry2 addObject:model];
-                            _careList = laheiAry2;
-                            [_careTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_careList removeObjectAtIndex:i];
                         }
                     }
+                    [self careTabReload];
                     if (self.modelArray.count > 0) {
                         _careTabelView.mj_footer.hidden = NO;
                     } else if (self.modelArray.count == 0) {
@@ -286,17 +287,17 @@ static NSString *const bigIdentifer = @"bigCell";
                 } else {
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     _recommandList = [self.modelArray mutableCopy];
-                 
-//                    [self recommandTabReload];
-                    NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _recommandList) {
+                    
+                    for (int i = 0; i < _recommandList.count; i ++) {
+                        VideoUserModel *model = [_recommandList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry addObject:model];
-                            _recommandList = laheiAry;
-                            [_recommandTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_recommandList removeObjectAtIndex:i];
                         }
                     }
+                    [self recommandTabReload];
+                    
                     if (self.modelArray.count > 0) {
                         _recommandTabelView.mj_footer.hidden = NO;
                     }
@@ -306,32 +307,34 @@ static NSString *const bigIdentifer = @"bigCell";
                 if([selectStr isEqualToString:newStr]) {
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     [_newsList addObjectsFromArray:[self.modelArray mutableCopy]];
-//                    [self newTabReload];
-                    NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _newsList) {
+                    
+                    for (int i = 0; i < _newsList.count; i ++) {
+                        VideoUserModel *model = [_newsList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry3 addObject:model];
-                            _newsList = laheiAry3;
-                            [_newTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_newsList removeObjectAtIndex:i];
                         }
                     }
+                    [self newTabReload];
+                    
                     if (self.modelArray.count <= 0) {
                         [footer endRefreshingWithNoMoreData];
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     [_careList addObjectsFromArray:[self.modelArray mutableCopy]];
-//                    [self careTabReload];
-                    NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _careList) {
+                    
+                    for (int i = 0; i < _careList.count; i ++) {
+                        VideoUserModel *model = [_careList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry2 addObject:model];
-                            _careList = laheiAry2;
-                            [_careTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_careList removeObjectAtIndex:i];
                         }
                     }
+                    [self careTabReload];
+                    
                     if (self.modelArray.count <= 0) {
                         [footer endRefreshingWithNoMoreData];
                     }
@@ -339,16 +342,16 @@ static NSString *const bigIdentifer = @"bigCell";
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     [_recommandList addObjectsFromArray:[self.modelArray mutableCopy]];
                   
-//                    [self recommandTabReload];
-                    NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _recommandList) {
+                    for (int i = 0; i < _recommandList.count; i ++) {
+                        VideoUserModel *model = [_recommandList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry addObject:model];
-                            _recommandList = laheiAry;
-                            [_recommandTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_recommandList removeObjectAtIndex:i];
                         }
                     }
+                    [self recommandTabReload];
+                    
                     if (self.modelArray.count <= 0) {
                         [footer endRefreshingWithNoMoreData];
                     }
@@ -360,16 +363,18 @@ static NSString *const bigIdentifer = @"bigCell";
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     _newsList = [NSMutableArray array];
                     _newsList = [self.modelArray mutableCopy];
-//                    [self newTabReload];
-                    NSMutableArray *laheiAry3 = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _newsList) {
+                    
+                    for (int i = 0; i < _newsList.count; i ++) {
+                        VideoUserModel *model = [_newsList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry3 addObject:model];
-                            _newsList = laheiAry3;
-                            [_newTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_newsList removeObjectAtIndex:i];
                         }
                     }
+
+                    [self newTabReload];
+                    
                     if (self.modelArray.count > 0) {
                         _newTabelView.mj_footer.hidden = NO;
                     }
@@ -377,16 +382,18 @@ static NSString *const bigIdentifer = @"bigCell";
                     _careList = [NSMutableArray array];
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     _careList = [self.modelArray mutableCopy];
-//                    [self careTabReload];
-                    NSMutableArray *laheiAry2 = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _careList) {
+                    
+                   
+                    for (int i = 0; i < _careList.count; i ++) {
+                        VideoUserModel *model = [_careList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry2 addObject:model];
-                            _careList = laheiAry2;
-                            [_careTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_careList removeObjectAtIndex:i];
                         }
                     }
+                    [self careTabReload];
+                    
                     if (self.modelArray.count > 0) {
                         _careTabelView.mj_footer.hidden = NO;
                     }
@@ -394,16 +401,17 @@ static NSString *const bigIdentifer = @"bigCell";
                     _recommandList = [NSMutableArray array];
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     _recommandList = [self.modelArray mutableCopy];
-//                    [_recommandTabelView reloadData];
-                    NSMutableArray *laheiAry = [[NSMutableArray alloc]init];
-                    for (VideoUserModel  *model in _recommandList) {
+                    
+                    for (int i = 0; i < _recommandList.count; i ++) {
+                        VideoUserModel *model = [_recommandList objectAtIndex:i];
                         NSString *str = model.ID;
-                        if (![str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]){
-                            [laheiAry addObject:model];
-                            _recommandList = laheiAry;
-                            [_recommandTabelView reloadData];
+                        if ([str isEqualToString:[_userDefaults objectForKey:@"laheiID"]]) {
+                            
+                            [_recommandList removeObjectAtIndex:i];
                         }
                     }
+                    [self recommandTabReload];
+                    
                     if (self.modelArray.count > 0) {
                         _recommandTabelView.mj_footer.hidden = NO;
                     }
