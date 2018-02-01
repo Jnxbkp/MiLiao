@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface edttViewController : UIViewController
+@property(nonatomic,strong)NSString *headerUrl;
+@property(nonatomic,strong)NSString *nickName;
 
 @end

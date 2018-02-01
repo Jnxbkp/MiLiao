@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface YZNavigationController : UINavigationController
-
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer;
 @end
