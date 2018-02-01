@@ -131,8 +131,14 @@
     }
     [SVProgressHUD dismiss];
     
-//    NSNotification *notification =[NSNotification notificationWithName:@"zanVideoNum" object:nil userInfo:nil];
-//    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    if ([_kind isEqualToString:@"videoListVC"]) {
+        NSNotification *notification =[NSNotification notificationWithName:@"zanVideoNum" object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+       
+    } else if ([_kind isEqualToString:@"xiangQingVC"]) {
+        NSNotification *notification =[NSNotification notificationWithName:@"xiangQingVideoNum" object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
      [self.navigationController setNavigationBarHidden:NO];
 }
 - (void)viewDidLoad {

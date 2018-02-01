@@ -457,6 +457,7 @@ static NSString *const hotIdentifer = @"hotCell";
     playController.baseModel = _disBaseModel;
     playController.videoModelList = _videoModelList;
     playController.currentCell = indexPath.row;
+    playController.kind = @"videoListVC";
 
     [self.navigationController pushViewController:playController animated:YES];
 }

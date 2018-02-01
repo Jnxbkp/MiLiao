@@ -25,14 +25,14 @@
         
         UIButton *sendBtn = [[UIButton alloc] init];
         sendBtn.backgroundColor = [UIColor clearColor];
-        [sendBtn setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+        [sendBtn setImage:[UIImage imageNamed:@"upvideo_replace"] forState:UIControlStateNormal];
         
         sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
         [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
         sendBtn.adjustsImageWhenHighlighted = NO;
-        sendBtn.size = CGSizeMake(30, 30);
+        sendBtn.size = CGSizeMake(32, 32);
         sendBtn.centerX = w+w/2;
-        sendBtn.centerY = 20;
+        sendBtn.centerY = 22;
         [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self addSubview:sendBtn];
         self.middleBtn = sendBtn;
@@ -60,14 +60,14 @@
         
         UIButton *sendBtn = [[UIButton alloc] init];
         sendBtn.backgroundColor = [UIColor clearColor];
-        [sendBtn setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+        [sendBtn setImage:[UIImage imageNamed:@"upvideo_replace"] forState:UIControlStateNormal];
         
         sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
         [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
         sendBtn.adjustsImageWhenHighlighted = NO;
-        sendBtn.size = CGSizeMake(30, 30);
+        sendBtn.size = CGSizeMake(32, 32);
         sendBtn.centerX = w*2+w/2;
-        sendBtn.centerY = 20;
+        sendBtn.centerY = 22;
         [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self addSubview:sendBtn];
         self.middleBtn = sendBtn;
