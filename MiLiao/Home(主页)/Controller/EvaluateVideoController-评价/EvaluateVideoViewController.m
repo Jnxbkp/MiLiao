@@ -15,6 +15,9 @@
 
 #import "UserInfoNet.h"
 
+NSString *const BIGV = @"BIGV";
+NSString *const COMMON = @"COMMON";
+
 @implementation TagButton
 
 - (void)setEvaluateTag:(EvaluateTagModel *)evaluateTag {
@@ -97,6 +100,8 @@
 
 @interface EvaluateVideoViewController ()<QLStarViewDelegate>
 
+
+
 @property (weak, nonatomic) IBOutlet UIView *tagContentView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagContentViewHeightConstraint;
@@ -116,7 +121,13 @@
 @property (nonatomic, strong) NSString *score;
 @end
 
+
+
+
+
 @implementation EvaluateVideoViewController
+
+
 {
     EvaluateSuccessBlock _evaluateBlock;
 }
@@ -126,6 +137,13 @@
         _selecetdEvaluateArray = [NSMutableArray array];
     }
     return _selecetdEvaluateArray;
+}
+
+- (NSString *)userType {
+    if (!_userType) {
+        _userType = COMMON;
+    }
+    return _userType;
 }
 
 #pragma mark - Setter
@@ -222,15 +240,26 @@
     });
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UserInfoNet getUserType:self.userType evaluateResult:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
+        if (success) {
+            self.tagModelArray = modelArray;
+        } else {
+            
+        }
+    }];
+    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
+        
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.starView.delegate = self;
     self.score = @"5";
-    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
-        if (success) {
-            self.tagModelArray = modelArray;
-        }
-    }];
+    
   
     // Do any additional setup after loading the view from its nib.
 }

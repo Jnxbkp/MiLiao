@@ -36,10 +36,15 @@ typedef void(^EvaluateSuccessBlock)(void);
  */
 @interface EvaluateVideoViewController : UIViewController
 
+extern NSString *const BIGV;
+extern NSString *const COMMON;
+
 @property (nonatomic, weak) id<EvaluateVideoViewControllerDelegate> delegate;
 
 ///当前控制器view的父视图
 @property (nonatomic, strong) UIView *superview;
+
+@property (nonatomic, strong) NSString *userType;
 
 ///评价传值的字典
 @property (nonatomic, strong) NSDictionary *evaluateDict;

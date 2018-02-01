@@ -205,7 +205,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    if (self.callSession.isMuted) {
+        [self.callSession setMuted:NO];
+    }
     [UserInfoNet getUserInfoFromUserName:self.targetId modelResult:^(RequestState success, id model, NSInteger code, NSString *msg) {
         NSLog(@"%@", model);
         self.remoteAncher = (RemoteUserInfoModel *)model;
@@ -432,21 +434,6 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if ([self isAppleCheck]) return;
     
     NSLog(@"准备执行扣费");
-    /*
-    NSString *userName;//网红的
-    NSString *costUserName;//扣费的
-    NSString  *roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
-    
-    //普通用户
-    if ([roleType isEqualToString:RoleTypeCommon]) {
-        userName = self.targetId;
-        costUserName = self.callSession.myProfile.userId;
-    } else if ([roleType isEqualToString:RoleTypeBigV]) {
-        //大v
-        userName = self.callSession.myProfile.userId;//[YZCurrentUserModel sharedYZCurrentUserModel].username;
-        costUserName = self.callSession.targetId;
-    }
-     */
 
     NSString *userName = self.targetId;
     NSString *costUserName = self.callSession.myProfile.userId;
@@ -484,33 +471,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         
         userName = self.targetId;
         costUserName = self.callSession.myProfile.userId;
-//        if (self.callIn) {
-//            userName = self.callSession.caller;
-//            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-//        } else {
-//            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-//            if (self.videoUser) {
-//                userName = self.videoUser.username;
-//            }
-//            if (self.callListModel) {
-//                userName = self.callListModel.anchorAccount;
-//            }
-//        }
     } else if ([roleType isEqualToString:RoleTypeBigV]) {
         //大v
         userName = self.callSession.myProfile.userId;
         costUserName = self.targetId;
-//        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-//        if (self.callIn) {
-//            costUserName = self.callSession.caller;
-//        } else {
-//            if (self.videoUser) {
-//                costUserName = self.videoUser.username;
-//            }
-//            if (self.callListModel) {
-//                costUserName = self.callListModel.anchorAccount;
-//            }
-//        }
     }
     
     long callTime = [[self getCallTime] longLongValue];
