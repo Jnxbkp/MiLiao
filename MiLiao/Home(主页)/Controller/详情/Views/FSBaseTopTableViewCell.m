@@ -85,15 +85,21 @@
     [self addSubview:lineLabel];
     
    
+    
+    
     NSArray *arr = [NSArray array];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isHidden = [userDefaults objectForKey:@"isHidden"];
     if ([isHidden isEqualToString:@"yes"]) {
+        downLabel.frame = CGRectMake(0, WIDTH+50, WIDTH, 8);
         arr = [NSArray arrayWithObjects:@"亲密度排行:", nil];
     } else {
-        [self addSubview:downLabel];
-        arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:",@"个人微信:", nil];
+        downLabel.frame = CGRectMake(0, WIDTH+100, WIDTH, 8);
+        arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:", nil];
+//        arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:",@"个人微信:", nil];
     }
+    
+    [self addSubview:downLabel];
     
     for (int i = 0; i < arr.count ; i ++) {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(12, WIDTH+18+50*i, 150, 14)];
@@ -161,23 +167,24 @@
                     
                 }
                 [self addSubview:iconImageView];
-                [self addSubview:lineLabel];
-            } else {
-                
-                _weixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH/2, button.frame.origin.y+18, WIDTH/2-12, 14)];
-                _weixinLabel.text = @"WX******";
-                _weixinLabel.textColor = Color75;
-                _weixinLabel.textAlignment = NSTextAlignmentRight;
-                _weixinLabel.font = [UIFont systemFontOfSize:14.0];
-                
-                _getweixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH-140, button.frame.origin.y+18, 60, 14)];
-                _getweixinLabel.text = @"购买查看";
-                _getweixinLabel.textColor = NavColor;
-                _getweixinLabel.font = [UIFont systemFontOfSize:14.0];
-                
-                [self addSubview:_getweixinLabel];
-                [self addSubview:_weixinLabel];
+//                [self addSubview:lineLabel];
             }
+//            else {
+//                
+//                _weixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH/2, button.frame.origin.y+18, WIDTH/2-12, 14)];
+//                _weixinLabel.text = @"WX******";
+//                _weixinLabel.textColor = Color75;
+//                _weixinLabel.textAlignment = NSTextAlignmentRight;
+//                _weixinLabel.font = [UIFont systemFontOfSize:14.0];
+//                
+//                _getweixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH-140, button.frame.origin.y+18, 60, 14)];
+//                _getweixinLabel.text = @"购买查看";
+//                _getweixinLabel.textColor = NavColor;
+//                _getweixinLabel.font = [UIFont systemFontOfSize:14.0];
+//                
+//                [self addSubview:_getweixinLabel];
+//                [self addSubview:_weixinLabel];
+//            }
         }
         
         [self addSubview:label];
