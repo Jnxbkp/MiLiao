@@ -350,7 +350,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             return;
         }
         self.checkPayMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-        dispatch_source_set_timer(self.checkPayMoneyTimer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, <#leewayInSeconds#> * NSEC_PER_SEC);
+        dispatch_source_set_timer(self.checkPayMoneyTimer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
         dispatch_source_set_event_handler(self.checkPayMoneyTimer, ^{
             [self checkIsPayMoney];
         });
