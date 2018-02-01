@@ -13,6 +13,14 @@
 #import "FSBaseViewController.h"
 #import "DiscoverMananger.h"
 #import "MainMananger.h"
+#import "VideoUserModel.h"
+
+#import "RongCallKit.h"
+#import "UserInfoNet.h"
+#import "EnoughCallTool.h"
+
+#import "PayWebViewController.h"
+#import "EvaluateVideoViewController.h"//评价
 
 #define headButtonTag   2000
 #define zanButtonTag    3000
@@ -31,6 +39,9 @@
 
 @property (nonatomic, assign) BOOL isChangedRow;
 @property (nonatomic, strong) NSIndexPath *tempIndexPath;
+
+///评价控制器
+@property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 
 @end
 
@@ -59,6 +70,13 @@
         _currentPlayerView = [[UIView alloc] init];
     }
     return _currentPlayerView;
+}
+
+- (EvaluateVideoViewController *)evaluateVideoViewConroller {
+    if (!_evaluateVideoViewConroller) {
+        _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+    }
+    return _evaluateVideoViewConroller;
 }
 
 //#pragma mark - naviBar
@@ -126,6 +144,8 @@
     [self.view addSubview:self.collectionView];
 
     [self backButton];
+    
+    [self listenNotification];
     // Do any additional setup after loading the view.
 }
 
@@ -195,6 +215,34 @@
         NSLog(@"error%@",error);
     }];
 }
+
+#pragma mark - 通知方法
+- (void)listenNotification {
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    ListenNotificationName_Func(SetMoneySuccess, @selector(notificationFunc:));
+}
+
+- (void)notificationFunc:(NSNotification *)notification {
+    
+    //视频通话结束 添加评价界面
+    if ([notification.name isEqualToString:VideoCallEnd]) {
+        if (notification.userInfo == nil) {
+            NSArray *ary = [self.collectionView visibleCells];
+            for (PlayCollectionViewCell *cell in ary) {
+                [cell resumePlay];
+            }
+        } else {
+             [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+        }
+       
+    }
+    //结算成功
+    if ([notification.name isEqualToString:SetMoneySuccess]) {
+        [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
+    }
+    
+}
+
 #pragma mark -  cell button delegate
 - (void)headButtonSelect:(UIButton *)button {
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
@@ -236,9 +284,53 @@
 
 }
 
-- (void)videoButtonSelect:(UIButton *)button {
+
+- (void)playCollectionViewCell:(PlayCollectionViewCell *)cell videoButtonSelect:(DisVideoModel *)videoModel {
+    VideoUserModel *videoUser = [[VideoUserModel alloc] init];
+    videoUser.nickname = videoModel.nickName;
+    videoUser.price = videoModel.price;
+    videoUser.username = videoModel.anchorAccount;
+    videoUser.posterUrl = videoModel.headUrl;
+    [UserInfoNet canCall:videoUser.username powerEnough:^(RequestState success, NSString *msg, MoneyEnoughType enoughType) {
+        if (success) {
+            //余额不充足 不能聊天 可以视频
+            if (enoughType == MoneyEnoughTypeNotEnough) {
+                [EnoughCallTool viewController:self showPayAlertController:^{
+                    [self goPay];//去充值
+                } continueCall:^{
+                    [cell pausePlay];
+                    //继续视频
+                    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
+                }];
+            }
+            
+            //余额充足 既能聊天 有能视频
+            if (enoughType == MoneyEnoughTypeEnough) {
+                [cell pausePlay];
+                [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:videoUser];
+            }
+            
+            //余额为0
+            if (enoughType == MoneyEnoughTypeEmpty) {
+                [EnoughCallTool viewController:self showPayAlertController:^{
+                    [self goPay];
+                }];
+                
+            }
+        } else {
+            [SVProgressHUD showErrorWithStatus:msg];
+        }
+    }];
     
 }
+
+
+- (void)goPay {
+    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    [self.navigationController pushViewController:payViewController animated:YES];
+}
+
+
 //赞视频
 - (void)NetPostZanButtonClick:(NSString *)zanStatus button:(UIButton *)button {
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
@@ -344,6 +436,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 /*
 #pragma mark - Navigation

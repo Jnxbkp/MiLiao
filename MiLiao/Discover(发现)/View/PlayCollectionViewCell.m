@@ -164,7 +164,10 @@
 }
 
 - (void)videoButton:(UIButton *)button {
-    [self.delegate videoButtonSelect:button];
+    if ([self.delegate respondsToSelector:@selector(playCollectionViewCell:videoButtonSelect:)]) {
+        [self.delegate playCollectionViewCell:self videoButtonSelect:self.videoModel];
+    }
+    
 }
 
 - (void)prepare:(NSString *)urlStr{

@@ -22,12 +22,14 @@
 //    PlayActionTypeShare
 //};
 
+@class DisVideoModel;
+@class PlayCollectionViewCell;
 @protocol buttonClickDelegate <NSObject>
 
 - (void)headButtonSelect:(UIButton *)button;
 - (void)guanZhuButtonSelect:(UIButton *)button;
 - (void)zanButtonSelect:(UIButton *)button;
-- (void)videoButtonSelect:(UIButton *)button;
+- (void)playCollectionViewCell:(PlayCollectionViewCell *)cell videoButtonSelect:(DisVideoModel *)videoModel;
 
 @end
 

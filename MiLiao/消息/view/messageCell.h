@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 @class CallListModel;
+typedef void (^BackBlock)(void);
 
 @interface messageCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *message;
+@property (weak, nonatomic) IBOutlet UIButton *buping;
 @property (strong, nonatomic) CallListModel *model;
+@property (nonatomic, copy) BackBlock Block;
 
 @end

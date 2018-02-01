@@ -47,7 +47,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.money.text = [NSString stringWithFormat:@"%@M币/分钟",[_userDefaults objectForKey:@"price"]];
+    self.money.text = [NSString stringWithFormat:@"%@撩币/分钟",[_userDefaults objectForKey:@"price"]];
 
 }
 - (IBAction)swich:(UISwitch *)sender {
@@ -105,7 +105,8 @@
             [SVProgressHUD showInfoWithStatus:@"设置成功"];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
-            
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
         }
 
     } failure:^(NSError *error) {

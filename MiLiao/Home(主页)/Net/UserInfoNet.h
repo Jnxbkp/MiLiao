@@ -63,6 +63,9 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 ///判定余额足够消费
 + (void)canCall:(NSString *)userName result:(RequestModelResult)result;
 
+///判定余额足够消费
++ (void)canCall:(NSString *)userName powerEnough:(void(^)(RequestState success, NSString *msg, MoneyEnoughType enoughType))powerEnough;
+
 
 #pragma mark - 分钟扣费
 /**

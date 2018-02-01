@@ -140,7 +140,6 @@
 		3C024D862020228A007F40F0 /* FUDemoBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C024D752020228A007F40F0 /* FUDemoBar.xib */; };
 		3C024D872020228A007F40F0 /* BeautySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C024D782020228A007F40F0 /* BeautySlider.m */; };
 		3C024D882020228A007F40F0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C024D7A2020228A007F40F0 /* Info.plist */; };
-		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
@@ -183,6 +182,7 @@
 		3CD1383E201C597800DB47C6 /* ReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1383D201C597800DB47C6 /* ReportView.m */; };
 		3CD13840201C598100DB47C6 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1383F201C598100DB47C6 /* ReportView.xib */; };
 		3CE91D46202181E70012B997 /* RemoteUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE91D45202181E70012B997 /* RemoteUserInfoModel.m */; };
+		3CE91D4A2021C5DC0012B997 /* EnoughCallTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE91D492021C5DC0012B997 /* EnoughCallTool.m */; };
 		3CFF061620078D4600E20FDE /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060420078D4600E20FDE /* yazui.bundle */; };
 		3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060520078D4600E20FDE /* yuguan.bundle */; };
 		3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060620078D4600E20FDE /* EatRabbi.bundle */; };
@@ -588,8 +588,6 @@
 		3C024D7A2020228A007F40F0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C024D7B2020228A007F40F0 /* FUAPIDemoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUAPIDemoBar.h; sourceTree = "<group>"; };
 		3C024D7C2020228A007F40F0 /* UIImage+demobar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+demobar.h"; sourceTree = "<group>"; };
-		3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDeduction.h; sourceTree = "<group>"; };
-		3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDeduction.m; sourceTree = "<group>"; };
 		3C0FA5A0200C4B280098AC28 /* CountDownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownView.h; sourceTree = "<group>"; };
 		3C0FA5A1200C4B280098AC28 /* CountDownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDownView.m; sourceTree = "<group>"; };
 		3C0FA5A3200C4B320098AC28 /* CountDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountDownView.xib; sourceTree = "<group>"; };
@@ -668,6 +666,8 @@
 		3CD1383F201C598100DB47C6 /* ReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportView.xib; sourceTree = "<group>"; };
 		3CE91D44202181E70012B997 /* RemoteUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteUserInfoModel.h; sourceTree = "<group>"; };
 		3CE91D45202181E70012B997 /* RemoteUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteUserInfoModel.m; sourceTree = "<group>"; };
+		3CE91D482021C5DC0012B997 /* EnoughCallTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnoughCallTool.h; sourceTree = "<group>"; };
+		3CE91D492021C5DC0012B997 /* EnoughCallTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnoughCallTool.m; sourceTree = "<group>"; };
 		3CFF05FF20078D4600E20FDE /* FUVideoFrameObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUVideoFrameObserverManager.h; sourceTree = "<group>"; };
 		3CFF060020078D4600E20FDE /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
 		3CFF060220078D4600E20FDE /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
@@ -1509,15 +1509,6 @@
 			path = MiLiao/FaceUnity/FUAPIDemoBar;
 			sourceTree = SOURCE_ROOT;
 		};
-		3C0FA59C200C42D70098AC28 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */,
-				3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
 		3C12A3FF200A13EC0044A6A2 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -1709,6 +1700,15 @@
 			path = "ReportView-举报";
 			sourceTree = "<group>";
 		};
+		3CE91D472021C5BC0012B997 /* EnoughCallTool */ = {
+			isa = PBXGroup;
+			children = (
+				3CE91D482021C5DC0012B997 /* EnoughCallTool.h */,
+				3CE91D492021C5DC0012B997 /* EnoughCallTool.m */,
+			);
+			path = EnoughCallTool;
+			sourceTree = "<group>";
+		};
 		3CFF05FE20078D4600E20FDE /* FaceUnity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1829,7 +1829,7 @@
 		E221B5A11FF5DDF400353875 /* Home(主页) */ = {
 			isa = PBXGroup;
 			children = (
-				3C0FA59C200C42D70098AC28 /* Tools */,
+				3CE91D472021C5BC0012B997 /* EnoughCallTool */,
 				3C12A3FF200A13EC0044A6A2 /* Net */,
 				E221B5B31FF5DF1600353875 /* Model */,
 				E221B5B41FF5DF1E00353875 /* View */,
@@ -3038,7 +3038,6 @@
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
-				3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				180B0DBC20117FAF00A19BA2 /* AuditSuccessViewController.m in Sources */,
@@ -3194,6 +3193,7 @@
 				E27024AD200F7110002B08F5 /* DisbaseModel.m in Sources */,
 				183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */,
 				E28789B820219282002A50BE /* QUMBProgressHUD.m in Sources */,
+				3CE91D4A2021C5DC0012B997 /* EnoughCallTool.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				3CC7534F2008828700C03C6B /* RCCallMultiCallUserCell.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,

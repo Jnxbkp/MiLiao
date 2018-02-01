@@ -183,7 +183,19 @@
     }
 }
 
+///弹出凭借界面
+- (void)showEvaluaateView:(NSDictionary *)dict {
+    [self.superview addSubview:self.view];
+    self.anchorName = dict[@"anchorName"];
+    self.callID = dict[@"callId"];
+    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.equalTo(self.superview);
+    }];
+     [SVProgressHUD showInfoWithStatus:@"正在结算"];
+}
+
 - (void)showSetMoneySuccessView:(NSDictionary *)dict {
+     [SVProgressHUD dismiss];
     SetMoneyView *view = [SetMoneyView SetMoneyView];
     NSString *time = dict[@"time"];
     NSString *money = [NSString stringWithFormat:@"%@M币", dict[@"totalFee"]] ;
@@ -266,6 +278,7 @@
         NSString *message = @"评价成功";
         if (!success) message = msg;
         [SVProgressHUD showSuccessWithStatus:message];
+        [self.view removeFromSuperview];
         !_evaluateBlock?:_evaluateBlock();
     }];
 }
@@ -279,6 +292,7 @@
 ///评价成功的回调
 - (void)evaluateSuccess:(EvaluateSuccessBlock)success {
     _evaluateBlock = success;
+    
 }
 
 /*

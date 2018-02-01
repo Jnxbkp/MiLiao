@@ -13,6 +13,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 }
+- (IBAction)buping:(id)sender {
+    if (self.Block) {
+        self.Block();
+    }
+}
+
 - (void)setModel:(CallListModel *)model {
     _model = model;
     self.title.text = [NSString stringWithFormat:@"%@",model.nickName];
@@ -20,10 +26,15 @@
     [self.image sd_setImageWithURL:[NSURL URLWithString:model.headUrl]];
     NSString *strTime = [NSString stringWithFormat:@"%@",model.callTime];
     NSString *callType = [NSString stringWithFormat:@"%@",model.callType];
+    //已评价
+    if ([model.sfpj isEqualToString:@"1"]) {
+        self.buping.hidden = YES;
+    }else{
+        
+    }
     //1：完成；2：已取消；3：已拒绝；4：未接听；5：对方繁忙；6：对方取消；7：对方拒绝；8：对方未接听；0：通话异常结束；
     if ([callType isEqualToString:@"1"]) {
-        self.message.text = [NSString stringWithFormat:@"%@ | 完成",model.createDate];
-        
+       self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
     }else if ([callType isEqualToString:@"2"]) {
         self.message.text = [NSString stringWithFormat:@"%@ | 已取消",model.createDate];
 
@@ -37,8 +48,7 @@
         self.message.text = [NSString stringWithFormat:@"%@ | 对方繁忙",model.createDate];
 
     } else if ([callType isEqualToString:@"6"]) {
-        self.message.text = [NSString stringWithFormat:@"%@ | 对方取消",model.createDate];
-
+       self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
     } else if ([callType isEqualToString:@"7"]) {
         self.message.text = [NSString stringWithFormat:@"%@ | 对方拒绝",model.createDate];
 
@@ -46,14 +56,11 @@
         self.message.text = [NSString stringWithFormat:@"%@ | 对方未接听",model.createDate];
 
     } else if ([callType isEqualToString:@"0"]) {
-        self.message.text = [NSString stringWithFormat:@"%@ | 通话异常结束",model.createDate];
-
+        self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
     }else{
         self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
 
     }
-   
-//     self.message.text = [NSString stringWithFormat:@"%@ | 通话时长%@",model.createDate,[ToolObject getMMSSFromSS:strTime]];
   
 
 }

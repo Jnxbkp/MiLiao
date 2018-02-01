@@ -8,6 +8,8 @@
 
 #import "UserInfoNet.h"
 
+#import "UserCallPowerModel.h"
+
 /////////API
 ///获取用户信息的api
 static NSString *GetUserInfo = @"/v1/user/getUserInfo";
@@ -137,9 +139,14 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  @"userName":userName
                                  };
     [self Get:CanCallEnoughAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
+}
 
-   
-    
+///判定余额足够消费
++ (void)canCall:(NSString *)userName powerEnough:(void(^)(RequestState success, NSString *msg, MoneyEnoughType enoughType))powerEnough {
+    [self canCall:userName result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+        UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+        !powerEnough?:powerEnough(success, msg, (MoneyEnoughType)callPower.typeCode);
+    }];
 }
 
 #pragma mark - 分钟扣费
@@ -152,16 +159,16 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
  @param result 返回
  */
 + (void)perMinuteDedectionUserName:(NSString *)userName costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result {
-   ;
+   
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"costUserName"] = costUserName;
     parameter[@"token"] = tokenForCurrentUser();
     parameter[@"userName"] = userName;
     NSLog(@"传入的pid：%@", pid);
-    if (!pid || pid.length < 1) {
-        parameter[@"pid"] = @"0";
+    if (pid || pid.length >=1) {
+         parameter[@"pid"] = pid;
     } else {
-        parameter[@"pid"] = pid;
+        parameter[@"pid"] = @"0";
     }
     NSLog(@"\n\n\n执行扣费接口的pid:%@", pid);
     

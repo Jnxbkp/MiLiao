@@ -53,7 +53,7 @@
         self.MMmoney = info[@"data"][@"mMoney"];
         self.mmoney = info[@"data"][@"money"];
 //money
-         self.money.text = [NSString stringWithFormat:@"%@撩币",info[@"data"][@"money"]];
+         self.money.text = [NSString stringWithFormat:@"%@撩币",info[@"data"][@"mMoney"]];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
     }];

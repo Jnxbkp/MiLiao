@@ -34,6 +34,8 @@
 #import "UserCallPowerModel.h"//通话能力
 #import "ReportView.h"//投诉弹窗
 
+#import "EnoughCallTool.h"
+
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
 //#import "FUVideoFrameObserverManager.h"
@@ -83,6 +85,7 @@
 - (EvaluateVideoViewController *)evaluateVideoViewConroller {
     if (!_evaluateVideoViewConroller) {
         _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+        _evaluateVideoViewConroller.superview = self.view;
     }
     return _evaluateVideoViewConroller;
 }
@@ -185,54 +188,13 @@
 
     //视频通话结束 添加评价界面
     if ([notification.name isEqualToString:VideoCallEnd]) {
-        [self addEvaluatedView:notification.userInfo];
+        [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
     }
     //结算成功
     if ([notification.name isEqualToString:SetMoneySuccess]) {
-        [self setMoneySuccess:notification.userInfo];
+        [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
     }
     
-}
-
-//添加评价界面
-- (void)addEvaluatedView:(NSDictionary *)dict {
-    UIView *view = self.evaluateVideoViewConroller.view;
-    self.evaluateVideoViewConroller.evaluateDict = dict;
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.view).offset(5);
-        make.right.bottom.equalTo(self.view).offset(-5);
-    }];
-    __weak typeof(self) weakSelf = self;
-    [self.evaluateVideoViewConroller evaluateSuccess:^{
-        [weakSelf removeEvaluateView];
-    }];
-    [SVProgressHUD showInfoWithStatus:@"正在结算"];
-}
-
-//移除掉评价界面
-- (void)removeEvaluateView {
-    
-    UIView *view = self.evaluateVideoViewConroller.view;
-    [UIView animateWithDuration:0.2 animations:^{
-        view.transform = CGAffineTransformMakeScale(1.3, 1.3);
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.2 animations:^{
-            view.transform = CGAffineTransformMakeScale(0.1, 0.1);
-            view.alpha = 0;
-        } completion:^(BOOL finished) {
-            [view removeFromSuperview];
-            NSMutableArray *array = [self.childViewControllers mutableCopy];
-            [array removeObject:self.evaluateVideoViewConroller];
-            [self setValue:[array copy] forKey:@"childViewControllers"];
-        }];
-    }];
-}
-
-///结算成功
-- (void)setMoneySuccess:(NSDictionary *)dict {
-    [SVProgressHUD dismiss];
-    [self.evaluateVideoViewConroller showSetMoneySuccessView:dict];
 }
 
 - (void)setupSubViews
@@ -429,38 +391,33 @@
         [self chat];
     } else {
        
-        __weak typeof(self) weakSelf = self;
-        [UserInfoNet canCall:self.videoUserModel.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-            
+        [UserInfoNet canCall:self.videoUserModel.username powerEnough:^(RequestState success, NSString *msg, MoneyEnoughType enoughType) {
             if (success) {
-                UserCallPowerModel *callPower = (UserCallPowerModel *)model;
-                MoneyEnoughType moneyType = callPower.typeCode;
                 //余额不充足 不能聊天 可以视频
-                if (moneyType == MoneyEnoughTypeNotEnough) {
-                    [self showPayAlertController:^{
-                        [weakSelf goPay];//去充值
-                        
+                if (enoughType == MoneyEnoughTypeNotEnough) {
+                    [EnoughCallTool viewController:self showPayAlertController:^{
+                        //去充值
+                        [self goPay];
                     } continueCall:^{
                         //继续视频
-                        [weakSelf videoCall];;
+                        [self videoCall];
                     }];
                 }
                 
                 //余额充足 既能聊天 有能视频
-                if (moneyType == MoneyEnoughTypeEnough) {
+                if (enoughType == MoneyEnoughTypeEnough) {
                     [self videoCall];
                 }
                 
                 //余额为0
-                if (moneyType == MoneyEnoughTypeEmpty) {
-                    [self showPayAlertController:^{
-                        [weakSelf goPay];
+                if (enoughType == MoneyEnoughTypeEmpty) {
+                    [EnoughCallTool viewController:self showPayAlertController:^{
+                        [self goPay];
                     }];
                 }
             } else {
                 [SVProgressHUD showErrorWithStatus:msg];
             }
-            
         }];
     }
     
@@ -505,41 +462,6 @@
     }];
     
 }
-
-///去充值
-- (void)showPayAlertController:(void(^)(void))pay {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        !pay?:pay();
-    }];
-    [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];
-    [alertController addAction:cancleAction];
-    [alertController addAction:payAction];
-     [self presentViewController:alertController animated:YES completion:nil];
-}
-
-///弹出是否充值的alert
-- (void)showPayAlertController:(void(^)(void))pay continueCall:(void(^)(void))continueCall {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足不够与大V通话5分钟" message:@"是否去充值" preferredStyle:UIAlertControllerStyleAlert];
-    //继续通话
-    UIAlertAction *continueCallAction = [UIAlertAction actionWithTitle:@"继续通话" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        !continueCall?:continueCall();
-    }];
-    
-    //充值
-    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        !pay?:pay();
-    }];
-    [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];
-    
-    [alertController addAction:continueCallAction];
-    [alertController addAction:payAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
 
 - (void)insertRowAtTop
 {
@@ -912,7 +834,6 @@
     
     self.tableView.showsVerticalScrollIndicator = _canScroll?YES:NO;
 }
-
 
 #pragma mark - 网络方法
 ///获取当前网红的价格
