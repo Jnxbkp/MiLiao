@@ -55,7 +55,7 @@ static NSString *const bigIdentifer = @"bigCell";
 @implementation MLHomeViewController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NavColor size:CGSizeMake(WIDTH, ML_TopHeight)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:Color255 size:CGSizeMake(WIDTH, ML_TopHeight)] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 - (void)viewWillDisappear:(BOOL)animated {
