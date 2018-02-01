@@ -293,8 +293,8 @@
             [button setImage:[UIImage imageNamed:@"sixin"] forState:UIControlStateHighlighted];
         } else {
             button.imageEdgeInsets = UIEdgeInsetsMake(5, 12, 5, (WIDTH-48)/2-40);
-            [button setImage:[UIImage imageNamed:@"shipin"] forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:@"shipin"] forState:UIControlStateHighlighted];
+            [button setImage:[UIImage imageNamed:@"yuwoshipin"] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"yuwoshipin"] forState:UIControlStateHighlighted];
         }
         button.tag = downButtonTag+i;
         [button addTarget:self action:@selector(downButtonClick:) forControlEvents:UIControlEventTouchUpInside];
