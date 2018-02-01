@@ -67,7 +67,7 @@ static NSString *kTempFolder = @"touxiang";
     footView.frame=CGRectMake(0, 0, WIDTH, 130);
 //    footView.backgroundColor = [UIColor grayColor];
     self.LogoutButton=[[UIButton alloc]initWithFrame:CGRectMake(50, 50, WIDTH-100, 40)];
-    self.LogoutButton.backgroundColor=[UIColor redColor];
+    self.LogoutButton.backgroundColor=rgba(250, 92, 110, 1);
     self.LogoutButton.layer.masksToBounds=YES;
     self.LogoutButton.layer.cornerRadius=5.0;
     [self.LogoutButton addTarget:self action:@selector(LogoutButtonClick) forControlEvents:(UIControlEventTouchUpInside)];
