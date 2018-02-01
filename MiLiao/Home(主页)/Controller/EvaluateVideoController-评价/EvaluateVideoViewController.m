@@ -285,6 +285,7 @@
 
 - (IBAction)cancleButtonClick:(UIButton *)sender {
     [self.view removeFromSuperview];
+    !_evaluateBlock?:_evaluateBlock();
 }
 
 
