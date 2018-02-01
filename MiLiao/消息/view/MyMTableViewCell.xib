@@ -47,7 +47,7 @@
                                 <color key="textColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mbi" translatesAutoresizingMaskIntoConstraints="NO" id="8cX-fj-nri">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chongzhi" translatesAutoresizingMaskIntoConstraints="NO" id="8cX-fj-nri">
                                 <rect key="frame" x="12" y="12" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="6uB-4H-qFe"/>
@@ -168,6 +168,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="mbi" width="52" height="52"/>
+        <image name="chongzhi" width="50" height="50"/>
     </resources>
 </document>
