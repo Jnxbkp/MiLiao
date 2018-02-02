@@ -14,6 +14,9 @@
 
 @property (nonatomic, strong) UIButton *perButton;
 
+///提交按钮
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+
 @end
 
 @implementation ReportView
@@ -50,6 +53,9 @@
     sender.selected = !sender.isSelected;
     self.perButton.selected = !self.perButton.isSelected;
     self.perButton = sender;
+    
+    self.submitButton.backgroundColor = RGBColor(0xF97298);
+    self.submitButton.enabled = YES;
 }
 - (IBAction)sureButtonClick:(id)sender {
     [self removeFromSuperview];

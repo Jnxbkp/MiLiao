@@ -109,7 +109,7 @@
 - (void)tiXianLoad
 {
     [self.view endEditing:YES];
-    if ([self.amount intValue] >= 100){
+    if ([self.amount intValue] >= 50){
         NSString *collectionAccount = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawAccount"]];
         NSString *collectionName = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawName"]];
         
@@ -133,7 +133,7 @@
         }
        
     }else{
-        [SVProgressHUD showErrorWithStatus:@"满100可提现"];
+        [SVProgressHUD showErrorWithStatus:@"满50撩币可提现"];
     }
   
     
