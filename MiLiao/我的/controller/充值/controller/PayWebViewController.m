@@ -9,6 +9,7 @@
 #import "PayWebViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "NSURLRequest+NSURLRequestWithIgnoreSSL.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 //#import <AlipaySDK/AlipaySDK.h>
 
@@ -50,7 +51,6 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@/payment/index?token=%@&username=%@&totalFee=%@",HLRequestUrl,[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username,self.money];
     
 //    NSString *urlStr = [NSString stringWithFormat:@"%@/payment/index?token=%@&username=%@&totalFee=0.01",HLRequestUrl,[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username];
-
     NSLog(@"支付宝连接~~~~~~~~~%@",urlStr);
     NSURL * url = [NSURL URLWithString:urlStr];
     [NSURLRequest allowsAnyHTTPSCertificateForHost:@"https"];
@@ -58,29 +58,38 @@
     [self.webView loadRequest:_originRequest];
     [self.view addSubview:self.webView];
 }
-
+- (void)loadWithUrlStr:(NSString*)urlStr
+{
+    if (urlStr.length > 0) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSURLRequest *webRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]
+                                                        cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                                    timeoutInterval:30];
+            [self.webView loadRequest:webRequest];
+        });
+    }
+}
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    // NOTE: ------  对alipays:相关的scheme处理 -------
-    // NOTE: 若遇到支付宝相关scheme，则跳转到本地支付宝App
-//    NSString* reqUrl = request.URL.absoluteString;
-//    if ([reqUrl hasPrefix:@"alipays://"] || [reqUrl hasPrefix:@"alipay://"]) {
-//        // NOTE: 跳转支付宝App
-//        BOOL bSucc = [[UIApplication sharedApplication]openURL:request.URL];
 //
-//        // NOTE: 如果跳转失败，则跳转itune下载支付宝App
-//        if (!bSucc) {
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
-//                                                           message:@"未检测到支付宝客户端，请安装后重试。"
-//                                                          delegate:self
-//                                                 cancelButtonTitle:@"立即安装"
-//                                                 otherButtonTitles:nil];
-//            [alert show];
-//        }
-//        return NO;
-//    }
+    //新版本的H5拦截支付对老版本的获取订单串和订单支付接口进行合并，推荐使用该接口
+    __weak typeof(self) weakSelf = self;
+    //return YES为成功获取订单信息并发起支付流程；NO为无法获取订单信息，输入url是普通url
+    BOOL isIntercepted = [[AlipaySDK defaultService] payInterceptorWithUrl:[request.URL absoluteString] fromScheme:@"MiLiao" callback:^(NSDictionary *result) {
+        // 处理支付结果
+        NSLog(@"%@", result);
+        // isProcessUrlPay 代表 支付宝已经处理该URL
+        if ([result[@"isProcessUrlPay"] boolValue]) {
+            // returnUrl 代表 第三方App需要跳转的成功页URL
+            NSString* urlStr = result[@"returnUrl"];
+            [weakSelf loadWithUrlStr:urlStr];
+        }
+    }];
+
+    if (isIntercepted) {
+        return NO;
+    }
     return YES;
-    
   
     
 }
@@ -95,14 +104,6 @@
     {
         context.exception = exceptionValue;
     };
-     if (![self.alipayCode isEqualToString:@""])
-     {
-         //表示有值
-         NSString *alipayCodeJS=[NSString stringWithFormat:@"h5端的方法名('%@')",self.alipayCode];
-         //准备执行的js代码
-         [self.context evaluateScript: alipayCodeJS];//通过oc方法调用js的alert
-         self.alipayCode = @""; //给回空值
-     }
     //GCD 防止主线程卡死
     dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(globalQueue, ^{
@@ -118,8 +119,4 @@
     
     
 }
-//最后在写一个在支付过程中直接点击左上角的返回App的处理当点击左上角返回App的时候回调用AppDelegate.h用的这个方法
-//- (void)applicationWillEnterForeground:(UIApplication *)application {
-//    [[NSNotificationCenter defaultCenter]postNotificationName:@"resumeBack" object:nil userInfo:nil];
-//}
 @end

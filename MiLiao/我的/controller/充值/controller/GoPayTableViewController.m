@@ -37,6 +37,11 @@
 - (void)registerCell {
     UIView *footView=[UIView new];
     footView.frame=CGRectMake(0, 0, WIDTH, 100);
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, WIDTH-10, 21)];
+    label.text = @"注：充值金额不可退还和提现";
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = rgba(153, 153, 153, 1);
+    [footView addSubview:label];
     self.tableView.tableFooterView=footView;
 
     //选择金额

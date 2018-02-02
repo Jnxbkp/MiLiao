@@ -19,7 +19,7 @@
 
 #import "IQKeyboardManager.h"
 
-//#import <AlipaySDK/AlipaySDK.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 #import "PublicManager.h"
 // iOS 10 notification
@@ -94,10 +94,10 @@
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
 
-    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
-    [self getHiddenVersion];
+//    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+//    [self getHiddenVersion];
     
-//     [_userDefaults setObject:@"no" forKey:@"isHidden"];
+     [_userDefaults setObject:@"no" forKey:@"isHidden"];
 
     return YES;
 }
@@ -457,6 +457,13 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
+            //支付成功,这里放你们想要的操作
+            
+            
+        }
+    }];
 //    //如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
 //    if ([url.host isEqualToString:@"safepay"]) {
 //        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
