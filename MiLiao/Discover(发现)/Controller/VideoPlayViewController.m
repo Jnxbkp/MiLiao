@@ -37,7 +37,7 @@
 
 @property (nonatomic, assign) BOOL isChangedRow;
 @property (nonatomic, strong) NSIndexPath *tempIndexPath;
-@property (nonatomic, strong) PlayCollectionViewCell *currentPlayCell;
+
 ///评价控制器
 @property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 
@@ -120,9 +120,9 @@
     }
      [self.navigationController setNavigationBarHidden:NO];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _userDefaults = [NSUserDefaults standardUserDefaults];
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -197,7 +197,7 @@
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
     videoModel = [_videoModelList.videoArr objectAtIndex:indexPath.row];
     [temp prepareSts:_baseModel videoId:videoModel.videoId];
-    
+    self.currentPlayCell = (PlayCollectionViewCell *)cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

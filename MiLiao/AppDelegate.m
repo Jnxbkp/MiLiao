@@ -14,7 +14,8 @@
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
 #import <RongCallLib/RongCallLib.h>
-
+#import "VideoPlayViewController.h"
+#import "PlayCollectionViewCell.h"
 #import "FUVideoFrameObserverManager.h"
 
 #import "IQKeyboardManager.h"
@@ -94,10 +95,10 @@
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
 
-    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
-    [self getHiddenVersion];
+//    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+//    [self getHiddenVersion];
     
-//     [_userDefaults setObject:@"no" forKey:@"isHidden"];
+     [_userDefaults setObject:@"no" forKey:@"isHidden"];
 
     return YES;
 }
@@ -489,19 +490,25 @@
 //    return result;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    UIViewController *viewController = [self topViewController];
+    if ([viewController isKindOfClass:[VideoPlayViewController class]]) {
+        VideoPlayViewController *videoPlayViewController = (VideoPlayViewController *)viewController;
+        [videoPlayViewController.currentPlayCell pausePlay];
+    }
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
      _enterBackgroundFlag = true;
+   
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
 }
+
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -514,6 +521,11 @@
 //    }
 //    [self switchRootViewController:nil];
      _enterBackgroundFlag = false;
+    UIViewController *viewController = [self topViewController];
+    if ([viewController isKindOfClass:[VideoPlayViewController class]]) {
+        VideoPlayViewController *videoPlayViewController = (VideoPlayViewController *)viewController;
+        [videoPlayViewController.currentPlayCell resumePlay];
+    }
 }
 
 
