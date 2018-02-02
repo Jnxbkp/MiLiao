@@ -253,7 +253,15 @@
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
     videoModel = [_videoModelList.videoArr objectAtIndex:button.tag-headButtonTag];
     
+    VideoUserModel *videoUser = [[VideoUserModel alloc] init];
+    videoUser.nickname = videoModel.nickName;
+    videoUser.price = videoModel.price;
+    videoUser.username = videoModel.anchorAccount;
+    videoUser.posterUrl = videoModel.headUrl;
+    videoUser.ID = videoModel.userId;
+    
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
+    baseVC.videoUserModel = videoUser;
     baseVC.user_id = videoModel.userId;
     [self.navigationController pushViewController:baseVC animated:YES];
     
