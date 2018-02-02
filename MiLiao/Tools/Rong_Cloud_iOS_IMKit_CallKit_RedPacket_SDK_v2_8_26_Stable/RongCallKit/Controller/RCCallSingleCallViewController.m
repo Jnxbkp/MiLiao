@@ -672,6 +672,14 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     [[FUManager shareManager] onCameraChange];
 }
 
+///更新主播的状态
+- (void)updataAnchorStatus:(NSString *)status {
+    //更新主播的状态
+    if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeBigV]) {
+        [UserInfoNet updateUserStatus:status];
+    }
+}
+
 
 #pragma mark - 回调方法
 ///通话已连接
@@ -679,6 +687,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     [super callDidConnect];
     self.callConnect = YES;
      [self checkMoney];
+    [self updataAnchorStatus:Update_User_Status_TALKING];
 }
 
 - (void)callDidDisconnect {
@@ -686,6 +695,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     RCCallDisconnectReason reason = self.callSession.disconnectReason;
     if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
     if (self.checkPayMoneyTimer) dispatch_cancel(self.checkPayMoneyTimer);
+    
+    [self updataAnchorStatus:Update_User_Status_ONLINE];
+    
     //保存通话
     [self saveCall:reason];
     

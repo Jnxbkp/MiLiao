@@ -41,6 +41,8 @@ static NSString *SaveEvaluate = @"/v1/bigV/saveBigVEvaluation";
 
 static NSString *GetAnchorInfoByMobile = @"/v1/user/getAnchorInfoByMobile";
 
+///更新主播状态
+static NSString *UpdataUserStatus = @"/v1/user/updateStatus";
 
 /////////类名
 
@@ -145,7 +147,16 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 + (void)canCall:(NSString *)userName powerEnough:(void(^)(RequestState success, NSString *msg, MoneyEnoughType enoughType))powerEnough {
     [self canCall:userName result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         UserCallPowerModel *callPower = (UserCallPowerModel *)model;
-        !powerEnough?:powerEnough(success, msg, (MoneyEnoughType)callPower.typeCode);
+        MoneyEnoughType enoughType = MoneyEnoughTypeEmpty;
+        long seconds = [callPower.seconds longLongValue];
+        if (seconds >= 5*60) {
+            enoughType = MoneyEnoughTypeEnough;
+        } else if (seconds >60) {
+            enoughType = MoneyEnoughTypeNotEnough;
+        } else {
+            enoughType = MoneyEnoughTypeEmpty;
+        }
+        !powerEnough?:powerEnough(success, msg, enoughType);
     }];
 }
 
@@ -314,6 +325,20 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  };
     [self Get:GetUserInfo parameters:parameters modelClass:NSClassFromString(RemoteUserInfoModelClassString) modelResult:modelResult];
     
+}
+
+#pragma mark - 更新主播的状态
+/**
+ 更新主播的状态
+ 
+ @param status status
+ */
++ (void)updateUserStatus:(NSString *)status {
+    [self Post:UpdataUserStatus parameters:@{@"status":status,
+                                             @"token":tokenForCurrentUser()
+                                             } complete:^(RequestState success, NSString *msg) {
+        
+    }];
 }
 
 @end

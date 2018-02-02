@@ -50,6 +50,16 @@ NSString *tokenForCurrentUser(void);
 ///返回当前要保存到后台的通话状态
 SelfCallEndState getSelfCallState(NSInteger callState);
 
+///更新主播状态为在线
+static NSString *Update_User_Status_ONLINE = @"ONLINE";
+
+///更新主播状态忙碌
+static NSString *Update_User_Status_BUSY = @"BUSY";
+
+static NSString *Update_User_Status_TALKING = @"TALKING";
+
+static NSString *Update_User_Status_OFFLINE = @"OFFLINE";
+
 @interface UserInfoNet : Networking
 
 #pragma mark - 获取用户的撩币
@@ -145,5 +155,13 @@ SelfCallEndState getSelfCallState(NSInteger callState);
  @param modelResult 用户模型
  */
 + (void)getUserInfoFromUserName:(NSString *)userId modelResult:(RequestModelResult)modelResult;
+
+#pragma mark - 更新主播的状态
+/**
+ 更新主播的状态
+
+ @param status status
+ */
++ (void)updateUserStatus:(NSString *)status;
 
 @end
