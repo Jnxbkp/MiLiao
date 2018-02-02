@@ -105,7 +105,7 @@
     _messageLabel.textColor = Color255;
     
     if (UI_IS_IPHONEX) {
-        _nameLabel.frame = CGRectMake(12, HEIGHT-65-44, WIDTH-24, 15);
+        _nameLabel.frame = CGRectMake(12, HEIGHT-65-44-15, WIDTH-24, 15);
         _messageLabel.frame = CGRectMake(12, _nameLabel.frame.origin.y+31, WIDTH-24, 12);
         
     }

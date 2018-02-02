@@ -35,9 +35,6 @@
 
 @property (nonatomic, strong)UICollectionView *collectionView;
 
-@property (nonatomic, strong)AliyunVodPlayer *aliPlayer;
-@property (nonatomic, strong)UIView *currentPlayerView;
-
 @property (nonatomic, assign) BOOL isChangedRow;
 @property (nonatomic, strong) NSIndexPath *tempIndexPath;
 @property (nonatomic, strong) PlayCollectionViewCell *currentPlayCell;
@@ -58,20 +55,6 @@
     NSUserDefaults  *_userDefaults;
 }
 
--(AliyunVodPlayer *)aliPlayer{
-    if (!_aliPlayer) {
-        _aliPlayer = [[AliyunVodPlayer alloc] init];
-        _aliPlayer.delegate = self;
-    }
-    return _aliPlayer;
-}
-
-- (UIView *)currentPlayerView{
-    if(!_currentPlayerView){
-        _currentPlayerView = [[UIView alloc] init];
-    }
-    return _currentPlayerView;
-}
 
 - (EvaluateVideoViewController *)evaluateVideoViewConroller {
     if (!_evaluateVideoViewConroller) {
@@ -101,7 +84,7 @@
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(0, ML_StatusBarHeight, 50, 40);
     if (UI_IS_IPHONEX) {
-        backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
+        backButton.frame = CGRectMake(10, ML_StatusBarHeight-5, 50, 40);
     }
     [backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     backButton.imageEdgeInsets = UIEdgeInsetsMake(11, 12, 11, 25);
@@ -111,11 +94,7 @@
 
 - (void)leftBarButtonItemCliceked:(UIButton*)sender{
     sender.enabled = NO;
-    //释放播放器
-    if (self.aliPlayer) {
-        [self.aliPlayer releasePlayer];
-        self.aliPlayer = nil;
-    }
+    
     [self.navigationController popViewControllerAnimated:YES];
     sender.enabled = YES;
 }
@@ -145,7 +124,7 @@
     [super viewDidLoad];
     
     _userDefaults = [NSUserDefaults standardUserDefaults];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize =  CGSizeMake(WIDTH, HEIGHT);
@@ -155,7 +134,7 @@
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) collectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor grayColor];
+//    self.collectionView.backgroundColor = [UIColor grayColor];
     self.collectionView.pagingEnabled = YES;
     self.collectionView.showsHorizontalScrollIndicator = YES;
     if (@available(iOS 11.0, *)) {
@@ -274,7 +253,15 @@
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
     videoModel = [_videoModelList.videoArr objectAtIndex:button.tag-headButtonTag];
     
+    VideoUserModel *videoUser = [[VideoUserModel alloc] init];
+    videoUser.nickname = videoModel.nickName;
+    videoUser.price = videoModel.price;
+    videoUser.username = videoModel.anchorAccount;
+    videoUser.posterUrl = videoModel.headUrl;
+    videoUser.ID = videoModel.userId;
+    
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
+    baseVC.videoUserModel = videoUser;
     baseVC.user_id = videoModel.userId;
     [self.navigationController pushViewController:baseVC animated:YES];
     
