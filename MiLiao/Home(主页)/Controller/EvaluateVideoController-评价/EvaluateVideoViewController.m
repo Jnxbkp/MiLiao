@@ -118,6 +118,9 @@ NSString *const COMMON = @"COMMON";
 @property (nonatomic, strong) NSMutableArray<EvaluateTagModel *> *selecetdEvaluateArray;
 ///评价 星星的个数
 @property (nonatomic, strong) NSString *score;
+
+@property (nonatomic, strong) dispatch_queue_t queue;
+@property (nonatomic, strong) dispatch_group_t group;
 @end
 
 
@@ -205,7 +208,7 @@ NSString *const COMMON = @"COMMON";
     self.tagContentViewHeightConstraint.constant = CGRectGetMaxY(button.frame) + 20;
 }
 
-///弹出凭借界面
+///弹出评价界面
 - (void)showEvaluaateView:(NSDictionary *)dict {
     [self.superview addSubview:self.view];
     self.anchorName = dict[@"anchorName"];
@@ -228,6 +231,8 @@ NSString *const COMMON = @"COMMON";
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.equalTo(self.mainView);
     }];
+    
+    dispatch_group_enter(self.group);
     //停留2秒
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.2 animations:^{
@@ -235,22 +240,32 @@ NSString *const COMMON = @"COMMON";
             view.alpha = 0.0;
         } completion:^(BOOL finished) {
             [view removeFromSuperview];
+            dispatch_group_leave(self.group);
         }];
     });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.queue = dispatch_get_global_queue(0, 0);
+    self.group = dispatch_group_create();
+    dispatch_group_enter(self.group);
+    [self getEvaluate];
     
+    dispatch_group_notify(self.group, self.queue, ^{
+        [SVProgressHUD dismiss];
+    });
+    
+}
+
+- (void)getEvaluate {
     [UserInfoNet getUserType:self.userType evaluateResult:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
         if (success) {
             self.tagModelArray = modelArray;
         } else {
             
         }
-    }];
-    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
-        
+        dispatch_group_leave(self.group);
     }];
 }
 
