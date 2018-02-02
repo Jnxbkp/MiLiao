@@ -3731,7 +3731,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.SE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.xianLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3806,7 +3806,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.SE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.xianLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3987,7 +3987,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.SE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.xianLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -88,9 +88,9 @@
     _videoButton.backgroundColor = NavColor;
     _videoButton.layer.cornerRadius = 5.0;
     _videoButton.frame = CGRectMake(WIDTH-120, _seeButton.frame.origin.y+77, 108, 30);
-    [_videoButton setImage:[UIImage imageNamed:@"shipin_video"] forState:UIControlStateNormal];
+    [_videoButton setImage:[UIImage imageNamed:@"yuwoshipin"] forState:UIControlStateNormal];
     [_videoButton setTitle:@"与我视频" forState:UIControlStateNormal];
-    _videoButton.imageEdgeInsets = UIEdgeInsetsMake(6, 12, 6, 72);
+    _videoButton.imageEdgeInsets = UIEdgeInsetsMake(5, 12, 5, 72);
     _videoButton.titleEdgeInsets = UIEdgeInsetsMake(9, 12, 9, 0);
     _videoButton.tintColor = Color255;
     _videoButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
@@ -105,7 +105,7 @@
     _messageLabel.textColor = Color255;
     
     if (UI_IS_IPHONEX) {
-        _nameLabel.frame = CGRectMake(12, HEIGHT-65-44, WIDTH-24, 15);
+        _nameLabel.frame = CGRectMake(12, HEIGHT-65-44-15, WIDTH-24, 15);
         _messageLabel.frame = CGRectMake(12, _nameLabel.frame.origin.y+31, WIDTH-24, 12);
         
     }
