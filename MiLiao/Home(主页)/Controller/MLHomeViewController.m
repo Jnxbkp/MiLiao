@@ -263,7 +263,7 @@ static NSString *const bigIdentifer = @"bigCell";
                     }
 
                     [self newTabReload];
-                    if (self.modelArray.count > 0) {
+                    if (self.modelArray.count > 1) {
                         _newTabelView.mj_footer.hidden = NO;
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
@@ -279,9 +279,10 @@ static NSString *const bigIdentifer = @"bigCell";
                         }
                     }
                     [self careTabReload];
-                    if (self.modelArray.count > 0) {
+                    if (self.modelArray.count > 1) {
                         _careTabelView.mj_footer.hidden = NO;
                     } else if (self.modelArray.count == 0) {
+                        _careTabelView.mj_footer.hidden = YES;
                         [self careTabReload];
                     }
                 } else {
@@ -298,7 +299,7 @@ static NSString *const bigIdentifer = @"bigCell";
                     }
                     [self recommandTabReload];
                     
-                    if (self.modelArray.count > 0) {
+                    if (self.modelArray.count > 1) {
                         _recommandTabelView.mj_footer.hidden = NO;
                     }
                 }
@@ -375,7 +376,7 @@ static NSString *const bigIdentifer = @"bigCell";
 
                     [self newTabReload];
                     
-                    if (self.modelArray.count > 0) {
+                    if (self.modelArray.count > 1) {
                         _newTabelView.mj_footer.hidden = NO;
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
@@ -394,7 +395,7 @@ static NSString *const bigIdentifer = @"bigCell";
                     }
                     [self careTabReload];
                     
-                    if (self.modelArray.count > 0) {
+                    if (self.modelArray.count > 1) {
                         _careTabelView.mj_footer.hidden = NO;
                     }
                 } else {
@@ -412,7 +413,7 @@ static NSString *const bigIdentifer = @"bigCell";
                     }
                     [self recommandTabReload];
                     
-                    if (self.modelArray.count > 0) {
+                    if (self.modelArray.count > 1) {
                         _recommandTabelView.mj_footer.hidden = NO;
                     }
                 }
