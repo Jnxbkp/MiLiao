@@ -360,9 +360,6 @@
 		E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */; };
 		E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F320008194006E0B2A /* CoreMotion.framework */; };
 		E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F52000819C006E0B2A /* Accelerate.framework */; };
-		E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */; };
-		E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */; };
-		E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1102,40 +1099,6 @@
 		E2C6B9F52000819C006E0B2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
 		E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
-		E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkDeps.a; sourceTree = "<group>"; };
-		E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
-		E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkCore.a; sourceTree = "<group>"; };
-		E2D195102003510B00EAEE57 /* NvsStreamingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsStreamingContext.h; sourceTree = "<group>"; };
-		E2D195112003510B00EAEE57 /* NvsMultiThumbnailSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsMultiThumbnailSequenceView.h; sourceTree = "<group>"; };
-		E2D195122003510B00EAEE57 /* NvsAudioTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioTransition.h; sourceTree = "<group>"; };
-		E2D195132003510B00EAEE57 /* NvsFaceEffectV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsFaceEffectV1.h; sourceTree = "<group>"; };
-		E2D195142003510B00EAEE57 /* NvsCommonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsCommonDef.h; sourceTree = "<group>"; };
-		E2D195152003510B00EAEE57 /* NvsVideoTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoTransition.h; sourceTree = "<group>"; };
-		E2D195162003510B00EAEE57 /* NvsVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFx.h; sourceTree = "<group>"; };
-		E2D195172003510B00EAEE57 /* NvsTimelineVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimelineVideoFx.h; sourceTree = "<group>"; };
-		E2D195182003510B00EAEE57 /* NvsAudioFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioFx.h; sourceTree = "<group>"; };
-		E2D195192003510B00EAEE57 /* NvsAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioTrack.h; sourceTree = "<group>"; };
-		E2D1951A2003510B00EAEE57 /* NvsCaptureVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsCaptureVideoFx.h; sourceTree = "<group>"; };
-		E2D1951B2003510B00EAEE57 /* NvsAVFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAVFileInfo.h; sourceTree = "<group>"; };
-		E2D1951C2003510B00EAEE57 /* NvsAudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioClip.h; sourceTree = "<group>"; };
-		E2D1951D2003510B00EAEE57 /* NvsLiveWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsLiveWindow.h; sourceTree = "<group>"; };
-		E2D1951E2003510B00EAEE57 /* NvsVideoClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoClip.h; sourceTree = "<group>"; };
-		E2D1951F2003510B00EAEE57 /* NvsClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsClip.h; sourceTree = "<group>"; };
-		E2D195202003510B00EAEE57 /* NvsTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimeline.h; sourceTree = "<group>"; };
-		E2D195212003510B00EAEE57 /* NvsVideoFrameRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFrameRetriever.h; sourceTree = "<group>"; };
-		E2D195222003510B00EAEE57 /* NvsCustomVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsCustomVideoFx.h; sourceTree = "<group>"; };
-		E2D195232003510B00EAEE57 /* NvsTimelineCaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimelineCaption.h; sourceTree = "<group>"; };
-		E2D195242003510B00EAEE57 /* NvsAssetPackageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAssetPackageManager.h; sourceTree = "<group>"; };
-		E2D195252003510B00EAEE57 /* NvsTimelineAnimatedSticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimelineAnimatedSticker.h; sourceTree = "<group>"; };
-		E2D195262003510B00EAEE57 /* NvsThumbnailSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsThumbnailSequenceView.h; sourceTree = "<group>"; };
-		E2D195272003510B00EAEE57 /* NvsVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoTrack.h; sourceTree = "<group>"; };
-		E2D195282003510B00EAEE57 /* NvsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsObject.h; sourceTree = "<group>"; };
-		E2D195292003510B00EAEE57 /* NvsFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsFx.h; sourceTree = "<group>"; };
-		E2D1952A2003510B00EAEE57 /* NvsTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTrack.h; sourceTree = "<group>"; };
-		E2D1952B2003510B00EAEE57 /* NvsFxDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsFxDescription.h; sourceTree = "<group>"; };
-		E2D1952C2003510B00EAEE57 /* NvsAssetPackageParticleDescParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAssetPackageParticleDescParser.h; sourceTree = "<group>"; };
-		E2D1952D2003510B00EAEE57 /* NvsParticleSystemContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsParticleSystemContext.h; sourceTree = "<group>"; };
-		E2D1952E2003510B00EAEE57 /* NvsVideoFrameReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFrameReceiver.h; sourceTree = "<group>"; };
 		EF51C1A8DE887E99131B1354 /* Pods-MiLiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1174,11 +1137,9 @@
 				18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */,
 				18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */,
 				E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */,
-				E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */,
 				E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */,
 				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
-				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
 				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
 				18567F47200207C7003F1985 /* RongIMLib.framework in Frameworks */,
@@ -1187,7 +1148,6 @@
 				18567F46200207C7003F1985 /* AgoraRtcEngineKit.framework in Frameworks */,
 				E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */,
 				18567F48200207C7003F1985 /* libopencore-amrnb.a in Frameworks */,
-				E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */,
 				8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2200,8 +2160,6 @@
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
 				3CD1383B201C594900DB47C6 /* ReportView-举报 */,
-				E2D1950D2003510B00EAEE57 /* include */,
-				E2D195052003510500EAEE57 /* lib */,
 				18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */,
 				18567F152001F568003F1985 /* IB_DESIGNABLE */,
 				18F335C52001D8A600AE7CCD /* IQActionSheetPickerView */,
@@ -2890,78 +2848,6 @@
 				1846CE23200F4B6A000BF772 /* MyMTableViewCell.xib */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		E2D195052003510500EAEE57 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				E2D195062003510500EAEE57 /* ios */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		E2D195062003510500EAEE57 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */,
-				E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */,
-				E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		E2D1950D2003510B00EAEE57 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				E2D1950E2003510B00EAEE57 /* sdkcore */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		E2D1950E2003510B00EAEE57 /* sdkcore */ = {
-			isa = PBXGroup;
-			children = (
-				E2D1950F2003510B00EAEE57 /* ios */,
-			);
-			path = sdkcore;
-			sourceTree = "<group>";
-		};
-		E2D1950F2003510B00EAEE57 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				E2D195102003510B00EAEE57 /* NvsStreamingContext.h */,
-				E2D195112003510B00EAEE57 /* NvsMultiThumbnailSequenceView.h */,
-				E2D195122003510B00EAEE57 /* NvsAudioTransition.h */,
-				E2D195132003510B00EAEE57 /* NvsFaceEffectV1.h */,
-				E2D195142003510B00EAEE57 /* NvsCommonDef.h */,
-				E2D195152003510B00EAEE57 /* NvsVideoTransition.h */,
-				E2D195162003510B00EAEE57 /* NvsVideoFx.h */,
-				E2D195172003510B00EAEE57 /* NvsTimelineVideoFx.h */,
-				E2D195182003510B00EAEE57 /* NvsAudioFx.h */,
-				E2D195192003510B00EAEE57 /* NvsAudioTrack.h */,
-				E2D1951A2003510B00EAEE57 /* NvsCaptureVideoFx.h */,
-				E2D1951B2003510B00EAEE57 /* NvsAVFileInfo.h */,
-				E2D1951C2003510B00EAEE57 /* NvsAudioClip.h */,
-				E2D1951D2003510B00EAEE57 /* NvsLiveWindow.h */,
-				E2D1951E2003510B00EAEE57 /* NvsVideoClip.h */,
-				E2D1951F2003510B00EAEE57 /* NvsClip.h */,
-				E2D195202003510B00EAEE57 /* NvsTimeline.h */,
-				E2D195212003510B00EAEE57 /* NvsVideoFrameRetriever.h */,
-				E2D195222003510B00EAEE57 /* NvsCustomVideoFx.h */,
-				E2D195232003510B00EAEE57 /* NvsTimelineCaption.h */,
-				E2D195242003510B00EAEE57 /* NvsAssetPackageManager.h */,
-				E2D195252003510B00EAEE57 /* NvsTimelineAnimatedSticker.h */,
-				E2D195262003510B00EAEE57 /* NvsThumbnailSequenceView.h */,
-				E2D195272003510B00EAEE57 /* NvsVideoTrack.h */,
-				E2D195282003510B00EAEE57 /* NvsObject.h */,
-				E2D195292003510B00EAEE57 /* NvsFx.h */,
-				E2D1952A2003510B00EAEE57 /* NvsTrack.h */,
-				E2D1952B2003510B00EAEE57 /* NvsFxDescription.h */,
-				E2D1952C2003510B00EAEE57 /* NvsAssetPackageParticleDescParser.h */,
-				E2D1952D2003510B00EAEE57 /* NvsParticleSystemContext.h */,
-				E2D1952E2003510B00EAEE57 /* NvsVideoFrameReceiver.h */,
-			);
-			path = ios;
 			sourceTree = "<group>";
 		};
 		E2D518B51FFE375D00A548DA /* 我的 */ = {
@@ -3706,7 +3592,6 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
 					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
 					"\"${PODS_ROOT}/Headers/Public/YYText\"",
-					"\"$(SRCROOT)/MiLiao/Tools/include/sdkcore/ios\"",
 					"$(SRCROOT)/MiLiao/Tools/支付宝",
 				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
@@ -3726,7 +3611,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
-					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS-lite",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
@@ -3781,7 +3665,6 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
 					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
 					"\"${PODS_ROOT}/Headers/Public/YYText\"",
-					"\"$(SRCROOT)/MiLiao/Tools/include/sdkcore/ios\"",
 					"$(SRCROOT)/MiLiao/Tools/支付宝",
 				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
@@ -3801,7 +3684,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
-					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS-lite",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
@@ -3962,7 +3844,6 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
 					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
 					"\"${PODS_ROOT}/Headers/Public/YYText\"",
-					"\"$(SRCROOT)/MiLiao/Tools/include/sdkcore/ios\"",
 					"$(SRCROOT)/MiLiao/Tools/支付宝",
 				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
@@ -3982,7 +3863,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
-					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS-lite",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/SDK/AliPaySDK/openssl",
 					"$(PROJECT_DIR)/MiLiao/Tools/支付宝/openssl",
