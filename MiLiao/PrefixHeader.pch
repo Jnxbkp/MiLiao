@@ -65,6 +65,9 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
+#import <UMErrorCatch/UMErrorCatch.h>
+#import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>   
 
 #import "NSString+CYValidation.h"
 #import "Masonry.h"
