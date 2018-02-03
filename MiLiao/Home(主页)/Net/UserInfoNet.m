@@ -90,11 +90,11 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
         case 11:
             return SelfCallEndStateRemoteCancle;
         case 12:
-            return SelfCallEndStateRemoteCancle;
+            return SelfCallEndStateUnusual;
         case 13:
-            return SelfCallEndStateRemoteNoAnswer;
+            return SelfCallEndStateComplete;
         case 14:
-            return SelfCallEndStateRemoteNoAnswer;
+            return SelfCallEndStateRemoteBusy;
         case 15:
             return SelfCallEndStateRemoteNoAnswer;
         case 16:

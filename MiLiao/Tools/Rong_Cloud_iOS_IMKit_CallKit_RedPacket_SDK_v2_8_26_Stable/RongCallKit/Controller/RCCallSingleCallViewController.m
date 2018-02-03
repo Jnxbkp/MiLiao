@@ -360,6 +360,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 #pragma mark - 通话能力相关方法
 
+- (NSString *)currentThread {
+    return [NSThread isMainThread]?@"当前线程是主线程":@"当前线程是子线程";
+}
+
 //检查是否已充值
 - (void)checkIsPayMoney {
     
@@ -367,7 +371,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     NSString *costUserName = self.callSession.myProfile.userId;
     
     [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-       
+        NSLog(@"检查是否已充值:%@", [self currentThread]);
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             self.pid = canCall.pid;
@@ -393,6 +397,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
             long end = [[NSDate date] timeIntervalSince1970];
             NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
+            NSLog(@"检查撩币:%@", [self currentThread]);
             //正在通话时 执行扣费逻辑
             if (self.callSession.callStatus == RCCallActive) {
                 [self deductionCallMoney];
@@ -491,6 +496,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         NSLog(@"userName is %@", userName);
         NSLog(@"costUserName is %@", costUserName);
+         NSLog(@"每分钟扣除通话费用:%@", [self currentThread]);
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             self.pid = canCall.pid;
@@ -703,8 +709,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     //如果电话接通过 则执行扣费
     if (self.isCallConnect) {
-        //最终扣费
-//        [self finalDeductMoney];
+        //获取本次通话费用
         [self getCurrentCallFee];
         //如果是普通用户则发通知
         if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
@@ -715,8 +720,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
                                    @"anchorName":anchorName,
                                    @"callId":callId
                                    };
-            NSLog(@"dict is %@", dict);
-            if ([self isAppleCheck]) return;
+            if ([self isAppleCheck]) return;//苹果审核员 不发通知
             PostNotificationNameUserInfo(VideoCallEnd, dict);
         }
     } else {

@@ -188,14 +188,30 @@
 - (void)notificationFunc:(NSNotification *)notification {
 
     NSLog(@"%@", notification.userInfo);
-    //视频通话结束 添加评价界面
-    if ([notification.name isEqualToString:VideoCallEnd]) {
-        [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+    NSLog(@"结算成功当前线程是:%@", [NSThread isMainThread]?@"主线程":@"子线程");
+    if ([NSThread isMainThread]) {
+        //视频通话结束 添加评价界面
+        if ([notification.name isEqualToString:VideoCallEnd]) {
+            [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+        }
+        //结算成功
+        if ([notification.name isEqualToString:SetMoneySuccess]) {
+            [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
+        }
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //视频通话结束 添加评价界面
+            if ([notification.name isEqualToString:VideoCallEnd]) {
+                [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+            }
+            //结算成功
+            if ([notification.name isEqualToString:SetMoneySuccess]) {
+                
+                [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
+            }
+        });
     }
-    //结算成功
-    if ([notification.name isEqualToString:SetMoneySuccess]) {
-        [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
-    }
+   
     
 }
 
