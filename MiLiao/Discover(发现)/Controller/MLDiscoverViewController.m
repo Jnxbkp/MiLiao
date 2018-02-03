@@ -155,7 +155,7 @@ static NSString *const hotIdentifer = @"hotCell";
                 _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
-                if (_newsList.count > 0) {
+                if (_newsList.count > 3) {
                     _newCollectionView.mj_footer.hidden = NO;
                 }
             } else {
@@ -163,7 +163,7 @@ static NSString *const hotIdentifer = @"hotCell";
                 _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
-                if (_hotList.count > 0) {
+                if (_hotList.count > 3) {
                     _hotCollectionView.mj_footer.hidden = NO;
                 }
             }
@@ -211,7 +211,7 @@ static NSString *const hotIdentifer = @"hotCell";
                 _newsList = [NSMutableArray array];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
-                if (_newsList.count > 0) {
+                if (_newsList.count > 3) {
                     _newCollectionView.mj_footer.hidden = NO;
                 }
             } else {
@@ -219,7 +219,7 @@ static NSString *const hotIdentifer = @"hotCell";
                 _hotList = [NSMutableArray array];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
-                if (_hotList.count > 0) {
+                if (_hotList.count > 3) {
                     _hotCollectionView.mj_footer.hidden = NO;
                 }
             }
