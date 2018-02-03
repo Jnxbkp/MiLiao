@@ -23,4 +23,7 @@ pod 'SVProgressHUD'
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 pod 'AlicloudPush'
+
+pod 'UMCErrorCatch'
+pod 'UMCAnalytics'
 end

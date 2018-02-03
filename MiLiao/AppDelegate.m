@@ -79,6 +79,12 @@
     [CloudPushSDK sendNotificationAck:launchOptions];
     application.applicationIconBadgeNumber = 0;
 
+    //友盟错误统计
+    [UMConfigure initWithAppkey:@"5a755e26b27b0a418900034e" channel:@"App Store"];
+    [UMErrorCatch initErrorCatch];//错误分析的库必须加在UMConfigure initWithAppkey，否则没法兼容UApp的excetion和singal的兼容
+    // 统计组件配置
+    [MobClick setScenarioType:E_UM_NORMAL];
+    // [MobClick setScenarioType:E_UM_GAME];  // optional: 游戏场景设置
     
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"8w7jv4qb8ch6y"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)

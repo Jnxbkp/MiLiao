@@ -794,6 +794,7 @@
 		3CFF061520078D4600E20FDE /* FUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUManager.m; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
+		DB187B3ED2C9B3CF0E36B8BD /* Pods-MiLiao.ad hoc distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.ad hoc distribution.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.ad hoc distribution.xcconfig"; sourceTree = "<group>"; };
 		E212273D1FFE0C1A005D543F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E212273F1FFE0C29005D543F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E21227411FFE0C32005D543F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -1962,6 +1963,7 @@
 			children = (
 				57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */,
 				EF51C1A8DE887E99131B1354 /* Pods-MiLiao.release.xcconfig */,
+				DB187B3ED2C9B3CF0E36B8BD /* Pods-MiLiao.ad hoc distribution.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3804,7 +3806,7 @@
 		};
 		E25D344F20233328005214F2 /* ad hoc distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF51C1A8DE887E99131B1354 /* Pods-MiLiao.release.xcconfig */;
+			baseConfigurationReference = DB187B3ED2C9B3CF0E36B8BD /* Pods-MiLiao.ad hoc distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
