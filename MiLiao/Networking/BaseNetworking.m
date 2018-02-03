@@ -104,7 +104,7 @@
         NSLog(@"======================================================");
         !success?:success(task, responseObject);
         if ([responseObject[@"resultCode"] integerValue] == 1004) {
-            [SVProgressHUD showErrorWithStatus:@"用户数据已过期，请重新登录"];
+            [SVProgressHUD showErrorWithStatus:@"您的登录信息已过期，请重新登录"];
             [UIApplication sharedApplication].keyWindow.rootViewController = [[NSClassFromString(@"phoneLoginViewController") alloc] init];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -143,7 +143,7 @@
             success(task, responseObject);
         }
         if ([responseObject[@"resultCode"] integerValue] == 1004) {
-            [SVProgressHUD showErrorWithStatus:@"用户数据已过期，请重新登录"];
+            [SVProgressHUD showErrorWithStatus:@"您的登录信息已过期，请重新登录"];
             [UIApplication sharedApplication].keyWindow.rootViewController = [[NSClassFromString(@"phoneLoginViewController") alloc] init];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
