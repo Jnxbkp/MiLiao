@@ -8,8 +8,6 @@
 
 #import "BaseNetworking.h"
 
-
-
 @implementation BaseNetworking
 
 /**
@@ -105,6 +103,10 @@
         NSLog(@"ResponseObject:%@\n", responseObject);
         NSLog(@"======================================================");
         !success?:success(task, responseObject);
+        if ([responseObject[@"resultCode"] integerValue] == 1004) {
+            [SVProgressHUD showErrorWithStatus:@"用户数据已过期，请重新登录"];
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[NSClassFromString(@"phoneLoginViewController") alloc] init];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Upload error:%@", error.userInfo);
         !failure?:failure(task, error);
@@ -139,6 +141,10 @@
         NSLog(@"\n\nGET基类请求返回:\n%@", responseObject);
         if (success) {
             success(task, responseObject);
+        }
+        if ([responseObject[@"resultCode"] integerValue] == 1004) {
+            [SVProgressHUD showErrorWithStatus:@"用户数据已过期，请重新登录"];
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[NSClassFromString(@"phoneLoginViewController") alloc] init];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"\n\n接口地址:\n%@", [NSString stringWithFormat:@"%@%@",HLRequestUrl,urlString]);

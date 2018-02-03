@@ -153,6 +153,7 @@
               errCode = [responseObject[ResultCode] integerValue];
               errMsg = responseObject[ResultMsg];
           }
+         
           !modelResult?:modelResult(state, model, errCode, errMsg);
           
       } failure:^(NSURLSessionDataTask *task, NSError *error) {

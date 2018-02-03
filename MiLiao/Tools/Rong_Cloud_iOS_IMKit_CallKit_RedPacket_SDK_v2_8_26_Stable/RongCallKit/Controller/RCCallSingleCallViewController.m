@@ -464,6 +464,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if (userID.length < 1
         &&
         userName.length < 1) {
+#ifdef DEBUG
+        [SVProgressHUD showErrorWithStatus:@"userID或userName不合法"];
+#endif
         return;
     }
     
@@ -474,10 +477,13 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:callID callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
         
+#ifdef DEBUG
         if (success) {
             NSLog(@"保存通话成功");
+        } else {
+            [SVProgressHUD showErrorWithStatus:msg];
         }
-        
+#endif
     }];
 }
 
