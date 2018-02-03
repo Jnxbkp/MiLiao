@@ -89,10 +89,9 @@
 
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     [SVProgressHUD setMaximumDismissTimeInterval:2];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     //设置视频分辨率
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_720P];
-    //注册监听 美颜视频流
-//    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
 
 //    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
