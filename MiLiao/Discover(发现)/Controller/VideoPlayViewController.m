@@ -37,7 +37,7 @@
 
 @property (nonatomic, assign) BOOL isChangedRow;
 @property (nonatomic, strong) NSIndexPath *tempIndexPath;
-@property (nonatomic, strong) PlayCollectionViewCell *currentPlayCell;
+
 ///评价控制器
 @property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 
@@ -101,7 +101,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     NSArray *ary = [self.collectionView visibleCells];
@@ -118,11 +124,13 @@
         NSNotification *notification =[NSNotification notificationWithName:@"xiangQingVideoNum" object:nil userInfo:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
-     [self.navigationController setNavigationBarHidden:NO];
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _userDefaults = [NSUserDefaults standardUserDefaults];
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -151,6 +159,7 @@
     
     [self listenNotification];
     // Do any additional setup after loading the view.
+   
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -197,7 +206,7 @@
     DisVideoModel *videoModel = [[DisVideoModel alloc]init];
     videoModel = [_videoModelList.videoArr objectAtIndex:indexPath.row];
     [temp prepareSts:_baseModel videoId:videoModel.videoId];
-    
+    self.currentPlayCell = (PlayCollectionViewCell *)cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

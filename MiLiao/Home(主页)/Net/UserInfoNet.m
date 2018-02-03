@@ -70,9 +70,9 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
         case 1:
             return SelfCallEndStateCancle;
         case 2:
-            return SelfCallEndStateUnusual;
-        case 3:
             return SelfCallEndStateCancle;
+        case 3:
+            return SelfCallEndStateComplete;
         case 4:
             return SelfCallEndStateUnusual;
         case 5:

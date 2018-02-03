@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class PlayCollectionViewCell;
+
 @interface VideoPlayViewController : UIViewController
 
 
 @property (nonatomic, strong)DisbaseModel  *baseModel;
 @property (nonatomic, strong)DisVideoModelList  *videoModelList;
 @property (assign) NSInteger    currentCell;
-
+@property (nonatomic, strong) PlayCollectionViewCell *currentPlayCell;
 @property (nonatomic, strong)NSString  *kind;
 
 @end

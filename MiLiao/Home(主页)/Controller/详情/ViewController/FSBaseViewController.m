@@ -187,6 +187,7 @@
 
 - (void)notificationFunc:(NSNotification *)notification {
 
+    NSLog(@"%@", notification.userInfo);
     //视频通话结束 添加评价界面
     if ([notification.name isEqualToString:VideoCallEnd]) {
         [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];

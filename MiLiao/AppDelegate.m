@@ -14,7 +14,8 @@
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
 #import <RongCallLib/RongCallLib.h>
-
+#import "VideoPlayViewController.h"
+#import "PlayCollectionViewCell.h"
 #import "FUVideoFrameObserverManager.h"
 
 #import "IQKeyboardManager.h"
@@ -78,6 +79,12 @@
     [CloudPushSDK sendNotificationAck:launchOptions];
     application.applicationIconBadgeNumber = 0;
 
+    //友盟错误统计
+    [UMConfigure initWithAppkey:@"5a755e26b27b0a418900034e" channel:@"App Store"];
+    [UMErrorCatch initErrorCatch];//错误分析的库必须加在UMConfigure initWithAppkey，否则没法兼容UApp的excetion和singal的兼容
+    // 统计组件配置
+    [MobClick setScenarioType:E_UM_NORMAL];
+    // [MobClick setScenarioType:E_UM_GAME];  // optional: 游戏场景设置
     
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"8w7jv4qb8ch6y"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
@@ -88,10 +95,9 @@
 
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     [SVProgressHUD setMaximumDismissTimeInterval:2];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     //设置视频分辨率
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_720P];
-    //注册监听 美颜视频流
-//    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
 
 //    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
@@ -489,19 +495,25 @@
 //    return result;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    UIViewController *viewController = [self topViewController];
+    if ([viewController isKindOfClass:[VideoPlayViewController class]]) {
+        VideoPlayViewController *videoPlayViewController = (VideoPlayViewController *)viewController;
+        [videoPlayViewController.currentPlayCell pausePlay];
+    }
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
      _enterBackgroundFlag = true;
+   
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
 }
+
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -514,6 +526,11 @@
 //    }
 //    [self switchRootViewController:nil];
      _enterBackgroundFlag = false;
+    UIViewController *viewController = [self topViewController];
+    if ([viewController isKindOfClass:[VideoPlayViewController class]]) {
+        VideoPlayViewController *videoPlayViewController = (VideoPlayViewController *)viewController;
+        [videoPlayViewController.currentPlayCell resumePlay];
+    }
 }
 
 
