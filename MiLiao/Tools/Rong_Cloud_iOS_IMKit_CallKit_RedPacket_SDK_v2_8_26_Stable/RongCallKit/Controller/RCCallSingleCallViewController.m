@@ -53,6 +53,10 @@
 @property (nonatomic, assign, getter=isCallIn) BOOL callIn;
 ///用于每分钟扣费的参数
 @property (nonatomic, strong) NSString *pid;
+///用于每分钟扣费的参数
+@property (nonatomic, strong) NSString *consumeId;
+///用于每分钟扣费的参数
+@property (nonatomic, strong) NSString *rechargeId;
 
 ///电话是否接通过
 @property (nonatomic, assign, getter=isCallConnect) BOOL callConnect;
@@ -388,6 +392,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 //检查撩币
 - (void)checkMoney {
     
+    ///只对普通用户做处理
+    if (![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+        return;
+    }
+    
     long start = [[NSDate date] timeIntervalSince1970];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
@@ -494,18 +503,21 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     NSLog(@"准备执行扣费");
 
-    NSString *userName = self.targetId;
-    NSString *costUserName = self.callSession.myProfile.userId;
+    NSString *anchorName = self.targetId;
+    NSString *userName = self.callSession.myProfile.userId;
     NSString *pid = self.pid;
     NSLog(@"%@", pid);
     
-    [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-        NSLog(@"userName is %@", userName);
-        NSLog(@"costUserName is %@", costUserName);
-         NSLog(@"每分钟扣除通话费用:%@", [self currentThread]);
+    [UserInfoNet perMinuteDedectionUserName:userName anchorPhoneNum:anchorName consumeId:self.consumeId rechargeId:self.rechargeId result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
-            self.pid = canCall.pid;
+//            self.pid = canCall.pid;
+            if (!self.consumeId || self.consumeId.length < 1) {
+                self.consumeId = canCall.consumeId;
+            }
+            if (!self.rechargeId || self.rechargeId.length < 1) {
+                self.rechargeId = canCall.rechargeId;
+            }
             NSLog(@"执行扣费成功");
             if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -514,6 +526,22 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             }
         }
     }];
+    
+//    [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+//        NSLog(@"userName is %@", userName);
+//        NSLog(@"costUserName is %@", costUserName);
+//         NSLog(@"每分钟扣除通话费用:%@", [self currentThread]);
+//        if (success) {
+//            UserCallPowerModel *canCall = (UserCallPowerModel *)model;
+//            self.pid = canCall.pid;
+//            NSLog(@"执行扣费成功");
+//            if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self isContinueCanVideoCall:canCall];
+//                });
+//            }
+//        }
+//    }];
 }
 
 ///最终扣费
