@@ -76,6 +76,7 @@ e6d2a7cd7d57578a51532065957fb9ea</string>
 	<string>您可以用相机胶卷中的照片来完善自己的个人详细信息</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>voip</string>
 		<string>audio</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
