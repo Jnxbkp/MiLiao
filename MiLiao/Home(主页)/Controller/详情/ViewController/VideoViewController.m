@@ -82,7 +82,7 @@ static NSString * const reuseIdentifier = @"Cell";
         NSLog(@"------->>>video----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         _disBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
-        if (resultCode == SUCCESS) {
+//        if (resultCode == SUCCESS) {
             NSArray *arr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             _videoPage = [NSString stringWithFormat:@"%lu",[_videoPage integerValue] +1];
             if ([isRefresh isEqualToString:@"yes"]) {
@@ -101,15 +101,15 @@ static NSString * const reuseIdentifier = @"Cell";
                 }
             } else {//首次请求
                 [_collectionView reloadData];
-                if (arr.count > 0) {
+                if (arr.count > 3) {
                     _collectionView.mj_footer.hidden = NO;
                 }
             }
-        } else {
-            if (footer != nil) {//加载
-                [footer endRefreshing];
-            }
-        }
+//        } else {
+//            if (footer != nil) {//加载
+//                [footer endRefreshing];
+//            }
+//        }
     } failure:^(NSError *error) {
         if (footer != nil) {//加载
             [footer endRefreshing];
