@@ -101,7 +101,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     NSArray *ary = [self.collectionView visibleCells];
@@ -118,7 +124,9 @@
         NSNotification *notification =[NSNotification notificationWithName:@"xiangQingVideoNum" object:nil userInfo:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
-     [self.navigationController setNavigationBarHidden:NO];
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)viewDidLoad {
@@ -151,6 +159,7 @@
     
     [self listenNotification];
     // Do any additional setup after loading the view.
+   
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

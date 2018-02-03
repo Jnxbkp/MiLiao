@@ -710,10 +710,12 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
             NSString *anchorName = self.targetId;
             NSString *callId = [self getCurrentCallID];
+            NSLog(@"\nanchorName is %@\ncallId is %@", anchorName, callId);
             NSDictionary *dict = @{
                                    @"anchorName":anchorName,
                                    @"callId":callId
                                    };
+            NSLog(@"dict is %@", dict);
             if ([self isAppleCheck]) return;
             PostNotificationNameUserInfo(VideoCallEnd, dict);
         }
@@ -725,12 +727,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             PostNotificationNameUserInfo(VideoCallEnd, nil);
         }
     }
-     
-    
-    
-    
-   
-    
+
 }
 
 
