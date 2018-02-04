@@ -397,28 +397,33 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         return;
     }
     
-    long start = [[NSDate date] timeIntervalSince1970];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-        //没分钟执行一次检查撩币（60秒）
-        dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-        
-        dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
-            long end = [[NSDate date] timeIntervalSince1970];
-            NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
-            NSLog(@"检查撩币:%@", [self currentThread]);
-            //正在通话时 执行扣费逻辑
-            if (self.callSession.callStatus == RCCallActive) {
-                [self deductionCallMoney];
-            }
-            //已经挂断时，取消定时器
-            if (self.callSession.callStatus == RCCallHangup) {
-                dispatch_cancel(self.checkMoneyTimer);
-            }
+    //延后1秒执行扣费
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        long start = [[NSDate date] timeIntervalSince1970];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+            //没分钟执行一次检查撩币（60秒）
+            dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
             
+            dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+                long end = [[NSDate date] timeIntervalSince1970];
+                NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
+                NSLog(@"检查撩币:%@", [self currentThread]);
+                //正在通话时 执行扣费逻辑
+                if (self.callSession.callStatus == RCCallActive) {
+                    [self deductionCallMoney];
+                }
+                //已经挂断时，取消定时器
+                if (self.callSession.callStatus == RCCallHangup) {
+                    dispatch_cancel(self.checkMoneyTimer);
+                }
+                
+            });
+            dispatch_resume(self.checkMoneyTimer);
         });
-        dispatch_resume(self.checkMoneyTimer);
     });
+    
+
 }
 
 ///判断是否可以继续通话
