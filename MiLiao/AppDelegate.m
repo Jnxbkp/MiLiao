@@ -100,10 +100,10 @@
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_720P];
     
 
-    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
-    [self getHiddenVersion];
+//    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+//    [self getHiddenVersion];
     
-//     [_userDefaults setObject:@"no" forKey:@"isHidden"];
+     [_userDefaults setObject:@"no" forKey:@"isHidden"];
 
     return YES;
 }
