@@ -313,6 +313,7 @@
         if (!cell) {
             cell = [[HLSearchTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         _womanModel = [[WomanModel alloc]initWithDictionary:_searchArr[indexPath.row]];
         [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:_womanModel.headUrl] placeholderImage:nil];
         cell.nameLabel.text = _womanModel.nickname;
