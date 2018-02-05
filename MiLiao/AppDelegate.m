@@ -37,10 +37,58 @@
 
 @end
 
+
+
+void UncaughtExceptionHandler(NSException *exception){
+    
+    // 异常日志获取
+    NSArray  *excpArr = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    
+    NSString *excpCnt = [NSString stringWithFormat:@"\n\n\n异常类型: %@ \n reason: %@ \n stackSymbols: %@",name,reason,excpArr];
+    
+    NSDictionary *dict = @{@"异常类型":name,
+                           @"reason":reason,
+                           @"stackSymbols":excpArr
+                           };
+    
+    
+    // 日常日志保存
+    NSArray  *dirArr  = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dirPath = dirArr[0];
+    NSString *logDir = [dirPath stringByAppendingString:@"/CrashLog"];
+    NSString *logPlist = [dirPath stringByAppendingPathComponent:@"Crash.plist"];
+     [dict writeToFile:logPlist atomically:YES];
+    
+    BOOL isExistLogDir = YES;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDir]) {
+        isExistLogDir = [fileManager createDirectoryAtPath:logDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    if (isExistLogDir) {
+
+        NSString *logPath = [logDir stringByAppendingString:@"/crashLog.txt"];
+        if ([fileManager fileExistsAtPath:logPath]) {
+            NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:logPath];
+            [fileHandle seekToEndOfFile];  //将节点跳到文件的末尾
+            NSData* stringData  = [excpCnt dataUsingEncoding:NSUTF8StringEncoding];
+            [fileHandle writeData:stringData]; //追加写入数据
+            [fileHandle closeFile];
+        } else {
+            [excpCnt writeToFile:logPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        }
+    }
+}
+
+
 @implementation AppDelegate
 
 //test
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     
     _userDefaults = [NSUserDefaults standardUserDefaults];
    

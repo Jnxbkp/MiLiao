@@ -14,6 +14,8 @@
 #import "PayWebViewController.h"
 #import "GoPayTableViewController.h"
 #import "EnoughCallTool.h"
+
+#import "EvaluateVideoViewController.h"//评价
 //#import "PersonHomepageController.h"
 //#import "DatingModel.h"
 @interface ChatRoomController ()<RCIMUserInfoDataSource>
@@ -23,11 +25,18 @@
 }
 @property (nonatomic, strong) UIView *navView;
 @property (nonatomic, assign) NSInteger typeCode;
-
+///评价控制器
+@property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 @end
 
 @implementation ChatRoomController
-
+- (EvaluateVideoViewController *)evaluateVideoViewConroller {
+    if (!_evaluateVideoViewConroller) {
+        _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+        _evaluateVideoViewConroller.superview = self.view;
+    }
+    return _evaluateVideoViewConroller;
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
@@ -76,10 +85,80 @@
 
 
     [RCIM sharedRCIM].userInfoDataSource = self;
+    [self listenNotification];
 }
 - (void)leftButtonDidClick {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+#pragma mark - 通知方法
+- (void)listenNotification {
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    ListenNotificationName_Func(SetMoneySuccess, @selector(notificationFunc:));
+}
+
+- (void)notificationFunc:(NSNotification *)notification {
+    
+    [self saveSetMoneySuccessLog:notification];
+    
+    if ([NSThread isMainThread]) {
+        //视频通话结束 添加评价界面
+        if ([notification.name isEqualToString:VideoCallEnd]) {
+            [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+        }
+        //结算成功
+        if ([notification.name isEqualToString:SetMoneySuccess]) {
+            [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
+        }
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //视频通话结束 添加评价界面
+            if ([notification.name isEqualToString:VideoCallEnd]) {
+                [self.evaluateVideoViewConroller showEvaluaateView:notification.userInfo];
+            }
+            //结算成功
+            if ([notification.name isEqualToString:SetMoneySuccess]) {
+                
+                [self.evaluateVideoViewConroller showSetMoneySuccessView:notification.userInfo];
+            }
+        });
+    }
+}
+
+- (void)saveSetMoneySuccessLog:(NSNotification *)notification {
+    // 日常日志保存
+    NSArray  *dirArr  = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dirPath = dirArr[0];
+    NSString *logDir = [dirPath stringByAppendingString:@"/通话结算Log"];
+    
+    BOOL isExistLogDir = YES;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDir]) {
+        isExistLogDir = [fileManager createDirectoryAtPath:logDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *threadName = [NSThread isMainThread]?@"主线程":@"子线程";
+    NSString *className = NSStringFromClass([self class]);
+    NSString *logStr = [NSString stringWithFormat:@"\n\n\n当前时间%@,\n通知名称:%@,\n通知内的字典内容:%@,\n当前线程:%@,\n 当前类别:%@", currentDateStr, notification.name, [notification.userInfo mj_JSONString], threadName, NSStringFromClass([self class])];
+    if (isExistLogDir) {
+        
+        NSString *logPath = [logDir stringByAppendingString:@"/通话结束结算通知Log.txt"];
+        if ([fileManager fileExistsAtPath:logPath]) {
+            NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:logPath];
+            [fileHandle seekToEndOfFile];  //将节点跳到文件的末尾
+            NSData* stringData  = [logStr dataUsingEncoding:NSUTF8StringEncoding];
+            [fileHandle writeData:stringData]; //追加写入数据
+            [fileHandle closeFile];
+        } else {
+            [logStr writeToFile:logPath atomically:NO encoding:NSUTF8StringEncoding error:nil];
+        }
+        
+    }
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *view  = [UICollectionReusableView new];

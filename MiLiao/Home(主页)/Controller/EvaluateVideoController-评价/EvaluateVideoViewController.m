@@ -258,6 +258,11 @@ NSString *const COMMON = @"COMMON";
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.selecetdEvaluateArray removeAllObjects];
+}
+
 - (void)getEvaluate {
     [UserInfoNet getUserType:self.userType evaluateResult:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
         if (success) {
