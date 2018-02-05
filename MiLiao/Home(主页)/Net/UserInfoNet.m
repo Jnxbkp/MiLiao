@@ -18,6 +18,9 @@ static NSString *CanCallEnoughAPI = @"/v1/cost/enoughCall";
 
 //每分钟扣费
 static NSString *EveryMinuAPI = @"/v1/cost/minuteCost";
+
+///分钟扣费 最新
+static NSString *PerMinuDedetion_LastNew = @"/v1/cost/costCoins";
 ///保存通话记录
 static NSString *SaveCall = @"/v1/call/saveUserCall";
 
@@ -90,11 +93,11 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
         case 11:
             return SelfCallEndStateRemoteCancle;
         case 12:
-            return SelfCallEndStateRemoteCancle;
+            return SelfCallEndStateUnusual;
         case 13:
-            return SelfCallEndStateRemoteNoAnswer;
+            return SelfCallEndStateComplete;
         case 14:
-            return SelfCallEndStateRemoteNoAnswer;
+            return SelfCallEndStateRemoteBusy;
         case 15:
             return SelfCallEndStateRemoteNoAnswer;
         case 16:
@@ -160,7 +163,34 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     }];
 }
 
-#pragma mark - 分钟扣费
+#pragma mark - 分钟扣费 - 最新 2月3号
+/**
+ 最新分钟扣费
+ 
+ @param userName 扣费的手机号
+ @param anchor 主播的手机号
+ @param consumeId 第一次访问设为0，以后从返回的参数里获取
+ @param rechargeId 一次访问设为0，以后从我返回的参数里获取
+ @param result 返回
+ */
++ (void)perMinuteDedectionUserName:(NSString *)userName anchorPhoneNum:(NSString *)anchor consumeId:(NSString *)consumeId rechargeId:(NSString *)rechargeId result:(RequestModelResult)result {
+    if (consumeId == nil || consumeId.length <1) {
+        consumeId = @"0";
+    }
+    if (rechargeId == nil || rechargeId.length < 1) {
+        rechargeId = @"0";
+    }
+    NSDictionary *parameters = @{
+                                 @"username":userName,
+                                 @"token":tokenForCurrentUser(),
+                                 @"rechargeId":rechargeId,
+                                 @"consumeId":consumeId,
+                                 @"anchor":anchor
+                                 };
+    [self Post:PerMinuDedetion_LastNew parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
+}
+
+#pragma mark - 分钟扣费 - 废弃
 /**
  分钟扣费
  

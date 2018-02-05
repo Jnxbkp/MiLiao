@@ -166,12 +166,12 @@
 
     self.backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"电话等待"]];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.backgroundView addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(self.backgroundView);
     }];
-//    self.backgroundView.backgroundColor = RongVoIPUIColorFromRGB(0x262e42);
+    self.backgroundView.backgroundColor = RongVoIPUIColorFromRGB(0x262e42);
     [self.view addSubview:self.backgroundView];
     self.backgroundView.hidden = NO;
 

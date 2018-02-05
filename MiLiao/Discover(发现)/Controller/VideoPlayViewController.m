@@ -136,24 +136,22 @@
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize =  CGSizeMake(WIDTH, HEIGHT);
-    layout.minimumInteritemSpacing=0;
+    NSLog(@"%@", NSStringFromCGSize(layout.itemSize));
+    layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) collectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-//    self.collectionView.backgroundColor = [UIColor grayColor];
     self.collectionView.pagingEnabled = YES;
     self.collectionView.showsHorizontalScrollIndicator = YES;
-    if (@available(iOS 11.0, *)) {
-        [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-    } else {
-        // Fallback on earlier versions
-    }
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_currentCell inSection:0];
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
-
     [self.view addSubview:self.collectionView];
+    
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.right.mas_equalTo(self.view);
+    }];
 
     [self backButton];
     

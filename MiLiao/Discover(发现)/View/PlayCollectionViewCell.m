@@ -32,7 +32,9 @@
         self.playerView = [[UIView alloc] init];
         self.playerView = self.aliPlayer.playerView;
         [self.contentView addSubview:self.playerView];
-        self.playerView.frame= CGRectMake(0, 0, WIDTH, HEIGHT);
+        [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.right.mas_equalTo(self.contentView);
+        }];
         [self.aliPlayer setAutoPlay:YES];
         
         [self creat];
@@ -126,6 +128,7 @@
 }
 - (void)setVideoModel:(DisVideoModel *)videoModel {
     _videoModel = videoModel;
+    self.aliPlayer.displayMode = AliyunVodPlayerDisplayModeFitWithCropping;
     [_headButton sd_setImageWithURL:[NSURL URLWithString:videoModel.headUrl] forState:UIControlStateNormal];
     [_holderImageView sd_setImageWithURL:[NSURL URLWithString:videoModel.videoUrl] placeholderImage:holderImage];
     
@@ -176,7 +179,10 @@
 }
 - (void)prepareSts:(DisbaseModel *)videoModel videoId:(NSString *)videoId {
     NSLog(@"---------%@--------%@",videoId,videoModel.AccessKeyId);
-    [self.aliPlayer prepareWithVid:videoId accessKeyId:videoModel.AccessKeyId accessKeySecret:videoModel.AccessKeySecret securityToken:videoModel.SecurityToken];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+         [self.aliPlayer prepareWithVid:videoId accessKeyId:videoModel.AccessKeyId accessKeySecret:videoModel.AccessKeySecret securityToken:videoModel.SecurityToken];
+    });
+   
 }
 - (void)startPlay{
     [self.aliPlayer start];

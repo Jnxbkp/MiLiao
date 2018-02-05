@@ -76,8 +76,19 @@ static NSString *Update_User_Status_OFFLINE = @"OFFLINE";
 ///判定余额足够消费
 + (void)canCall:(NSString *)userName powerEnough:(void(^)(RequestState success, NSString *msg, MoneyEnoughType enoughType))powerEnough;
 
+#pragma mark - 分钟扣费 - 最新 2月3号
+/**
+ 最新分钟扣费 2月3号 解除通话一分钟扣2分钟的钱
 
-#pragma mark - 分钟扣费
+ @param userName 扣费的手机号
+ @param anchor 主播的手机号
+ @param consumeId 第一次访问设为0，以后从返回的参数里获取
+ @param rechargeId 一次访问设为0，以后从我返回的参数里获取
+ @param result 返回
+ */
++ (void)perMinuteDedectionUserName:(NSString *)userName anchorPhoneNum:(NSString *)anchor consumeId:(NSString *)consumeId rechargeId:(NSString *)rechargeId result:(RequestModelResult)result;
+
+#pragma mark - 分钟扣费 废弃
 /**
  分钟扣费
 

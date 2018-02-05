@@ -53,6 +53,10 @@
 @property (nonatomic, assign, getter=isCallIn) BOOL callIn;
 ///用于每分钟扣费的参数
 @property (nonatomic, strong) NSString *pid;
+///用于每分钟扣费的参数
+@property (nonatomic, strong) NSString *consumeId;
+///用于每分钟扣费的参数
+@property (nonatomic, strong) NSString *rechargeId;
 
 ///电话是否接通过
 @property (nonatomic, assign, getter=isCallConnect) BOOL callConnect;
@@ -360,6 +364,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 
 #pragma mark - 通话能力相关方法
 
+- (NSString *)currentThread {
+    return [NSThread isMainThread]?@"当前线程是主线程":@"当前线程是子线程";
+}
+
 //检查是否已充值
 - (void)checkIsPayMoney {
     
@@ -367,7 +375,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     NSString *costUserName = self.callSession.myProfile.userId;
     
     [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-       
+        NSLog(@"检查是否已充值:%@", [self currentThread]);
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             self.pid = canCall.pid;
@@ -384,27 +392,38 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
 //检查撩币
 - (void)checkMoney {
     
-    long start = [[NSDate date] timeIntervalSince1970];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-        //没分钟执行一次检查撩币（60秒）
-        dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-        
-        dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
-            long end = [[NSDate date] timeIntervalSince1970];
-            NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
-            //正在通话时 执行扣费逻辑
-            if (self.callSession.callStatus == RCCallActive) {
-                [self deductionCallMoney];
-            }
-            //已经挂断时，取消定时器
-            if (self.callSession.callStatus == RCCallHangup) {
-                dispatch_cancel(self.checkMoneyTimer);
-            }
+    ///只对普通用户做处理
+    if (![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+        return;
+    }
+    
+    //延后1秒执行扣费
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        long start = [[NSDate date] timeIntervalSince1970];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+            //没分钟执行一次检查撩币（60秒）
+            dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
             
+            dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+                long end = [[NSDate date] timeIntervalSince1970];
+                NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
+                NSLog(@"检查撩币:%@", [self currentThread]);
+                //正在通话时 执行扣费逻辑
+                if (self.callSession.callStatus == RCCallActive) {
+                    [self deductionCallMoney];
+                }
+                //已经挂断时，取消定时器
+                if (self.callSession.callStatus == RCCallHangup) {
+                    dispatch_cancel(self.checkMoneyTimer);
+                }
+                
+            });
+            dispatch_resume(self.checkMoneyTimer);
         });
-        dispatch_resume(self.checkMoneyTimer);
     });
+    
+
 }
 
 ///判断是否可以继续通话
@@ -459,6 +478,9 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if (userID.length < 1
         &&
         userName.length < 1) {
+#ifdef DEBUG
+        [SVProgressHUD showErrorWithStatus:@"userID或userName不合法"];
+#endif
         return;
     }
     
@@ -469,10 +491,13 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:callID callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
         
+#ifdef DEBUG
         if (success) {
             NSLog(@"保存通话成功");
+        } else {
+            [SVProgressHUD showErrorWithStatus:msg];
         }
-        
+#endif
     }];
 }
 
@@ -483,17 +508,21 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     NSLog(@"准备执行扣费");
 
-    NSString *userName = self.targetId;
-    NSString *costUserName = self.callSession.myProfile.userId;
+    NSString *anchorName = self.targetId;
+    NSString *userName = self.callSession.myProfile.userId;
     NSString *pid = self.pid;
     NSLog(@"%@", pid);
     
-    [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-        NSLog(@"userName is %@", userName);
-        NSLog(@"costUserName is %@", costUserName);
+    [UserInfoNet perMinuteDedectionUserName:userName anchorPhoneNum:anchorName consumeId:self.consumeId rechargeId:self.rechargeId result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
-            self.pid = canCall.pid;
+//            self.pid = canCall.pid;
+            if (!self.consumeId || self.consumeId.length < 1) {
+                self.consumeId = canCall.consumeId;
+            }
+            if (!self.rechargeId || self.rechargeId.length < 1) {
+                self.rechargeId = canCall.rechargeId;
+            }
             NSLog(@"执行扣费成功");
             if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -502,6 +531,22 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
             }
         }
     }];
+    
+//    [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+//        NSLog(@"userName is %@", userName);
+//        NSLog(@"costUserName is %@", costUserName);
+//         NSLog(@"每分钟扣除通话费用:%@", [self currentThread]);
+//        if (success) {
+//            UserCallPowerModel *canCall = (UserCallPowerModel *)model;
+//            self.pid = canCall.pid;
+//            NSLog(@"执行扣费成功");
+//            if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self isContinueCanVideoCall:canCall];
+//                });
+//            }
+//        }
+//    }];
 }
 
 ///最终扣费
@@ -703,8 +748,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     
     //如果电话接通过 则执行扣费
     if (self.isCallConnect) {
-        //最终扣费
-//        [self finalDeductMoney];
+        //获取本次通话费用
         [self getCurrentCallFee];
         //如果是普通用户则发通知
         if ([[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
@@ -715,8 +759,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
                                    @"anchorName":anchorName,
                                    @"callId":callId
                                    };
-            NSLog(@"dict is %@", dict);
-            if ([self isAppleCheck]) return;
+            if ([self isAppleCheck]) return;//苹果审核员 不发通知
             PostNotificationNameUserInfo(VideoCallEnd, dict);
         }
     } else {

@@ -289,6 +289,7 @@
 - (void)presentCallViewController:(UIViewController *)viewController {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     UIWindow *activityWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    activityWindow.backgroundColor = [UIColor redColor];
     activityWindow.windowLevel = UIWindowLevelAlert;
     activityWindow.rootViewController = viewController;
     [activityWindow makeKeyAndVisible];

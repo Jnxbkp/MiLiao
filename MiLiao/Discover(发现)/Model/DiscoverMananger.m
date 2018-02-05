@@ -10,6 +10,18 @@
 
 @implementation DiscoverMananger
 
+static NSString *LoginControllerName = @"phoneLoginViewController";
+
+
++ (void)updateRootController:(id)responseObject {
+    if ([responseObject isKindOfClass:[NSDictionary class]]) {
+        if ([responseObject[@"resultCode"] integerValue] == 1004) {
+            [SVProgressHUD showErrorWithStatus:@"您的登录信息已失效，请重新登录"];
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[NSClassFromString(LoginControllerName) alloc] init];
+        }
+    }
+}
+
 //视频列表 HOT:热门,NEW:最新
 //GET /v1/video/videoList/{pageNumber}/{pageSize}/{token}/{videoType}
 + (void)NetGetVideoListVideoType:(NSString *)videoType token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
@@ -21,6 +33,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
+        [self updateRootController:responseObject];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
     }];
@@ -42,6 +55,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
+        [self updateRootController:responseObject];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
     }];
@@ -62,6 +76,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
+        [self updateRootController:responseObject];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
     }];

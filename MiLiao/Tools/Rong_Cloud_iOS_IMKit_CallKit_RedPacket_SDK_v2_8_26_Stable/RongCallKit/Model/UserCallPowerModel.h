@@ -14,6 +14,9 @@
 @property (nonatomic, strong) NSString *seconds;
 @property (nonatomic, strong) NSString *size;
 @property (nonatomic, strong) NSString *type;
+
+@property (nonatomic, strong) NSString *consumeId;
+@property (nonatomic, strong) NSString *rechargeId;
 ///状态码
 @property (nonatomic, assign) NSInteger typeCode;
 @property (nonatomic, strong) NSString *pid;

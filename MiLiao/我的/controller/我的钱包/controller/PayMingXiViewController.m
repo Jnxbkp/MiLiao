@@ -52,7 +52,7 @@
             self.modelArray = [zhichuModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
             [self.tableView reloadData];
         }else{
-            
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
         }
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
