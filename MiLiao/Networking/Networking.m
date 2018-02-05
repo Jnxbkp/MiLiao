@@ -108,7 +108,12 @@
 + (void)Post:(NSString *)urlString parameters:(id)parameters complete:(CompleteBlock)complete {
     [self POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            RequestState state = [responseObject[ResultCode] integerValue];
+            RequestState state = Failure;
+            if ([responseObject[ResultCode] integerValue] == 200
+                ||
+                [responseObject[@"code"] integerValue] == 200) {
+                state = Success;
+            }
             NSString *msg = responseObject[ResultMsg];
             !complete?:complete(state, msg);
         }

@@ -187,8 +187,8 @@
 
 - (void)notificationFunc:(NSNotification *)notification {
 
-    NSLog(@"%@", notification.userInfo);
-    NSLog(@"结算成功当前线程是:%@", [NSThread isMainThread]?@"主线程":@"子线程");
+    [self saveSetMoneySuccessLog:notification];
+
     if ([NSThread isMainThread]) {
         //视频通话结束 添加评价界面
         if ([notification.name isEqualToString:VideoCallEnd]) {
@@ -211,8 +211,35 @@
             }
         });
     }
-   
+}
+
+- (void)saveSetMoneySuccessLog:(NSNotification *)notification {
+    // 日常日志保存
+    NSArray  *dirArr  = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dirPath = dirArr[0];
+    NSString *logDir = [dirPath stringByAppendingString:@"/通话结算Log"];
     
+    BOOL isExistLogDir = YES;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDir]) {
+        isExistLogDir = [fileManager createDirectoryAtPath:logDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *threadName = [NSThread isMainThread]?@"主线程":@"子线程";
+    NSString *logStr = [NSString stringWithFormat:@"\n\n\n当前时间%@,\n通知名称:%@,\n通知内的字典内容:%@,\n当前线程:%@, 当前类别:%@", currentDateStr, notification.name, [notification.userInfo mj_JSONString], threadName, NSStringFromClass([self class])];
+        
+    NSString *logPath = [logDir stringByAppendingString:@"/通话结束结算通知Log.txt"];
+    if ([fileManager fileExistsAtPath:logPath]) {
+        NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:logPath];
+        [fileHandle seekToEndOfFile];  //将节点跳到文件的末尾
+        NSData* stringData  = [logStr dataUsingEncoding:NSUTF8StringEncoding];
+        [fileHandle writeData:stringData]; //追加写入数据
+        [fileHandle closeFile];
+    } else {
+        [logStr writeToFile:logPath atomically:NO encoding:NSUTF8StringEncoding error:nil];
+    }
 }
 
 - (void)setupSubViews

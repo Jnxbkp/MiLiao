@@ -396,32 +396,33 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if (![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
         return;
     }
+    long start = [[NSDate date] timeIntervalSince1970];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+        //没分钟执行一次检查撩币（60秒）
+        dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        
+        dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+            long end = [[NSDate date] timeIntervalSince1970];
+            NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
+            NSLog(@"检查撩币:%@", [self currentThread]);
+            //正在通话时 执行扣费逻辑
+            if (self.callSession.callStatus == RCCallActive) {
+                [self deductionCallMoney];
+            }
+            //已经挂断时，取消定时器
+            if (self.callSession.callStatus == RCCallHangup) {
+                dispatch_cancel(self.checkMoneyTimer);
+            }
+            
+        });
+        dispatch_resume(self.checkMoneyTimer);
+    });
     
     //延后1秒执行扣费
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        long start = [[NSDate date] timeIntervalSince1970];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-            //没分钟执行一次检查撩币（60秒）
-            dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-            
-            dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
-                long end = [[NSDate date] timeIntervalSince1970];
-                NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
-                NSLog(@"检查撩币:%@", [self currentThread]);
-                //正在通话时 执行扣费逻辑
-                if (self.callSession.callStatus == RCCallActive) {
-                    [self deductionCallMoney];
-                }
-                //已经挂断时，取消定时器
-                if (self.callSession.callStatus == RCCallHangup) {
-                    dispatch_cancel(self.checkMoneyTimer);
-                }
-                
-            });
-            dispatch_resume(self.checkMoneyTimer);
-        });
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//    });
     
 
 }
@@ -490,7 +491,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     callID = [callID stringByAppendingString:[NSString stringWithFormat:@"|%.0lf", [[NSDate date] timeIntervalSince1970]]];
     
     [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:callID callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
-        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+        NSString *log = [NSString stringWithFormat:@"\n\n\nAnchorAccount:%@,\nahchorID:%@,\n callTime:%@,\n 通话生成时间:%@,\n saveCall:保存通话%@\n", userName, userID,callTime,currentDateStr, success == Success?@"成功":@"失败"];
+        [self savaCallLog:log];
 #ifdef DEBUG
         if (success) {
             NSLog(@"保存通话成功");
@@ -499,6 +504,35 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
         }
 #endif
     }];
+}
+
+///保存通话日志
+- (void)savaCallLog:(NSString *)log {
+    // 日常日志保存
+    NSArray  *dirArr  = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dirPath = dirArr[0];
+    NSString *logDir = [dirPath stringByAppendingString:@"/CallLog"];
+    
+    BOOL isExistLogDir = YES;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDir]) {
+        isExistLogDir = [fileManager createDirectoryAtPath:logDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    if (isExistLogDir) {
+        
+        NSString *logPath = [logDir stringByAppendingString:@"/callLog.txt"];
+        if ([fileManager fileExistsAtPath:logPath]) {
+            NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:logPath];
+            [fileHandle seekToEndOfFile];  //将节点跳到文件的末尾
+            NSData* stringData  = [log dataUsingEncoding:NSUTF8StringEncoding];
+            [fileHandle writeData:stringData]; //追加写入数据
+            [fileHandle closeFile];
+        } else {
+             [log writeToFile:logPath atomically:NO encoding:NSUTF8StringEncoding error:nil];
+        }
+        
+    }
 }
 
 ///每分钟扣除通话费用
@@ -592,14 +626,16 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 60;
     if (![[YZCurrentUserModel sharedYZCurrentUserModel].roleType isEqualToString:RoleTypeCommon]) {
         return;
     }
-    [UserInfoNet getCallFeeFromUserName:self.targetId pid:self.pid dictResult:^(RequestState success, NSDictionary *dict, NSString *msg) {
-        NSLog(@"%@", dict);
-        if (success) {
-            NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-            mutableDict[@"time"] = [RCCallKitUtility getReadableStringForTime:[[self getCallTime] longLongValue]];
-            PostNotificationNameUserInfo(SetMoneySuccess, mutableDict);
-        }
-    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UserInfoNet getCallFeeFromUserName:self.targetId pid:self.pid dictResult:^(RequestState success, NSDictionary *dict, NSString *msg) {
+            NSLog(@"%@", dict);
+            if (success) {
+                NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+                mutableDict[@"time"] = [RCCallKitUtility getReadableStringForTime:[[self getCallTime] longLongValue]];
+                PostNotificationNameUserInfo(SetMoneySuccess, mutableDict);
+            }
+        }];
+    });
 }
 
 ///是否是苹果审核员
