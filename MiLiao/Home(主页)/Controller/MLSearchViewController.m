@@ -329,11 +329,15 @@
     if (tableView.tag == likeTabTag) {
         
     } else {
-        _womanModel = [[WomanModel alloc]initWithDictionary:_searchArr[indexPath.row]];
-        VideoUserModel *videoUserModel = [_searchArr objectAtIndex:indexPath.row];
+//        _womanModel = [[WomanModel alloc]initWithDictionary:_searchArr[indexPath.row]];
+//        VideoUserModel *videoUserModel = [_searchArr objectAtIndex:indexPath.row];
+        
+        NSArray *searchArr = [VideoUserModel mj_objectArrayWithKeyValuesArray:_searchArr];
+        VideoUserModel *videoUserModel = [searchArr objectAtIndex:indexPath.row];
+        
         FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
         baseVC.videoUserModel = videoUserModel;
-        baseVC.user_id = _womanModel.user_id;
+        baseVC.user_id = videoUserModel.ID;
         
         [self.navigationController pushViewController:baseVC animated:YES];
         
